@@ -6,18 +6,16 @@ in Lua and runs inside the DMHub virtual tabletop.
 
 Crowdex is **layered on top of the Draw Steel Codex** -- the Lua mod that
 implements MCDM's Draw Steel system in DMHub. Crowdex reuses and overrides Draw
-Steel types and systems, so to run Crowdex you also need the Draw Steel Codex
-present.
+Steel types and systems, so to run Crowdex you need to own the [Draw Steel Codex](https://store.steampowered.com/app/2902740/Draw_Steel/).
 
-This repository is open to outside contributors. The guide below explains how to
-get set up to develop Crowdex using GitHub.
+This repository is open to outside contributors. The guide below explains how to get set up to develop Crowdex using GitHub.
 
 ---
 
 ## How DMHub development works (read this first)
 
 DMHub normally downloads a module's Lua files from the cloud. For development, it
-can instead load Lua files from a folder on your machine -- your **git folder**.
+can instead load Lua files from a folder on your machine, your **git folder**.
 
 > The Codex will always look to your git folder for Lua files, **always
 > preferring the git folder over the cloud**. It only fetches a file from the
@@ -166,14 +164,8 @@ git push
    ```
 
 Please keep all Crowdex-specific changes inside this repository. Do not modify
-the base Draw Steel Codex to make Crowdex work -- if you need a new hook in the
+the base Draw Steel Codex to make Crowdex work. If you need a new hook in the
 base codex, raise it as an issue first.
-
-### Lua style note
-
-DMHub's Lua runtime only handles **ASCII** characters in source files. Use plain
-ASCII in all `.lua` files -- no smart quotes, em dashes, or ellipses. Use `-`,
-`"`, and `...` instead.
 
 ---
 
@@ -201,5 +193,6 @@ git merge upstream/main
 
 ## Questions
 
+Join us on [the DMHub Discord](https://discord.gg/q7kg5AVSfj)
 Open an issue on <https://github.com/VerisimLLC/crowdex> if you get stuck or
 something here is out of date.
