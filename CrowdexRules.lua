@@ -199,3 +199,37 @@ audio.SoundEvent{
     sounds = {"abl/shapeshift/Abl_Shapeshift_Start_Crow_v1_01.wav","abl/shapeshift/Abl_Shapeshift_Start_Crow_v1_02.wav","abl/shapeshift/Abl_Shapeshift_Start_Crow_v1_03.wav"},
     volume = 1,
 }
+
+-- Crows-specific setting defaults. A setting is keyed by its id, so re-running
+-- setting{} with the same id replaces the prior registration (the engine keeps
+-- its original ordinal/position). This file loads after the engine core
+-- settings and the Draw Steel rules, so these win. We deep-copy the existing
+-- definition and only override the default, which preserves the editor, enum,
+-- storage, help, etc. of the original -- so this stays correct if those change.
+--
+-- Only the DEFAULT changes: games where a DM already set one of these keep
+-- their chosen value (all three are storage = "game"). The new default applies
+-- to fresh games / values that were never set.
+local function CrowdexSettingDefault(settingId, defaultValue)
+    local existing = Settings[settingId]
+    if existing == nil then
+        -- The source setting hasn't been registered yet; load order changed.
+        -- Fail loud rather than silently registering a bare setting.
+        dmhub.Debug(string.format("Crowdex: cannot override default for unknown setting '%s'", settingId))
+        return
+    end
+
+    local info = dmhub.DeepCopy(existing)
+    info.default = defaultValue
+    setting(info)
+end
+
+-- Lighting engine: Crows defaults to the "Old School" lighting model.
+CrowdexSettingDefault("lightingengine", "oldschool")
+
+-- Monster Name Generation: default to "None" (the enum value for None is the
+-- boolean false; see DMHub Game Rules/Monster.lua), so monsters spawn unnamed.
+CrowdexSettingDefault("assignmonstersnames", false)
+
+-- Players May Rename Monsters: on by default in Crows.
+CrowdexSettingDefault("players_rename_monsters", true)
