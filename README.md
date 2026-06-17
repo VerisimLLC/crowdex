@@ -78,14 +78,6 @@ gh repo fork VerisimLLC/crowdex --clone=false
 gh repo clone your-username/crowdex draw-steel-codex/Crowdex
 ```
 
-Then add the main repo as an `upstream` remote so you can pull in others'
-changes later:
-
-```
-cd draw-steel-codex/Crowdex
-git remote add upstream https://github.com/VerisimLLC/crowdex.git
-```
-
 Your layout now looks like:
 
 ```
@@ -98,20 +90,27 @@ draw-steel-codex/          <- your DMHub git folder (cloned in step 1)
     ...
 ```
 
-### 3. Point DMHub at your git folder
+### 3. Update your DMHub settings
 
+#### First, update DMHub/Codex to point at your newly created GitHub folder
 1. Open DMHub / the Codex.
-2. Go to the **code modding** section and press the **Dev Settings** button.
-3. Add a `gitfolder` key to the JSON document pointing at your Draw Steel Codex
-   folder. On Windows, escape each backslash as `\\`:
+2. On the Codex menu, select **Compendium**
+3. Under the **Modding** section, select **Code Mods**
+4. Select any mod, then in the right pane click the **Dev Settings** button
+5. Update the `gitfolder` value to point at your Draw Steel Codex folder. On
+   Windows, escape each backslash as `\\`:
 
    ```json
    "gitfolder": "C:\\dev\\draw-steel-codex"
    ```
 
-4. Save. The Codex will now load Lua from your git folder, preferring it over
+6. Save. The Codex will now load Lua from your git folder, preferring it over
    the cloud (so your Crowdex edits take effect), and falling back to the cloud
    for everything you do not have locally.
+
+#### Next, enable community content
+1. On the Codex menu, select **Settings**
+2. Under **General** enable **Allow Community Game Types**
 
 You are now set up. Edits you make to files under `Crowdex/` show up in the
 Codex.
