@@ -82,7 +82,7 @@ end
 
 local SPELLBOOK_CATEGORY = "b8e4d6a2-9f13-4c57-ae80-3d1f6b29c4e7"
 
-local function IsSpellbookItem(item)
+function IsSpellbookItem(item)
     if item == nil then return false end
     return item:try_get("crowsSpellbook", false) == true
         or item:try_get("equipmentCategory") == SPELLBOOK_CATEGORY
