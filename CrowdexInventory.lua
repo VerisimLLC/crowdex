@@ -2606,7 +2606,67 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
     local typePanel = panel:Get("equipmentTypePanel")
     local formColumn = (typePanel ~= nil and typePanel.parent ~= nil) and typePanel.parent or panel
 
-    formColumn:AddChild(gui.Panel{
+    -- Register the heading class on the root panel so it cascades to all children.
+    local existingStyles = panel.styles or {}
+    existingStyles[#existingStyles + 1] = {
+        classes = {"crowsEditorHeading"},
+        bold = true,
+        halign = "left",
+        tmargin = 12,
+        bmargin = 4,
+        fontSize = 18,
+        color = "#cccccc",
+        width = "100%",
+        height = "auto",
+    }
+    existingStyles[#existingStyles + 1] = {
+        classes = {"crowsFormHint"},
+        width = "auto",
+        height = "auto",
+        fontSize = 12,
+        italics = true,
+        color = "#888888",
+        valign = "center",
+        lmargin = 8,
+    }
+    panel.styles = existingStyles
+
+    local function GetSkillsByCategory(category)
+        local skillsTable = dmhub.GetTable(Skill.tableName) or {}
+        local opts = { { id = "", text = "(None)" } }
+        for _, sk in unhidden_pairs(skillsTable) do
+            if (sk.category or ""):lower() == category then
+                opts[#opts + 1] = { id = sk.name, text = sk.name }
+            end
+        end
+        table.sort(opts, function(a, b) return a.text < b.text end)
+        return opts
+    end
+
+    -- Remove any existing Crows fields panel from a previous hot-reload so
+    -- we don't duplicate the section.
+    local existing = formColumn:Get("crowsEditorFields")
+    if existing ~= nil then
+        existing:DestroySelf()
+    end
+
+    local hasUD = function()
+        return (tonumber(document:try_get("usageDice", 0)) or 0) > 0
+    end
+
+    local crowsFields = gui.Panel{
+        id = "crowsEditorFields",
+        width = "100%",
+        height = "auto",
+        flow = "vertical",
+    }
+
+    crowsFields:AddChild(gui.Label{
+        classes = {"crowsEditorHeading"},
+        text = "Inventory",
+    })
+
+    crowsFields:AddChild(gui.Panel{
         classes = {"formPanel"},
         halign = "left",
 
@@ -2627,18 +2687,12 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
             end,
         },
         gui.Label{
-            width = "auto",
-            height = "auto",
-            fontSize = 12,
-            italics = true,
-            color = "#888888",
-            valign = "center",
-            lmargin = 8,
+            classes = {"crowsFormHint"},
             text = "How many fit in one inventory slot (1 = does not stack).",
         },
     })
 
-    formColumn:AddChild(gui.Panel{
+    crowsFields:AddChild(gui.Panel{
         classes = {"formPanel"},
         halign = "left",
 
@@ -2660,18 +2714,172 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
             end,
         },
         gui.Label{
-            width = "auto",
-            height = "auto",
-            fontSize = 12,
-            italics = true,
-            color = "#888888",
-            valign = "center",
-            lmargin = 8,
+            classes = {"crowsFormHint"},
             text = "Adjacent inventory slots this item takes up.",
         },
     })
 
-    formColumn:AddChild(gui.Panel{
+    crowsFields:AddChild(gui.Label{
+        classes = {"crowsEditorHeading"},
+        text = "Usage Dice",
+    })
+
+    crowsFields:AddChild(gui.Panel{
+        classes = {"formPanel"},
+        halign = "left",
+
+        gui.Label{
+            classes = {"formLabel"},
+            text = "Usage Dice:",
+        },
+        gui.Input{
+            width = 60,
+            height = 24,
+            characterLimit = 2,
+            text = tostring(document:try_get("usageDice", 0)),
+            change = function(element)
+                local n = math.floor(tonumber(element.text) or 0)
+                if n < 0 then n = 0 end
+                if n > 0 then
+                    document.usageDice = n
+                else
+                    document.usageDice = nil
+                end
+                element.text = tostring(n)
+                crowsFields:FireEventTree("refresh")
+            end,
+        },
+        gui.Label{
+            classes = {"crowsFormHint"},
+            text = "Pool of d6s (0 = no usage dice).",
+        },
+    })
+
+    crowsFields:AddChild(gui.Panel{
+        classes = {"formPanel", cond(hasUD(), nil, "collapsed-anim")},
+        halign = "left",
+
+        refresh = function(element)
+            element:SetClass("collapsed-anim", not hasUD())
+        end,
+
+        gui.Label{
+            classes = {"formLabel"},
+            text = "UD Trigger:",
+        },
+        gui.Dropdown{
+            width = 140,
+            height = 24,
+            idChosen = document:try_get("usageDiceTrigger", "manual"),
+            options = {
+                { id = "manual",   text = "Manual" },
+                { id = "activate", text = "Activate" },
+                { id = "dt",       text = "Dungeon Turn" },
+            },
+            change = function(element)
+                if element.idChosen == "manual" then
+                    document.usageDiceTrigger = nil
+                else
+                    document.usageDiceTrigger = element.idChosen
+                end
+            end,
+        },
+        gui.Label{
+            classes = {"crowsFormHint"},
+            text = "When the pool is rolled.",
+        },
+    })
+
+    crowsFields:AddChild(gui.Panel{
+        classes = {"formPanel", cond(hasUD(), nil, "collapsed-anim")},
+        halign = "left",
+
+        refresh = function(element)
+            element:SetClass("collapsed-anim", not hasUD())
+        end,
+
+        gui.Label{
+            classes = {"formLabel"},
+            text = "UD Restore:",
+        },
+        gui.Dropdown{
+            width = 140,
+            height = 24,
+            idChosen = document:try_get("usageDiceRestore", "rest"),
+            options = {
+                { id = "rest",    text = "Rest" },
+                { id = "refuel",  text = "Refuel" },
+                { id = "useless", text = "Useless" },
+            },
+            change = function(element)
+                if element.idChosen == "rest" then
+                    document.usageDiceRestore = nil
+                else
+                    document.usageDiceRestore = element.idChosen
+                end
+                crowsFields:FireEventTree("refresh")
+            end,
+        },
+        gui.Label{
+            classes = {"crowsFormHint"},
+            text = "How the pool is refilled.",
+        },
+    })
+
+    crowsFields:AddChild(gui.Panel{
+        classes = {"formPanel", cond(hasUD() and document:try_get("usageDiceRestore") == "refuel", nil, "collapsed-anim")},
+        halign = "left",
+
+        refresh = function(element)
+            element:SetClass("collapsed-anim", not (hasUD() and document:try_get("usageDiceRestore") == "refuel"))
+        end,
+
+        gui.Label{
+            classes = {"formLabel"},
+            text = "Refuel Item:",
+        },
+        gui.Dropdown{
+            width = 200,
+            height = 24,
+            hasSearch = true,
+            idChosen = document:try_get("usageDiceRefuel", ""),
+            options = {},
+
+            create = function(element)
+                local gearTable = dmhub.GetTable("tbl_Gear") or {}
+                local opts = {
+                    { id = "", text = "(None)" },
+                }
+                for k, item in pairs(gearTable) do
+                    if not item:try_get("hidden", false) and k ~= document.id then
+                        opts[#opts + 1] = { id = k, text = item.name }
+                    end
+                end
+                table.sort(opts, function(a, b) return a.text < b.text end)
+                element.options = opts
+                element.idChosen = document:try_get("usageDiceRefuel", "")
+            end,
+
+            change = function(element)
+                if element.idChosen == "" then
+                    document.usageDiceRefuel = nil
+                else
+                    document.usageDiceRefuel = element.idChosen
+                end
+            end,
+        },
+        gui.Label{
+            classes = {"crowsFormHint"},
+            text = "Item consumed to refill the pool.",
+        },
+    })
+
+    crowsFields:AddChild(gui.Label{
+        classes = {"crowsEditorHeading"},
+        text = "Combat",
+    })
+
+    crowsFields:AddChild(gui.Panel{
         classes = {"formPanel"},
         halign = "left",
 
@@ -2709,13 +2917,7 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
             end,
         },
         gui.Label{
-            width = "auto",
-            height = "auto",
-            fontSize = 12,
-            italics = true,
-            color = "#888888",
-            valign = "center",
-            lmargin = 8,
+            classes = {"crowsFormHint"},
             text = "Armor Defense pool (0 = not armor). Shields absorb from a hand slot; suits must be worn. On a weapon this is its Parry X value.",
         },
     })
@@ -2748,13 +2950,7 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
                 end,
             },
             gui.Label{
-                width = "auto",
-                height = "auto",
-                fontSize = 12,
-                italics = true,
-                color = "#888888",
-                valign = "center",
-                lmargin = 8,
+                classes = {"crowsFormHint"},
                 text = hint,
             },
         }
@@ -2787,13 +2983,7 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
                 end,
             },
             gui.Label{
-                width = "auto",
-                height = "auto",
-                fontSize = 12,
-                italics = true,
-                color = "#888888",
-                valign = "center",
-                lmargin = 8,
+                classes = {"crowsFormHint"},
                 text = hint,
             },
         }
@@ -2831,17 +3021,19 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
                 end,
             },
             gui.Label{
-                width = "auto",
-                height = "auto",
-                fontSize = 12,
-                italics = true,
-                color = "#888888",
-                valign = "center",
-                lmargin = 8,
+                classes = {"crowsFormHint"},
                 text = hint,
             },
         }
     end
+
+    crowsFields:AddChild(gui.Label{
+        classes = {"crowsEditorHeading", cond(IsWeaponCategory(document:try_get("equipmentCategory")), nil, "collapsed-anim")},
+        text = "Weapon",
+        refresh = function(element)
+            element:SetClass("collapsed-anim", not IsWeaponCategory(document:try_get("equipmentCategory")))
+        end,
+    })
 
     local weaponSection = gui.Panel{
         width = "100%",
@@ -2853,8 +3045,36 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
             element:SetClass("collapsed-anim", not IsWeaponCategory(document:try_get("equipmentCategory")))
         end,
 
-        WeaponTextField("Weapon Type:", "crowsWeaponType", 100,
-            "Weapon skill: Bashing, Bow, Chopping, Slashing, Stabbing."),
+        gui.Panel{
+            classes = {"formPanel"},
+            halign = "left",
+
+            gui.Label{
+                classes = {"formLabel"},
+                text = "Weapon Type:",
+            },
+            gui.Dropdown{
+                width = 140,
+                height = 24,
+                idChosen = document:try_get("crowsWeaponType", ""),
+                options = {},
+                create = function(element)
+                    element.options = GetSkillsByCategory("weapon")
+                    element.idChosen = document:try_get("crowsWeaponType", "")
+                end,
+                change = function(element)
+                    if element.idChosen == "" then
+                        document.crowsWeaponType = nil
+                    else
+                        document.crowsWeaponType = element.idChosen
+                    end
+                end,
+            },
+            gui.Label{
+                classes = {"crowsFormHint"},
+                text = "Weapon skill for attack tests.",
+            },
+        },
         WeaponNumberField("Melee Range:", "crowsMeleeRange",
             "Reach in squares. Blank = no melee attack."),
         WeaponNumberField("Ranged Range:", "crowsRangedRange",
@@ -2870,10 +3090,200 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
         AmmoTypeField("Ammunition this weapon fires, e.g. \"Arrows\". Blank = needs no ammunition.",
             function() return IsRangedWeaponCategory(document:try_get("equipmentCategory")) end),
     }
-    formColumn:AddChild(weaponSection)
+    crowsFields:AddChild(weaponSection)
 
-    formColumn:AddChild(AmmoTypeField("Must match the Ammo Type of the weapons this ammunition fits, e.g. \"Arrows\".",
+    crowsFields:AddChild(AmmoTypeField("Must match the Ammo Type of the weapons this ammunition fits, e.g. \"Arrows\".",
         function() return IsAmmoCategory(document:try_get("equipmentCategory")) end))
+
+    crowsFields:AddChild(gui.Label{
+        classes = {"crowsEditorHeading", cond(IsSpellbookItem(document), nil, "collapsed-anim")},
+        text = "Spellbook",
+        refresh = function(element)
+            element:SetClass("collapsed-anim", not IsSpellbookItem(document))
+        end,
+    })
+
+    local spellbookSection = gui.Panel{
+        width = "100%",
+        height = "auto",
+        flow = "vertical",
+        classes = {cond(IsSpellbookItem(document), nil, "collapsed-anim")},
+
+        refresh = function(element)
+            element:SetClass("collapsed-anim", not IsSpellbookItem(document))
+        end,
+
+        gui.Panel{
+            classes = {"formPanel"},
+            halign = "left",
+
+            gui.Label{
+                classes = {"formLabel"},
+                text = "Discipline:",
+            },
+            gui.Dropdown{
+                width = 140,
+                height = 24,
+                idChosen = document:try_get("crowsSpellDiscipline", ""),
+                options = {},
+                create = function(element)
+                    element.options = GetSkillsByCategory("spellcasting")
+                    element.idChosen = document:try_get("crowsSpellDiscipline", "")
+                end,
+                change = function(element)
+                    if element.idChosen == "" then
+                        document.crowsSpellDiscipline = nil
+                    else
+                        document.crowsSpellDiscipline = element.idChosen
+                    end
+                end,
+            },
+            gui.Label{
+                classes = {"crowsFormHint"},
+                text = "Spellcasting skill used for the casting test.",
+            },
+        },
+
+        WeaponNumberField("Rank:", "crowsSpellRank",
+            "Spell rank (0-5). Higher = more powerful."),
+
+        gui.Panel{
+            classes = {"formPanel"},
+            halign = "left",
+
+            gui.Label{
+                classes = {"formLabel"},
+                text = "Casting Time:",
+            },
+            gui.Dropdown{
+                width = 140,
+                height = 24,
+                idChosen = document:try_get("crowsCastingTime", "Action"),
+                options = {
+                    { id = "None",          text = "None" },
+                    { id = "Action",        text = "Action" },
+                    { id = "Maneuver",      text = "Maneuver" },
+                    { id = "Reaction",      text = "Reaction" },
+                    { id = "Out of Combat", text = "Out of Combat" },
+                },
+                change = function(element)
+                    if element.idChosen == "None" then
+                        document.crowsCastingTime = nil
+                    else
+                        document.crowsCastingTime = element.idChosen
+                    end
+                end,
+            },
+            gui.Label{
+                classes = {"crowsFormHint"},
+                text = "Action economy cost to cast.",
+            },
+        },
+
+        WeaponNumberField("Range (sq):", "crowsSpellRange",
+            "Range in squares."),
+        WeaponTextField("Range Text:", "crowsSpellRangeText", 150,
+            "Narrative range, e.g. \"Self\", \"Melee 1\", \"Ranged 10\"."),
+        gui.Panel{
+            classes = {"formPanel"},
+            halign = "left",
+
+            gui.Label{
+                classes = {"formLabel"},
+                text = "Target Type:",
+            },
+            gui.Dropdown{
+                width = 140,
+                height = 24,
+                idChosen = document:try_get("crowsSpellTargetType", ""),
+                options = {
+                    { id = "",         text = "(None)" },
+                    { id = "target",   text = "Target" },
+                    { id = "self",     text = "Self" },
+                    { id = "allies",   text = "Allies" },
+                    { id = "enemy",    text = "Enemy" },
+                    { id = "creature", text = "Creature" },
+                    { id = "object",   text = "Object" },
+                    { id = "summoned", text = "Summoned" },
+                },
+                change = function(element)
+                    if element.idChosen == "" then
+                        document.crowsSpellTargetType = nil
+                    else
+                        document.crowsSpellTargetType = element.idChosen
+                    end
+                end,
+            },
+            gui.Label{
+                classes = {"crowsFormHint"},
+                text = "What kind of target the spell affects.",
+            },
+        },
+        WeaponNumberField("Num Targets:", "crowsSpellNumTargets",
+            "Number of targets (1 if blank)."),
+        WeaponTextField("Target Text:", "crowsSpellTargetText", 200,
+            "Narrative target description, e.g. \"1 creat.\", \"All creatures\"."),
+        WeaponTextField("Duration:", "crowsSpellDuration", 120,
+            "Instant, DT, or UD count (e.g. \"1 UD\")."),
+
+        WeaponTextField("Tier 1:", "crowsSpellTier1", 200,
+            "Outcome on 11 or lower."),
+        WeaponTextField("Tier 2:", "crowsSpellTier2", 200,
+            "Outcome on 12-16."),
+        WeaponTextField("Tier 3:", "crowsSpellTier3", 200,
+            "Outcome on 17+."),
+
+        gui.Panel{
+            classes = {"formPanel"},
+            halign = "left",
+
+            gui.Label{
+                classes = {"formLabel"},
+                text = "Keywords:",
+            },
+            gui.Check{
+                text = "Attack",
+                valign = "center",
+                value = document:try_get("crowsSpellAttack", false),
+                change = function(element)
+                    if element.value then
+                        document.crowsSpellAttack = true
+                    else
+                        document.crowsSpellAttack = nil
+                    end
+                end,
+            },
+            gui.Check{
+                text = "Melee",
+                valign = "center",
+                lmargin = 12,
+                value = document:try_get("crowsSpellMelee", false),
+                change = function(element)
+                    if element.value then
+                        document.crowsSpellMelee = true
+                    else
+                        document.crowsSpellMelee = nil
+                    end
+                end,
+            },
+            gui.Check{
+                text = "Ranged",
+                valign = "center",
+                lmargin = 12,
+                value = document:try_get("crowsSpellRanged", false),
+                change = function(element)
+                    if element.value then
+                        document.crowsSpellRanged = true
+                    else
+                        document.crowsSpellRanged = nil
+                    end
+                end,
+            },
+        },
+    }
+    crowsFields:AddChild(spellbookSection)
+
+    formColumn:AddChild(crowsFields)
 
     return panel
 end
