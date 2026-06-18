@@ -146,11 +146,39 @@ end
 -- character:IsDead() keys off stamina, which mis-flags living crows as down:
 -- the engine suppresses token status icons, applies death styling, and skips
 -- them for targeting. creature:IsDown() routes through IsDead(), so this
--- override covers both. Monsters keep the stamina-based rule; they have no
--- backpack and die at 0 Stamina as normal.
+-- override covers both.
+--
+-- Animals (Crows monsters that carry a crowsSlots property) follow the same
+-- wound model: damage past 0 Stamina becomes wounds against their slots, and
+-- they die only when their wounds fill every slot. An animal with crowsSlots
+-- == 0 has no room for any wound, so it dies the moment it reaches 0 Stamina
+-- (the normal monster rule). Other Crows monsters (Blood Creatures, the Ring
+-- Collector) have no crowsSlots and keep dying at 0 Stamina.
 local CROWS_BACKPACK_SLOTS = 10
 
-function character:IsDead()
+-- Wound-slot capacity for the Crows damage/death model. A crow PC uses its
+-- 10-slot backpack; an animal uses its crowsSlots property. Returns nil for
+-- any creature that does not participate in the wound model (e.g. ordinary
+-- Crows monsters with no crowsSlots), so callers can fall back to the base
+-- stamina-based death rule.
+function creature:CrowsSlotCapacity()
+    if self.typeName == "character" then
+        return CROWS_BACKPACK_SLOTS
+    end
+    local slots = self:try_get("crowsSlots")
+    if slots ~= nil then
+        return math.max(0, tonumber(slots) or 0)
+    end
+    return nil
+end
+
+-- Total wounds the creature is carrying. Both crow PCs and animals record
+-- wounds as filled backpack/wound slots (crowdex_woundSlots), so counting that
+-- per-slot map is the single source of truth and matches what the slot UI
+-- renders. The crowdex_unassignedWounds term is a legacy fallback: an earlier
+-- build queued animal wounds in that counter instead of the slot map, so an
+-- animal carried over mid-game still dies at the right point.
+function creature:CrowsTotalWounds()
     local wounds = 0
     local woundSlots = self:try_get("crowdex_woundSlots")
     if woundSlots ~= nil then
@@ -161,12 +189,30 @@ function character:IsDead()
         end
     end
 
-    -- Unassigned wounds (the queue the player hasn't placed into slots yet)
-    -- still count toward death: every wound must fill a slot, so once the
-    -- total reaches the backpack size there is nowhere left to put them.
     wounds = wounds + (tonumber(self:try_get("crowdex_unassignedWounds", 0)) or 0)
+    return wounds
+end
 
-    return wounds >= CROWS_BACKPACK_SLOTS
+function character:IsDead()
+    -- Every wound must fill a slot, so once the total reaches the backpack
+    -- size there is nowhere left to put them.
+    return self:CrowsTotalWounds() >= self:CrowsSlotCapacity()
+end
+
+-- Animals die by the wound model: only once they are at 0 Stamina AND their
+-- wounds fill every slot. The HP<=0 guard is essential -- a 0-slot animal
+-- (crowsSlots == 0) at full Stamina has 0 wounds >= 0 capacity, which without
+-- the guard would read as dead while alive. With the guard, a 0-slot animal
+-- simply dies the instant it hits 0 Stamina, matching the base rule. Monsters
+-- with no crowsSlots fall through to the base stamina-based death check.
+local g_baseMonsterIsDead = monster.IsDead
+function monster:IsDead()
+    local capacity = self:CrowsSlotCapacity()
+    if capacity == nil then
+        return g_baseMonsterIsDead(self)
+    end
+
+    return (self:CurrentHitpoints() or 0) <= 0 and self:CrowsTotalWounds() >= capacity
 end
 
 -- Crows action economy. The Draw Steel base grants string-keyed resources

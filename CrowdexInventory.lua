@@ -413,12 +413,32 @@ end
 -- to dodge the sparse-array compaction that bites numeric keys on a
 -- serialization round-trip (same reason inventory slots use SlotKey).
 --
+-- Animals (Crows monsters carrying a crowsSlots property) follow the same
+-- model, but their backpack holds crowsSlots slots rather than a crow's 10, so
+-- the wound functions below take a capacity that defaults to a crow's 10 and is
+-- overridden per-token via CrowsBackpackCapacity.
+--
 -- Speed: only a slot holding BOTH a wound and an item costs 1 speed. A wound
 -- on an empty slot is free. That is why wounds auto-assign to empty slots
 -- first (see AssignWound) -- it minimizes speed loss.
 -- ---------------------------------------------------------------------------
 
 local CROWS_BACKPACK_SLOTS = ROW_CAPACITY.backpack
+
+-- The number of backpack/wound slots a token has: a crow PC has the full
+-- 10-slot backpack; an animal has its crowsSlots count (0..10); any other
+-- creature has no backpack, so it falls back to the crow default for the rare
+-- caller that reaches here without one. CrowsSlotCapacity lives on creature
+-- (CrowdexRules.lua) and is resolved at call time, so load order is moot.
+local function CrowsBackpackCapacity(props)
+    if props ~= nil and props.CrowsSlotCapacity ~= nil then
+        local cap = props:CrowsSlotCapacity()
+        if cap ~= nil then
+            return cap
+        end
+    end
+    return CROWS_BACKPACK_SLOTS
+end
 
 local function GetWoundSlotMap(props)
     return props:try_get("crowdex_woundSlots", {}) or {}
@@ -445,7 +465,7 @@ end
 
 local function CountWoundedSlots(props)
     local n = 0
-    for i = 1, CROWS_BACKPACK_SLOTS do
+    for i = 1, CrowsBackpackCapacity(props) do
         if IsSlotWounded(props, i) then n = n + 1 end
     end
     return n
@@ -454,7 +474,7 @@ end
 -- Speed penalty: backpack slots that hold a wound AND an item.
 local function CountWoundedItemSlots(props)
     local n = 0
-    for i = 1, CROWS_BACKPACK_SLOTS do
+    for i = 1, CrowsBackpackCapacity(props) do
         if IsSlotWounded(props, i) and OccupantOf(props, "backpack", i) ~= nil then
             n = n + 1
         end
@@ -466,15 +486,18 @@ end
 -- BOTTOM of the backpack up. The lowest (highest-index) empty unwounded slot
 -- first (no speed cost), else the lowest unwounded slot that holds an item.
 -- Returns the slot index, or nil if every backpack slot is already wounded
--- (which means the crow is dead -- IsDead).
+-- (which means the creature is dead -- IsDead). The backpack size is the
+-- token's own capacity (CrowsBackpackCapacity): 10 for a crow, crowsSlots for
+-- an animal.
 local function AssignWound(props)
-    for i = CROWS_BACKPACK_SLOTS, 1, -1 do
+    local capacity = CrowsBackpackCapacity(props)
+    for i = capacity, 1, -1 do
         if not IsSlotWounded(props, i) and OccupantOf(props, "backpack", i) == nil then
             SetSlotWounded(props, i, true)
             return i
         end
     end
-    for i = CROWS_BACKPACK_SLOTS, 1, -1 do
+    for i = capacity, 1, -1 do
         if not IsSlotWounded(props, i) then
             SetSlotWounded(props, i, true)
             return i
@@ -1982,18 +2005,62 @@ local function SlotRow(kind, index, label, env)
     return row
 end
 
+-- A vertical column of slot rows under a heading. Hands and Belt are always
+-- their fixed size. The Backpack column is per-token: a crow PC shows all 10
+-- rows, but an animal shows only its crowsSlots rows (0..10). All 10 rows are
+-- built so the row objects stay stable across token changes (they receive the
+-- FireEventTree refresh); rows past the token's capacity -- and, at capacity 0,
+-- the whole column -- are collapsed out of layout. env.getToken supplies the
+-- token whose capacity drives this.
 local function SlotColumn(title, kind, labels, env)
-    local children = {
-        SectionHeading(title),
-    }
+    local rows = {}
+    local children = { SectionHeading(title) }
     for i = 1, ROW_CAPACITY[kind] do
-        children[#children + 1] = SlotRow(kind, i, labels and labels[i] or tostring(i), env)
+        local r = SlotRow(kind, i, labels and labels[i] or tostring(i), env)
+        rows[i] = r
+        children[#children + 1] = r
     end
+
+    -- The backpack is per-token: collapse rows beyond the token's capacity, and
+    -- collapse the whole column (heading included) when the token has no slots.
+    -- The raw CrowsSlotCapacity is 10 for a crow PC, crowsSlots for an animal,
+    -- and nil for any other creature (Blood Creatures, the Ring Collector) that
+    -- is not in the wound model -- those get no backpack column at all. Hands
+    -- and Belt are a crow's gear, so collapse those columns wholesale for any
+    -- non-character token (animals and other Crows monsters have only their
+    -- wound/item slots). props is the selected token's properties, or nil. The
+    -- character sheet is always a crow PC, so its refreshCharacterInfo path
+    -- leaves the columns at full size.
+    local function ApplyToken(element, props)
+        if kind == "backpack" then
+            local capacity = props ~= nil and props.CrowsSlotCapacity ~= nil
+                and props:CrowsSlotCapacity() or nil
+            capacity = capacity or 0
+            element:SetClass("collapsed", capacity <= 0)
+            for i = 1, ROW_CAPACITY.backpack do
+                rows[i]:SetClass("collapsed", i > capacity)
+            end
+        else
+            local isCharacter = props == nil or props.typeName == "character"
+            element:SetClass("collapsed", not isCharacter)
+        end
+    end
+
     return gui.Panel{
         width = SLOT_WIDTH,
         height = "auto",
         flow = "vertical",
         children = children,
+
+        -- Sheet context fires refreshCharacterInfo (props); panel context fires
+        -- refreshCharacter (the token). Both resolve to the displayed token's
+        -- properties so the column sizes itself for that token.
+        refreshCharacterInfo = function(element, props)
+            ApplyToken(element, props)
+        end,
+        refreshCharacter = function(element, token)
+            ApplyToken(element, token ~= nil and token.properties or nil)
+        end,
     }
 end
 
@@ -3305,12 +3372,64 @@ CharSheet.DeregisterTab("CrowsInventory")
 --   2. What remains goes to Stamina through the base TakeDamage, so all
 --      the usual machinery still fires: temporary stamina, losehitpoints /
 --      dealdamage triggers, stat history, floaties.
---   3. Damage beyond 0 Stamina becomes wounds, queued as unassigned for
---      the player to place into backpack slots.
--- Monsters and other creature types keep the standard behavior.
+--   3. Damage beyond 0 Stamina becomes wounds that auto-fill backpack slots
+--      (crowdex_woundSlots); the player can drag a wound to a different slot.
+-- Animals (Crows monsters carrying a crowsSlots property) follow the same
+-- wound model, but without armor: damage past 0 Stamina fills their wound
+-- slots (crowdex_woundSlots, the same per-slot map a crow uses, so the slot UI
+-- markers light up), and the animal dies once its wounds fill every slot (see
+-- monster:IsDead in CrowdexRules.lua). An animal with crowsSlots == 0 has no
+-- room for a wound, so AnimalTakeDamage routes all overflow back to the base
+-- path and it dies at 0 Stamina as before.
+--
+-- Other monsters and creature types keep the standard behavior.
 local g_baseTakeDamage = creature.TakeDamage
+
+-- Apply Crows wound overflow to an animal. Stamina (and temporary stamina,
+-- inside the base call) absorbs first; whatever is left becomes wounds. Each
+-- wound fills a backpack slot through the same AssignWound path a crow PC
+-- uses, so the slot UI's wound markers light up. AssignWound returns nil once
+-- every slot (CrowsBackpackCapacity) is wounded; wounds beyond that are dropped
+-- on the floor -- the animal is already dead at that point.
+local function AnimalTakeDamage(self, amount, note, info)
+    local buffer = math.max(0, self:CurrentHitpoints() or 0) + (self:TemporaryHitpoints() or 0)
+    local wounds = math.max(0, amount - buffer)
+    local staminaDamage = amount - wounds
+
+    if staminaDamage > 0 then
+        g_baseTakeDamage(self, staminaDamage, note, info)
+    end
+
+    if wounds <= 0 then
+        return
+    end
+
+    for _ = 1, wounds do
+        if AssignWound(self) == nil then
+            break
+        end
+    end
+
+    if self.FloatLabel ~= nil then
+        self:FloatLabel(string.format("%d wound%s", wounds, cond(wounds == 1, "", "s")), "#ff5050")
+    end
+end
+
 function creature.TakeDamage(self, amount, note, info)
     if self.typeName ~= "character" then
+        -- An animal (crowsSlots present and > 0) takes wounds like a crow.
+        -- A 0-slot animal has no wound capacity, so it falls through to the
+        -- base path and dies at 0 Stamina as normal.
+        local capacity = self.CrowsSlotCapacity ~= nil and self:CrowsSlotCapacity() or nil
+        if capacity ~= nil and capacity > 0 then
+            local woundAmount = amount
+            if type(woundAmount) == "string" then
+                woundAmount = dmhub.RollInstant(woundAmount)
+            end
+            if type(woundAmount) == "number" and woundAmount > 0 then
+                return AnimalTakeDamage(self, woundAmount, note, info or {})
+            end
+        end
         return g_baseTakeDamage(self, amount, note, info)
     end
 
