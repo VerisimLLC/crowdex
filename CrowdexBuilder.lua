@@ -10,15 +10,16 @@ local mod = dmhub.GetModLoading()
 -- background's features; equipment is listed on the background card.
 
 -- ---------------------------------------------------------------------------
--- The Backgrounds table (Characters Booklet, "Backgrounds Table"). First die
--- selects the row, second die selects the column. The booklet lists "Builder"
--- at 2-6 but contains no Builder entry; its stat block appears under Beggar
--- in the alphabetical listing, so Beggar takes that slot here.
+-- The Backgrounds table (Characters Book, "Backgrounds"). First die selects
+-- the row, second die selects the column. Playtest 1 listed a "Builder" entry
+-- at 2-6 that had no stat block, which forced Beggar into that slot; Playtest 2
+-- removed the phantom entry, so row 2 now runs Beggar / Blacksmith / Bodyguard
+-- in alphabetical order like every other row.
 -- ---------------------------------------------------------------------------
 
 local BACKGROUND_TABLE = {
     { "Acolyte of the Gardner", "Acolyte of the Healer", "Acolyte of the Smith", "Acolyte of the Three", "Acolyte of the Warrior", "Alchemist" },
-    { "Apprentice Mage", "Archer", "Assassin", "Blacksmith", "Bodyguard", "Beggar" },
+    { "Apprentice Mage", "Archer", "Assassin", "Beggar", "Blacksmith", "Bodyguard" },
     { "Cartographer", "Conjurer", "Cook", "Duelist", "Entertainer", "Executioner" },
     { "Farmer", "Gladiator", "Hunter", "Hydromancer", "Illusionist", "Keraunomancer" },
     { "Knight", "Merchant", "Miner", "Noble", "Pugilist", "Pyromancer" },

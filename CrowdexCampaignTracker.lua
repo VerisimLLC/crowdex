@@ -28,8 +28,18 @@ local mod = dmhub.GetModLoading()
 -- abilities can react.
 
 local DUNGEON_TURN_DOC = "crowdex_dungeon_turn"
-local DUNGEON_TURN_DURATION = 30 * 60   -- 30 minutes, in seconds.
+local DUNGEON_TURN_DURATION = 30 * 60   -- 30 minutes, in seconds: the default.
 local DUNGEON_TURN_TRIGGER = "Dungeon Turn"
+
+-- Dungeon turn length. 30 minutes is the rule; The Rules ("Adjusting DT Time")
+-- also sanctions 60 minutes for a more relaxed pace and 20 for a more intense
+-- one. The chosen length lives in the synced document's `duration` field, so
+-- every client agrees on it and the bar measures against the right total.
+local DUNGEON_TURN_LENGTH_OPTIONS = {
+    { id = "1200", text = "20 min (intense)" },
+    { id = "1800", text = "30 min (standard)" },
+    { id = "3600", text = "60 min (relaxed)" },
+}
 local DUNGEON_TURN_ACCENT = "#e8c264"   -- amber, matching the dramatic banner.
 
 mod:RegisterDocumentForCheckpointBackups(DUNGEON_TURN_DOC)
@@ -618,12 +628,32 @@ end
 
 local function ResetTimer()
     local doc = GetDoc()
+    -- Reset to the configured turn length, not the 30-minute default, so a
+    -- table running 20- or 60-minute turns does not silently snap back.
+    local duration = GetDuration(doc.data)
     doc:BeginChange()
-    doc.data.duration = DUNGEON_TURN_DURATION
-    doc.data.remaining = DUNGEON_TURN_DURATION
+    doc.data.duration = duration
+    doc.data.remaining = duration
     doc.data.running = false
     doc.data.endTime = nil
     doc:CompleteChange("Reset Dungeon Turn timer", {undoable = false})
+end
+
+-- Change how long a dungeon turn lasts. The remaining time is clamped to the
+-- new length rather than reset, so shortening the turn mid-countdown does not
+-- hand the party time back, and lengthening it does not extend the turn they
+-- are already in. A running timer keeps ticking against the clamped value.
+local function SetDuration(seconds)
+    local doc = GetDoc()
+    seconds = math.max(60, math.floor(seconds))
+    local remaining = math.min(ComputeRemaining(doc.data), seconds)
+    doc:BeginChange()
+    doc.data.duration = seconds
+    doc.data.remaining = remaining
+    if doc.data.running then
+        doc.data.endTime = dmhub.serverTime + remaining
+    end
+    doc:CompleteChange("Set Dungeon Turn length", {undoable = false})
 end
 
 -- The timer reached zero: stop it (held at 0:00 until the Director adjusts).
@@ -1397,6 +1427,7 @@ local function CreateDungeonTurnSection()
     local playButton
     local pauseButton
     local controlRow
+    local lengthDropdown
 
     -- Forward-declared so updateDisplay (defined below) can close over them
     -- before they are assigned further down.
@@ -1410,7 +1441,7 @@ local function CreateDungeonTurnSection()
         -- text while the Director has it focused (mid-edit).
         timeLabel = gui.Input{
             classes = {"timerInput"},
-            text = FormatTime(DUNGEON_TURN_DURATION),
+            text = FormatTime(ComputeRemaining(GetDoc().data)),
             width = 96,
             height = 30,
             fontSize = 22,
@@ -1458,10 +1489,30 @@ local function CreateDungeonTurnSection()
             valign = "center",
             hmargin = 8,
             hover = function(element)
-                gui.Tooltip("Reset to 30:00")(element)
+                gui.Tooltip(string.format("Reset to %s", FormatTime(GetDuration(GetDoc().data))))(element)
             end,
             press = function(element)
                 ResetTimer()
+            end,
+        }
+
+        -- Turn length. Reads the synced duration on every refresh so a change
+        -- made on another Director client shows up here too.
+        lengthDropdown = gui.Dropdown{
+            classes = {"sizeXs"},
+            options = DUNGEON_TURN_LENGTH_OPTIONS,
+            idChosen = tostring(math.floor(GetDuration(GetDoc().data))),
+            width = 140,
+            height = 24,
+            valign = "center",
+            hover = function(element)
+                gui.Tooltip("How long a dungeon turn lasts (The Rules, Adjusting DT Time)")(element)
+            end,
+            change = function(element)
+                local secs = tonumber(element.idChosen)
+                if secs ~= nil then
+                    SetDuration(secs)
+                end
             end,
         }
 
@@ -1477,6 +1528,7 @@ local function CreateDungeonTurnSection()
             pauseButton,
             timeLabel,
             resetButton,
+            lengthDropdown,
         }
     end
 
@@ -1514,6 +1566,15 @@ local function CreateDungeonTurnSection()
             playButton:SetClass("hidden", running)
             pauseButton:SetClass("hidden", not running)
             playButton:SetClass("disabled", remaining <= 0)
+
+            -- Reflect a length set on another Director client. Only write when
+            -- it actually differs, so we don't fight the dropdown mid-interaction.
+            if lengthDropdown ~= nil then
+                local durationId = tostring(math.floor(duration))
+                if lengthDropdown.idChosen ~= durationId then
+                    lengthDropdown.idChosen = durationId
+                end
+            end
         end
     end
 

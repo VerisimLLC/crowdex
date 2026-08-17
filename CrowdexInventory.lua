@@ -1,12 +1,12 @@
 local mod = dmhub.GetModLoading()
 
 -- The Crows inventory tab on the character sheet. Crows is a slot-based
--- inventory game: ten labeled backpack slots, two hand slots, and two belt
+-- inventory game: ten labeled backpack slots, two hand slots, and four belt
 -- slots (magic item slots come later). Unlike the Draw Steel inventory's
 -- icon grid, slots here are wide horizontal text rows with a small icon.
 --
 -- Data model: token.properties.crowdex_inventory = {
---   backpack = { [1..10] = slot }, hands = { [1..2] = slot }, belt = { [1..2] = slot }
+--   backpack = { [1..10] = slot }, hands = { [1..2] = slot }, belt = { [1..4] = slot }
 -- }
 -- where slot = { itemid, name, icon, category, quantity }. The name/icon/
 -- category fields are denormalized from tbl_Gear so the side character panel
@@ -17,10 +17,14 @@ local mod = dmhub.GetModLoading()
 -- item index section reads tbl_Gear and reuses the engine's create-item
 -- dialog (dmhud.createItemDialog) for authoring new items.
 
+-- Slot counts per section (The Rules, "Inventory Slots"). Playtest 2 raised the
+-- belt from 2 slots to 4. Slots are keyed slot1..slotN and GetSlot returns nil
+-- for an absent key, so widening the belt needs no data migration: an existing
+-- crow simply gains two empty rows and keeps whatever was in the first two.
 local ROW_CAPACITY = {
     backpack = 10,
     hands = 2,
-    belt = 2,
+    belt = 4,
 }
 
 local HAND_LABELS = { "L", "R" }
