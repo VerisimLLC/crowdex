@@ -790,11 +790,33 @@ local function ShowEncounterTableRoll(tableId, onResult)
     }
 end
 
+-- Every crow on the map, sorted by name.
+--
+-- Deliberately NOT dmhub.GetTokens{playerControlled = true}. A crow is a
+-- character-typed token; whether a player has been assigned to it is a
+-- different question, and a Director running a crow for an absent player -- or
+-- testing alone -- still expects the rest and travel controls to see it. The
+-- old wilderness panel used the playerControlled filter and silently listed
+-- nobody in exactly those cases.
+local function CrowTokens()
+    local result = {}
+    for _, tok in ipairs(dmhub.GetTokens({}) or {}) do
+        if tok ~= nil and tok.valid and tok.properties ~= nil
+                and tok.properties.typeName == "character" then
+            result[#result + 1] = tok
+        end
+    end
+    table.sort(result, function(a, b)
+        return tostring(a.name or "") < tostring(b.name or "")
+    end)
+    return result
+end
+
 -- Fire the Miasma Check custom trigger on every crow on the map. Each crow's
 -- imported "Miasma" global rule reacts and prompts that player's miasma test.
 -- Returns the number of crows prompted.
 local function FireMiasmaCheck()
-    local crows = dmhub.GetTokens({ playerControlled = true })
+    local crows = CrowTokens()
     for _, tok in ipairs(crows) do
         if tok ~= nil and tok.valid and tok.properties ~= nil then
             tok.properties:DispatchEvent("custom", { triggername = MIASMA_TRIGGER, triggervalue = 0 })
@@ -855,7 +877,7 @@ end
 --   { crows, wounds, dice, tended, miasma, expertises }.
 local function FinishRest()
     local inv = CrowdexInventoryUI
-    local crows = dmhub.GetTokens({ playerControlled = true })
+    local crows = CrowTokens()
 
     -- Who is being tended, and by whom. Tend Wounds targets a creature with at
     -- least 2 wounds who is not the tender, so a target only counts once even
@@ -1699,10 +1721,7 @@ local function CreateWildernessBlock()
             lostBanner:SetClass("collapsed", not lost)
             backOnTrackButton:SetClass("collapsed", not lost)
 
-            local crows = dmhub.GetTokens({ playerControlled = true })
-            table.sort(crows, function(a, b)
-                return (a.name or "") < (b.name or "")
-            end)
+            local crows = CrowTokens()
 
             local ids = {}
             for _, c in ipairs(crows) do ids[#ids + 1] = c.id end
@@ -1746,7 +1765,7 @@ local function CreateRestBlock()
     local function TendCandidates(selfId)
         local options = { { id = "none", text = "(pick target)" } }
         local inv = CrowdexInventoryUI
-        for _, tok in ipairs(dmhub.GetTokens({ playerControlled = true })) do
+        for _, tok in ipairs(CrowTokens()) do
             if tok ~= nil and tok.valid and tok.id ~= selfId and tok.properties ~= nil then
                 local wounds = 0
                 if inv ~= nil and inv.CountWoundedSlots ~= nil then
@@ -1920,10 +1939,7 @@ local function CreateRestBlock()
         resultLabel,
 
         refreshRest = function(element)
-            local crows = dmhub.GetTokens({ playerControlled = true })
-            table.sort(crows, function(a, b)
-                return (a.name or "") < (b.name or "")
-            end)
+            local crows = CrowTokens()
 
             local ids = {}
             for _, c in ipairs(crows) do ids[#ids + 1] = c.id end
