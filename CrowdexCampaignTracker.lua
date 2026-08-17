@@ -76,96 +76,165 @@ mod:RegisterDocumentForCheckpointBackups(CAMPAIGN_MODE_DOC)
 --                  for a tier 1 / 2 / 3 result. The displayed EN is enBase+enScout.
 --   roles       -- map of token id -> role id for the crows on the map.
 local WILDERNESS_DOC = "crowdex_wilderness"
-local ROUTE_KNOWN = "known"
-local ROUTE_UNKNOWN = "unknown"
-local ROUTE_DEFAULT = ROUTE_KNOWN
-local ROUTE_OPTIONS = {
-    { id = ROUTE_KNOWN, text = "Known Route" },
-    { id = ROUTE_UNKNOWN, text = "Unknown Route" },
+
+-- Travel pace (The Rules, Travel Pace). Pace sets BOTH the distance covered and
+-- the day's encounter number, and colours every role test.
+local PACE_SLOW, PACE_NORMAL, PACE_FAST = "slow", "normal", "fast"
+local PACE_DEFAULT = PACE_NORMAL
+local PACE_OPTIONS = {
+    { id = PACE_SLOW,   text = "Slow -- 1 hex, EN 8" },
+    { id = PACE_NORMAL, text = "Normal -- 2 hexes, EN 7" },
+    { id = PACE_FAST,   text = "Fast -- 3 hexes, EN 6" },
+}
+local PACE_INFO = {
+    [PACE_SLOW]   = { hexes = 1, en = 8, note = "Role tests gain an edge." },
+    [PACE_NORMAL] = { hexes = 2, en = 7, note = "" },
+    [PACE_FAST]   = { hexes = 3, en = 6, note = "Role tests take a bane." },
 }
 
-local EN_DEFAULT = 6
-local EN_MIN = 1
-local EN_MAX = 6
+-- A hex is 5 miles across. Distance is counted in hexes now, not miles.
+local HEX_MILES = 5
 
--- Base overland pace (Rules Booklet: 12 miles a day). A Guide tier-3 result lets
--- the group travel up to 50% further; a tier-1 on an unknown route gets them lost.
-local BASE_PACE_MILES = 12
+-- Encounter checks are d10. An encounter happens when the roll is EQUAL TO OR
+-- HIGHER THAN the EN, so a HIGHER EN means FEWER encounters -- which is why a
+-- slow, careful pace carries the highest number, and why role results that help
+-- the party RAISE it. Playtest 1 was d6 with the opposite intuition baked in.
+-- The book caps it: "The EN can never be more than 10."
+local EN_MIN, EN_MAX = 1, 10
 
--- Custom creature trigger fired on each crow by the Miasma Check button. The
--- imported "Miasma" global rule (compendium/import/crows-rule-miasma-check.yaml)
--- reacts to it and prompts that crow's miasma test.
+-- Distance modifiers (The Rules, Rivers and Roads; Changing Pace). Director
+-- toggles, since only the table knows the day's terrain.
+local SPEED_BAND_OPTIONS = {
+    { id = "slow",   text = "Slowest speed 3 or lower (-1 hex)" },
+    { id = "normal", text = "Slowest speed 4-6" },
+    { id = "fast",   text = "Slowest speed 7-9 (+1 hex)" },
+    { id = "vfast",  text = "Slowest speed 10+ (+2 hexes)" },
+}
+local SPEED_BAND_HEXES = { slow = -1, normal = 0, fast = 1, vfast = 2 }
+
+-- Custom creature trigger fired on each crow by the Miasma check. The imported
+-- "Miasma" global rule reacts to it and prompts that crow's test.
 local MIASMA_TRIGGER = "Miasma Check"
 
--- Weather. At the start of each travel day the Ref rolls 1d6 on the table for
--- the current climate/season (Rules Booklet, "Weather"). The season is a Ref
--- setting (the climate the group is traveling in); the weather is re-rolled each
--- day. SEASON_WEATHER maps a 1d6 result to the weather for each season.
-local SEASON_DEFAULT = "spring"
-local SEASON_OPTIONS = {
-    { id = "winter", text = "Cold of Winter" },
-    { id = "desert", text = "Desert" },
-    { id = "fall", text = "Fall" },
-    { id = "spring", text = "Spring" },
-    { id = "summer", text = "Summer / Tropical" },
-}
-local SEASON_WEATHER = {
-    winter = function(d) if d == 1 then return "Blizzard" elseif d == 6 then return "Snow" else return "Cold" end end,
-    desert = function(d) if d <= 4 then return "Heat Wave (day) and Cold (night)" elseif d == 5 then return "Sandstorm" else return "Thunderstorm" end end,
-    fall = function(d) if d == 1 then return "Fog" elseif d == 6 then return "Rain" else return "Pleasant" end end,
-    spring = function(d) if d <= 4 then return "Pleasant" elseif d == 5 then return "Rain" else return "Thunderstorm" end end,
-    summer = function(d) if d == 1 then return "Heat Wave" elseif d <= 4 then return "Pleasant" elseif d == 5 then return "Rain" else return "Thunderstorm" end end,
-}
-
--- Travel roles. "guide" and "scout" are the required roles (red warning when
--- unassigned); any number of crows can be foragers or leaders.
-local ROLE_NONE = "none"
-local ROLE_GUIDE = "guide"
-local ROLE_SCOUT = "scout"
-local ROLE_FORAGER = "forager"
-local ROLE_LEADER = "leader"
+-- Travel roles (The Rules, Travel Roles). Playtest 2 renamed and re-scoped
+-- them: Leader became Supporter, Forager became Tracker, and each role now
+-- offers a choice of tasks rather than one fixed test. Only one creature can be
+-- the Guide; the other roles take up to three each.
+local ROLE_NONE      = "none"
+local ROLE_SUPPORTER = "supporter"
+local ROLE_GUIDE     = "guide"
+local ROLE_SCOUT     = "scout"
+local ROLE_TRACKER   = "tracker"
 local ROLE_OPTIONS = {
-    { id = ROLE_NONE, text = "--" },
-    { id = ROLE_GUIDE, text = "Guide" },
-    { id = ROLE_SCOUT, text = "Scout" },
-    { id = ROLE_FORAGER, text = "Forager" },
-    { id = ROLE_LEADER, text = "Leader" },
+    { id = ROLE_NONE,      text = "--" },
+    { id = ROLE_SUPPORTER, text = "Supporter" },
+    { id = ROLE_GUIDE,     text = "Guide" },
+    { id = ROLE_SCOUT,     text = "Scout" },
+    { id = ROLE_TRACKER,   text = "Tracker" },
+}
+local ROLE_NAMES = {
+    [ROLE_SUPPORTER] = "Supporter",
+    [ROLE_GUIDE]     = "Guide",
+    [ROLE_SCOUT]     = "Scout",
+    [ROLE_TRACKER]   = "Tracker",
 }
 
--- Crows skill ids used by the role tests, resolved by name at runtime (with the
--- imported GUID as a fallback) so a game with a re-imported skill table still
--- works. Only the Guide test adds a skill (Navigate).
-local NAVIGATE_SKILL_NAME = "Navigate"
-local NAVIGATE_SKILL_GUID = "afe54dc8-11a0-4535-9fb1-9757abc94b4e"
+-- The eleven tasks, with the characteristic(s) the test may use and its tier
+-- results as printed. `en`, `hexes` and `lost` record the automatic effect of a
+-- tier where the book states one outright. A tier that offers the party a
+-- choice ("Choose one: ...") deliberately records nothing and is left to the
+-- Director, because the module cannot know which half they took.
+local TASK_NONE = "none"
+local TASKS = {
+    [ROLE_SUPPORTER] = {
+        { id = "miasma", text = "Fight the Miasma", attrs = {"mind"}, tiers = {
+            "No effect.",
+            "Up to four creatures traveling with you, including you, gain an edge on the RR against the Miasma today.",
+            "As tier 2, but the benefit is a double edge." } },
+        { id = "camp", text = "Make Camp", attrs = {"strength"}, tiers = {
+            "No effect.",
+            "Choose one: raise the EN during today's rest by 1, or each creature making a crafting roll at camp today gains a +2 bonus.",
+            "As tier 2, but the EN is raised by 2 or the crafting bonus is +4." } },
+        { id = "support", text = "Support Everyone", attrs = {"mind", "strength"}, tiers = {
+            "Up to four chosen allies take a -1 penalty to tests related to their travel roles today.",
+            "Those allies gain a +1 bonus on tests related to their travel roles today.",
+            "As tier 2, but the bonus is +2." } },
+    },
+    [ROLE_GUIDE] = {
+        { id = "normal", text = "Follow Normal Route", attrs = {"mind"}, tiers = {
+            "Choose one: the group moves 1 fewer hex than the pace set, or the EN for travel encounters today is reduced by 1.",
+            "No effect.",
+            "Choose one: the group moves 1 more hex than the pace set, or the EN for travel encounters today is increased by 1." } },
+        { id = "safe", text = "Follow Safe Route", attrs = {"mind"},
+            en = { nil, 1, 2 }, hexes = { nil, -1, 0 }, lost = { true, false, false }, tiers = {
+            "The group gets lost.",
+            "The EN for travel encounters today is raised by 1, but the group moves 1 hex slower than the pace set.",
+            "The EN for travel encounters today is increased by 2." } },
+        { id = "shortcut", text = "Follow Shortcut", attrs = {"mind"},
+            en = { nil, -1, 0 }, hexes = { nil, 1, 2 }, lost = { true, false, false }, tiers = {
+            "The group gets lost.",
+            "The group moves 1 hex faster than the pace set, but the EN for travel encounters is reduced by 1 today.",
+            "The group moves 2 hexes faster." } },
+    },
+    [ROLE_SCOUT] = {
+        { id = "danger", text = "Scout for Danger", attrs = {"agility", "mind"},
+            en = { 0, 1, 2 }, tiers = {
+            "No effect.",
+            "The EN for travel encounters today increases by 1.",
+            "As tier 2, but the EN increases by 2." } },
+        { id = "shelter", text = "Scout for Shelter", attrs = {"mind"},
+            restEn = { 0, 1, 2 }, tiers = {
+            "No effect.",
+            "The EN for rest encounters today increases by 1.",
+            "As tier 2, but the EN increases by 2." } },
+        { id = "treasure", text = "Treasure Hunt", attrs = {"strength"}, tiers = {
+            "No effect.",
+            "The Ref rolls on the Minor Things table.",
+            "The Ref rolls on the Major Things table." } },
+    },
+    [ROLE_TRACKER] = {
+        { id = "forage", text = "Forage", attrs = {"mind"}, tiers = {
+            "No effect.",
+            "You procure 1 ration.",
+            "You procure 1d6 + 1 rations." } },
+        { id = "hunt", text = "Hunt", attrs = {"agility"},
+            en = { -1, 0, 0 }, tiers = {
+            "The EN for travel encounters today decreases by 1.",
+            "No effect.",
+            "You procure 3d6 rations and a Large animal hide." } },
+        { id = "track", text = "Track Specific Creature", attrs = {"mind"},
+            en = { -1, 0, 0 }, tiers = {
+            "The EN for travel encounters today decreases by 1.",
+            "No effect.",
+            "You encounter the creature you sought; the Ref decides when and where." } },
+    },
+}
 
--- Per-role power-roll tier text (tier 1 / 2 / 3), surfaced on the prompted roll
--- so the player and Director see the role's outcomes. The Guide has two tables
--- depending on whether the route is known.
-local GUIDE_TIERS_KNOWN = {
-    "The group moves at their normal pace toward the destination.",
-    "Normal pace, and the route gives the scout and any foragers a +2 bonus on their role tests today.",
-    "As tier 2, and the group can travel up to 50% further during the initial travel without a test to push.",
+-- While lost, the Guide makes this test instead of a route task.
+local BACK_ON_TRACK = {
+    id = "backontrack", text = "Back on Track", attrs = {"mind"},
+    lost = { true, false, false }, tiers = {
+        "The group remains lost.",
+        "You realize where the group is. You are no longer lost and move toward your destination at the pace set.",
+        "As tier 2, and choose one: the group moves 1 more hex than the pace set, or the EN today is increased by 1." },
 }
-local GUIDE_TIERS_UNKNOWN = {
-    "The group gets lost.",
-    "The group moves at their normal pace toward the destination.",
-    "Normal pace, and the route gives the scout and any foragers a +2 bonus on their role tests today.",
-}
-local SCOUT_TIERS = {
-    "The day's EN decreases by 2.",
-    "The day's EN decreases by 1.",
-    "The day's EN remains the same.",
-}
-local FORAGER_TIERS = {
-    "The forager finds no food.",
-    "The forager procures 1 ration.",
-    "The forager procures 3 rations.",
-}
-local LEADER_TIERS = {
-    "The leader provides no bonus to their allies.",
-    "The leader's allies gain a +1 bonus to tests made to resist the Miasma.",
-    "As tier 2, except the bonus is +2.",
-}
+
+-- Look up a task record by role + task id.
+local function TaskInfo(roleId, taskId)
+    for _, t in ipairs(TASKS[roleId] or {}) do
+        if t.id == taskId then return t end
+    end
+    return nil
+end
+
+-- {id, text} options for a role's task picker, with a leading placeholder.
+local function TaskOptions(roleId)
+    local out = { { id = TASK_NONE, text = "(pick task)" } }
+    for _, t in ipairs(TASKS[roleId] or {}) do
+        out[#out + 1] = { id = t.id, text = t.text }
+    end
+    return out
+end
 
 mod:RegisterDocumentForCheckpointBackups(WILDERNESS_DOC)
 
@@ -246,37 +315,101 @@ local function GetWildernessDoc()
     return mod:GetDocumentSnapshot(WILDERNESS_DOC)
 end
 
-local function GetRoute()
-    local route = GetWildernessDoc().data.route
-    if route == ROUTE_KNOWN or route == ROUTE_UNKNOWN then
-        return route
-    end
-    return ROUTE_DEFAULT
+----------------------------------------------------------------------
+-- Pace and distance.
+----------------------------------------------------------------------
+
+local function GetPace()
+    local pace = GetWildernessDoc().data.pace
+    if PACE_INFO[pace] ~= nil then return pace end
+    return PACE_DEFAULT
 end
 
-local function SetRoute(route)
+local function SetPace(pace)
+    if PACE_INFO[pace] == nil then return end
     local doc = GetWildernessDoc()
     doc:BeginChange()
-    doc.data.route = route
-    doc:CompleteChange("Set travel route", {undoable = false})
+    doc.data.pace = pace
+    doc:CompleteChange("Set travel pace", {undoable = false})
 end
 
+local function GetSpeedBand()
+    local band = GetWildernessDoc().data.speedBand
+    if SPEED_BAND_HEXES[band] ~= nil then return band end
+    return "normal"
+end
+
+local function SetSpeedBand(band)
+    if SPEED_BAND_HEXES[band] == nil then return end
+    local doc = GetWildernessDoc()
+    doc:BeginChange()
+    doc.data.speedBand = band
+    doc:CompleteChange("Set group speed band", {undoable = false})
+end
+
+-- Terrain toggles: following a road all day, and moving up or down a waterway.
+local function GetTerrain(key)
+    local t = GetWildernessDoc().data.terrain
+    if type(t) ~= "table" then return false end
+    return t[key] == true
+end
+
+local function SetTerrain(key, value)
+    local doc = GetWildernessDoc()
+    doc:BeginChange()
+    if type(doc.data.terrain) ~= "table" then doc.data.terrain = {} end
+    doc.data.terrain[key] = value and true or nil
+    doc:CompleteChange("Set travel terrain", {undoable = false})
+end
+
+-- Hex adjustment banked from role results (a Guide shortcut, say). Kept apart
+-- from the terrain and speed modifiers so ending the day clears only this.
+local function GetHexAdjust()
+    local n = GetWildernessDoc().data.hexAdjust
+    if type(n) ~= "number" then return 0 end
+    return math.floor(n)
+end
+
+local function AddHexAdjust(delta)
+    local doc = GetWildernessDoc()
+    doc:BeginChange()
+    doc.data.hexAdjust = GetHexAdjust() + math.floor(delta)
+    doc:CompleteChange("Adjust travel distance", {undoable = false})
+end
+
+-- Hexes covered today: the pace, plus the group-speed band, plus road and
+-- waterway modifiers, plus anything role results banked. Never below zero --
+-- a badly modified day means no progress, not backwards progress.
+local function GetHexesToday()
+    local hexes = PACE_INFO[GetPace()].hexes
+    hexes = hexes + (SPEED_BAND_HEXES[GetSpeedBand()] or 0)
+    if GetTerrain("road") then hexes = hexes + 1 end
+    if GetTerrain("downstream") then hexes = hexes + 1 end
+    if GetTerrain("upstream") then hexes = hexes - 1 end
+    hexes = hexes + GetHexAdjust()
+    return math.max(0, hexes)
+end
+
+local function GetTravelDistanceText()
+    if GetLost ~= nil and GetLost() then
+        -- A lost group still covers ground, they just do not choose where.
+        return string.format("%d hexes (~%d miles) -- LOST, direction unknown",
+            GetHexesToday(), GetHexesToday() * HEX_MILES)
+    end
+    return string.format("%d hexes (~%d miles)", GetHexesToday(), GetHexesToday() * HEX_MILES)
+end
+
+----------------------------------------------------------------------
+-- Encounter number.
+----------------------------------------------------------------------
+
+-- The day's base EN comes from the pace. The Ref can still nudge it, and role
+-- results bank their own adjustment; both are kept separately so ending the
+-- day clears the role effects without losing a deliberate Ref ruling.
 local function GetEnBase()
     local n = GetWildernessDoc().data.enBase
-    if type(n) ~= "number" then return EN_DEFAULT end
+    if type(n) ~= "number" then return PACE_INFO[GetPace()].en end
     return math.max(EN_MIN, math.min(EN_MAX, math.floor(n)))
-end
-
--- Scout adjustment, clamped to the [-2, 0] range the Scout test can produce.
-local function GetEnScout()
-    local n = GetWildernessDoc().data.enScout
-    if type(n) ~= "number" then return 0 end
-    return math.max(-2, math.min(0, math.floor(n)))
-end
-
--- The day's EN as displayed: base plus the Scout adjustment, clamped.
-local function GetEffectiveEn()
-    return math.max(EN_MIN, math.min(EN_MAX, GetEnBase() + GetEnScout()))
 end
 
 local function SetEnBase(n)
@@ -286,12 +419,61 @@ local function SetEnBase(n)
     doc:CompleteChange("Set encounter number", {undoable = false})
 end
 
-local function SetEnScout(adjust)
+-- Role adjustment. Unlike Playtest 1 this is symmetric: Scout for Danger and
+-- the Guide's safe route RAISE it (fewer encounters), Hunt and Track lower it.
+local function GetEnRoles()
+    local n = GetWildernessDoc().data.enRoles
+    if type(n) ~= "number" then return 0 end
+    return math.floor(n)
+end
+
+local function AddEnRoles(delta)
     local doc = GetWildernessDoc()
     doc:BeginChange()
-    doc.data.enScout = math.max(-2, math.min(0, math.floor(adjust)))
-    doc:CompleteChange("Scout adjusted encounter number", {undoable = false})
+    doc.data.enRoles = GetEnRoles() + math.floor(delta)
+    doc:CompleteChange("Role result adjusted encounter number", {undoable = false})
 end
+
+local function GetEffectiveEn()
+    return math.max(EN_MIN, math.min(EN_MAX, GetEnBase() + GetEnRoles()))
+end
+
+-- Rest encounters carry their own number (Scout for Shelter, Seclude Camp).
+local function GetRestEn()
+    local n = GetWildernessDoc().data.restEn
+    if type(n) ~= "number" then return PACE_INFO[GetPace()].en end
+    return math.max(EN_MIN, math.min(EN_MAX, math.floor(n)))
+end
+
+local function AddRestEn(delta)
+    local doc = GetWildernessDoc()
+    doc:BeginChange()
+    doc.data.restEn = math.max(EN_MIN, math.min(EN_MAX, GetRestEn() + math.floor(delta)))
+    doc:CompleteChange("Adjusted rest encounter number", {undoable = false})
+end
+
+----------------------------------------------------------------------
+-- Lost.
+----------------------------------------------------------------------
+
+-- While lost the group does not know where it is. The book has the Ref roll a
+-- secret d6 per hex left and count clockwise from the northernmost neighbour;
+-- that stays on the Ref's paper, because this document syncs to every client
+-- and a "secret" in it would not be secret. All the module tracks is the flag.
+function GetLost()
+    return GetWildernessDoc().data.lost == true
+end
+
+local function SetLost(value)
+    local doc = GetWildernessDoc()
+    doc:BeginChange()
+    doc.data.lost = value and true or nil
+    doc:CompleteChange(value and "The group is lost" or "Back on track", {undoable = false})
+end
+
+----------------------------------------------------------------------
+-- Roles and tasks.
+----------------------------------------------------------------------
 
 local function GetRole(tokenid)
     local roles = GetWildernessDoc().data.roles
@@ -302,15 +484,43 @@ end
 local function SetRole(tokenid, roleId)
     local doc = GetWildernessDoc()
     doc:BeginChange()
-    if type(doc.data.roles) ~= "table" then
-        doc.data.roles = {}
-    end
+    if type(doc.data.roles) ~= "table" then doc.data.roles = {} end
     if roleId == ROLE_NONE then
         doc.data.roles[tokenid] = nil
     else
         doc.data.roles[tokenid] = roleId
     end
+    -- Changing role invalidates the task, which belonged to the old one.
+    if type(doc.data.tasks) == "table" then doc.data.tasks[tokenid] = nil end
     doc:CompleteChange("Assign travel role", {undoable = false})
+end
+
+local function GetTask(tokenid)
+    local tasks = GetWildernessDoc().data.tasks
+    if type(tasks) ~= "table" then return TASK_NONE end
+    return tasks[tokenid] or TASK_NONE
+end
+
+local function SetTask(tokenid, taskId)
+    local doc = GetWildernessDoc()
+    doc:BeginChange()
+    if type(doc.data.tasks) ~= "table" then doc.data.tasks = {} end
+    if taskId == TASK_NONE then
+        doc.data.tasks[tokenid] = nil
+    else
+        doc.data.tasks[tokenid] = taskId
+    end
+    doc:CompleteChange("Assign travel task", {undoable = false})
+end
+
+-- Only one creature can be the Guide (The Rules, Travel Roles).
+local function GuideTokenId()
+    local roles = GetWildernessDoc().data.roles
+    if type(roles) ~= "table" then return nil end
+    for tokenid, roleId in pairs(roles) do
+        if roleId == ROLE_GUIDE then return tokenid end
+    end
+    return nil
 end
 
 -- The encounter table (a RollTable id in the "encounterTables" table) chosen for
@@ -387,31 +597,10 @@ local function SetEncounterTableId(id)
     doc:CompleteChange("Set encounter table", {undoable = false})
 end
 
--- Climate/season the group is traveling in (drives the weather table).
-local function GetSeason()
-    local s = GetWildernessDoc().data.season
-    if SEASON_WEATHER[s] ~= nil then return s end
-    return SEASON_DEFAULT
-end
-
-local function SetSeason(season)
-    local doc = GetWildernessDoc()
-    doc:BeginChange()
-    doc.data.season = season
-    doc:CompleteChange("Set season", {undoable = false})
-end
-
--- The day's rolled weather (a display string), or "" before it is rolled.
-local function GetWeather()
-    return GetWildernessDoc().data.weather or ""
-end
-
-local function SetWeather(weather)
-    local doc = GetWildernessDoc()
-    doc:BeginChange()
-    doc.data.weather = weather or ""
-    doc:CompleteChange("Set weather", {undoable = false})
-end
+-- Weather is no longer a separate daily roll. Playtest 2 folded it into the
+-- travel encounter table as a "Bad Weather" result (21-25 on the d100), whose
+-- climate row the Ref reads off The Ref Book. The season dropdown and the 1d6
+-- weather roll that stood here are gone with it.
 
 local function GetDay()
     local n = GetWildernessDoc().data.day
@@ -419,49 +608,25 @@ local function GetDay()
     return math.floor(n)
 end
 
--- The Guide's most recent roll tier for the day (1/2/3), or nil if not yet
--- rolled. Drives the travel-distance display.
-local function GetGuideTier()
-    local n = GetWildernessDoc().data.guideTier
-    if n == 1 or n == 2 or n == 3 then return n end
-    return nil
-end
-
-local function SetGuideTier(tier)
-    local doc = GetWildernessDoc()
-    doc:BeginChange()
-    doc.data.guideTier = tier
-    doc:CompleteChange("Guide roll set travel pace", {undoable = false})
-end
-
--- Advance to the next travel day: bump the counter and clear the per-day roll
--- outcomes (Scout EN adjustment, Guide pace, and the day's weather) so they are
--- re-rolled. Season and role assignments persist as sensible defaults.
+-- Advance to the next travel day: bump the counter and clear everything the
+-- day's rolls banked -- the role EN and hex adjustments, and the rest EN. Pace,
+-- speed band, terrain, role assignments and the lost flag persist, because none
+-- of those reset overnight: a lost group wakes up still lost.
 local function AdvanceDay()
     local doc = GetWildernessDoc()
     doc:BeginChange()
     doc.data.day = GetDay() + 1
-    doc.data.enScout = 0
-    doc.data.guideTier = nil
-    doc.data.weather = ""
+    doc.data.enRoles = 0
+    doc.data.enBase = nil
+    doc.data.restEn = nil
+    doc.data.hexAdjust = 0
+    doc.data.tasks = {}
     doc:CompleteChange("End of day", {undoable = false})
 end
 
 ----------------------------------------------------------------------
 -- Role roll prompts.
 ----------------------------------------------------------------------
-
--- Resolve the Navigate skill id from the Skills table by name, falling back to
--- the imported GUID if a name match isn't found.
-local function ResolveNavigateSkillId()
-    local skills = dmhub.GetTable(Skill.tableName) or {}
-    for id, skill in pairs(skills) do
-        if skill ~= nil and skill.name == NAVIGATE_SKILL_NAME then
-            return id
-        end
-    end
-    return NAVIGATE_SKILL_GUID
-end
 
 -- Map a power-roll total to its Crows tier: 11 or lower = 1, 12-16 = 2, 17+ = 3.
 local function TierFromResult(total)
@@ -475,57 +640,87 @@ end
 -- characteristic ("A or M", "A or S") return one check per option so the
 -- prompted player can pick; the Guide adds the Navigate skill and uses the
 -- known/unknown tier table per the current route.
-local function BuildRoleChecks(roleId, route)
-    if roleId == ROLE_GUIDE then
-        local tiers = cond(route == ROUTE_UNKNOWN, GUIDE_TIERS_UNKNOWN, GUIDE_TIERS_KNOWN)
-        return {
-            RollCheck.new{
-                type = "test_power_roll",
-                id = "mind",
-                text = "Mind",
-                options = { skills = { ResolveNavigateSkillId() }, tiers = tiers },
-            },
-        }
-    elseif roleId == ROLE_SCOUT then
-        return {
-            RollCheck.new{ type = "test_power_roll", id = "agility", text = "Agility", options = { tiers = SCOUT_TIERS } },
-            RollCheck.new{ type = "test_power_roll", id = "mind", text = "Mind", options = { tiers = SCOUT_TIERS } },
-        }
-    elseif roleId == ROLE_FORAGER then
-        return {
-            RollCheck.new{ type = "test_power_roll", id = "agility", text = "Agility", options = { tiers = FORAGER_TIERS } },
-            RollCheck.new{ type = "test_power_roll", id = "strength", text = "Strength", options = { tiers = FORAGER_TIERS } },
-        }
-    elseif roleId == ROLE_LEADER then
-        return {
-            RollCheck.new{ type = "test_power_roll", id = "mind", text = "Mind", options = { tiers = LEADER_TIERS } },
+-- Build the roll for a task. Every task names the characteristic(s) it may use;
+-- offering several checks lets the player pick, which is what "2d10 + A or M"
+-- means. No test adds an expertise any more -- an expertise is spent after the
+-- roll to improve its tier, so nothing is added to the roll here.
+local function BuildTaskChecks(task)
+    if task == nil then return nil end
+    local labels = { agility = "Agility", mind = "Mind", strength = "Strength" }
+    local checks = {}
+    for _, attr in ipairs(task.attrs or {}) do
+        checks[#checks + 1] = RollCheck.new{
+            type = "test_power_roll",
+            id = attr,
+            text = labels[attr] or attr,
+            options = { tiers = task.tiers },
         }
     end
-    return nil
+    if #checks == 0 then return nil end
+    return checks
 end
 
 local function RoleDisplayName(roleId)
-    for _, opt in ipairs(ROLE_OPTIONS) do
-        if opt.id == roleId then return opt.text end
-    end
-    return roleId
+    return ROLE_NAMES[roleId] or roleId
 end
 
--- Send the role's test to the crow's controlling player and show the Director a
--- result summary. Returns the action request id (or nil if the role has no
--- test), so a Scout prompt can be watched to auto-apply its EN adjustment.
-local function PromptRoleRoll(token, roleId, route)
-    local checks = BuildRoleChecks(roleId, route)
+-- Send a task's test to the crow's controlling player and show the Director a
+-- result summary. Returns the action request id so the caller can watch it and
+-- apply whatever the tier does to the day.
+local function PromptTaskRoll(token, roleId, task)
+    local checks = BuildTaskChecks(task)
     if checks == nil then return nil end
 
+    local pace = PACE_INFO[GetPace()]
+    local title = string.format("%s -- %s: %s", token.name or "Crow",
+        RoleDisplayName(roleId), task.text)
+    if pace.note ~= "" then
+        title = string.format("%s  (%s)", title, pace.note)
+    end
+
     local actionid = dmhub.SendActionRequest(RollRequest.new{
-        title = string.format("%s -- %s", token.name or "Crow", RoleDisplayName(roleId)),
+        title = title,
         checks = checks,
         tokens = { [token.id] = {} },
         dicetower = false,
     })
     gamehud:ShowRollSummaryDialog(actionid)
     return actionid
+end
+
+-- Apply whatever a completed task tier states outright. Tiers that offer the
+-- party a choice record nothing and are left to the Director; the tier text is
+-- on the roll summary either way. Returns a short description of what changed.
+local function ApplyTaskTier(task, tier)
+    if task == nil or tier == nil then return nil end
+    local notes = {}
+
+    local en = task.en and task.en[tier]
+    if en ~= nil and en ~= 0 then
+        AddEnRoles(en)
+        notes[#notes + 1] = string.format("EN %+d", en)
+    end
+
+    local hexes = task.hexes and task.hexes[tier]
+    if hexes ~= nil and hexes ~= 0 then
+        AddHexAdjust(hexes)
+        notes[#notes + 1] = string.format("%+d hex", hexes)
+    end
+
+    local restEn = task.restEn and task.restEn[tier]
+    if restEn ~= nil and restEn ~= 0 then
+        AddRestEn(restEn)
+        notes[#notes + 1] = string.format("rest EN %+d", restEn)
+    end
+
+    local lost = task.lost and task.lost[tier]
+    if lost ~= nil then
+        SetLost(lost)
+        notes[#notes + 1] = cond(lost, "LOST", "no longer lost")
+    end
+
+    if #notes == 0 then return nil end
+    return table.concat(notes, ", ")
 end
 
 ----------------------------------------------------------------------
@@ -593,22 +788,6 @@ local function ShowEncounterTableRoll(tableId, onResult)
             end
         end,
     }
-end
-
--- How far the group can travel today, adjusted by the Guide's roll (Rules
--- Booklet "Guide"): tier 3 -> 50% further; tier 1 on an unknown route -> lost.
-local function GetTravelDistanceText()
-    local tier = GetGuideTier()
-    if tier == nil then
-        return string.format("%d miles (base pace; roll the Guide)", BASE_PACE_MILES)
-    end
-    if tier == 1 and GetRoute() == ROUTE_UNKNOWN then
-        return "Lost -- no progress toward the destination."
-    end
-    if tier == 3 then
-        return string.format("%d miles (Guide tier 3: +50%%)", math.floor(BASE_PACE_MILES * 1.5))
-    end
-    return string.format("%d miles (normal pace)", BASE_PACE_MILES)
 end
 
 -- Fire the Miasma Check custom trigger on every crow on the map. Each crow's
@@ -744,19 +923,6 @@ local function FinishRest()
 
     ClearRestActivities()
     return summary
-end
-
--- Map a 1d6 weather roll to the weather for a season (Rules Booklet tables).
-local function WeatherForRoll(season, d6)
-    local fn = SEASON_WEATHER[season] or SEASON_WEATHER[SEASON_DEFAULT]
-    return fn(d6)
-end
-
-local function SeasonDisplayName(season)
-    for _, opt in ipairs(SEASON_OPTIONS) do
-        if opt.id == season then return opt.text end
-    end
-    return season
 end
 
 local function GetDuration(data)
@@ -1009,97 +1175,127 @@ end
 
 local function CreateWildernessBlock()
     local block
-    local routeSelector
+    local paceDropdown
+    local paceNote
+    local speedDropdown
     local crowListPanel
-    local guideWarning
-    local scoutWarning
     local emptyLabel
+    local guideWarning
     local enValueLabel
-    local enScoutNote
-    local clearScoutButton
+    local enRoleNote
+    local lostBanner
+    local backOnTrackButton
     local tableDropdown
     local lastResultLabel
     local dayLabel
     local travelLabel
-    local weatherLabel
-    local seasonDropdown
 
-    -- Scout and Guide prompts record their action here so we can auto-apply
-    -- their day effects once the roll completes (Scout -> EN adjustment, Guide
-    -- -> travel pace). Director-local; only the Director prompts rolls.
-    -- onTier(tier) applies the effect; the entry clears on complete/cancel.
-    local function ApplyPending(key, onTier)
-        local pending = block.data[key]
-        if pending == nil then return end
-        local action = dmhub.GetPlayerActionRequest(pending.actionid)
-        if action == nil then
-            block.data[key] = nil
-            return
-        end
-        local info = action.info.tokens[pending.tokenid]
-        if info == nil then return end
-        if info.status == "complete" then
-            local tier = TierFromResult(info.result)
-            if tier ~= nil then
-                onTier(tier)
-            end
-            block.data[key] = nil
-        elseif info.status == "cancel" then
-            block.data[key] = nil
-        end
-    end
+    -- A prompted task roll records itself here so its tier can be applied once
+    -- the player finishes. Director-local: only the Director prompts rolls.
+    local pending = {}
 
     local function ApplyPendingRolls()
-        -- Scout: tier 1 -> -2, tier 2 -> -1, tier 3 -> 0.
-        ApplyPending("pendingScout", function(tier) SetEnScout(tier - 3) end)
-        -- Guide: the tier drives the travel-distance display.
-        ApplyPending("pendingGuide", function(tier) SetGuideTier(tier) end)
+        for key, entry in pairs(pending) do
+            local action = dmhub.GetPlayerActionRequest(entry.actionid)
+            if action == nil then
+                pending[key] = nil
+            else
+                local info = action.info.tokens[entry.tokenid]
+                if info ~= nil then
+                    if info.status == "complete" then
+                        local tier = TierFromResult(info.result)
+                        if tier ~= nil then
+                            local note = ApplyTaskTier(entry.task, tier)
+                            if note ~= nil and lastResultLabel ~= nil then
+                                lastResultLabel.text = string.format("%s -- tier %d: %s",
+                                    entry.task.text, tier, note)
+                                lastResultLabel:SetClass("collapsed", false)
+                            end
+                        end
+                        pending[key] = nil
+                    elseif info.status == "cancel" then
+                        pending[key] = nil
+                    end
+                end
+            end
+        end
     end
 
+    ------------------------------------------------------------------
+    -- One crow: role, task, and a prompt button.
+    ------------------------------------------------------------------
+
     local function CreateCrowRow(tokenid)
-        -- Fixed control widths with the name filling the remainder, so a long
-        -- crow name can't push the dropdown/button past the panel edge.
-        local nameLabel = gui.Label{
-            classes = {"label", "sizeS"},
-            width = "100%-212",
-            height = "auto",
+        local nameLabel
+        local roleDropdown
+        local taskDropdown
+        local promptButton
+
+        nameLabel = gui.Label{
+            classes = {"sizeXs"},
+            width = 96,
+            height = 22,
             valign = "center",
-            textWrap = false,
-            textOverflow = "Truncate",
         }
 
-        local roleDropdown = gui.Dropdown{
+        roleDropdown = gui.Dropdown{
             classes = {"sizeXs"},
             options = ROLE_OPTIONS,
             idChosen = GetRole(tokenid),
-            width = 108,
+            width = 104,
             height = 24,
             valign = "center",
             change = function(element)
+                -- Only one creature can be the Guide. Taking the role moves it.
+                if element.idChosen == ROLE_GUIDE then
+                    local held = GuideTokenId()
+                    if held ~= nil and held ~= tokenid then
+                        SetRole(held, ROLE_NONE)
+                    end
+                end
                 SetRole(tokenid, element.idChosen)
+                block:FireEvent("refreshWilderness")
             end,
         }
 
-        local promptButton = gui.Button{
+        taskDropdown = gui.Dropdown{
             classes = {"sizeXs"},
-            text = "Prompt Roll",
-            width = 96,
+            options = { { id = TASK_NONE, text = "(pick task)" } },
+            idChosen = TASK_NONE,
+            width = 156,
             height = 24,
             hmargin = 4,
+            valign = "center",
+            change = function(element)
+                SetTask(tokenid, element.idChosen)
+                block:FireEvent("refreshWilderness")
+            end,
+        }
+
+        promptButton = gui.Button{
+            classes = {"sizeXs"},
+            text = "Prompt Roll",
+            width = 92,
+            height = 24,
             halign = "right",
             valign = "center",
             hover = function(element)
-                gui.Tooltip("Prompt this crow's player to roll their role's test")(element)
+                gui.Tooltip("Ask this crow's player to roll their task's test")(element)
             end,
             press = function(element)
                 local tok = dmhub.GetCharacterById(tokenid)
                 if tok == nil then return end
                 local roleId = GetRole(tokenid)
-                local actionid = PromptRoleRoll(tok, roleId, GetRoute())
-                if actionid ~= nil and roleId == ROLE_SCOUT then
-                    block.data.pendingScout = { actionid = actionid, tokenid = tokenid }
-                elseif actionid ~= nil and roleId == ROLE_GUIDE then
-                    block.data.pendingGuide = { actionid = actionid, tokenid = tokenid }
+                local task = nil
+                if roleId == ROLE_GUIDE and GetLost() then
+                    task = BACK_ON_TRACK
+                else
+                    task = TaskInfo(roleId, GetTask(tokenid))
+                end
+                if task == nil then return end
+                local actionid = PromptTaskRoll(tok, roleId, task)
+                if actionid ~= nil then
+                    pending[tokenid] = { actionid = actionid, tokenid = tokenid, task = task }
                 end
             end,
         }
@@ -1108,151 +1304,308 @@ local function CreateWildernessBlock()
             flow = "horizontal",
             width = "100%",
             height = "auto",
-            valign = "center",
-            vmargin = 2,
-
-            refreshRow = function(element)
-                local tok = dmhub.GetCharacterById(tokenid)
-                -- token.description is the canonical display name ("(unnamed
-                -- token)" when blank); token.name can be nil.
-                nameLabel.text = (tok ~= nil and tok.description) or "(gone)"
-                local roleId = GetRole(tokenid)
-                roleDropdown.idChosen = roleId
-                -- No test to prompt for an unassigned crow.
-                promptButton:SetClass("collapsed", roleId == ROLE_NONE)
-            end,
+            vmargin = 1,
 
             nameLabel,
             roleDropdown,
+            taskDropdown,
             promptButton,
+
+            refreshRow = function(element)
+                local tok = dmhub.GetCharacterById(tokenid)
+                if tok == nil then return end
+                nameLabel.text = tok.name or "Crow"
+
+                local roleId = GetRole(tokenid)
+                roleDropdown.idChosen = roleId
+
+                -- While lost the Guide's job is finding the way again, so their
+                -- task picker is replaced by that single fixed test.
+                local guideLost = (roleId == ROLE_GUIDE and GetLost())
+                if guideLost then
+                    taskDropdown.options = { { id = "backontrack", text = BACK_ON_TRACK.text } }
+                    taskDropdown.idChosen = "backontrack"
+                elseif roleId == ROLE_NONE then
+                    taskDropdown.options = { { id = TASK_NONE, text = "--" } }
+                    taskDropdown.idChosen = TASK_NONE
+                else
+                    taskDropdown.options = TaskOptions(roleId)
+                    taskDropdown.idChosen = GetTask(tokenid)
+                end
+
+                taskDropdown:SetClass("collapsed", roleId == ROLE_NONE)
+
+                local ready = guideLost or
+                    (roleId ~= ROLE_NONE and TaskInfo(roleId, GetTask(tokenid)) ~= nil)
+                promptButton:SetClass("collapsed", not ready)
+            end,
         }
     end
 
     ------------------------------------------------------------------
-    -- Static widgets.
+    -- Day, pace and distance.
     ------------------------------------------------------------------
 
-    -- Title + day counter row.
     dayLabel = gui.Label{
-        classes = {"label", "sizeS"},
-        text = "Day 1",
-        width = "auto",
-        height = "auto",
-        halign = "right",
-        valign = "center",
-        color = "white",
-    }
-
-    local header = gui.Panel{
-        flow = "horizontal",
-        width = "100%",
-        height = "auto",
-        valign = "center",
-        bmargin = 2,
-
-        gui.Label{
-            classes = {"label", "sizeS"},
-            text = "Wilderness Travel",
-            width = "auto",
-            height = "auto",
-            halign = "left",
-            valign = "center",
-        },
-        gui.Panel{ width = "100%-80", height = 1 },  -- spacer pushes the day to the right
-        dayLabel,
-    }
-
-    -- Weather display + season chooser + per-day weather roll.
-    weatherLabel = gui.Label{
-        classes = {"label", "sizeS"},
-        text = "Weather: --",
-        width = "100%",
+        classes = {"sizeXs"},
+        width = "auto-grow",
         height = "auto",
         halign = "left",
-        color = "white",
+        color = "#ddd",
     }
 
-    seasonDropdown = gui.Dropdown{
+    travelLabel = gui.Label{
         classes = {"sizeXs"},
-        options = SEASON_OPTIONS,
-        idChosen = GetSeason(),
-        width = 132,
-        height = 24,
-        valign = "center",
-        change = function(element)
-            SetSeason(element.idChosen)
-        end,
+        width = "100%",
+        height = "auto",
+        color = "#9a9a9a",
+        bmargin = 2,
     }
 
-    local rollWeatherButton = gui.Button{
+    local endDayButton = gui.Button{
         classes = {"sizeXs"},
-        text = "Roll Weather",
-        width = 100,
+        text = "End Day",
+        width = 78,
         height = 24,
         halign = "right",
-        valign = "center",
-        hmargin = 4,
         hover = function(element)
-            gui.Tooltip("Roll 1d6 on this season's weather table")(element)
+            gui.Tooltip("Advance the day and clear what today's rolls banked")(element)
         end,
         press = function(element)
-            local season = GetSeason()
-            gamehud.rollDialog.data.ShowDialog{
-                roll = "1d6",
-                type = "flat",
-                description = string.format("Weather -- %s", SeasonDisplayName(season)),
-                completeRoll = function(rollInfo)
-                    if not block.valid then return end
-                    SetWeather(WeatherForRoll(season, rollInfo.total))
-                    block:FireEvent("refreshWilderness")
-                end,
-            }
+            AdvanceDay()
+            block:FireEvent("refreshWilderness")
         end,
     }
 
-    local weatherRow = gui.Panel{
+    paceDropdown = gui.Dropdown{
+        classes = {"sizeXs"},
+        options = PACE_OPTIONS,
+        idChosen = GetPace(),
+        width = 176,
+        height = 24,
+        valign = "center",
+        hover = function(element)
+            gui.Tooltip("Pace sets both the distance covered and the day's encounter number")(element)
+        end,
+        change = function(element)
+            SetPace(element.idChosen)
+            block:FireEvent("refreshWilderness")
+        end,
+    }
+
+    paceNote = gui.Label{
+        classes = {"sizeXs"},
+        width = "auto-grow",
+        height = "auto",
+        halign = "left",
+        hmargin = 6,
+        valign = "center",
+        color = "#9a9a9a",
+    }
+
+    speedDropdown = gui.Dropdown{
+        classes = {"sizeXs"},
+        options = SPEED_BAND_OPTIONS,
+        idChosen = GetSpeedBand(),
+        width = 236,
+        height = 24,
+        valign = "center",
+        hover = function(element)
+            gui.Tooltip("The group travels at the speed of its slowest member (or its mount or vehicle)")(element)
+        end,
+        change = function(element)
+            SetSpeedBand(element.idChosen)
+            block:FireEvent("refreshWilderness")
+        end,
+    }
+
+    local function TerrainToggle(key, label, tip)
+        return gui.Check{
+            classes = {"sizeXs"},
+            text = label,
+            value = GetTerrain(key),
+            width = 150,
+            height = 22,
+            hover = function(element)
+                gui.Tooltip(tip)(element)
+            end,
+            change = function(element)
+                SetTerrain(key, element.value)
+                block:FireEvent("refreshWilderness")
+            end,
+            refreshTerrain = function(element)
+                element.value = GetTerrain(key)
+            end,
+        }
+    end
+
+    local terrainRow = gui.Panel{
         flow = "horizontal",
         width = "100%",
         height = "auto",
-        valign = "center",
-        bmargin = 4,
+        wrap = true,
+        tmargin = 2,
 
-        gui.Label{
-            classes = {"label", "sizeS"},
-            text = "Season",
-            width = 56,
-            height = "auto",
+        TerrainToggle("road", "Road all day",
+            "Following a road for the whole travel day: +1 hex, but the EN drops by 1."),
+        TerrainToggle("downstream", "Downstream",
+            "Moving downstream on a body of water: +1 hex."),
+        TerrainToggle("upstream", "Upstream / river crossing",
+            "Moving upstream, or crossing a river without a water vehicle: -1 hex."),
+    }
+
+    ------------------------------------------------------------------
+    -- Encounter number.
+    ------------------------------------------------------------------
+
+    local function enStep(delta)
+        return gui.Button{
+            classes = {"sizeXs"},
+            text = delta > 0 and "+" or "-",
+            width = 26,
+            height = 24,
             valign = "center",
-        },
-        seasonDropdown,
-        rollWeatherButton,
-    }
+            press = function(element)
+                SetEnBase(GetEnBase() + delta)
+                block:FireEvent("refreshWilderness")
+            end,
+        }
+    end
 
-    routeSelector = gui.EnumeratedSliderControl{
-        options = ROUTE_OPTIONS,
-        value = GetRoute(),
-        width = "100%",
-        valign = "center",
-        bmargin = 4,
-        change = function(element)
-            SetRoute(element.value)
-        end,
-        setRoute = function(element, route)
-            if element.value ~= route then
-                element:SetValue(route, false)
-            end
-        end,
-    }
-
-    -- How far the group can travel today (adjusted by the Guide's roll).
-    travelLabel = gui.Label{
+    enValueLabel = gui.Label{
         classes = {"sizeXs"},
-        text = "",
+        width = 34,
+        height = "auto",
+        halign = "center",
+        textAlignment = "center",
+        valign = "center",
+        color = "white",
+        bold = true,
+    }
+
+    enRoleNote = gui.Label{
+        classes = {"sizeXs"},
+        width = "auto-grow",
+        height = "auto",
+        halign = "left",
+        hmargin = 6,
+        valign = "center",
+        color = "#9a9a9a",
+    }
+
+    local checkButton = gui.Button{
+        classes = {"sizeXs"},
+        text = "Encounter Check",
+        width = 130,
+        height = 24,
+        halign = "right",
+        valign = "center",
+        hover = function(element)
+            gui.Tooltip("Roll 1d10. An encounter occurs on a result equal to or higher than the EN.")(element)
+        end,
+        press = function(element)
+            local en = GetEffectiveEn()
+            local roll = dmhub.RollInstant("1d10")
+            local hit = roll >= en
+            lastResultLabel.text = string.format(
+                "Encounter check: rolled %d against EN %d -- %s",
+                roll, en, hit and "ENCOUNTER" or "no encounter")
+            lastResultLabel:SetClass("collapsed", false)
+        end,
+    }
+
+    ------------------------------------------------------------------
+    -- Lost.
+    ------------------------------------------------------------------
+
+    lostBanner = gui.Label{
+        classes = {"sizeXs", "collapsed"},
+        width = "auto-grow",
+        height = "auto",
+        halign = "left",
+        valign = "center",
+        color = "#e06b6b",
+        text = "The group is lost. The Ref tracks where they actually are.",
+    }
+
+    backOnTrackButton = gui.Button{
+        classes = {"sizeXs", "collapsed"},
+        text = "Not Lost",
+        width = 84,
+        height = 24,
+        halign = "right",
+        valign = "center",
+        hover = function(element)
+            gui.Tooltip("Clear the lost flag -- they found a map, a landmark, or someone gave directions")(element)
+        end,
+        press = function(element)
+            SetLost(false)
+            block:FireEvent("refreshWilderness")
+        end,
+    }
+
+    ------------------------------------------------------------------
+    -- Encounter table + Miasma.
+    ------------------------------------------------------------------
+
+    tableDropdown = gui.Dropdown{
+        classes = {"sizeXs"},
+        options = GetEncounterTableOptions(),
+        idChosen = GetEncounterTableId(),
+        width = 200,
+        height = 24,
+        valign = "center",
+        change = function(element)
+            SetEncounterTableId(element.idChosen)
+        end,
+    }
+
+    local rollTableButton = gui.Button{
+        classes = {"sizeXs"},
+        text = "Roll Encounter",
+        width = 122,
+        height = 24,
+        halign = "right",
+        valign = "center",
+        press = function(element)
+            local id = GetEncounterTableId()
+            if id == "" then return end
+            ShowEncounterTableRoll(id, function(total, text)
+                lastResultLabel.text = string.format("Encounter: %s", text)
+                lastResultLabel:SetClass("collapsed", false)
+            end)
+        end,
+    }
+
+    local miasmaButton = gui.Button{
+        classes = {"sizeXs"},
+        text = "Miasma Check",
+        width = 122,
+        height = 24,
+        halign = "left",
+        tmargin = 4,
+        hover = function(element)
+            gui.Tooltip("Prompt every crow's Mind test against the Miasma. Normally this happens at the end of a rest -- the Finish Rest button does it for you.")(element)
+        end,
+        press = function(element)
+            local n = FireMiasmaCheck()
+            lastResultLabel.text = string.format("Miasma test prompted for %d crow%s.",
+                n, n == 1 and "" or "s")
+            lastResultLabel:SetClass("collapsed", false)
+        end,
+    }
+
+    lastResultLabel = gui.Label{
+        classes = {"sizeXs", "collapsed"},
         width = "100%",
         height = "auto",
-        bmargin = 2,
-        color = "#c9c9c9",
+        color = "#9a9a9a",
+        tmargin = 2,
     }
+
+    ------------------------------------------------------------------
+    -- Crow list.
+    ------------------------------------------------------------------
 
     crowListPanel = gui.Panel{
         flow = "vertical",
@@ -1271,256 +1624,57 @@ local function CreateWildernessBlock()
 
     guideWarning = gui.Label{
         classes = {"sizeXs", "collapsed"},
-        text = "A Guide must be assigned.",
+        text = "No Guide assigned -- the group cannot choose its route.",
         width = "100%",
         height = "auto",
         color = "#e06b6b",
         tmargin = 2,
     }
 
-    scoutWarning = gui.Label{
-        classes = {"sizeXs", "collapsed"},
-        text = "A Scout must be assigned.",
-        width = "100%",
-        height = "auto",
-        color = "#e06b6b",
-    }
+    ------------------------------------------------------------------
+    -- Assembly.
+    ------------------------------------------------------------------
 
-    -- EN controls: a stepper over the base EN plus a note showing the Scout's
-    -- automatic adjustment (with a clear button to undo it).
-    local enStep = function(delta)
-        return gui.Button{
-            classes = {"sizeS"},
-            text = delta < 0 and "-" or "+",
-            width = 24,
-            height = 24,
+    local function Row(...)
+        return gui.Panel{
+            flow = "horizontal",
+            width = "100%",
+            height = "auto",
             valign = "center",
-            press = function(element)
-                SetEnBase(GetEnBase() + delta)
-            end,
+            tmargin = 2,
+            ...
         }
     end
-
-    enValueLabel = gui.Label{
-        classes = {"sizeM"},
-        text = tostring(EN_DEFAULT),
-        width = 32,
-        height = "auto",
-        valign = "center",
-        textAlignment = "center",
-        color = "white",
-    }
-
-    clearScoutButton = gui.Button{
-        classes = {"sizeXs", "collapsed"},
-        text = "Clear",
-        width = 52,
-        height = 22,
-        valign = "center",
-        hmargin = 6,
-        hover = function(element)
-            gui.Tooltip("Clear the Scout's EN adjustment")(element)
-        end,
-        press = function(element)
-            SetEnScout(0)
-        end,
-    }
-
-    enScoutNote = gui.Label{
-        classes = {"sizeXs", "collapsed"},
-        text = "",
-        width = "auto",
-        height = "auto",
-        valign = "center",
-        hmargin = 6,
-        color = "#9a9a9a",
-    }
-
-    -- Roll the encounter check (1d6 vs EN); on an encounter, roll the chosen
-    -- table. Result goes to chat and to the inline result label below.
-    local rollCheckButton = gui.Button{
-        classes = {"sizeXs"},
-        text = "Roll Check",
-        width = 92,
-        height = 24,
-        halign = "right",
-        valign = "center",
-        hover = function(element)
-            gui.Tooltip("Roll 1d6 against EN; on an encounter, roll the chosen table")(element)
-        end,
-        press = function(element)
-            local en = GetEffectiveEn()
-            -- Roll the encounter check (1d6) in the standard roll dialog. 1d6 >=
-            -- EN means an encounter occurs; on an encounter we then open the
-            -- table roll dialog. No creature -- it's a Ref-side flat check.
-            gamehud.rollDialog.data.ShowDialog{
-                roll = "1d6",
-                type = "flat",
-                description = string.format("Encounter Check (EN %d)", en),
-                completeRoll = function(rollInfo)
-                    if not block.valid then return end
-                    local d6 = rollInfo.total
-
-                    if d6 < en then
-                        block.data.lastResult = string.format("Rolled %d vs EN %d: no encounter.", d6, en)
-                        block:FireEvent("refreshWilderness")
-                        return
-                    end
-
-                    local tableId = GetEncounterTableId()
-                    if tableId == "" then
-                        block.data.lastResult = string.format(
-                            "Encounter! (rolled %d vs EN %d) -- select an encounter table to roll.", d6, en)
-                        block:FireEvent("refreshWilderness")
-                        return
-                    end
-
-                    block.data.lastResult = string.format("Encounter! (rolled %d vs EN %d) -- rolling...", d6, en)
-                    block:FireEvent("refreshWilderness")
-
-                    -- Defer the table roll so the encounter-check dialog has
-                    -- finished tearing down before we reuse the shared dialog.
-                    dmhub.Schedule(0.15, function()
-                        if mod.unloaded or not block.valid then return end
-                        ShowEncounterTableRoll(tableId, function(total, text)
-                            if not block.valid then return end
-                            block.data.lastResult = string.format("Encounter (%d vs EN %d): %s", d6, en, text)
-                            block:FireEvent("refreshWilderness")
-                        end)
-                    end)
-                end,
-            }
-        end,
-    }
-
-    local enRow = gui.Panel{
-        flow = "horizontal",
-        width = "100%",
-        height = "auto",
-        valign = "center",
-        tmargin = 6,
-
-        gui.Label{
-            classes = {"label", "sizeS"},
-            text = "Encounter Number (EN)",
-            width = "auto",
-            height = "auto",
-            valign = "center",
-            hmargin = 6,
-        },
-        enStep(-1),
-        enValueLabel,
-        enStep(1),
-        rollCheckButton,
-    }
-
-    -- Scout's automatic EN adjustment note + clear, on its own row so the EN
-    -- row stays uncluttered.
-    local scoutRow = gui.Panel{
-        flow = "horizontal",
-        width = "100%",
-        height = "auto",
-        valign = "center",
-        enScoutNote,
-        clearScoutButton,
-    }
-
-    -- Encounter table chooser ("which kind of encounter is in this area").
-    tableDropdown = gui.Dropdown{
-        classes = {"sizeXs"},
-        options = GetEncounterTableOptions(),
-        idChosen = GetEncounterTableId(),
-        width = "100%-120",
-        height = 24,
-        valign = "center",
-        change = function(element)
-            SetEncounterTableId(element.idChosen)
-        end,
-    }
-
-    local tableRow = gui.Panel{
-        flow = "horizontal",
-        width = "100%",
-        height = "auto",
-        valign = "center",
-        tmargin = 4,
-
-        gui.Label{
-            classes = {"label", "sizeS"},
-            text = "Encounter Table",
-            width = 116,
-            height = "auto",
-            valign = "center",
-        },
-        tableDropdown,
-    }
-
-    -- Inline echo of the most recent encounter check.
-    lastResultLabel = gui.Label{
-        classes = {"sizeXs", "collapsed"},
-        text = "",
-        width = "100%",
-        height = "auto",
-        tmargin = 4,
-        color = "#c9c9c9",
-        textWrap = true,
-    }
-
-    -- Day-level actions: prompt every crow's miasma check, and end the day.
-    local miasmaButton = gui.Button{
-        classes = {"sizeXs"},
-        text = "Miasma Check",
-        width = 110,
-        height = 24,
-        valign = "center",
-        hover = function(element)
-            gui.Tooltip("Prompt every crow to make a Miasma Check (2d10 + Mind + Endurance)")(element)
-        end,
-        press = function(element)
-            FireMiasmaCheck()
-        end,
-    }
-
-    local endDayButton = gui.Button{
-        classes = {"sizeXs"},
-        text = "End of Day",
-        width = 96,
-        height = 24,
-        halign = "right",
-        valign = "center",
-        hmargin = 4,
-        hover = function(element)
-            gui.Tooltip("Advance to the next travel day (re-rolls EN and pace)")(element)
-        end,
-        press = function(element)
-            AdvanceDay()
-            block.data.lastResult = nil
-            block:FireEvent("refreshWilderness")
-        end,
-    }
-
-    local dayActionsRow = gui.Panel{
-        flow = "horizontal",
-        width = "100%",
-        height = "auto",
-        valign = "center",
-        tmargin = 8,
-
-        miasmaButton,
-        gui.Panel{ width = "100%-220", height = 1 },  -- spacer
-        endDayButton,
-    }
-
-    ------------------------------------------------------------------
-    -- Root + reconcile.
-    ------------------------------------------------------------------
 
     block = gui.Panel{
         flow = "vertical",
         width = "100%",
         height = "auto",
         tmargin = 8,
-        data = { pendingScout = nil, pendingGuide = nil },
+
+        Row(dayLabel, endDayButton),
+        travelLabel,
+        Row(paceDropdown, paceNote),
+        Row(speedDropdown),
+        terrainRow,
+        Row(
+            gui.Label{
+                classes = {"sizeXs"},
+                width = 26,
+                height = "auto",
+                valign = "center",
+                color = "#9a9a9a",
+                text = "EN",
+            },
+            enStep(-1), enValueLabel, enStep(1), enRoleNote, checkButton
+        ),
+        Row(lostBanner, backOnTrackButton),
+        crowListPanel,
+        emptyLabel,
+        guideWarning,
+        Row(tableDropdown, rollTableButton),
+        miasmaButton,
+        lastResultLabel,
 
         refreshWilderness = function(element)
             ApplyPendingRolls()
@@ -1528,19 +1682,28 @@ local function CreateWildernessBlock()
             dayLabel.text = string.format("Day %d", GetDay())
             travelLabel.text = "Travel: " .. GetTravelDistanceText()
 
-            local weather = GetWeather()
-            weatherLabel.text = "Weather: " .. (weather ~= "" and weather or "-- (roll for weather)")
-            seasonDropdown.idChosen = GetSeason()
+            paceDropdown.idChosen = GetPace()
+            paceNote.text = PACE_INFO[GetPace()].note
+            speedDropdown.idChosen = GetSpeedBand()
+            terrainRow:FireEventTree("refreshTerrain")
 
-            routeSelector:FireEvent("setRoute", GetRoute())
+            enValueLabel.text = tostring(GetEffectiveEn())
+            local roles = GetEnRoles()
+            if roles ~= 0 then
+                enRoleNote.text = string.format("base %d, role results %+d", GetEnBase(), roles)
+            else
+                enRoleNote.text = string.format("base %d from pace", GetEnBase())
+            end
+
+            local lost = GetLost()
+            lostBanner:SetClass("collapsed", not lost)
+            backOnTrackButton:SetClass("collapsed", not lost)
 
             local crows = dmhub.GetTokens({ playerControlled = true })
             table.sort(crows, function(a, b)
                 return (a.name or "") < (b.name or "")
             end)
 
-            -- Rebuild rows only when the set/order of crow ids changes; reuse
-            -- existing row panels otherwise so dropdown state and events survive.
             local ids = {}
             for _, c in ipairs(crows) do ids[#ids + 1] = c.id end
             local signature = table.concat(ids, ",")
@@ -1563,72 +1726,14 @@ local function CreateWildernessBlock()
                 r:FireEvent("refreshRow")
             end
 
-            -- Required-role warnings + empty state.
-            local haveGuide, haveScout = false, false
-            for _, c in ipairs(crows) do
-                local roleId = GetRole(c.id)
-                if roleId == ROLE_GUIDE then haveGuide = true end
-                if roleId == ROLE_SCOUT then haveScout = true end
-            end
             emptyLabel:SetClass("collapsed", #crows > 0)
-            guideWarning:SetClass("collapsed", haveGuide)
-            scoutWarning:SetClass("collapsed", haveScout)
-
-            -- EN display.
-            enValueLabel.text = tostring(GetEffectiveEn())
-            local scout = GetEnScout()
-            if scout ~= 0 then
-                enScoutNote.text = string.format("base %d, Scout %d", GetEnBase(), scout)
-                enScoutNote:SetClass("collapsed", false)
-                clearScoutButton:SetClass("collapsed", false)
-            else
-                enScoutNote:SetClass("collapsed", true)
-                clearScoutButton:SetClass("collapsed", true)
-            end
-
-            -- Encounter table selection + last check echo.
-            tableDropdown.idChosen = GetEncounterTableId()
-            local last = block.data.lastResult
-            lastResultLabel.text = last or ""
-            lastResultLabel:SetClass("collapsed", last == nil or last == "")
+            guideWarning:SetClass("collapsed", #crows == 0 or GuideTokenId() ~= nil)
         end,
-
-        header,
-        weatherLabel,
-        weatherRow,
-        routeSelector,
-        travelLabel,
-        crowListPanel,
-        emptyLabel,
-        guideWarning,
-        scoutWarning,
-        enRow,
-        scoutRow,
-        tableRow,
-        lastResultLabel,
-        dayActionsRow,
     }
 
     return block
 end
 
-----------------------------------------------------------------------
--- The Dungeon Turn section. Built once per Campaign Tracker panel instance.
--- Also hosts the campaign-mode slider at the top; the Dungeon Turn controls
--- below are only shown while the mode is Dungeon.
-----------------------------------------------------------------------
-
-----------------------------------------------------------------------
--- Rest block (Director only).
-----------------------------------------------------------------------
---
--- Shown in every mode -- crows rest in dungeons, in the wild and in town. One
--- row per crow: their rest activity, plus a target picker when that activity is
--- Tend Wounds. The Finish Rest button resolves the whole party at once.
---
--- Not here yet, and deliberately: the rest encounter check and Seclude Camp's
--- -1 EN. Both need the d10 encounter model that arrives with the travel
--- rebuild; wiring them to today's d6 EN would only have to be undone.
 local function CreateRestBlock()
     local block
     local crowListPanel
