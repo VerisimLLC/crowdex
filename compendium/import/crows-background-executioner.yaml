@@ -1,0 +1,233 @@
+# Crows Playtest 2 -- background: Executioner
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 99857d17-d655-40ac-93fa-fe8518425a19
+name: "Executioner"
+description: "You carried out capital punishment."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 2abd9ddc-ff57-4eda-9ff2-a8d4db151057
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 62b48eb2-afa8-4833-8d3e-b299f75799ca
+      implementation: 3
+      source: "Executioner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 41512b53-7591-4cc4-87f8-f5f60861e52f
+        source: "Executioner Career Feature"
+        sourceguid: 62b48eb2-afa8-4833-8d3e-b299f75799ca
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 6f98d351-249c-4b63-aac5-a07c58e09754
+        source: "Executioner Career Feature"
+        sourceguid: 62b48eb2-afa8-4833-8d3e-b299f75799ca
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 3edcc4c5-c17f-456c-a589-e3b66a89d011
+        source: "Executioner Career Feature"
+        sourceguid: 62b48eb2-afa8-4833-8d3e-b299f75799ca
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: 4a6efbcb-b299-4e6d-9fc4-f386227c3acf
+      implementation: 3
+      source: "Executioner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: d51c39e5-8e52-4d3d-b78b-b4458ed430e2
+        source: "Executioner Career Feature"
+        sourceguid: 4a6efbcb-b299-4e6d-9fc4-f386227c3acf
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: a9380291-7dd7-485b-9319-0c85eb80965b
+        source: "Executioner Career Feature"
+        sourceguid: 4a6efbcb-b299-4e6d-9fc4-f386227c3acf
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 4a309cae-fc64-4972-a406-3a9f668a4ae4
+        source: "Executioner Career Feature"
+        sourceguid: 4a6efbcb-b299-4e6d-9fc4-f386227c3acf
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: cfc0b1ec-f534-4749-ac3a-aaefc84de381
+      implementation: 3
+      source: "Executioner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 3f0ebfc4-c9ab-451c-8e46-78657100da29
+        source: "Executioner Career Feature"
+        sourceguid: cfc0b1ec-f534-4749-ac3a-aaefc84de381
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 100ce9e1-422b-4ee1-9119-7a7bc83a19ff
+        source: "Executioner Career Feature"
+        sourceguid: cfc0b1ec-f534-4749-ac3a-aaefc84de381
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 5cb722fa-6432-4113-8a7a-43d6827837eb
+        source: "Executioner Career Feature"
+        sourceguid: cfc0b1ec-f534-4749-ac3a-aaefc84de381
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: df51a053-b2a2-4615-9540-e1180753435f
+      implementation: 3
+      source: "Executioner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 831fa1b4-a013-4264-985c-576f75c43d37
+        source: "Executioner Career Feature"
+        sourceguid: df51a053-b2a2-4615-9540-e1180753435f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 3efc6e24-b0e9-4709-b72a-dd6943b5dc2b
+        source: "Executioner Career Feature"
+        sourceguid: df51a053-b2a2-4615-9540-e1180753435f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 914119b0-8fa6-426b-8288-9d51a8c030c2
+        source: "Executioner Career Feature"
+        sourceguid: df51a053-b2a2-4615-9540-e1180753435f
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 9."
+    guid: cfc3ee3c-dc27-4fa3-b657-33e02b1b6b9d
+    implementation: 3
+    source: "Executioner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 9
+      name: Stamina
+      guid: c4a77f6c-e1f8-472f-8eb6-030919db086c
+      source: "Executioner Career Feature"
+      sourceguid: cfc3ee3c-dc27-4fa3-b657-33e02b1b6b9d
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Chopping (1 use), Lift (1 use), Unarmed (1 use)."
+    guid: e5550c12-f331-48ff-9161-516ac7e7c7e7
+    implementation: 3
+    source: "Executioner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 073fb617-cfc6-493c-9624-03a967f85ac6
+      num: 1
+      name: Expertises
+      description: "Chopping (1 use)"
+      guid: 24d62740-6d14-40d8-ab29-b2173a0b0f88
+      source: "Executioner Career Feature"
+      sourceguid: e5550c12-f331-48ff-9161-516ac7e7c7e7
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: 2e960433-ffaf-44fc-acab-b1446ff86bc2
+      source: "Executioner Career Feature"
+      sourceguid: e5550c12-f331-48ff-9161-516ac7e7c7e7
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 36482a89-657f-4ea4-98a6-fb06575d9147
+      num: 1
+      name: Expertises
+      description: "Unarmed (1 use)"
+      guid: 6bc168b6-9a14-4f84-a443-72d9771797de
+      source: "Executioner Career Feature"
+      sourceguid: e5550c12-f331-48ff-9161-516ac7e7c7e7
+  - __typeName: CharacterFeature
+    name: "Trait: Chop `Em Down"
+    description: "Chopping trait. When you roll on the Dismember table after scoring a crit with a chopping weapon, roll twice and choose the result."
+    guid: 21fd11d4-021d-42fc-a220-a95a9c1cca43
+    implementation: 1
+    source: "Executioner Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Chain, greataxe, ladder, lock, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 025e2b2b-30ce-475f-9b43-b091b43457b2
+    implementation: 2
+    source: "Executioner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 87e1234e-fd5e-4dde-925a-7019c2e641d3
+      source: "Executioner Career Feature"
+      sourceguid: 025e2b2b-30ce-475f-9b43-b091b43457b2
+      equipment:
+      - itemid: e18b827c-aceb-4bc1-a664-2e5e81f3a78b
+        quantity: 1
+      - itemid: 1815c34d-8dab-4f07-9c88-72d892f0b0eb
+        quantity: 1
+      - itemid: eba735f5-517c-48de-910d-b3eaa1824a2f
+        quantity: 1
+      - itemid: deaff42c-55ed-4350-bc95-8c098d79bde7
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

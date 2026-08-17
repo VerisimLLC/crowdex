@@ -1,0 +1,47 @@
+# Crows Playtest 2 -- Weakened
+#
+# The Rules, p.12 (Conditions):
+#   "While you are weakened, you take a bane on all tests. You lose this
+#    condition at the end of a dungeon turn."
+#
+# Weakened is one half of the pair that replaced Boned in Playtest 2 (the other
+# is Vulnerable). It does not stack: Playtest 2 adds the blanket rule "You can't
+# gain a second instance of a condition you already have."
+#
+# Automation: a single power modifier, modtype "bane" over rollType "all".
+# The engine's boon/bane maths is Crows' edge/bane maths exactly -- one bane is
+# -2, two are no penalty plus a tier drop, and an edge cancels a bane -- so this
+# needs no Crows-specific handling. Only the end-of-dungeon-turn expiry is
+# manual (there is no DT timer hooked to conditions yet), hence Silver.
+_table: characterOngoingEffects
+__typeName: CharacterOngoingEffect
+id: f1db7b8d-55bb-4a5d-a9c2-0a1a8d415371
+guid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
+name: Weakened
+description: >-
+  While you are weakened, you take a bane on all tests. You lose this condition
+  at the end of a dungeon turn. (The bane is automatic; the dungeon-turn expiry
+  is tracked manually.)
+crowsCondition: true
+stackable: false
+statusEffect: true
+indefiniteDuration: true
+implementation: 3
+iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
+display:
+  __typeName: DisplayInfo
+  bgcolor: "#8a94a8ff"
+  hueshift: 0
+  brightness: 1
+  saturation: 1
+modifiers:
+  - __typeName: CharacterModifier
+    name: Weakened
+    guid: 3fb5a58a-5d5c-45dd-84ae-918643bf8e9e
+    behavior: power
+    modtype: bane
+    rollType: all
+    activationCondition: true
+    description: You take a bane on all tests while weakened.
+    source: Condition
+    sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e

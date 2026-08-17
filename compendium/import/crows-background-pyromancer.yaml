@@ -1,0 +1,251 @@
+# Crows Playtest 2 -- background: Pyromancer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: cdce04ea-54cf-4173-a5e6-5bd05d0aab22
+name: "Pyromancer"
+description: "You learned how to cast elemental spells that create and harness fire."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: af4d43b7-2b57-4a82-babd-5b5f420078af
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 14332adf-f6c7-422f-ab4c-c76052cf8c60
+      implementation: 3
+      source: "Pyromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: d447cb0a-20f3-4df6-b756-b3fccf40a669
+        source: "Pyromancer Career Feature"
+        sourceguid: 14332adf-f6c7-422f-ab4c-c76052cf8c60
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 1cc8d91d-9d49-477d-b48c-1f1b401319bd
+        source: "Pyromancer Career Feature"
+        sourceguid: 14332adf-f6c7-422f-ab4c-c76052cf8c60
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ca339026-b624-48e6-acfa-caee53a48437
+        source: "Pyromancer Career Feature"
+        sourceguid: 14332adf-f6c7-422f-ab4c-c76052cf8c60
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 6035fc0b-d013-4f6a-8ecd-79603db710b0
+      implementation: 3
+      source: "Pyromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 652e9e2f-5254-400f-91b6-9b9ffcb17208
+        source: "Pyromancer Career Feature"
+        sourceguid: 6035fc0b-d013-4f6a-8ecd-79603db710b0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 2b528b6c-cc9c-4118-873c-41886474a3fa
+        source: "Pyromancer Career Feature"
+        sourceguid: 6035fc0b-d013-4f6a-8ecd-79603db710b0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 9c37f240-1067-49fa-b606-cd46c581b9ee
+        source: "Pyromancer Career Feature"
+        sourceguid: 6035fc0b-d013-4f6a-8ecd-79603db710b0
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 80d13153-de8e-433d-b41d-71aa5423b5a5
+      implementation: 3
+      source: "Pyromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: eb14000b-e27c-4180-9004-7d35ede0767a
+        source: "Pyromancer Career Feature"
+        sourceguid: 80d13153-de8e-433d-b41d-71aa5423b5a5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: e45f5258-dc71-4b47-8b7e-88b828cfe5bb
+        source: "Pyromancer Career Feature"
+        sourceguid: 80d13153-de8e-433d-b41d-71aa5423b5a5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 764cac68-3193-4b99-8cce-51a12ca44c7c
+        source: "Pyromancer Career Feature"
+        sourceguid: 80d13153-de8e-433d-b41d-71aa5423b5a5
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: d6829925-6957-4684-b6ab-84b4c4056bf0
+      implementation: 3
+      source: "Pyromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: cd1fb313-fd54-405d-bb68-566840899943
+        source: "Pyromancer Career Feature"
+        sourceguid: d6829925-6957-4684-b6ab-84b4c4056bf0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: a3779c77-430b-4128-a9f0-1ed92575e061
+        source: "Pyromancer Career Feature"
+        sourceguid: d6829925-6957-4684-b6ab-84b4c4056bf0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 9de9a51f-06e5-4d65-be66-521344eb3c92
+        source: "Pyromancer Career Feature"
+        sourceguid: d6829925-6957-4684-b6ab-84b4c4056bf0
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: 7c5bfb2c-3659-45e3-a83c-8e307ab4fada
+    implementation: 3
+    source: "Pyromancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: f7001f3b-ef74-48ee-8efb-aab7e47f3227
+      source: "Pyromancer Career Feature"
+      sourceguid: 7c5bfb2c-3659-45e3-a83c-8e307ab4fada
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (1 use), Elemental (2 uses), Enchanting (1 use), Historical Lore (1 use), Magic Lore (2 uses)."
+    guid: 01f4899f-0b20-417a-8128-2707873c0150
+    implementation: 3
+    source: "Pyromancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 1
+      name: Expertises
+      description: "Alchemy (1 use)"
+      guid: 30954d1b-cfa0-4cb3-9e67-713099e3653e
+      source: "Pyromancer Career Feature"
+      sourceguid: 01f4899f-0b20-417a-8128-2707873c0150
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a680fc5-efe0-42a6-9479-1c378510b416
+      num: 2
+      name: Expertises
+      description: "Elemental (2 uses)"
+      guid: 4b26addf-ea71-442a-8a99-e5c10f777055
+      source: "Pyromancer Career Feature"
+      sourceguid: 01f4899f-0b20-417a-8128-2707873c0150
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 1
+      name: Expertises
+      description: "Enchanting (1 use)"
+      guid: dec3c5fd-185c-42c1-904e-5aa202df3ea1
+      source: "Pyromancer Career Feature"
+      sourceguid: 01f4899f-0b20-417a-8128-2707873c0150
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      num: 1
+      name: Expertises
+      description: "Historical Lore (1 use)"
+      guid: 3ac77e78-bfb1-4b83-842b-c8c1b5b1b907
+      source: "Pyromancer Career Feature"
+      sourceguid: 01f4899f-0b20-417a-8128-2707873c0150
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 2
+      name: Expertises
+      description: "Magic Lore (2 uses)"
+      guid: 550c1461-5ac8-40c8-aef1-06a4c83c1b91
+      source: "Pyromancer Career Feature"
+      sourceguid: 01f4899f-0b20-417a-8128-2707873c0150
+  - __typeName: CharacterFeature
+    name: "Trait: Burn Baby"
+    description: "Elemental trait. When you cast an elemental spell that deals damage to a target, the target takes additional damage equal to your Mind. (The background lists this trait as 'Make It Burn!', which does not appear in this booklet; Burn Baby is the Elemental tree's fire starting trait.)"
+    guid: c0794f25-54a8-44eb-9552-f116a7b8ad9c
+    implementation: 1
+    source: "Pyromancer Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Magnifying glass, string, torch, spellbooks: fire hands, fire lance. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 6957c003-f737-4a1e-94d7-d562f44ae72f
+    implementation: 2
+    source: "Pyromancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: d9760f3f-b3db-4f3e-826c-f1e171b15c08
+      source: "Pyromancer Career Feature"
+      sourceguid: 6957c003-f737-4a1e-94d7-d562f44ae72f
+      equipment:
+      - itemid: c257b289-b19a-4c77-b2d4-3987b2f2798b
+        quantity: 1
+      - itemid: 39c74b1e-0c8b-4c41-ac90-eea0d8bb46ea
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: a0ef2f95-9e86-4a34-9231-39c0a8ec62b7
+        quantity: 1
+      - itemid: f5d9cd54-af9d-47df-8cb3-95261246b847
+        quantity: 1

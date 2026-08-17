@@ -1,0 +1,38 @@
+# Crows Playtest 2 -- all 30 expertises (Stage 4 / W8)
+#
+# 18 general, 6 spellcasting, 6 weapon. This is a MERGE of the 34 Playtest 1
+# skills, not a rename: Climb + Jump + Swim collapse into Athletics, Hide +
+# Sneak into Stealth, Sabotage + Sleight of Hand into Thievery, and Handle
+# Animal is renamed Handle Pet. The other 24 map one to one. The old Skills
+# table rows are left in place for now so nothing referencing them breaks.
+_bundle:
+  - _include: "crows-expertise-alchemy.yaml"
+  - _include: "crows-expertise-alteration.yaml"
+  - _include: "crows-expertise-athletics.yaml"
+  - _include: "crows-expertise-bashing.yaml"
+  - _include: "crows-expertise-benefaction.yaml"
+  - _include: "crows-expertise-blacksmithing.yaml"
+  - _include: "crows-expertise-bow.yaml"
+  - _include: "crows-expertise-chopping.yaml"
+  - _include: "crows-expertise-conjuration.yaml"
+  - _include: "crows-expertise-elemental.yaml"
+  - _include: "crows-expertise-enchanting.yaml"
+  - _include: "crows-expertise-endurance.yaml"
+  - _include: "crows-expertise-gymnastics.yaml"
+  - _include: "crows-expertise-handle-pet.yaml"
+  - _include: "crows-expertise-historical-lore.yaml"
+  - _include: "crows-expertise-illusion.yaml"
+  - _include: "crows-expertise-lift.yaml"
+  - _include: "crows-expertise-magic-lore.yaml"
+  - _include: "crows-expertise-monster-lore.yaml"
+  - _include: "crows-expertise-nature-lore.yaml"
+  - _include: "crows-expertise-navigate.yaml"
+  - _include: "crows-expertise-necromancy.yaml"
+  - _include: "crows-expertise-pick-lock.yaml"
+  - _include: "crows-expertise-religious-lore.yaml"
+  - _include: "crows-expertise-search.yaml"
+  - _include: "crows-expertise-slashing.yaml"
+  - _include: "crows-expertise-stabbing.yaml"
+  - _include: "crows-expertise-stealth.yaml"
+  - _include: "crows-expertise-thievery.yaml"
+  - _include: "crows-expertise-unarmed.yaml"

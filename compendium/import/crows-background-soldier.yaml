@@ -1,0 +1,233 @@
+# Crows Playtest 2 -- background: Soldier
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: f6af9c2f-8550-4490-9a4e-b8343b7cbefc
+name: "Soldier"
+description: "You served as a soldier in an army dedicated to protecting others from the threats of the wilderness."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 9f012112-b0a7-470d-9ece-2fe4500e7bcf
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 4e0a1bf9-8a28-49c9-8466-625f61ddaef1
+      implementation: 3
+      source: "Soldier Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 002a7978-28b6-449c-8ca3-02854a1b7924
+        source: "Soldier Career Feature"
+        sourceguid: 4e0a1bf9-8a28-49c9-8466-625f61ddaef1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: cf75c876-8b7c-4ec8-b4b2-1d4b174f3e5f
+        source: "Soldier Career Feature"
+        sourceguid: 4e0a1bf9-8a28-49c9-8466-625f61ddaef1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: f80c169d-e35f-4466-bef4-bc1d705f446e
+        source: "Soldier Career Feature"
+        sourceguid: 4e0a1bf9-8a28-49c9-8466-625f61ddaef1
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: e63a4e42-6b8c-4648-9ac2-e3858aa9d731
+      implementation: 3
+      source: "Soldier Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 6fdeb436-f3bf-472f-98ed-82ab87ce8cef
+        source: "Soldier Career Feature"
+        sourceguid: e63a4e42-6b8c-4648-9ac2-e3858aa9d731
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: f373ea20-ae17-471d-b2d4-d263601cf568
+        source: "Soldier Career Feature"
+        sourceguid: e63a4e42-6b8c-4648-9ac2-e3858aa9d731
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: f9253c93-865b-4acc-8652-b59c276f63cd
+        source: "Soldier Career Feature"
+        sourceguid: e63a4e42-6b8c-4648-9ac2-e3858aa9d731
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: a3f8604c-765b-461d-b64a-1f7616ba9dd7
+      implementation: 3
+      source: "Soldier Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 86f1f674-a5ea-43bb-9343-ffdc62cdce14
+        source: "Soldier Career Feature"
+        sourceguid: a3f8604c-765b-461d-b64a-1f7616ba9dd7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 8b2fff0a-2d1a-4423-8f5e-59ff057c2be1
+        source: "Soldier Career Feature"
+        sourceguid: a3f8604c-765b-461d-b64a-1f7616ba9dd7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 99515962-d4e2-4371-9a18-65436d7d950d
+        source: "Soldier Career Feature"
+        sourceguid: a3f8604c-765b-461d-b64a-1f7616ba9dd7
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 8ce289ae-6d99-4d33-b029-583b5b312357
+      implementation: 3
+      source: "Soldier Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 576ab143-94ef-409a-b859-fa5f32321672
+        source: "Soldier Career Feature"
+        sourceguid: 8ce289ae-6d99-4d33-b029-583b5b312357
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: cb8452a1-4874-420b-b24e-aed671a5c1b7
+        source: "Soldier Career Feature"
+        sourceguid: 8ce289ae-6d99-4d33-b029-583b5b312357
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 392c67c6-b325-4a86-a665-f1e4d2158fcc
+        source: "Soldier Career Feature"
+        sourceguid: 8ce289ae-6d99-4d33-b029-583b5b312357
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 9."
+    guid: e9b5e0a0-f3f4-4ba2-931f-310f20a04224
+    implementation: 3
+    source: "Soldier Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 9
+      name: Stamina
+      guid: d00e33a2-03f7-460c-94f8-057f2fc68bb3
+      source: "Soldier Career Feature"
+      sourceguid: e9b5e0a0-f3f4-4ba2-931f-310f20a04224
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Bow (1 use), Endurance (1 use), Stabbing (1 use)."
+    guid: 0d05ef8a-9ec0-412c-9f79-150e6bc60f69
+    implementation: 3
+    source: "Soldier Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+      num: 1
+      name: Expertises
+      description: "Bow (1 use)"
+      guid: 69e72cc4-fbf8-4bdb-a732-1cc684914dc5
+      source: "Soldier Career Feature"
+      sourceguid: 0d05ef8a-9ec0-412c-9f79-150e6bc60f69
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 1
+      name: Expertises
+      description: "Endurance (1 use)"
+      guid: 6721e934-8902-4ac9-99c0-7058b01b55c4
+      source: "Soldier Career Feature"
+      sourceguid: 0d05ef8a-9ec0-412c-9f79-150e6bc60f69
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 015fe62d-4d71-4028-a5bd-821eee14c002
+      num: 1
+      name: Expertises
+      description: "Stabbing (1 use)"
+      guid: 7ee3b234-7f90-4a21-a6d0-021d3de5cc3e
+      source: "Soldier Career Feature"
+      sourceguid: 0d05ef8a-9ec0-412c-9f79-150e6bc60f69
+  - __typeName: CharacterFeature
+    name: "Trait: Stalwart"
+    description: "Armor trait. While wearing armor, the distance you can be force moved is reduced by 1, and you can't be knocked prone by tier 1 and 2 attack results or by tier 2 and 3 RR results."
+    guid: 6bea4d9f-512f-4d15-94e7-7e4ab9b1d6a1
+    implementation: 1
+    source: "Soldier Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Light armor, quiver of 20 arrows, shortbow, spear, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: c388dc08-595f-494f-b635-d06b1afa6921
+    implementation: 2
+    source: "Soldier Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 69bdefbf-fabc-459b-9233-c4a1245b2e3f
+      source: "Soldier Career Feature"
+      sourceguid: c388dc08-595f-494f-b635-d06b1afa6921
+      equipment:
+      - itemid: 3b5f4e41-2428-4e6a-9f2d-ebad493545fa
+        quantity: 1
+      - itemid: 8a2ea3cb-6c17-443a-af68-e57939d1671b
+        quantity: 20
+      - itemid: 4ad193cf-b73e-42c3-892c-17a7234bdf54
+        quantity: 1
+      - itemid: 1c4a745e-7ecf-4be9-8951-ae9059ce7bb3
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

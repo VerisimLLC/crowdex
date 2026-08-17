@@ -1,0 +1,267 @@
+# Crows Playtest 2 -- background: Apprentice Mage
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 7a48c442-e1d7-4319-a048-792b2dc2f73c
+name: "Apprentice Mage"
+description: "You studied several magic disciplines under a more experienced tutor."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 0077f1db-dbda-413f-b4b7-42688cc09ebb
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 98cb7408-bf4f-487d-b6b3-2015de9b36c6
+      implementation: 3
+      source: "Apprentice Mage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: dcf054e9-c97d-45ad-b635-72616b721da5
+        source: "Apprentice Mage Career Feature"
+        sourceguid: 98cb7408-bf4f-487d-b6b3-2015de9b36c6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ce0ff9fd-aca7-40cb-8f59-46e40d28f68e
+        source: "Apprentice Mage Career Feature"
+        sourceguid: 98cb7408-bf4f-487d-b6b3-2015de9b36c6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 7996a106-9f0c-4d9f-9a1a-d181e7e620e7
+        source: "Apprentice Mage Career Feature"
+        sourceguid: 98cb7408-bf4f-487d-b6b3-2015de9b36c6
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: e0de2a4b-4328-4ae0-8c24-361054bdaf67
+      implementation: 3
+      source: "Apprentice Mage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: d60d600d-66bf-4367-a1ca-fc76985b9ece
+        source: "Apprentice Mage Career Feature"
+        sourceguid: e0de2a4b-4328-4ae0-8c24-361054bdaf67
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: c7a94d96-f2c3-403b-aa26-6a23d6b92ea6
+        source: "Apprentice Mage Career Feature"
+        sourceguid: e0de2a4b-4328-4ae0-8c24-361054bdaf67
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 9da08a5f-3dfb-42a6-8b79-eb706e7d112b
+        source: "Apprentice Mage Career Feature"
+        sourceguid: e0de2a4b-4328-4ae0-8c24-361054bdaf67
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: b612e734-e474-4a13-9672-c57f9022f166
+      implementation: 3
+      source: "Apprentice Mage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 6b14df05-3e2d-403a-999f-be082687a716
+        source: "Apprentice Mage Career Feature"
+        sourceguid: b612e734-e474-4a13-9672-c57f9022f166
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 102557fa-41e4-4bd0-92c9-3a9a793d910f
+        source: "Apprentice Mage Career Feature"
+        sourceguid: b612e734-e474-4a13-9672-c57f9022f166
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a61181f5-c43d-428b-9db9-4bd68ef97a09
+        source: "Apprentice Mage Career Feature"
+        sourceguid: b612e734-e474-4a13-9672-c57f9022f166
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 007025a5-b999-46d8-a542-cb5aafe97693
+      implementation: 3
+      source: "Apprentice Mage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 1aa5fd81-f3e6-47f4-afeb-d55485eb0e88
+        source: "Apprentice Mage Career Feature"
+        sourceguid: 007025a5-b999-46d8-a542-cb5aafe97693
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 9ed2c89b-40ce-4567-a69e-826017d90d57
+        source: "Apprentice Mage Career Feature"
+        sourceguid: 007025a5-b999-46d8-a542-cb5aafe97693
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: f6945bd1-7779-4b59-a79a-9c9bd2b60d23
+        source: "Apprentice Mage Career Feature"
+        sourceguid: 007025a5-b999-46d8-a542-cb5aafe97693
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: 8db2930a-7f7e-43c0-85a2-4c6c773e1f5f
+    implementation: 3
+    source: "Apprentice Mage Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: f0ff2f38-8204-466d-aa88-9cbc48e9ec5f
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 8db2930a-7f7e-43c0-85a2-4c6c773e1f5f
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alteration (2 uses), Conjuration (1 use), Elemental (2 uses), Enchanting (1 use), Illusion (1 use), Magic Lore (1 use), Monster Lore (1 use)."
+    guid: 76f72fab-3db0-4cb5-942d-b18387dde964
+    implementation: 3
+    source: "Apprentice Mage Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: df3af2b7-a0eb-4b2e-8466-3ee53c550e88
+      num: 2
+      name: Expertises
+      description: "Alteration (2 uses)"
+      guid: 5ffe768a-f2af-4460-9571-3a3208438519
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 76f72fab-3db0-4cb5-942d-b18387dde964
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: cf9240ba-9ad6-45a1-ad00-01897f77e619
+      num: 1
+      name: Expertises
+      description: "Conjuration (1 use)"
+      guid: 05b705ab-2932-47a8-8ce9-2f2e101c1413
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 76f72fab-3db0-4cb5-942d-b18387dde964
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a680fc5-efe0-42a6-9479-1c378510b416
+      num: 2
+      name: Expertises
+      description: "Elemental (2 uses)"
+      guid: 02b5ba6c-8345-4d8c-9a65-72b401cde834
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 76f72fab-3db0-4cb5-942d-b18387dde964
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 1
+      name: Expertises
+      description: "Enchanting (1 use)"
+      guid: fa9e7513-b84f-40ce-a313-3ae3da75bdf2
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 76f72fab-3db0-4cb5-942d-b18387dde964
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8bc9b675-b597-4e4a-890e-4d1d38fe9e54
+      num: 1
+      name: Expertises
+      description: "Illusion (1 use)"
+      guid: e1f3012f-e903-484d-8031-d299c28f67ea
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 76f72fab-3db0-4cb5-942d-b18387dde964
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 1
+      name: Expertises
+      description: "Magic Lore (1 use)"
+      guid: 60fb9bf2-6499-4abc-848f-5a60a5c7b883
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 76f72fab-3db0-4cb5-942d-b18387dde964
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+      num: 1
+      name: Expertises
+      description: "Monster Lore (1 use)"
+      guid: 3bdead4a-11a0-46be-869d-4cb9a877628d
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 76f72fab-3db0-4cb5-942d-b18387dde964
+  - __typeName: CharacterFeature
+    name: "Trait: Alteration Stone"
+    description: "Alteration trait. As a rest activity, you can create an alteration stone (which has an equipment card). This stone disappears if you create a new one."
+    guid: f6125d64-63f7-42c9-9902-4301e08e6071
+    implementation: 1
+    source: "Apprentice Mage Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Spellbooks: acid spit, jaunt, light, take shape, thunder. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 53475813-449d-4c58-b709-4aaa3381831f
+    implementation: 2
+    source: "Apprentice Mage Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 9fcb0d87-4d5c-474f-b3e6-aac144ec6eba
+      source: "Apprentice Mage Career Feature"
+      sourceguid: 53475813-449d-4c58-b709-4aaa3381831f
+      equipment:
+      - itemid: f5e10961-ee2c-4de8-b2ca-1dd4558ecf5e
+        quantity: 1
+      - itemid: 3c541a34-dfba-4e8c-8b4e-532735828d08
+        quantity: 1
+      - itemid: 9180c46f-cc1e-40e0-acb1-9ad669d34b11
+        quantity: 1
+      - itemid: 691dbcee-02e1-4c1d-bc44-69ff23e7d583
+        quantity: 1

@@ -1,0 +1,271 @@
+# Crows Playtest 2 -- background: Alchemist
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 31eda93e-55e6-43a3-ba17-231b159f67ea
+name: "Alchemist"
+description: "You crafted and sold acids, potions, and bombs."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 7b03a0b6-5b47-41ca-b290-e176b38b89a7
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 041bc5ce-93ee-4433-bc3d-88d001b1dc51
+      implementation: 3
+      source: "Alchemist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 8b77ce35-0cac-4667-8c41-0970bca5651f
+        source: "Alchemist Career Feature"
+        sourceguid: 041bc5ce-93ee-4433-bc3d-88d001b1dc51
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: cfa07c0b-f1a1-4a08-9858-2b6f19d5cf0a
+        source: "Alchemist Career Feature"
+        sourceguid: 041bc5ce-93ee-4433-bc3d-88d001b1dc51
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: f2cad1bd-7a7c-45c6-b53d-05eafcb7926a
+        source: "Alchemist Career Feature"
+        sourceguid: 041bc5ce-93ee-4433-bc3d-88d001b1dc51
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 8cb962aa-2c82-42d3-a2a5-129c88b1598e
+      implementation: 3
+      source: "Alchemist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: b3567d70-535a-40e8-b29c-310c7a4d86bd
+        source: "Alchemist Career Feature"
+        sourceguid: 8cb962aa-2c82-42d3-a2a5-129c88b1598e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: ab68a6e9-4d95-473a-89f5-7f31f35ff4fc
+        source: "Alchemist Career Feature"
+        sourceguid: 8cb962aa-2c82-42d3-a2a5-129c88b1598e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: ea65f3d6-a8a4-4ecb-8188-21aefb62fcc3
+        source: "Alchemist Career Feature"
+        sourceguid: 8cb962aa-2c82-42d3-a2a5-129c88b1598e
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: a7a76a8b-f014-4e92-b51e-2476239b7be8
+      implementation: 3
+      source: "Alchemist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 0469534a-eab7-4c51-8c12-68fb1c33cfd9
+        source: "Alchemist Career Feature"
+        sourceguid: a7a76a8b-f014-4e92-b51e-2476239b7be8
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 73bbbedb-31d1-4303-b972-b91b47f3cb26
+        source: "Alchemist Career Feature"
+        sourceguid: a7a76a8b-f014-4e92-b51e-2476239b7be8
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: d17193bb-5eb8-41f7-9d0c-a5d76ca5601e
+        source: "Alchemist Career Feature"
+        sourceguid: a7a76a8b-f014-4e92-b51e-2476239b7be8
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 17f6a74b-f11c-401b-92df-fd50fcaa8468
+      implementation: 3
+      source: "Alchemist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 5603cc5b-acc0-44fe-99bf-11004ec88acd
+        source: "Alchemist Career Feature"
+        sourceguid: 17f6a74b-f11c-401b-92df-fd50fcaa8468
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 8a3fecf9-0a9a-4874-a6d3-24025232889c
+        source: "Alchemist Career Feature"
+        sourceguid: 17f6a74b-f11c-401b-92df-fd50fcaa8468
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 42eb2fc8-5792-4130-a6ad-02996898a04c
+        source: "Alchemist Career Feature"
+        sourceguid: 17f6a74b-f11c-401b-92df-fd50fcaa8468
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: c6b1e076-ccf4-4ebe-9f3e-483050030009
+    implementation: 3
+    source: "Alchemist Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: 6de50e15-2c60-4249-ae83-422c94118afa
+      source: "Alchemist Career Feature"
+      sourceguid: c6b1e076-ccf4-4ebe-9f3e-483050030009
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (2 uses), Enchanting (1 use), Magic Lore (1 use), Monster Lore (1 use), Nature Lore (1 use), Search (1 use), Thievery (2 uses)."
+    guid: a799cefd-0a49-44f8-9816-40168fa5ff23
+    implementation: 3
+    source: "Alchemist Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 2
+      name: Expertises
+      description: "Alchemy (2 uses)"
+      guid: 1043848b-ee51-4dc5-977d-92d2fa053f2a
+      source: "Alchemist Career Feature"
+      sourceguid: a799cefd-0a49-44f8-9816-40168fa5ff23
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 1
+      name: Expertises
+      description: "Enchanting (1 use)"
+      guid: 8456033f-ac94-4b01-958f-60a22d7f9fb9
+      source: "Alchemist Career Feature"
+      sourceguid: a799cefd-0a49-44f8-9816-40168fa5ff23
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 1
+      name: Expertises
+      description: "Magic Lore (1 use)"
+      guid: 4269c168-cac2-43aa-908a-d83843927d6c
+      source: "Alchemist Career Feature"
+      sourceguid: a799cefd-0a49-44f8-9816-40168fa5ff23
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+      num: 1
+      name: Expertises
+      description: "Monster Lore (1 use)"
+      guid: 5550ce31-9675-475f-aa3d-5a8b6f7cc4af
+      source: "Alchemist Career Feature"
+      sourceguid: a799cefd-0a49-44f8-9816-40168fa5ff23
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: a22217c6-65ed-4254-8936-754c4a180237
+      num: 1
+      name: Expertises
+      description: "Nature Lore (1 use)"
+      guid: d1a7fb2a-8e28-49e0-802f-dc4f51583565
+      source: "Alchemist Career Feature"
+      sourceguid: a799cefd-0a49-44f8-9816-40168fa5ff23
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      num: 1
+      name: Expertises
+      description: "Search (1 use)"
+      guid: f3cdc9ee-0dd8-4505-a630-f94acf454512
+      source: "Alchemist Career Feature"
+      sourceguid: a799cefd-0a49-44f8-9816-40168fa5ff23
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 2
+      name: Expertises
+      description: "Thievery (2 uses)"
+      guid: 4b989b56-eebd-4995-842c-d12b3bca840a
+      source: "Alchemist Career Feature"
+      sourceguid: a799cefd-0a49-44f8-9816-40168fa5ff23
+  - __typeName: CharacterFeature
+    name: "Trait: Midnight Oil"
+    description: "Alchemy trait. When you work on crafting an alchemy item as part of the Craft Equipment rest activity, you can make two crafting rolls for the item or make a second crafting roll for a different alchemy item."
+    guid: 9d0033f3-4fb7-46fd-9184-a34dc99d336c
+    implementation: 1
+    source: "Alchemist Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Acid vial, alchemist's tools, bucket, healing potion, lantern, oil flask. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: dec60de3-76a3-41aa-a077-7499a8d6350f
+    implementation: 2
+    source: "Alchemist Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 10fe1491-02d9-4f04-8613-702e87943c47
+      source: "Alchemist Career Feature"
+      sourceguid: dec60de3-76a3-41aa-a077-7499a8d6350f
+      equipment:
+      - itemid: 01039d82-6646-4def-a21b-5537882a2ac0
+        quantity: 1
+      - itemid: 5c3bc0fb-9354-4303-88ea-be007b26a3bf
+        quantity: 1
+      - itemid: e8a37653-fd3e-46d6-b3ae-7888c5586934
+        quantity: 1
+      - itemid: 77fd0842-fd10-4729-9fd4-df57727f36e2
+        quantity: 1
+      - itemid: 9e3e5570-f28a-49aa-84e8-d8c7bcc220df
+        quantity: 1
+      - itemid: f3b04bec-1d0f-4fca-a886-0fc1622e84c4
+        quantity: 1

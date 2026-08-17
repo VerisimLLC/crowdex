@@ -1,0 +1,249 @@
+# Crows Playtest 2 -- background: Farmer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: ac1393f0-3cd6-49b6-a0e7-599f42ef55aa
+name: "Farmer"
+description: "You ploughed the fields and raised animals."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 8da59657-6655-41a8-9310-691e0bbd9182
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: b8baa284-2b97-4ef1-aa25-9aac9f00e3e9
+      implementation: 3
+      source: "Farmer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: d906238d-56d5-4297-bb58-09b2764278a2
+        source: "Farmer Career Feature"
+        sourceguid: b8baa284-2b97-4ef1-aa25-9aac9f00e3e9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 682c9b37-a3f1-454c-8d85-eef274a3bce4
+        source: "Farmer Career Feature"
+        sourceguid: b8baa284-2b97-4ef1-aa25-9aac9f00e3e9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: ac3e3357-17d3-4804-ab03-51229c9920de
+        source: "Farmer Career Feature"
+        sourceguid: b8baa284-2b97-4ef1-aa25-9aac9f00e3e9
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: 52a0fd2c-f633-4b38-b98e-214ebf0ee9b3
+      implementation: 3
+      source: "Farmer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: cbfcb66e-3ba1-4c48-af78-7febf2b4567a
+        source: "Farmer Career Feature"
+        sourceguid: 52a0fd2c-f633-4b38-b98e-214ebf0ee9b3
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: a31e84de-a8c6-4220-9f4c-72f1368b31eb
+        source: "Farmer Career Feature"
+        sourceguid: 52a0fd2c-f633-4b38-b98e-214ebf0ee9b3
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: e9e8ac37-6f18-4730-a23c-d98116663b8d
+        source: "Farmer Career Feature"
+        sourceguid: 52a0fd2c-f633-4b38-b98e-214ebf0ee9b3
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: c8dc24f4-176d-4786-a83b-d72ef74ee8e1
+      implementation: 3
+      source: "Farmer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: b6cfc58f-1cf8-4bff-bcbc-d7b0d2cc638b
+        source: "Farmer Career Feature"
+        sourceguid: c8dc24f4-176d-4786-a83b-d72ef74ee8e1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: f35bcd60-a0cf-4282-844c-58628d891e1e
+        source: "Farmer Career Feature"
+        sourceguid: c8dc24f4-176d-4786-a83b-d72ef74ee8e1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 48a6ed94-2af7-4730-9f45-4e6bac8c80eb
+        source: "Farmer Career Feature"
+        sourceguid: c8dc24f4-176d-4786-a83b-d72ef74ee8e1
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 7b7a51f4-89fb-488c-ad8e-92ff537e4630
+      implementation: 3
+      source: "Farmer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: f17a87fe-9c41-42a9-b2b6-14f7238e899e
+        source: "Farmer Career Feature"
+        sourceguid: 7b7a51f4-89fb-488c-ad8e-92ff537e4630
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 128e9cf3-2951-49ad-99bf-73f158d76592
+        source: "Farmer Career Feature"
+        sourceguid: 7b7a51f4-89fb-488c-ad8e-92ff537e4630
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: a0f069e4-6dfd-4a78-8723-4f2e9f521acc
+        source: "Farmer Career Feature"
+        sourceguid: 7b7a51f4-89fb-488c-ad8e-92ff537e4630
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 72c0d817-cfef-4663-80f2-d8b3a7f92e6a
+    implementation: 3
+    source: "Farmer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: c49f0037-2114-4916-9326-a2701a7db49f
+      source: "Farmer Career Feature"
+      sourceguid: 72c0d817-cfef-4663-80f2-d8b3a7f92e6a
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Blacksmithing (1 use), Endurance (1 use), Handle Pet (2 uses), Lift (1 use), Nature Lore (1 use)."
+    guid: bc47b7e3-0e6d-48b2-ba21-3bf77c93106d
+    implementation: 3
+    source: "Farmer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+      num: 1
+      name: Expertises
+      description: "Blacksmithing (1 use)"
+      guid: 8ed36078-9d30-42c2-aa2d-95350f93bca2
+      source: "Farmer Career Feature"
+      sourceguid: bc47b7e3-0e6d-48b2-ba21-3bf77c93106d
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 1
+      name: Expertises
+      description: "Endurance (1 use)"
+      guid: 5bd919a5-4df9-4af3-8e7c-7f73ffd73a70
+      source: "Farmer Career Feature"
+      sourceguid: bc47b7e3-0e6d-48b2-ba21-3bf77c93106d
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      num: 2
+      name: Expertises
+      description: "Handle Pet (2 uses)"
+      guid: 1e310c01-cda7-4df2-b4cd-227e74e20640
+      source: "Farmer Career Feature"
+      sourceguid: bc47b7e3-0e6d-48b2-ba21-3bf77c93106d
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: 52fb4f0d-d0eb-4d76-be73-d27651f7a2d2
+      source: "Farmer Career Feature"
+      sourceguid: bc47b7e3-0e6d-48b2-ba21-3bf77c93106d
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: a22217c6-65ed-4254-8936-754c4a180237
+      num: 1
+      name: Expertises
+      description: "Nature Lore (1 use)"
+      guid: a5b19449-c63b-4a54-8fc4-51096cb76633
+      source: "Farmer Career Feature"
+      sourceguid: bc47b7e3-0e6d-48b2-ba21-3bf77c93106d
+  - __typeName: CharacterFeature
+    name: "Trait: Buddy"
+    description: "Pets trait. As a rest activity, choose a number of pets you own equal to your Mind (minimum 1). You gain a +2 bonus on Mind tests made to interact with those pets until you use the activity again."
+    guid: 0156e2fb-5b79-4835-877e-d96740daabea
+    implementation: 1
+    source: "Farmer Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: 10-foot pole, animal feed (6), goat (pet), pot, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: df578c73-ca85-4a13-b921-0b1a4bc3223c
+    implementation: 2
+    source: "Farmer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 3152ce66-5213-472e-9d26-423040a17fdc
+      source: "Farmer Career Feature"
+      sourceguid: df578c73-ca85-4a13-b921-0b1a4bc3223c
+      equipment:
+      - itemid: aab94a9c-3e00-4b58-9526-cb85de5f584d
+        quantity: 1
+      - itemid: 64b1383d-ab01-4478-97f4-e9b2039a580e
+        quantity: 6
+      - itemid: 880dd636-2ea1-420d-a140-1699da048d1a
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

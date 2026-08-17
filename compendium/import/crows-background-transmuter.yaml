@@ -1,0 +1,262 @@
+# Crows Playtest 2 -- background: Transmuter
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 9f2e3903-bebb-4845-be6d-ca9cf9b7cdad
+name: "Transmuter"
+description: "You studied alteration magic either on your own or with a teacher."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 9dde10d2-80a8-473b-927b-92058bfa7f39
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: f491840f-435b-43f0-acbe-807c3e9b5ea1
+      implementation: 3
+      source: "Transmuter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: a77035d5-0078-454a-b786-585b46623128
+        source: "Transmuter Career Feature"
+        sourceguid: f491840f-435b-43f0-acbe-807c3e9b5ea1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 1673397b-4010-48c5-b2ad-a45f6ab37d75
+        source: "Transmuter Career Feature"
+        sourceguid: f491840f-435b-43f0-acbe-807c3e9b5ea1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 2dc00de7-6eef-44fe-b143-bdfd805b2725
+        source: "Transmuter Career Feature"
+        sourceguid: f491840f-435b-43f0-acbe-807c3e9b5ea1
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 70f9070a-c2b2-4ed6-ae00-af19eb688cfb
+      implementation: 3
+      source: "Transmuter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 3eb7d4c8-c5a9-4c80-b7a2-225f7e324c41
+        source: "Transmuter Career Feature"
+        sourceguid: 70f9070a-c2b2-4ed6-ae00-af19eb688cfb
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: eae96ec0-666f-49ec-a147-fec800b520cd
+        source: "Transmuter Career Feature"
+        sourceguid: 70f9070a-c2b2-4ed6-ae00-af19eb688cfb
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: a631a743-acc7-49ba-8a47-fefb5586dd51
+        source: "Transmuter Career Feature"
+        sourceguid: 70f9070a-c2b2-4ed6-ae00-af19eb688cfb
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: c4dbfab5-7037-4882-a2b9-435b1d1eb113
+      implementation: 3
+      source: "Transmuter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 016a142c-a0be-42d3-9aa7-3157f20dd76b
+        source: "Transmuter Career Feature"
+        sourceguid: c4dbfab5-7037-4882-a2b9-435b1d1eb113
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 74d48bab-7506-47c5-9dbe-8744d8f3ffca
+        source: "Transmuter Career Feature"
+        sourceguid: c4dbfab5-7037-4882-a2b9-435b1d1eb113
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: bcfbf2bc-ac6f-4aaf-ac86-2107de8bece0
+        source: "Transmuter Career Feature"
+        sourceguid: c4dbfab5-7037-4882-a2b9-435b1d1eb113
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: fabd342c-708f-439a-ada4-f15b77509f6c
+      implementation: 3
+      source: "Transmuter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 6e772c60-4c24-4dd4-8790-1d94bf651453
+        source: "Transmuter Career Feature"
+        sourceguid: fabd342c-708f-439a-ada4-f15b77509f6c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 7fe07786-5a4e-4aef-8a27-1a217a8c1a61
+        source: "Transmuter Career Feature"
+        sourceguid: fabd342c-708f-439a-ada4-f15b77509f6c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 43fbae6b-dbdf-4d8b-935e-3b56a64fab69
+        source: "Transmuter Career Feature"
+        sourceguid: fabd342c-708f-439a-ada4-f15b77509f6c
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: e5743dff-9452-46d3-8200-2cd7ff5dce58
+    implementation: 3
+    source: "Transmuter Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: cb84d4fc-df81-4e4d-8b37-479e41645b72
+      source: "Transmuter Career Feature"
+      sourceguid: e5743dff-9452-46d3-8200-2cd7ff5dce58
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (1 use), Alteration (2 uses), Blacksmithing (1 use), Enchanting (2 uses), Magic Lore (2 uses), Thievery (1 use)."
+    guid: b3fcfde9-9fd5-44bb-bc84-450eb9f4ca48
+    implementation: 3
+    source: "Transmuter Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 1
+      name: Expertises
+      description: "Alchemy (1 use)"
+      guid: c3ae8ac9-80b8-4842-8c2f-114713970e42
+      source: "Transmuter Career Feature"
+      sourceguid: b3fcfde9-9fd5-44bb-bc84-450eb9f4ca48
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: df3af2b7-a0eb-4b2e-8466-3ee53c550e88
+      num: 2
+      name: Expertises
+      description: "Alteration (2 uses)"
+      guid: 376445a1-cacb-4adb-8bc1-da7b9a5eb71c
+      source: "Transmuter Career Feature"
+      sourceguid: b3fcfde9-9fd5-44bb-bc84-450eb9f4ca48
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+      num: 1
+      name: Expertises
+      description: "Blacksmithing (1 use)"
+      guid: 54036295-245e-452d-bd22-bff2b5b8220b
+      source: "Transmuter Career Feature"
+      sourceguid: b3fcfde9-9fd5-44bb-bc84-450eb9f4ca48
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 2
+      name: Expertises
+      description: "Enchanting (2 uses)"
+      guid: 4a0994a0-928e-4fae-acf2-a172af7b489a
+      source: "Transmuter Career Feature"
+      sourceguid: b3fcfde9-9fd5-44bb-bc84-450eb9f4ca48
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 2
+      name: Expertises
+      description: "Magic Lore (2 uses)"
+      guid: a84041f8-ff99-4db8-9d87-ae46fc4c47a3
+      source: "Transmuter Career Feature"
+      sourceguid: b3fcfde9-9fd5-44bb-bc84-450eb9f4ca48
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 1
+      name: Expertises
+      description: "Thievery (1 use)"
+      guid: 16ab4d4b-1605-4dd5-9b5a-0bffdf446504
+      source: "Transmuter Career Feature"
+      sourceguid: b3fcfde9-9fd5-44bb-bc84-450eb9f4ca48
+  - __typeName: CharacterFeature
+    name: "Trait: Lasting Alteration"
+    description: "Alteration trait. When you cast an alteration spell with a duration listed in UD, add an additional 1 UD to the duration."
+    guid: a69414b3-4f70-4972-9535-a9534f6d505c
+    implementation: 1
+    source: "Transmuter Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Chalk, torch, spellbooks: jaunt, animal form, repair, take shape. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 200d7be1-2829-4d1f-a621-98a1058c5b35
+    implementation: 2
+    source: "Transmuter Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 9bb4cd04-d40d-4d96-80b9-764c4f9e56fb
+      source: "Transmuter Career Feature"
+      sourceguid: 200d7be1-2829-4d1f-a621-98a1058c5b35
+      equipment:
+      - itemid: 7e2d8974-0ea3-4fd3-9b4e-44ffed6d5da9
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: f5e10961-ee2c-4de8-b2ca-1dd4558ecf5e
+        quantity: 1
+      - itemid: fce582c0-ee8e-4147-8502-f5019b71bf89
+        quantity: 1
+      - itemid: 26e9f297-e45a-479e-9378-d3ed8626b050
+        quantity: 1
+      - itemid: 9180c46f-cc1e-40e0-acb1-9ad669d34b11
+        quantity: 1

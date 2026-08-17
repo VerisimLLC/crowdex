@@ -1,0 +1,260 @@
+# Crows Playtest 2 -- background: Assassin
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 82ff9aad-9ca5-4402-8e40-ffdae406e5f9
+name: "Assassin"
+description: "You were a killer who either worked paid contracts or served a higher purpose in a shady organization."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: ab7ebc90-7dc9-4e1d-9105-384687b7fdb2
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Agility to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: 17283c4c-b6ba-4085-aec9-e32a61c6b753
+      implementation: 3
+      source: "Assassin Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: a7715992-52fa-4cfa-ad21-e9d7761d5f2a
+        source: "Assassin Career Feature"
+        sourceguid: 17283c4c-b6ba-4085-aec9-e32a61c6b753
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 34d6e6b3-177e-431e-a2b6-a67ff6139346
+        source: "Assassin Career Feature"
+        sourceguid: 17283c4c-b6ba-4085-aec9-e32a61c6b753
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: de6602da-d735-493f-96ba-1f05600341fd
+        source: "Assassin Career Feature"
+        sourceguid: 17283c4c-b6ba-4085-aec9-e32a61c6b753
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: fba8338f-0bb2-4469-b4c2-66ab2afef889
+      implementation: 3
+      source: "Assassin Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 3ce97ee6-1d93-4649-b0e7-29798c61f5ff
+        source: "Assassin Career Feature"
+        sourceguid: fba8338f-0bb2-4469-b4c2-66ab2afef889
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 2b46837a-8cfc-45c8-92f3-c4852466e398
+        source: "Assassin Career Feature"
+        sourceguid: fba8338f-0bb2-4469-b4c2-66ab2afef889
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 35dc8608-d21d-4247-9fc8-38a7681fc93c
+        source: "Assassin Career Feature"
+        sourceguid: fba8338f-0bb2-4469-b4c2-66ab2afef889
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: ab0fd19d-33e7-4529-b19f-bda1adfef035
+      implementation: 3
+      source: "Assassin Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 9fc6db62-2aec-4fa6-bbb4-3d15a8846b8f
+        source: "Assassin Career Feature"
+        sourceguid: ab0fd19d-33e7-4529-b19f-bda1adfef035
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: c0c6cc30-dea0-4a15-86c8-ae9a49c87e9e
+        source: "Assassin Career Feature"
+        sourceguid: ab0fd19d-33e7-4529-b19f-bda1adfef035
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 5267b4b1-32bd-46cd-b5a8-33968c3a0171
+        source: "Assassin Career Feature"
+        sourceguid: ab0fd19d-33e7-4529-b19f-bda1adfef035
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 7747b544-97f2-4e10-bb5a-d28812cf2b58
+      implementation: 3
+      source: "Assassin Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 5ed085ce-d88f-420a-ad65-151db91e3024
+        source: "Assassin Career Feature"
+        sourceguid: 7747b544-97f2-4e10-bb5a-d28812cf2b58
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 6b2776f4-a966-41ea-808d-79272c102a3b
+        source: "Assassin Career Feature"
+        sourceguid: 7747b544-97f2-4e10-bb5a-d28812cf2b58
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 37886d9d-90bf-47ca-ac5a-bd105702005c
+        source: "Assassin Career Feature"
+        sourceguid: 7747b544-97f2-4e10-bb5a-d28812cf2b58
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: 3e392c07-5c09-4e8a-ae85-cab09fe2ac90
+    implementation: 3
+    source: "Assassin Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: 57f5dfcf-4118-49d3-a4dc-0f585d6cf404
+      source: "Assassin Career Feature"
+      sourceguid: 3e392c07-5c09-4e8a-ae85-cab09fe2ac90
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (1 use), Bow (2 uses), Gymnastics (1 use), Slashing (2 uses), Stealth (2 uses), Thievery (1 use)."
+    guid: 9fe92b04-f883-4f0b-add1-e576383023ce
+    implementation: 3
+    source: "Assassin Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: edbee7a8-6a89-491c-b0fc-319093afe715
+      source: "Assassin Career Feature"
+      sourceguid: 9fe92b04-f883-4f0b-add1-e576383023ce
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+      num: 2
+      name: Expertises
+      description: "Bow (2 uses)"
+      guid: de84a46c-dca3-4d4e-a7a0-b3eb30d36d24
+      source: "Assassin Career Feature"
+      sourceguid: 9fe92b04-f883-4f0b-add1-e576383023ce
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9987741a-c5f1-402b-ab3e-38c12b986f98
+      num: 1
+      name: Expertises
+      description: "Gymnastics (1 use)"
+      guid: f776c65b-91d2-41b0-83f5-7232dc9611e6
+      source: "Assassin Career Feature"
+      sourceguid: 9fe92b04-f883-4f0b-add1-e576383023ce
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4e7a4dca-510b-4059-b69f-499845a1ae9b
+      num: 2
+      name: Expertises
+      description: "Slashing (2 uses)"
+      guid: 90ff1f80-ce81-4815-913d-8504c4964c0b
+      source: "Assassin Career Feature"
+      sourceguid: 9fe92b04-f883-4f0b-add1-e576383023ce
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+      num: 2
+      name: Expertises
+      description: "Stealth (2 uses)"
+      guid: 5864d53f-fe2c-40f2-ba78-e5ab493226a4
+      source: "Assassin Career Feature"
+      sourceguid: 9fe92b04-f883-4f0b-add1-e576383023ce
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 1
+      name: Expertises
+      description: "Thievery (1 use)"
+      guid: 22ebabfb-3b6d-4e8f-93df-7578cb150d23
+      source: "Assassin Career Feature"
+      sourceguid: 9fe92b04-f883-4f0b-add1-e576383023ce
+  - __typeName: CharacterFeature
+    name: "Trait: Sieze the Advantage"
+    description: "Thievery trait. When you hit with a weapon attack using Agility that has bonuses outside of skills and characteristics, you deal additional damage equal to twice those bonuses."
+    guid: f03fb05e-19a2-4680-bc1f-530a5a1e2cc0
+    implementation: 1
+    source: "Assassin Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Extra knife, poison vial, quiver of 20 arrows, shortbow, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 5e7e5e34-379f-4685-bd73-cb432d8e30c7
+    implementation: 2
+    source: "Assassin Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 6a65d8b4-37e2-4086-9454-50ff1430a547
+      source: "Assassin Career Feature"
+      sourceguid: 5e7e5e34-379f-4685-bd73-cb432d8e30c7
+      equipment:
+      - itemid: 10c54280-6bb9-42ea-b7ed-a191783a8cef
+        quantity: 1
+      - itemid: 5fcaf7ed-a7a3-4772-b74d-5020ee8e3b77
+        quantity: 1
+      - itemid: 8a2ea3cb-6c17-443a-af68-e57939d1671b
+        quantity: 20
+      - itemid: 4ad193cf-b73e-42c3-892c-17a7234bdf54
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

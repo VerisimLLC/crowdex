@@ -1,0 +1,251 @@
+# Crows Playtest 2 -- background: Hydromancer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: b1e2e7ed-af45-48a3-bdb3-25f1f9036981
+name: "Hydromancer"
+description: "You learned how to cast elemental spells that create and harness water."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 7b4324a6-df05-442d-8712-c42570c25964
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: eeb5cceb-aa28-4f85-96b3-d8f546b3c59e
+      implementation: 3
+      source: "Hydromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 3e64e069-1299-4c6e-8045-07e37c107d83
+        source: "Hydromancer Career Feature"
+        sourceguid: eeb5cceb-aa28-4f85-96b3-d8f546b3c59e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 5d4c6db3-c846-42a7-8172-3f3f8a9036e8
+        source: "Hydromancer Career Feature"
+        sourceguid: eeb5cceb-aa28-4f85-96b3-d8f546b3c59e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 4b8e449c-7ee2-460c-b326-38c4ef56a96d
+        source: "Hydromancer Career Feature"
+        sourceguid: eeb5cceb-aa28-4f85-96b3-d8f546b3c59e
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 32ffa442-ebb5-4892-85d4-af0d8fc953a6
+      implementation: 3
+      source: "Hydromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: fc51bf29-e775-4890-8029-6a146cc0c45e
+        source: "Hydromancer Career Feature"
+        sourceguid: 32ffa442-ebb5-4892-85d4-af0d8fc953a6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: b877ba8d-8782-4df2-98ea-79276f604a16
+        source: "Hydromancer Career Feature"
+        sourceguid: 32ffa442-ebb5-4892-85d4-af0d8fc953a6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: a9cd4f28-1924-4617-91fc-db139e404cca
+        source: "Hydromancer Career Feature"
+        sourceguid: 32ffa442-ebb5-4892-85d4-af0d8fc953a6
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: fa7aa6a3-7bb9-4354-9a56-2027497396d6
+      implementation: 3
+      source: "Hydromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: f34e60d9-c4e0-4ea6-b698-d65d03d33c34
+        source: "Hydromancer Career Feature"
+        sourceguid: fa7aa6a3-7bb9-4354-9a56-2027497396d6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 1a6773ac-fe6b-4ca9-94a9-2a67a1157f1f
+        source: "Hydromancer Career Feature"
+        sourceguid: fa7aa6a3-7bb9-4354-9a56-2027497396d6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: b7a25581-cf9c-4599-9f7d-e072266a2a7b
+        source: "Hydromancer Career Feature"
+        sourceguid: fa7aa6a3-7bb9-4354-9a56-2027497396d6
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 507acb2e-ce52-4c6c-83b5-88bdbe696b5a
+      implementation: 3
+      source: "Hydromancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 7c16a798-e478-4f22-8d7a-6964b98a2bc4
+        source: "Hydromancer Career Feature"
+        sourceguid: 507acb2e-ce52-4c6c-83b5-88bdbe696b5a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 1a20e5e5-84b4-442c-a168-aaeccfa0926b
+        source: "Hydromancer Career Feature"
+        sourceguid: 507acb2e-ce52-4c6c-83b5-88bdbe696b5a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 96eb5d12-6bca-4eec-a842-d975c5ef06c9
+        source: "Hydromancer Career Feature"
+        sourceguid: 507acb2e-ce52-4c6c-83b5-88bdbe696b5a
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: fd93e510-80cc-40b1-b388-3e5c11d490b7
+    implementation: 3
+    source: "Hydromancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: a88f4ad1-5128-4661-a41d-b778655808ab
+      source: "Hydromancer Career Feature"
+      sourceguid: fd93e510-80cc-40b1-b388-3e5c11d490b7
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (1 use), Athletics (1 use), Elemental (2 uses), Enchanting (1 use), Magic Lore (1 use)."
+    guid: 2d42cd34-090f-485a-94be-f8ebdb23814a
+    implementation: 3
+    source: "Hydromancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 1
+      name: Expertises
+      description: "Alchemy (1 use)"
+      guid: 81945eb6-5065-485e-8270-c80f0c3bfa5d
+      source: "Hydromancer Career Feature"
+      sourceguid: 2d42cd34-090f-485a-94be-f8ebdb23814a
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: 731a2972-54ee-4c49-b616-a77cfcd96911
+      source: "Hydromancer Career Feature"
+      sourceguid: 2d42cd34-090f-485a-94be-f8ebdb23814a
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a680fc5-efe0-42a6-9479-1c378510b416
+      num: 2
+      name: Expertises
+      description: "Elemental (2 uses)"
+      guid: 631597c7-93db-4639-82c0-4d301f7e0abf
+      source: "Hydromancer Career Feature"
+      sourceguid: 2d42cd34-090f-485a-94be-f8ebdb23814a
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 1
+      name: Expertises
+      description: "Enchanting (1 use)"
+      guid: 48699a9b-a9f3-408e-9db0-b7007371221d
+      source: "Hydromancer Career Feature"
+      sourceguid: 2d42cd34-090f-485a-94be-f8ebdb23814a
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 1
+      name: Expertises
+      description: "Magic Lore (1 use)"
+      guid: 6ccd89f1-6530-49b1-b3b0-4910de6748dd
+      source: "Hydromancer Career Feature"
+      sourceguid: 2d42cd34-090f-485a-94be-f8ebdb23814a
+  - __typeName: CharacterFeature
+    name: "Trait: Water Shield"
+    description: "Elemental trait. When you cast an elemental spell, you can harness the magic to surround your body in a water ward and gain AD equal to your Mind. The AD granted by this trait disappears at the end of a rest."
+    guid: 182bdaf6-6ca5-4500-bc7e-c8e3fde334f6
+    implementation: 1
+    source: "Hydromancer Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Journal, quill and inkpot, torch, spellbooks: create water, stream. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: eedd5dd0-16ee-4c27-b766-c70707ad11e0
+    implementation: 2
+    source: "Hydromancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 6777124d-3b69-4948-9111-75469ab2559d
+      source: "Hydromancer Career Feature"
+      sourceguid: eedd5dd0-16ee-4c27-b766-c70707ad11e0
+      equipment:
+      - itemid: 7a12991d-4779-4665-9bc2-7db69c5cb908
+        quantity: 1
+      - itemid: 52d42480-b6d6-438f-8962-4bb2401203fc
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: 9e7b411f-41f1-4f13-aa83-e71acf57abc9
+        quantity: 1
+      - itemid: 94425dac-a3d2-4255-ba76-0734150ae576
+        quantity: 1

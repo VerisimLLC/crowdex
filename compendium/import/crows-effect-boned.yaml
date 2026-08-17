@@ -1,0 +1,42 @@
+# Crows Playtest 2 -- Boned (RETIRED)
+#
+# Boned no longer exists. Playtest 2 replaced it with two separate, non-stacking
+# conditions: Weakened (a bane on all tests) and Vulnerable (+1d6 on damage
+# taken). The Playtest 1 machinery it depended on is gone too -- there are no
+# condition levels any more, and nothing cancels 1-to-1 against Blessed.
+#
+# This entry is retired rather than deleted so that any crow, monster or saved
+# encounter still referencing the id resolves to something valid instead of
+# breaking. Two things happen here:
+#
+#   hidden: true   removes it from the conditions picker (the panel's add menu
+#                  iterates with unhidden_pairs, so hidden entries vanish from
+#                  the list without disturbing anything holding the id).
+#   modifiers: []  strips the -1-per-level test penalty and the per-level extra
+#                  damage, so a lingering application is inert rather than
+#                  quietly applying deleted rules. The old formulas referenced
+#                  Stacks("Blessed"), which no longer means anything now that
+#                  Blessed does not stack.
+_table: characterOngoingEffects
+__typeName: CharacterOngoingEffect
+id: 911de2e9-e3fc-4081-a2c6-12d76adf69ed
+guid: ffbd6a22-8af6-48c3-92a7-8e8f5e8395c1
+name: Boned (retired)
+description: >-
+  Retired in the August-September 2026 playtest. Boned was replaced by two
+  conditions: Weakened (you take a bane on all tests) and Vulnerable (each time
+  you take damage you take an additional 1d6 dam). Apply one of those instead.
+hidden: true
+crowsCondition: false
+stackable: false
+statusEffect: false
+indefiniteDuration: true
+implementation: 0
+iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
+display:
+  __typeName: DisplayInfo
+  bgcolor: "#6b6b6bff"
+  hueshift: 0
+  brightness: 1
+  saturation: 1
+modifiers: []

@@ -1,0 +1,269 @@
+# Crows Playtest 2 -- background: Acolyte of the Gardner
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 92e5b28d-24a8-4f81-9b6a-d06d7c42dfdc
+name: "Acolyte of the Gardner"
+description: "You served the god of nature."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 7fe47ac9-0202-4b9e-bf5e-4dcaa2ab88a2
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: ea3ff2c4-a9a5-458a-97db-20207dd1e8e0
+      implementation: 3
+      source: "Acolyte of the Gardner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 471729c1-b57b-4b24-b3f4-dcb163cb2206
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: ea3ff2c4-a9a5-458a-97db-20207dd1e8e0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: eaa076ce-d70f-45a6-942c-0d900bbc1812
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: ea3ff2c4-a9a5-458a-97db-20207dd1e8e0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 69ac4397-1ce9-43e0-ab28-444177b97b05
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: ea3ff2c4-a9a5-458a-97db-20207dd1e8e0
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 8a13399b-e018-4abe-aad3-412c20574afb
+      implementation: 3
+      source: "Acolyte of the Gardner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: df09b7eb-88c1-4438-906b-d33b79c9a488
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: 8a13399b-e018-4abe-aad3-412c20574afb
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: f1433d8b-b57f-472f-a9a1-0df07d44583a
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: 8a13399b-e018-4abe-aad3-412c20574afb
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 7c80f999-d850-40be-acc9-1b8ac315b251
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: 8a13399b-e018-4abe-aad3-412c20574afb
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 517f755b-b27d-43d7-9aac-60408cb65e10
+      implementation: 3
+      source: "Acolyte of the Gardner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: c503600e-d222-4b08-be82-769b9f445169
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: 517f755b-b27d-43d7-9aac-60408cb65e10
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: f43dd017-77a8-40f2-80d1-6b709b144790
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: 517f755b-b27d-43d7-9aac-60408cb65e10
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 7cbc9b15-052b-4bda-bd9b-b21da5d0d86a
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: 517f755b-b27d-43d7-9aac-60408cb65e10
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: d302582c-d075-439b-8180-e74346b7135a
+      implementation: 3
+      source: "Acolyte of the Gardner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 14925827-ccbe-4927-9f5d-00bfef1c3525
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: d302582c-d075-439b-8180-e74346b7135a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 3e5cab4a-7965-460c-8874-32f270df3e75
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: d302582c-d075-439b-8180-e74346b7135a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 43e2ce8f-8533-4655-92db-bc6975b66b79
+        source: "Acolyte of the Gardner Career Feature"
+        sourceguid: d302582c-d075-439b-8180-e74346b7135a
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: b8f3f706-4e7b-4798-b216-9aa0ec8be441
+    implementation: 3
+    source: "Acolyte of the Gardner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: 354ebbb5-9242-4856-a412-cf679f8bed71
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: b8f3f706-4e7b-4798-b216-9aa0ec8be441
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (1 use), Benefaction (2 uses), Elemental (2 uses), Handle Pet (1 use), Nature Lore (1 use), Navigate (1 use), Religious Lore (1 use)."
+    guid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+    implementation: 3
+    source: "Acolyte of the Gardner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: 649408ab-c78b-4266-b3a1-a8905a8d1a2b
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 6e8db242-87e2-4e83-a489-c162b53cfb02
+      num: 2
+      name: Expertises
+      description: "Benefaction (2 uses)"
+      guid: 20bb2cef-838f-4118-8e5c-175fa44d1afc
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a680fc5-efe0-42a6-9479-1c378510b416
+      num: 2
+      name: Expertises
+      description: "Elemental (2 uses)"
+      guid: 05b71e9f-4551-42d9-b421-1317583bcefd
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      num: 1
+      name: Expertises
+      description: "Handle Pet (1 use)"
+      guid: 4df889a9-95be-4ca1-a094-9dba60d881b5
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: a22217c6-65ed-4254-8936-754c4a180237
+      num: 1
+      name: Expertises
+      description: "Nature Lore (1 use)"
+      guid: ebd18898-9d72-4d22-aa5a-a93089630d0b
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+      num: 1
+      name: Expertises
+      description: "Navigate (1 use)"
+      guid: 9a969a9c-1dc7-4831-9fc9-52416e852936
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+      num: 1
+      name: Expertises
+      description: "Religious Lore (1 use)"
+      guid: 5d84ec1b-fa3c-4d82-a315-b2bb30a1a030
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: 20d72931-ffa6-43eb-8e1d-a478635546f0
+  - __typeName: CharacterFeature
+    name: "Trait: Material Transfer"
+    description: "Enchantment trait. As a rest activity, choose two armor or weapon items you can touch, such as iron heavy armor and a steel sword. The materials used in each item are magically swapped."
+    guid: 56ba341d-2a4f-4226-ba60-5f9fd2865b63
+    implementation: 1
+    source: "Acolyte of the Gardner Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Holy symbol, torch, spellbooks: fire hands, minor healing, spark. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: a83fe681-0330-45b4-bd05-f3f025e28c1c
+    implementation: 2
+    source: "Acolyte of the Gardner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 09a05cd3-eff2-4862-ad82-8ea062ac8e69
+      source: "Acolyte of the Gardner Career Feature"
+      sourceguid: a83fe681-0330-45b4-bd05-f3f025e28c1c
+      equipment:
+      - itemid: 197d107a-4d98-44b6-a0f9-c90f7124f34c
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: a0ef2f95-9e86-4a34-9231-39c0a8ec62b7
+        quantity: 1
+      - itemid: a2e4ebdd-d529-4e59-bdc2-7fb3192dc77f
+        quantity: 1
+      - itemid: 5d38bf79-0376-40bc-bc32-18c7a754b3cb
+        quantity: 1

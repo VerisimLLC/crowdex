@@ -1,0 +1,20 @@
+# Crows Playtest 2 -- expertise: Pick Lock (General Expertise)
+#
+# The Rules, p.8: "After you make a test, you can use an applicable expertise to
+# improve the test's result by one tier (to a maximum of tier 3). You can only
+# apply one expertise and one use per test." Uses come from your background and
+# from advancement; you regain them all when you finish a rest, unless you
+# rested in the Miasma.
+#
+# Modelled as a CharacterResource with usageLimit "long" -- the refresh type the
+# Finish Rest action drives. Backgrounds grant uses with a `behavior: resource`
+# modifier carrying resourceType + num.
+#
+# Use: Open a lock without the key
+_table: characterResources
+__typeName: CharacterResource
+id: 255318e0-5227-4cff-8fbf-9608bb180516
+name: Pick Lock
+grouping: General Expertise
+usageLimit: long
+description: Open a lock without the key

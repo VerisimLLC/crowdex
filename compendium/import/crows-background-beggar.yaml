@@ -1,0 +1,490 @@
+# Crows Playtest 2 -- background: Beggar
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 1f14b6e9-6094-429a-a5d2-8f0bfd863a25
+name: "Beggar"
+description: "You relied on the kindness of strangers to scrape together enough coins to live."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 2d3b292c-3c69-49f3-9f76-deb7abd97da6
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets any one characteristic to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: 728b048c-e564-45c5-8185-67fbd370273e
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 04a742d4-efd2-4757-8608-21dcbb496b8e
+        source: "Beggar Career Feature"
+        sourceguid: 728b048c-e564-45c5-8185-67fbd370273e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 391caef6-41dc-4d62-811f-c40c1549feec
+        source: "Beggar Career Feature"
+        sourceguid: 728b048c-e564-45c5-8185-67fbd370273e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: bc146e03-1827-45a0-9413-cf1a11ee1816
+        source: "Beggar Career Feature"
+        sourceguid: 728b048c-e564-45c5-8185-67fbd370273e
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: d70f796f-3e97-451a-8cfa-40537c8e7672
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 7183ea01-f6cd-4b82-9b33-fd10a0d2a762
+        source: "Beggar Career Feature"
+        sourceguid: d70f796f-3e97-451a-8cfa-40537c8e7672
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 2f4cc549-53a1-4c1f-92e2-ff047c56b199
+        source: "Beggar Career Feature"
+        sourceguid: d70f796f-3e97-451a-8cfa-40537c8e7672
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 2ff7fe70-e472-483c-b9d4-a095a31f9b7f
+        source: "Beggar Career Feature"
+        sourceguid: d70f796f-3e97-451a-8cfa-40537c8e7672
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 9ba5575c-cc11-4a8c-846c-c95e727883ae
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 9891fdc9-80f3-4684-9722-9522aa307064
+        source: "Beggar Career Feature"
+        sourceguid: 9ba5575c-cc11-4a8c-846c-c95e727883ae
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: e761c32c-9a26-4a2a-8579-6c39c074a29e
+        source: "Beggar Career Feature"
+        sourceguid: 9ba5575c-cc11-4a8c-846c-c95e727883ae
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: c2681758-53f0-4bcc-8ed2-8fabbb06e6c1
+        source: "Beggar Career Feature"
+        sourceguid: 9ba5575c-cc11-4a8c-846c-c95e727883ae
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: ba6b49bf-8df2-4648-992b-f36a8bf8e7ff
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: b03a1ec5-ccba-4477-8dc9-92d867c237e3
+        source: "Beggar Career Feature"
+        sourceguid: ba6b49bf-8df2-4648-992b-f36a8bf8e7ff
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 9345f11b-2581-4b13-9af1-52265bf68d5d
+        source: "Beggar Career Feature"
+        sourceguid: ba6b49bf-8df2-4648-992b-f36a8bf8e7ff
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 3e9ed637-1cfe-4ef8-8d1a-486bf86ff3cc
+        source: "Beggar Career Feature"
+        sourceguid: ba6b49bf-8df2-4648-992b-f36a8bf8e7ff
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: d8c23f47-e590-4d5c-859e-c33524c6c417
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: c5339e20-5833-4288-94c3-5c7cc1a8a03a
+        source: "Beggar Career Feature"
+        sourceguid: d8c23f47-e590-4d5c-859e-c33524c6c417
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: eeefff6e-37ae-4c03-b5ea-053b1d72bdbf
+        source: "Beggar Career Feature"
+        sourceguid: d8c23f47-e590-4d5c-859e-c33524c6c417
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 7e1b5b8e-210a-43de-bff9-96cab15c7ab9
+        source: "Beggar Career Feature"
+        sourceguid: d8c23f47-e590-4d5c-859e-c33524c6c417
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 9fdca7e0-d403-493f-9c93-2f3a344bf146
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 8ab087e0-2e93-4df7-b082-c6103315d3a6
+        source: "Beggar Career Feature"
+        sourceguid: 9fdca7e0-d403-493f-9c93-2f3a344bf146
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: cf04babe-6597-44da-b788-913656b696a8
+        source: "Beggar Career Feature"
+        sourceguid: 9fdca7e0-d403-493f-9c93-2f3a344bf146
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: fcebec3d-8da2-4d72-b2a3-5422202f4634
+        source: "Beggar Career Feature"
+        sourceguid: 9fdca7e0-d403-493f-9c93-2f3a344bf146
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 9f1e3474-84b9-49a2-9f6d-0d52d68d2c87
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 8d2c0393-992b-4683-ae8a-874894a13d42
+        source: "Beggar Career Feature"
+        sourceguid: 9f1e3474-84b9-49a2-9f6d-0d52d68d2c87
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 9ccc02a9-9383-4497-88f9-55e0cb1a95d9
+        source: "Beggar Career Feature"
+        sourceguid: 9f1e3474-84b9-49a2-9f6d-0d52d68d2c87
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: cce10dfc-783a-4682-bd14-b9b38cc470be
+        source: "Beggar Career Feature"
+        sourceguid: 9f1e3474-84b9-49a2-9f6d-0d52d68d2c87
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: dab9c9c3-816e-42d6-9fbd-eda3c672120d
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 4fef40bf-6a1a-4d6d-8e22-d128a27f05cf
+        source: "Beggar Career Feature"
+        sourceguid: dab9c9c3-816e-42d6-9fbd-eda3c672120d
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: e106be7a-d5cf-4855-b1c0-8001b0a2638d
+        source: "Beggar Career Feature"
+        sourceguid: dab9c9c3-816e-42d6-9fbd-eda3c672120d
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 8ab36f6c-51be-4de1-bc35-e40c2117c7d6
+        source: "Beggar Career Feature"
+        sourceguid: dab9c9c3-816e-42d6-9fbd-eda3c672120d
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: c59c0b41-69a4-4c90-8649-983b27fb6143
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 52b4a926-a229-4e3f-8d32-1068cd193d88
+        source: "Beggar Career Feature"
+        sourceguid: c59c0b41-69a4-4c90-8649-983b27fb6143
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: e736a518-2c32-4b67-9b00-e2d36fdee93e
+        source: "Beggar Career Feature"
+        sourceguid: c59c0b41-69a4-4c90-8649-983b27fb6143
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: dfa11c9c-43db-4f6f-b547-a3869c6f8eb4
+        source: "Beggar Career Feature"
+        sourceguid: c59c0b41-69a4-4c90-8649-983b27fb6143
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: dab89af5-9bb0-4072-83a5-d2888f6068da
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 4986e1d7-6ee1-4c18-9c7b-2ab57d487dde
+        source: "Beggar Career Feature"
+        sourceguid: dab89af5-9bb0-4072-83a5-d2888f6068da
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 5d54e0e2-134a-4088-ac06-7e830bc87265
+        source: "Beggar Career Feature"
+        sourceguid: dab89af5-9bb0-4072-83a5-d2888f6068da
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 54752c6d-218f-40d0-a13b-26796d6a971c
+        source: "Beggar Career Feature"
+        sourceguid: dab89af5-9bb0-4072-83a5-d2888f6068da
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 60211dbe-0838-49d3-9e73-b282b1b450e2
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 0784e2a9-6c61-4f8c-8d4e-c0117fdd42e3
+        source: "Beggar Career Feature"
+        sourceguid: 60211dbe-0838-49d3-9e73-b282b1b450e2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 4b97c8d7-a809-4fc5-87d6-189b8ff04f45
+        source: "Beggar Career Feature"
+        sourceguid: 60211dbe-0838-49d3-9e73-b282b1b450e2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 7d6638fb-ec33-4d76-8767-bf7859d5330b
+        source: "Beggar Career Feature"
+        sourceguid: 60211dbe-0838-49d3-9e73-b282b1b450e2
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 62313386-ecc0-4adb-8614-d377bb50a99e
+      implementation: 3
+      source: "Beggar Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 0cf5cc44-46d5-473e-9f2d-eccb55589fa2
+        source: "Beggar Career Feature"
+        sourceguid: 62313386-ecc0-4adb-8614-d377bb50a99e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: b7601c50-942b-4e1c-bbb5-f402b8528df2
+        source: "Beggar Career Feature"
+        sourceguid: 62313386-ecc0-4adb-8614-d377bb50a99e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 95b7da2f-c358-4f69-bf53-df272c6e0406
+        source: "Beggar Career Feature"
+        sourceguid: 62313386-ecc0-4adb-8614-d377bb50a99e
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: d683aafd-8d43-4185-a397-41c590da3d0d
+    implementation: 3
+    source: "Beggar Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 18fe6c89-5361-46c2-adc0-44ddd642aba2
+      source: "Beggar Career Feature"
+      sourceguid: d683aafd-8d43-4185-a397-41c590da3d0d
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Endurance (1 use), Lift (1 use), Search (2 uses), Stealth (2 uses)."
+    guid: feb9a3a3-f835-4ac5-9bc5-ad78275c08c7
+    implementation: 3
+    source: "Beggar Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 1
+      name: Expertises
+      description: "Endurance (1 use)"
+      guid: dfd236bc-3d04-47a4-9184-61fc931b2e2f
+      source: "Beggar Career Feature"
+      sourceguid: feb9a3a3-f835-4ac5-9bc5-ad78275c08c7
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: de51a89b-e2c5-45e0-a547-6e0575a1a2a7
+      source: "Beggar Career Feature"
+      sourceguid: feb9a3a3-f835-4ac5-9bc5-ad78275c08c7
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      num: 2
+      name: Expertises
+      description: "Search (2 uses)"
+      guid: 8be8f732-3374-4e08-ab90-c87546c523ef
+      source: "Beggar Career Feature"
+      sourceguid: feb9a3a3-f835-4ac5-9bc5-ad78275c08c7
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+      num: 2
+      name: Expertises
+      description: "Stealth (2 uses)"
+      guid: 241cf300-5fce-4ca0-8ce0-2d9114644290
+      source: "Beggar Career Feature"
+      sourceguid: feb9a3a3-f835-4ac5-9bc5-ad78275c08c7
+  - __typeName: CharacterFeature
+    name: "Trait: More for Less"
+    description: "Leverage trait. When you roll a UD for a piece of mundane equipment that has only 1 die remaining at the start of rolling the item's dice, then you can only lose the UD on a result of 1. (The background lists this trait's tree as Scavenging; in this booklet the trait appears in the Leverage tree.)"
+    guid: 2e2d355f-607f-4242-bb21-d2479736c3c1
+    implementation: 1
+    source: "Beggar Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Lock, pot, string, tent, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 068780d2-040e-4829-aed6-50e8275cde58
+    implementation: 2
+    source: "Beggar Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 1206e479-754c-4995-a7df-73aae9df02eb
+      source: "Beggar Career Feature"
+      sourceguid: 068780d2-040e-4829-aed6-50e8275cde58
+      equipment:
+      - itemid: deaff42c-55ed-4350-bc95-8c098d79bde7
+        quantity: 1
+      - itemid: 880dd636-2ea1-420d-a140-1699da048d1a
+        quantity: 1
+      - itemid: 39c74b1e-0c8b-4c41-ac90-eea0d8bb46ea
+        quantity: 1
+      - itemid: 3824b6aa-a241-42c6-b6f4-128696e558a3
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

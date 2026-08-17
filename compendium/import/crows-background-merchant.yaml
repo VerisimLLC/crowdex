@@ -1,0 +1,253 @@
+# Crows Playtest 2 -- background: Merchant
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 850d492e-94f3-4eb5-99ad-6104668b7900
+name: "Merchant"
+description: "You were a merchant who traveled from village to village, trading your wares."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 9d898aa1-d0af-4bff-9c81-94674e70b108
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: a2cc1f8e-e573-42af-ae48-710753a5f42c
+      implementation: 3
+      source: "Merchant Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 016671d9-c80f-4ff6-9b87-5c4224b82877
+        source: "Merchant Career Feature"
+        sourceguid: a2cc1f8e-e573-42af-ae48-710753a5f42c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 68410689-44ae-458d-8ee0-40272888c778
+        source: "Merchant Career Feature"
+        sourceguid: a2cc1f8e-e573-42af-ae48-710753a5f42c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 891649d9-e0a2-4ce5-8c01-de00854df566
+        source: "Merchant Career Feature"
+        sourceguid: a2cc1f8e-e573-42af-ae48-710753a5f42c
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 019aadb7-7960-43cc-9e58-dc3ef76c7ca3
+      implementation: 3
+      source: "Merchant Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 5c2954ad-2f2b-466b-ae5a-4ddeb72ef0f0
+        source: "Merchant Career Feature"
+        sourceguid: 019aadb7-7960-43cc-9e58-dc3ef76c7ca3
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: ea5014ac-a666-4f48-b5cd-7ef6cc0ffbf8
+        source: "Merchant Career Feature"
+        sourceguid: 019aadb7-7960-43cc-9e58-dc3ef76c7ca3
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: c75bd823-d732-4dce-b288-8cfaeaa0f29f
+        source: "Merchant Career Feature"
+        sourceguid: 019aadb7-7960-43cc-9e58-dc3ef76c7ca3
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: b3dd1020-5f4e-4a5b-853c-98baa3641655
+      implementation: 3
+      source: "Merchant Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a7d4c71d-2723-445e-9196-a00174f737f2
+        source: "Merchant Career Feature"
+        sourceguid: b3dd1020-5f4e-4a5b-853c-98baa3641655
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 6a4b3c29-a69c-49f2-84d3-b270ff85bc24
+        source: "Merchant Career Feature"
+        sourceguid: b3dd1020-5f4e-4a5b-853c-98baa3641655
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 69e7ad81-d92d-42d9-8b47-546cfeab5967
+        source: "Merchant Career Feature"
+        sourceguid: b3dd1020-5f4e-4a5b-853c-98baa3641655
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 19f1dc7a-bd84-453c-b5f6-fc8d3da20b51
+      implementation: 3
+      source: "Merchant Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 871c94ac-d203-42b0-9e43-e29ca28cb547
+        source: "Merchant Career Feature"
+        sourceguid: 19f1dc7a-bd84-453c-b5f6-fc8d3da20b51
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: e5cb82a5-b363-449f-9e8a-c5a4bef3ad01
+        source: "Merchant Career Feature"
+        sourceguid: 19f1dc7a-bd84-453c-b5f6-fc8d3da20b51
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: d324f838-9599-4a3f-a32f-700598ce6c47
+        source: "Merchant Career Feature"
+        sourceguid: 19f1dc7a-bd84-453c-b5f6-fc8d3da20b51
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: a21771f1-d8ad-4b2d-bd24-27d43a0945d0
+    implementation: 3
+    source: "Merchant Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 36e3db0d-92a1-4681-b99b-59c583b905c6
+      source: "Merchant Career Feature"
+      sourceguid: a21771f1-d8ad-4b2d-bd24-27d43a0945d0
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Historical Lore (2 uses), Lift (1 use), Navigate (1 use), Search (1 use), Thievery (1 use)."
+    guid: 5418e7fa-4c91-430a-ac1c-d8c6c91d1ce6
+    implementation: 3
+    source: "Merchant Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      num: 2
+      name: Expertises
+      description: "Historical Lore (2 uses)"
+      guid: ee8aaa5e-3661-436c-a2a0-47fc2bf21a6f
+      source: "Merchant Career Feature"
+      sourceguid: 5418e7fa-4c91-430a-ac1c-d8c6c91d1ce6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: 4ce2cd8c-a444-470b-ab8d-607c44581a51
+      source: "Merchant Career Feature"
+      sourceguid: 5418e7fa-4c91-430a-ac1c-d8c6c91d1ce6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+      num: 1
+      name: Expertises
+      description: "Navigate (1 use)"
+      guid: e7cec286-a5d5-4457-890f-64bbd485f82c
+      source: "Merchant Career Feature"
+      sourceguid: 5418e7fa-4c91-430a-ac1c-d8c6c91d1ce6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      num: 1
+      name: Expertises
+      description: "Search (1 use)"
+      guid: 4f16f758-c2bb-48a3-a146-c6c3503396a9
+      source: "Merchant Career Feature"
+      sourceguid: 5418e7fa-4c91-430a-ac1c-d8c6c91d1ce6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 1
+      name: Expertises
+      description: "Thievery (1 use)"
+      guid: 6033ae40-a4bb-48a8-95e6-ffb48b8faeaa
+      source: "Merchant Career Feature"
+      sourceguid: 5418e7fa-4c91-430a-ac1c-d8c6c91d1ce6
+  - __typeName: CharacterFeature
+    name: "Trait: Plotting"
+    description: "Camping trait. As a rest activity, choose up to three pieces of equipment you can touch. The first time you or an ally uses this equipment as part of a test before the end of your next rest, they gain a +2 bonus on the roll."
+    guid: 8f470ba6-eb1b-4603-a87b-cee61260c851
+    implementation: 1
+    source: "Merchant Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Journal, lantern, merchant's scales, oil flask, quill and ink pot, 50 gold coins. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 13bfba88-120f-4889-98e0-78adf5947d5d
+    implementation: 2
+    source: "Merchant Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 20052f56-014f-435b-bae7-c9e1a50ffcd7
+      source: "Merchant Career Feature"
+      sourceguid: 13bfba88-120f-4889-98e0-78adf5947d5d
+      equipment:
+      - itemid: 7a12991d-4779-4665-9bc2-7db69c5cb908
+        quantity: 1
+      - itemid: 9e3e5570-f28a-49aa-84e8-d8c7bcc220df
+        quantity: 1
+      - itemid: a135bdb3-35b4-48d5-82ab-39501ec3c46d
+        quantity: 1
+      - itemid: f3b04bec-1d0f-4fca-a886-0fc1622e84c4
+        quantity: 1
+      - itemid: 52d42480-b6d6-438f-8962-4bb2401203fc
+        quantity: 1
+      - itemid: 7bcc2011-6a2a-42d6-93c7-37c702866017
+        quantity: 50

@@ -1,0 +1,357 @@
+# Crows Playtest 2 -- background: Acolyte of the Warrior
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: e97f6e6c-fb70-4c29-ad5f-12f9cdf149a0
+name: "Acolyte of the Warrior"
+description: "You served the god of war."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: c4c6bb9f-0a04-4a76-bb28-2ddd53a4b0ff
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind or Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 25aa2a01-18c2-430e-b884-3fa068b23bd0
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 9d1bbde4-9d10-420a-b9f5-98aa889a86cc
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 25aa2a01-18c2-430e-b884-3fa068b23bd0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: b981a6a9-ca24-4952-8c0d-457a343c9cdf
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 25aa2a01-18c2-430e-b884-3fa068b23bd0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: b9051f5d-c25e-4134-9b88-7182c4bbef25
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 25aa2a01-18c2-430e-b884-3fa068b23bd0
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 477150a5-d73e-4529-b30d-541251b6e298
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 94bd3594-58be-4b55-a016-9bdfadcede02
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 477150a5-d73e-4529-b30d-541251b6e298
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: dc9b2207-2a39-478b-8b2a-c6ffc25b373a
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 477150a5-d73e-4529-b30d-541251b6e298
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: aea6140f-11e9-48da-b8a3-fb4415228dd9
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 477150a5-d73e-4529-b30d-541251b6e298
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 57848d5f-6b87-49f0-aff6-cf8dec800223
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 1185cb40-994b-4582-baf5-bf4ba7560928
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 57848d5f-6b87-49f0-aff6-cf8dec800223
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 4ed071c5-9c65-4f88-9e2b-d5e081460549
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 57848d5f-6b87-49f0-aff6-cf8dec800223
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 4d15c581-5d40-4acd-9ced-4a068013dd5b
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 57848d5f-6b87-49f0-aff6-cf8dec800223
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 1e2bbb4a-ed47-4f6b-816b-4e958a8e59dd
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: faa4930b-2f27-48d4-8c79-67e5b85e0a8a
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 1e2bbb4a-ed47-4f6b-816b-4e958a8e59dd
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: d0fea411-2690-4132-ba9a-04160bd51cfd
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 1e2bbb4a-ed47-4f6b-816b-4e958a8e59dd
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 116276d7-73e1-4a0f-80b9-107fbfdd1551
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 1e2bbb4a-ed47-4f6b-816b-4e958a8e59dd
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 52f1a23e-8514-4d55-8ab9-48c32f11c5e4
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: b648ee94-8f3c-4440-9ef5-77d76b9b4928
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 52f1a23e-8514-4d55-8ab9-48c32f11c5e4
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: c9d9f1f6-2b04-4ba7-920c-e560aca31af9
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 52f1a23e-8514-4d55-8ab9-48c32f11c5e4
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 6bb15c21-88fa-4995-8660-64e752dc93e5
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 52f1a23e-8514-4d55-8ab9-48c32f11c5e4
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: 09db2437-27fa-4696-afc1-dd8c2fc794df
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: d3dba75f-435c-4efe-82a3-ee137631ec90
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 09db2437-27fa-4696-afc1-dd8c2fc794df
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 67915b38-fa8f-487e-9e4f-f5b6fe9a01a6
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 09db2437-27fa-4696-afc1-dd8c2fc794df
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 89ff07ff-0ecf-47e5-a5c7-1097dcde7fa9
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: 09db2437-27fa-4696-afc1-dd8c2fc794df
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: ff746d90-ac1f-4e89-9bae-a94276f1b3e7
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 089c1d06-c04c-42df-be1e-3f7f2bd5c01f
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: ff746d90-ac1f-4e89-9bae-a94276f1b3e7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 45c7b108-740f-4647-b8b1-bccee9b6acc2
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: ff746d90-ac1f-4e89-9bae-a94276f1b3e7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 29e473bd-58d5-4175-bff5-3b45a7bbaa0e
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: ff746d90-ac1f-4e89-9bae-a94276f1b3e7
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: f71bdce6-fe1f-411d-b730-3a3c1ee50881
+      implementation: 3
+      source: "Acolyte of the Warrior Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 43d8a6c1-7154-4c56-a5cd-0574c0d38d0b
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: f71bdce6-fe1f-411d-b730-3a3c1ee50881
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 6aa58fbc-4cc3-4cbc-91c9-182dcf976854
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: f71bdce6-fe1f-411d-b730-3a3c1ee50881
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 367a23d7-2343-4ae5-8f95-2be8b11e6f4f
+        source: "Acolyte of the Warrior Career Feature"
+        sourceguid: f71bdce6-fe1f-411d-b730-3a3c1ee50881
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 9."
+    guid: e4191463-48a8-4762-8d67-daf98d1e5cc6
+    implementation: 3
+    source: "Acolyte of the Warrior Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 9
+      name: Stamina
+      guid: 49f3dab1-73ac-44f9-a6bf-32c3e78eed7e
+      source: "Acolyte of the Warrior Career Feature"
+      sourceguid: e4191463-48a8-4762-8d67-daf98d1e5cc6
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Benefaction (1 use), Chopping (1 use), Religious Lore (1 use)."
+    guid: f004e4d0-8cc9-4d55-83a4-64e262829ec0
+    implementation: 3
+    source: "Acolyte of the Warrior Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 6e8db242-87e2-4e83-a489-c162b53cfb02
+      num: 1
+      name: Expertises
+      description: "Benefaction (1 use)"
+      guid: b376eb26-1042-48d9-9a6a-37e00318e348
+      source: "Acolyte of the Warrior Career Feature"
+      sourceguid: f004e4d0-8cc9-4d55-83a4-64e262829ec0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 073fb617-cfc6-493c-9624-03a967f85ac6
+      num: 1
+      name: Expertises
+      description: "Chopping (1 use)"
+      guid: 23f9b412-61e0-4d33-8f80-d393e61fb01f
+      source: "Acolyte of the Warrior Career Feature"
+      sourceguid: f004e4d0-8cc9-4d55-83a4-64e262829ec0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+      num: 1
+      name: Expertises
+      description: "Religious Lore (1 use)"
+      guid: 9dd6beef-d278-443d-9be9-5e1915ba10a2
+      source: "Acolyte of the Warrior Career Feature"
+      sourceguid: f004e4d0-8cc9-4d55-83a4-64e262829ec0
+  - __typeName: CharacterFeature
+    name: "Trait: First Responder"
+    description: "Benefaction trait. When you have a benefaction spell that can restore Stamina to a creature equipped and a creature within the spell's range take damage, you can use your reaction to cast the spell, targeting that creature."
+    guid: 6814d49a-e630-4023-a082-0da6d5625ae4
+    implementation: 1
+    source: "Acolyte of the Warrior Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Axe, holy symbol, torch, spellbooks: minor healing, minor ward. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 218272b5-227a-4320-b2c6-755a1dae983c
+    implementation: 2
+    source: "Acolyte of the Warrior Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 9f04936d-19e0-4378-b4ee-5f6d2a8703de
+      source: "Acolyte of the Warrior Career Feature"
+      sourceguid: 218272b5-227a-4320-b2c6-755a1dae983c
+      equipment:
+      - itemid: 39adaee1-0392-4fb1-b9df-16e708f25e74
+        quantity: 1
+      - itemid: 197d107a-4d98-44b6-a0f9-c90f7124f34c
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: a2e4ebdd-d529-4e59-bdc2-7fb3192dc77f
+        quantity: 1
+      - itemid: 9d066e71-8bee-4886-9dcd-fd1b500c81e1
+        quantity: 1

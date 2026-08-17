@@ -1,0 +1,54 @@
+# Crows Playtest 2 -- all 36 backgrounds (Stage 4 / W10)
+#
+# Each background's Characteristics, Stamina and Expertises features are
+# rewritten for the August-September 2026 playtest; Trait and Equipment are
+# carried through verbatim from the existing entries.
+#
+# Characteristics: Playtest 2 sets one characteristic to 2 and lets the other
+# two be a 1 and a 0, or a -1 and a 2, assigned either way round -- so a fixed
+# primary yields 4 options, "X or Y" yields 8, and "Any" yields 12.
+#
+# Expertises replace skills: a spendable pool of uses rather than a flat bonus,
+# granted with `behavior: resource` + resourceType + num.
+#
+# Three entries in the book still name retired Playtest 1 skills, folded here
+# into their Playtest 2 expertise: the Alchemist's Sabotage and the Merchant's
+# Sleight of Hand both become Thievery, and the Keraunomancer's "Blacksmith"
+# is Blacksmithing.
+_bundle:
+  - _include: "crows-background-acolyte-of-the-gardner.yaml"
+  - _include: "crows-background-acolyte-of-the-healer.yaml"
+  - _include: "crows-background-acolyte-of-the-smith.yaml"
+  - _include: "crows-background-acolyte-of-the-three.yaml"
+  - _include: "crows-background-acolyte-of-the-warrior.yaml"
+  - _include: "crows-background-alchemist.yaml"
+  - _include: "crows-background-apprentice-mage.yaml"
+  - _include: "crows-background-archer.yaml"
+  - _include: "crows-background-assassin.yaml"
+  - _include: "crows-background-beggar.yaml"
+  - _include: "crows-background-blacksmith.yaml"
+  - _include: "crows-background-bodyguard.yaml"
+  - _include: "crows-background-cartographer.yaml"
+  - _include: "crows-background-conjurer.yaml"
+  - _include: "crows-background-cook.yaml"
+  - _include: "crows-background-duelist.yaml"
+  - _include: "crows-background-entertainer.yaml"
+  - _include: "crows-background-executioner.yaml"
+  - _include: "crows-background-farmer.yaml"
+  - _include: "crows-background-gladiator.yaml"
+  - _include: "crows-background-hunter.yaml"
+  - _include: "crows-background-hydromancer.yaml"
+  - _include: "crows-background-illusionist.yaml"
+  - _include: "crows-background-keraunomancer.yaml"
+  - _include: "crows-background-knight.yaml"
+  - _include: "crows-background-merchant.yaml"
+  - _include: "crows-background-miner.yaml"
+  - _include: "crows-background-noble.yaml"
+  - _include: "crows-background-pugilist.yaml"
+  - _include: "crows-background-pyromancer.yaml"
+  - _include: "crows-background-sage.yaml"
+  - _include: "crows-background-soldier.yaml"
+  - _include: "crows-background-thief.yaml"
+  - _include: "crows-background-tinkerer.yaml"
+  - _include: "crows-background-transmuter.yaml"
+  - _include: "crows-background-village-watch.yaml"

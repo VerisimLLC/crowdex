@@ -1,0 +1,251 @@
+# Crows Playtest 2 -- background: Acolyte of the Smith
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 68e6d35b-1aa9-49f2-93bb-0954c2d50403
+name: "Acolyte of the Smith"
+description: "You served the god of creativity."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 9e0e3e18-f297-43fe-93c0-dccccbaf7f76
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: eeba4a3c-d135-423e-b7ea-a78805f65d86
+      implementation: 3
+      source: "Acolyte of the Smith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: d444c675-7066-42e5-87ed-940905b49ebc
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: eeba4a3c-d135-423e-b7ea-a78805f65d86
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 0cb81152-347f-4aa2-9722-3322b9fd7d2e
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: eeba4a3c-d135-423e-b7ea-a78805f65d86
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 879a4627-f6b9-4fdd-a3c5-04633f15b7cf
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: eeba4a3c-d135-423e-b7ea-a78805f65d86
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: fff76204-a2f3-4560-aa43-7ad9916fa4fc
+      implementation: 3
+      source: "Acolyte of the Smith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 7fe94f80-1835-4ed5-b836-b42c6685d7b3
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: fff76204-a2f3-4560-aa43-7ad9916fa4fc
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 24a0e51f-1aca-4cb1-978f-0f9b6911e81a
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: fff76204-a2f3-4560-aa43-7ad9916fa4fc
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 3b27365e-5e56-4933-86ab-35bacfae9637
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: fff76204-a2f3-4560-aa43-7ad9916fa4fc
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: da48328b-39c4-4345-8ba9-caee5a8a2f34
+      implementation: 3
+      source: "Acolyte of the Smith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: aa5e2dfb-20dc-4569-8a67-1e882040d718
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: da48328b-39c4-4345-8ba9-caee5a8a2f34
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a5eaa3b8-b197-4796-9fdd-315c19aaf1c0
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: da48328b-39c4-4345-8ba9-caee5a8a2f34
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a41ff7f2-1be7-427d-95b2-6d3c2d4c6227
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: da48328b-39c4-4345-8ba9-caee5a8a2f34
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 77fe2c78-c9aa-4465-b2ac-ae984f392bb6
+      implementation: 3
+      source: "Acolyte of the Smith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 7d5e7bd6-035e-44b3-84aa-f02a3964af31
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: 77fe2c78-c9aa-4465-b2ac-ae984f392bb6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: c839ed88-cbf5-4206-946c-9330d691c255
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: 77fe2c78-c9aa-4465-b2ac-ae984f392bb6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: ec7e87e3-2a42-4164-9826-afee5d5acedf
+        source: "Acolyte of the Smith Career Feature"
+        sourceguid: 77fe2c78-c9aa-4465-b2ac-ae984f392bb6
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 92cff24d-fb4a-4395-b045-2be911c6a2c3
+    implementation: 3
+    source: "Acolyte of the Smith Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 28f86468-5f01-4091-a365-60bfeb2ccec1
+      source: "Acolyte of the Smith Career Feature"
+      sourceguid: 92cff24d-fb4a-4395-b045-2be911c6a2c3
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (1 use), Benefaction (1 use), Blacksmithing (2 uses), Enchanting (1 use), Religious Lore (1 use)."
+    guid: ed58ef5a-8b37-4d57-8fbd-ccf974424a50
+    implementation: 3
+    source: "Acolyte of the Smith Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 1
+      name: Expertises
+      description: "Alchemy (1 use)"
+      guid: dcde242a-ea27-4a01-8cbc-f4aba0a33f37
+      source: "Acolyte of the Smith Career Feature"
+      sourceguid: ed58ef5a-8b37-4d57-8fbd-ccf974424a50
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 6e8db242-87e2-4e83-a489-c162b53cfb02
+      num: 1
+      name: Expertises
+      description: "Benefaction (1 use)"
+      guid: 84ac6b22-a966-47c8-9080-0f6d4f907cc3
+      source: "Acolyte of the Smith Career Feature"
+      sourceguid: ed58ef5a-8b37-4d57-8fbd-ccf974424a50
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+      num: 2
+      name: Expertises
+      description: "Blacksmithing (2 uses)"
+      guid: 2efd87db-b50a-4ea8-ab1b-f1c40fe2d96f
+      source: "Acolyte of the Smith Career Feature"
+      sourceguid: ed58ef5a-8b37-4d57-8fbd-ccf974424a50
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 1
+      name: Expertises
+      description: "Enchanting (1 use)"
+      guid: 118dab09-dcde-4174-a96b-6e930c5c6911
+      source: "Acolyte of the Smith Career Feature"
+      sourceguid: ed58ef5a-8b37-4d57-8fbd-ccf974424a50
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+      num: 1
+      name: Expertises
+      description: "Religious Lore (1 use)"
+      guid: 33e276f7-c029-477c-92ca-3a9620a850e1
+      source: "Acolyte of the Smith Career Feature"
+      sourceguid: ed58ef5a-8b37-4d57-8fbd-ccf974424a50
+  - __typeName: CharacterFeature
+    name: "Trait: Hands for Tools"
+    description: "Enchantment trait. You don't need tools to make crafting rolls for alchemy, blacksmithing, or enchanting items."
+    guid: 827ae01e-71a2-4507-8d0d-b2e394cf2bc2
+    implementation: 1
+    source: "Acolyte of the Smith Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Holy symbol, magnifying glass, torch, spellbooks: minor healing, summon object. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: d7ba238e-7ec1-4fc5-b028-981bc4c97638
+    implementation: 2
+    source: "Acolyte of the Smith Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 774d4050-b202-4edf-8ee4-027d0c60ad81
+      source: "Acolyte of the Smith Career Feature"
+      sourceguid: d7ba238e-7ec1-4fc5-b028-981bc4c97638
+      equipment:
+      - itemid: 197d107a-4d98-44b6-a0f9-c90f7124f34c
+        quantity: 1
+      - itemid: c257b289-b19a-4c77-b2d4-3987b2f2798b
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: a2e4ebdd-d529-4e59-bdc2-7fb3192dc77f
+        quantity: 1
+      - itemid: a9fef3a1-2671-45ab-9bf6-7bebf7fd37bb
+        quantity: 1

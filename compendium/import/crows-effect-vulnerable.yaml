@@ -1,0 +1,66 @@
+# Crows Playtest 2 -- Vulnerable
+#
+# The Rules, p.12 (Conditions):
+#   "While you are vulnerable, each time you take damage you take an additional
+#    1d6 dam. You lose this condition at the end of a dungeon turn."
+#
+# Vulnerable is one half of the pair that replaced Boned (the other is
+# Weakened). It does not stack -- Playtest 2 adds "You can't gain a second
+# instance of a condition you already have".
+#
+# HOW THE 1d6 WORKS
+# The modifier is carried by the vulnerable creature but applies on
+# enemy_ability_power_roll ("Enemy Ability Rolls vs Us"), so it surfaces on the
+# ATTACKER's roll dialog as a checkbox, defaulted on by activationCondition.
+# The attacker ticks it and rolls the d6 as part of their damage -- which is the
+# right place for it, since Crows prints static per-tier damage and has no
+# damage roll of its own for a d6 to ride along with.
+#
+# damageModifierType "none" means "add to existing damage". The splice lives in
+# MCDModifyPowerRolls.lua (ApplyToRollProperties): EvalGoblinScript returns the
+# string "1d6" rather than reducing it, safe_toint("1d6") is nil, so the numeric
+# branch is skipped and the text branch rewrites the tier as "3 + 1d6 damage".
+# Crows weapon abilities generate their tiers as string.format("%d damage", t)
+# in CrowdexInventory.lua, so they match the splice regex.
+#
+# Do not be tempted to "fix" this to a flat number. An earlier draft used 3 (the
+# average of 1d6) on the belief that the field could not hold dice -- that came
+# from reading the DISPLAY path (MCDMActivatedAbility.lua, which safe_toints the
+# value) rather than the application path above. Dice work here.
+_table: characterOngoingEffects
+__typeName: CharacterOngoingEffect
+id: 21336719-676b-4476-a6d8-f49b2a4a42b9
+guid: 5ede9aed-b629-43a7-a68a-97e018a4694f
+name: Vulnerable
+description: >-
+  While you are vulnerable, each time you take damage you take an additional
+  1d6 dam. You lose this condition at the end of a dungeon turn. (The attacker
+  gets a checkbox on their roll to add the 1d6; the dungeon-turn expiry is
+  tracked manually.)
+crowsCondition: true
+stackable: false
+statusEffect: true
+indefiniteDuration: true
+implementation: 3
+iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
+display:
+  __typeName: DisplayInfo
+  bgcolor: "#c87878ff"
+  hueshift: 0
+  brightness: 1
+  saturation: 1
+modifiers:
+  - __typeName: CharacterModifier
+    name: Vulnerable
+    guid: 7c4a1e26-9d3f-4b58-8e21-6f5c0a9b3d47
+    behavior: power
+    modtype: none
+    rollType: enemy_ability_power_roll
+    activationCondition: true
+    damageModifier: 1d6
+    damageModifierType: none
+    description: >-
+      Each time you take damage while vulnerable, you take an additional
+      1d6 dam.
+    source: Condition
+    sourceguid: 5ede9aed-b629-43a7-a68a-97e018a4694f

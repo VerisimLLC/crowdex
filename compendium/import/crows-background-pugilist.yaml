@@ -1,0 +1,348 @@
+# Crows Playtest 2 -- background: Pugilist
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 8c003e38-a676-4c98-a9d7-a69e0997551c
+name: "Pugilist"
+description: "You made a living battling it out with bare knuckles."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: e9706ea6-f33d-4027-a714-9ac6bc20322d
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Agility or Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: e0da4617-f797-4f76-923f-db33423efbea
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 13d2db36-3678-49f5-bc89-5eb1568e76ff
+        source: "Pugilist Career Feature"
+        sourceguid: e0da4617-f797-4f76-923f-db33423efbea
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 707e5270-51de-4ac1-a7ea-36747255d2e1
+        source: "Pugilist Career Feature"
+        sourceguid: e0da4617-f797-4f76-923f-db33423efbea
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: bf5fedff-a1f2-43aa-b395-f95d120efa09
+        source: "Pugilist Career Feature"
+        sourceguid: e0da4617-f797-4f76-923f-db33423efbea
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: 891d0dde-90b1-46b6-8a79-2deac8c612c7
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 20786654-0ab3-4218-beb8-f44b61d33933
+        source: "Pugilist Career Feature"
+        sourceguid: 891d0dde-90b1-46b6-8a79-2deac8c612c7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 24d37f2e-acea-4391-b6da-9d185adc9467
+        source: "Pugilist Career Feature"
+        sourceguid: 891d0dde-90b1-46b6-8a79-2deac8c612c7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: a93fa04a-27f2-4c90-9258-bf7c48dd1c50
+        source: "Pugilist Career Feature"
+        sourceguid: 891d0dde-90b1-46b6-8a79-2deac8c612c7
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: d377fc3d-dd01-4eae-b6f2-1420c45c38a0
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: e2cb83bc-7af7-4f85-aac8-17e3e036ede4
+        source: "Pugilist Career Feature"
+        sourceguid: d377fc3d-dd01-4eae-b6f2-1420c45c38a0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 061e42c5-798e-4957-acf5-3075b030cc59
+        source: "Pugilist Career Feature"
+        sourceguid: d377fc3d-dd01-4eae-b6f2-1420c45c38a0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 08187b22-b957-4c65-bedd-9ed592d52b48
+        source: "Pugilist Career Feature"
+        sourceguid: d377fc3d-dd01-4eae-b6f2-1420c45c38a0
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: f1c44395-187c-453f-a48a-b64cd7cf4b6b
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 40f0a83a-af25-48aa-9d81-95c64f5a3327
+        source: "Pugilist Career Feature"
+        sourceguid: f1c44395-187c-453f-a48a-b64cd7cf4b6b
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 4a8c843d-5ecf-444b-94bc-9be3db17a210
+        source: "Pugilist Career Feature"
+        sourceguid: f1c44395-187c-453f-a48a-b64cd7cf4b6b
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 9af75dfb-c208-4c40-b5c9-5198c9e92044
+        source: "Pugilist Career Feature"
+        sourceguid: f1c44395-187c-453f-a48a-b64cd7cf4b6b
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: ee024b44-ef3f-4d35-a1a5-18f4bb2476cf
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: dff870ca-61ee-4906-854a-e557ab3ca83e
+        source: "Pugilist Career Feature"
+        sourceguid: ee024b44-ef3f-4d35-a1a5-18f4bb2476cf
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 75adc1ba-655e-4ef7-8229-cac2ae3d6518
+        source: "Pugilist Career Feature"
+        sourceguid: ee024b44-ef3f-4d35-a1a5-18f4bb2476cf
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 52b9334e-b8fc-4519-af75-1fe5b21a01b2
+        source: "Pugilist Career Feature"
+        sourceguid: ee024b44-ef3f-4d35-a1a5-18f4bb2476cf
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: efb5539b-0e8f-4096-a19f-4b4e923e567e
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: dae0c3f2-c18b-4ae0-9fb6-017ec3d02c4e
+        source: "Pugilist Career Feature"
+        sourceguid: efb5539b-0e8f-4096-a19f-4b4e923e567e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 74ed4042-e6db-4d6e-9cf8-2d4374373c6a
+        source: "Pugilist Career Feature"
+        sourceguid: efb5539b-0e8f-4096-a19f-4b4e923e567e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: eb7dc817-6248-4e3a-b218-e969111a3827
+        source: "Pugilist Career Feature"
+        sourceguid: efb5539b-0e8f-4096-a19f-4b4e923e567e
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 320dfe70-3b2f-4a04-97b3-3b43d4f25d52
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 80f76bbd-6d6c-4888-8393-41dd2a20cc24
+        source: "Pugilist Career Feature"
+        sourceguid: 320dfe70-3b2f-4a04-97b3-3b43d4f25d52
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: e20f2213-1c61-442a-9914-794d585f8091
+        source: "Pugilist Career Feature"
+        sourceguid: 320dfe70-3b2f-4a04-97b3-3b43d4f25d52
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: b4077bab-f9f8-4bf6-8dd5-81cc70692429
+        source: "Pugilist Career Feature"
+        sourceguid: 320dfe70-3b2f-4a04-97b3-3b43d4f25d52
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 8b5aee91-797d-4419-bfc4-7218ff2aeb10
+      implementation: 3
+      source: "Pugilist Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 1a0da5dc-1c55-4f81-8d35-c4a63541ef61
+        source: "Pugilist Career Feature"
+        sourceguid: 8b5aee91-797d-4419-bfc4-7218ff2aeb10
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 1f514ad0-ef09-4c41-bb9f-23fe74574f6f
+        source: "Pugilist Career Feature"
+        sourceguid: 8b5aee91-797d-4419-bfc4-7218ff2aeb10
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 343781e5-5d53-4c05-af72-128e17549294
+        source: "Pugilist Career Feature"
+        sourceguid: 8b5aee91-797d-4419-bfc4-7218ff2aeb10
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 9."
+    guid: a5a26274-cc3d-4e84-8fd4-ec8e868b6c3f
+    implementation: 3
+    source: "Pugilist Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 9
+      name: Stamina
+      guid: 31310db9-a758-45e4-9c99-637df227beca
+      source: "Pugilist Career Feature"
+      sourceguid: a5a26274-cc3d-4e84-8fd4-ec8e868b6c3f
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (1 use), Unarmed (2 uses)."
+    guid: 907e432d-2932-4663-a54b-1433483a3c10
+    implementation: 3
+    source: "Pugilist Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: 888d2fde-2491-48d1-9621-cf16bfa621ce
+      source: "Pugilist Career Feature"
+      sourceguid: 907e432d-2932-4663-a54b-1433483a3c10
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 36482a89-657f-4ea4-98a6-fb06575d9147
+      num: 2
+      name: Expertises
+      description: "Unarmed (2 uses)"
+      guid: cb6d7215-4072-4ed8-a245-44ff1602d428
+      source: "Pugilist Career Feature"
+      sourceguid: 907e432d-2932-4663-a54b-1433483a3c10
+  - __typeName: CharacterFeature
+    name: "Trait: Pack a Punch"
+    description: "Unarmed trait. When you get a tier 3 result with an unarmed or improvised weapon attack, the attack deals additional damage equal to your Agility or Strength."
+    guid: e8dba240-4b57-4ce0-b285-7fc7c0deb93f
+    implementation: 1
+    source: "Pugilist Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Chalk, light armor, lore book (monsters), rage potion, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 921b1103-9148-4295-83cf-f7208d7341e5
+    implementation: 2
+    source: "Pugilist Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 30dfbafc-45c3-45c5-a747-3ad76ef5e9ae
+      source: "Pugilist Career Feature"
+      sourceguid: 921b1103-9148-4295-83cf-f7208d7341e5
+      equipment:
+      - itemid: 7e2d8974-0ea3-4fd3-9b4e-44ffed6d5da9
+        quantity: 1
+      - itemid: 3b5f4e41-2428-4e6a-9f2d-ebad493545fa
+        quantity: 1
+      - itemid: ce294a2a-2142-431d-8d70-40c273760592
+        quantity: 1
+      - itemid: 13a7dfd8-83da-4b78-8b71-9e18a8b84c5f
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

@@ -1,0 +1,253 @@
+# Crows Playtest 2 -- background: Cartographer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: b57ec986-316e-4d47-a558-982c14322067
+name: "Cartographer"
+description: "You drew maps of villages, ruins, or wilderness areas so others could find their way."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: d5d21688-c677-4cb5-8d62-8d975d46e3f3
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: b9696544-92ff-45f8-a183-e086b9bac498
+      implementation: 3
+      source: "Cartographer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 47dc6d65-0669-4333-8388-fec2270e333e
+        source: "Cartographer Career Feature"
+        sourceguid: b9696544-92ff-45f8-a183-e086b9bac498
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 2c70a0ae-45bc-43a6-b76f-4e0020994d65
+        source: "Cartographer Career Feature"
+        sourceguid: b9696544-92ff-45f8-a183-e086b9bac498
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ea0a7b53-8517-44eb-8af9-fb0eab2d5ac9
+        source: "Cartographer Career Feature"
+        sourceguid: b9696544-92ff-45f8-a183-e086b9bac498
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 6d5b42b5-3cc4-4c0f-bc94-cf247e2569a5
+      implementation: 3
+      source: "Cartographer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: b7510aaa-5239-40ac-880f-971f25632e01
+        source: "Cartographer Career Feature"
+        sourceguid: 6d5b42b5-3cc4-4c0f-bc94-cf247e2569a5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: f7bd9b11-ba4a-4d36-8f13-8f8e4d33f536
+        source: "Cartographer Career Feature"
+        sourceguid: 6d5b42b5-3cc4-4c0f-bc94-cf247e2569a5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: a5e757f9-4dc8-4de9-a829-2cc8fc9f1779
+        source: "Cartographer Career Feature"
+        sourceguid: 6d5b42b5-3cc4-4c0f-bc94-cf247e2569a5
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: d2fc7318-ccc3-480d-a27c-ce398fd05449
+      implementation: 3
+      source: "Cartographer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: ad79af15-e9f6-49cd-9589-cf1e2f3741e7
+        source: "Cartographer Career Feature"
+        sourceguid: d2fc7318-ccc3-480d-a27c-ce398fd05449
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: d0c630c7-f93e-4f2b-b1c9-c90c06002cf4
+        source: "Cartographer Career Feature"
+        sourceguid: d2fc7318-ccc3-480d-a27c-ce398fd05449
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a0e66917-2955-4bc0-9de8-e838d9702c36
+        source: "Cartographer Career Feature"
+        sourceguid: d2fc7318-ccc3-480d-a27c-ce398fd05449
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 6256ff76-5748-4c79-91ea-4cedfaaf741e
+      implementation: 3
+      source: "Cartographer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: f978820c-b8af-4cae-a71e-4940022d7ccb
+        source: "Cartographer Career Feature"
+        sourceguid: 6256ff76-5748-4c79-91ea-4cedfaaf741e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 31a24782-c0ab-4c42-a540-8df42e6cdf9e
+        source: "Cartographer Career Feature"
+        sourceguid: 6256ff76-5748-4c79-91ea-4cedfaaf741e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 85b46c99-8e62-47c8-87aa-dd4ab1f2d52c
+        source: "Cartographer Career Feature"
+        sourceguid: 6256ff76-5748-4c79-91ea-4cedfaaf741e
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 5d98dcf5-d2cc-4e74-9034-7a74cdac5896
+    implementation: 3
+    source: "Cartographer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 7ec3a2dc-8206-49fe-a8f8-343f55113ee6
+      source: "Cartographer Career Feature"
+      sourceguid: 5d98dcf5-d2cc-4e74-9034-7a74cdac5896
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Historical Lore (1 use), Monster Lore (1 use), Nature Lore (1 use), Navigate (2 uses), Search (1 use)."
+    guid: 4272c7b3-46f3-4061-91cd-0985385ab745
+    implementation: 3
+    source: "Cartographer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      num: 1
+      name: Expertises
+      description: "Historical Lore (1 use)"
+      guid: 42d5b695-04eb-45ee-aae9-64e5cd644f23
+      source: "Cartographer Career Feature"
+      sourceguid: 4272c7b3-46f3-4061-91cd-0985385ab745
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+      num: 1
+      name: Expertises
+      description: "Monster Lore (1 use)"
+      guid: 9edbde19-768b-4abc-abc0-1eb19a5a2ed3
+      source: "Cartographer Career Feature"
+      sourceguid: 4272c7b3-46f3-4061-91cd-0985385ab745
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: a22217c6-65ed-4254-8936-754c4a180237
+      num: 1
+      name: Expertises
+      description: "Nature Lore (1 use)"
+      guid: 4f476634-6f88-4e34-9ae6-1f489ea1316c
+      source: "Cartographer Career Feature"
+      sourceguid: 4272c7b3-46f3-4061-91cd-0985385ab745
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+      num: 2
+      name: Expertises
+      description: "Navigate (2 uses)"
+      guid: f368f300-fb8d-4c63-8e4f-173d946586d7
+      source: "Cartographer Career Feature"
+      sourceguid: 4272c7b3-46f3-4061-91cd-0985385ab745
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      num: 1
+      name: Expertises
+      description: "Search (1 use)"
+      guid: c5fd030a-65d3-450d-bb32-dff916e2c3ec
+      source: "Cartographer Career Feature"
+      sourceguid: 4272c7b3-46f3-4061-91cd-0985385ab745
+  - __typeName: CharacterFeature
+    name: "Trait: Orienteering"
+    description: "Travel trait. When you make a test related to the guide travel role while carrying a compass, you can roll the test twice and choose either result."
+    guid: e761398b-da8b-4f7f-bfdf-08b8302db7f6
+    implementation: 1
+    source: "Cartographer Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Compass, journal, lantern, lore book (historical), oil flask, quill and inkpot. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 44884f3a-a86f-4f45-ab33-59764bdb34c8
+    implementation: 2
+    source: "Cartographer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: f413760a-1fd3-4860-b637-9cddecfaeb16
+      source: "Cartographer Career Feature"
+      sourceguid: 44884f3a-a86f-4f45-ab33-59764bdb34c8
+      equipment:
+      - itemid: 0838ee82-a98d-44c8-a6f4-5218fd47e567
+        quantity: 1
+      - itemid: 7a12991d-4779-4665-9bc2-7db69c5cb908
+        quantity: 1
+      - itemid: 9e3e5570-f28a-49aa-84e8-d8c7bcc220df
+        quantity: 1
+      - itemid: ce294a2a-2142-431d-8d70-40c273760592
+        quantity: 1
+      - itemid: f3b04bec-1d0f-4fca-a886-0fc1622e84c4
+        quantity: 1
+      - itemid: 52d42480-b6d6-438f-8962-4bb2401203fc
+        quantity: 1

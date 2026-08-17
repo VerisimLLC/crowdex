@@ -1,0 +1,267 @@
+# Crows Playtest 2 -- background: Sage
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 4d2e32f5-1c77-4863-96b4-3a70e1383629
+name: "Sage"
+description: "You studied all subjects with a tutor or by burying your nose in many books (likely both)."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 022631d6-6b4c-4693-9775-46542fec9574
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: c967e95b-d8ff-44d8-8d03-f2fc52004a48
+      implementation: 3
+      source: "Sage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 7b3c1b80-4e13-4f14-a70c-45efe0310b24
+        source: "Sage Career Feature"
+        sourceguid: c967e95b-d8ff-44d8-8d03-f2fc52004a48
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 0858ce7e-9096-4916-95b1-8bf775294fe6
+        source: "Sage Career Feature"
+        sourceguid: c967e95b-d8ff-44d8-8d03-f2fc52004a48
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: a9f8a419-f87c-4594-9caf-b2f001e0a700
+        source: "Sage Career Feature"
+        sourceguid: c967e95b-d8ff-44d8-8d03-f2fc52004a48
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 9e03e2ef-a761-4a45-9242-4ce5dd49fa52
+      implementation: 3
+      source: "Sage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 6ba0b1e8-9c8b-470e-ae2c-75494c2a1b19
+        source: "Sage Career Feature"
+        sourceguid: 9e03e2ef-a761-4a45-9242-4ce5dd49fa52
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: b6f7118e-18b9-4c8b-9ed9-d3103cf468b5
+        source: "Sage Career Feature"
+        sourceguid: 9e03e2ef-a761-4a45-9242-4ce5dd49fa52
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 725ea6eb-9b6c-45d7-b847-e686e7914099
+        source: "Sage Career Feature"
+        sourceguid: 9e03e2ef-a761-4a45-9242-4ce5dd49fa52
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 76a3e091-26f5-42ba-9fb5-10e3f9a84894
+      implementation: 3
+      source: "Sage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: fdcf259d-9d63-4f55-aa53-661288260df5
+        source: "Sage Career Feature"
+        sourceguid: 76a3e091-26f5-42ba-9fb5-10e3f9a84894
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: d32d99bd-937f-4f69-a9bd-da45bf59e256
+        source: "Sage Career Feature"
+        sourceguid: 76a3e091-26f5-42ba-9fb5-10e3f9a84894
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 790408af-ef7b-4035-95d4-7e478307319e
+        source: "Sage Career Feature"
+        sourceguid: 76a3e091-26f5-42ba-9fb5-10e3f9a84894
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 86d3aaaf-0e92-4652-ac41-42cf10494ca0
+      implementation: 3
+      source: "Sage Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 73ab8c1e-d7f4-4d19-aa97-d7947c9bbff9
+        source: "Sage Career Feature"
+        sourceguid: 86d3aaaf-0e92-4652-ac41-42cf10494ca0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 5646a714-01b1-4c2b-9185-f4965b848c75
+        source: "Sage Career Feature"
+        sourceguid: 86d3aaaf-0e92-4652-ac41-42cf10494ca0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: d0119c2b-8cae-4931-8763-cc6d39e536d9
+        source: "Sage Career Feature"
+        sourceguid: 86d3aaaf-0e92-4652-ac41-42cf10494ca0
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: 8d0e3c1a-4277-4fd0-a538-c9f0a7241218
+    implementation: 3
+    source: "Sage Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: 19416302-da71-442c-be18-367decbb2a1a
+      source: "Sage Career Feature"
+      sourceguid: 8d0e3c1a-4277-4fd0-a538-c9f0a7241218
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Historical Lore (2 uses), Magic Lore (1 use), Monster Lore (2 uses), Nature Lore (1 use), Navigate (1 use), Religious Lore (1 use), Thievery (1 use)."
+    guid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+    implementation: 3
+    source: "Sage Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      num: 2
+      name: Expertises
+      description: "Historical Lore (2 uses)"
+      guid: 1007da99-4ff7-4d71-8afd-b77457971424
+      source: "Sage Career Feature"
+      sourceguid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 1
+      name: Expertises
+      description: "Magic Lore (1 use)"
+      guid: 2941f061-ad79-4df7-abd5-cd7974e70752
+      source: "Sage Career Feature"
+      sourceguid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+      num: 2
+      name: Expertises
+      description: "Monster Lore (2 uses)"
+      guid: ac921dcb-3718-4dc2-9e53-82c23425fb67
+      source: "Sage Career Feature"
+      sourceguid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: a22217c6-65ed-4254-8936-754c4a180237
+      num: 1
+      name: Expertises
+      description: "Nature Lore (1 use)"
+      guid: a0f6ec04-e430-4992-8a3b-d6f58bff280b
+      source: "Sage Career Feature"
+      sourceguid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+      num: 1
+      name: Expertises
+      description: "Navigate (1 use)"
+      guid: a2d9becf-e621-4d6c-a751-cc1ab69d188d
+      source: "Sage Career Feature"
+      sourceguid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+      num: 1
+      name: Expertises
+      description: "Religious Lore (1 use)"
+      guid: 21fc324d-8442-4480-a2fd-46e8b239fd81
+      source: "Sage Career Feature"
+      sourceguid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 1
+      name: Expertises
+      description: "Thievery (1 use)"
+      guid: ed216482-4683-4172-a34b-fa3864b85c45
+      source: "Sage Career Feature"
+      sourceguid: f6b9adfd-c5fc-4748-9b40-f8f11231e031
+  - __typeName: CharacterFeature
+    name: "Trait: Cram"
+    description: "Knowledge trait. When you read a lore book as a rest activity, you can read a second lore book as part of the same activity."
+    guid: 74808eb9-255a-4aa6-83f0-7f85c69fcf83
+    implementation: 1
+    source: "Sage Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Journal, lore book (monsters), lore book (nature), quill and ink pot, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: d2486252-5e26-48e4-9204-7d111e7d5673
+    implementation: 2
+    source: "Sage Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: d0f39a1b-f2c7-46b6-9b55-01cda3b96e42
+      source: "Sage Career Feature"
+      sourceguid: d2486252-5e26-48e4-9204-7d111e7d5673
+      equipment:
+      - itemid: 7a12991d-4779-4665-9bc2-7db69c5cb908
+        quantity: 1
+      - itemid: ce294a2a-2142-431d-8d70-40c273760592
+        quantity: 2
+      - itemid: 52d42480-b6d6-438f-8962-4bb2401203fc
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

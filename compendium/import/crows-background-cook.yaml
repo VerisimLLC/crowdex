@@ -1,0 +1,497 @@
+# Crows Playtest 2 -- background: Cook
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: db6a6b95-e5c3-4eb9-8e2f-f6c06d8d7c76
+name: "Cook"
+description: "You worked as a cook at a tavern or organization."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: a48d1bb1-2144-4f51-b797-91f58275018b
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets any one characteristic to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: 230b3577-129b-46c6-9377-f16f4a6b2712
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 7e6a31f1-de28-4127-8f76-70ecf4dc1d09
+        source: "Cook Career Feature"
+        sourceguid: 230b3577-129b-46c6-9377-f16f4a6b2712
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 54256b2a-2e74-4e66-957b-ee64ab3a8f88
+        source: "Cook Career Feature"
+        sourceguid: 230b3577-129b-46c6-9377-f16f4a6b2712
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 9ba75758-f46d-45b8-9f06-7d30f5f7f38b
+        source: "Cook Career Feature"
+        sourceguid: 230b3577-129b-46c6-9377-f16f4a6b2712
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: 9c63771e-0eec-433c-8d9f-b377291b5b33
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: fc11550b-bfea-4d79-9c06-549d81530de8
+        source: "Cook Career Feature"
+        sourceguid: 9c63771e-0eec-433c-8d9f-b377291b5b33
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: d856b6df-a820-42f5-9093-d5fa9159ad1f
+        source: "Cook Career Feature"
+        sourceguid: 9c63771e-0eec-433c-8d9f-b377291b5b33
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 40f9b934-9fc2-4bd6-8a5d-23dbf1ce27be
+        source: "Cook Career Feature"
+        sourceguid: 9c63771e-0eec-433c-8d9f-b377291b5b33
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 30f4e298-3481-4126-ac27-b2db6e9d3432
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: cafe4719-0ef2-4145-bd18-704daff38f6e
+        source: "Cook Career Feature"
+        sourceguid: 30f4e298-3481-4126-ac27-b2db6e9d3432
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 0bdd4819-ba3c-40ec-935b-f40499ec0a21
+        source: "Cook Career Feature"
+        sourceguid: 30f4e298-3481-4126-ac27-b2db6e9d3432
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 36c10d7a-d718-4fae-b028-baa98380d343
+        source: "Cook Career Feature"
+        sourceguid: 30f4e298-3481-4126-ac27-b2db6e9d3432
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 7f101516-7ef8-4367-ad34-460076c90582
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 09550c19-a9e3-4ea2-927f-4ca3828564c5
+        source: "Cook Career Feature"
+        sourceguid: 7f101516-7ef8-4367-ad34-460076c90582
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: b085f7e3-b730-4641-97f0-5b21dd77decc
+        source: "Cook Career Feature"
+        sourceguid: 7f101516-7ef8-4367-ad34-460076c90582
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 55d5f7d5-e0b0-4cae-a79b-c779daf5e0a1
+        source: "Cook Career Feature"
+        sourceguid: 7f101516-7ef8-4367-ad34-460076c90582
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 2f0862b2-1421-43be-9bac-49dc6172d32a
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: afedca54-5db9-45d7-b4da-59024f772fa9
+        source: "Cook Career Feature"
+        sourceguid: 2f0862b2-1421-43be-9bac-49dc6172d32a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ed5462ed-5d30-4aa1-92cd-ee4d6ec7ffbc
+        source: "Cook Career Feature"
+        sourceguid: 2f0862b2-1421-43be-9bac-49dc6172d32a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ec168b31-b0c1-449f-a8a8-155e925b978b
+        source: "Cook Career Feature"
+        sourceguid: 2f0862b2-1421-43be-9bac-49dc6172d32a
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 2776589e-3b99-4398-a292-d1f8ca1bf099
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: d70333e5-b9c8-45d8-a931-6099cff9cc19
+        source: "Cook Career Feature"
+        sourceguid: 2776589e-3b99-4398-a292-d1f8ca1bf099
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: f9fdc81b-fe4b-4761-9216-0f453cb997ce
+        source: "Cook Career Feature"
+        sourceguid: 2776589e-3b99-4398-a292-d1f8ca1bf099
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: f59a7ba1-b990-45d6-ab10-9bdb27243ae0
+        source: "Cook Career Feature"
+        sourceguid: 2776589e-3b99-4398-a292-d1f8ca1bf099
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 7e4dfe55-bd4e-4712-9223-65dd8c6ec8ee
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 2bf660b9-f038-42c5-931b-9115e80f94d6
+        source: "Cook Career Feature"
+        sourceguid: 7e4dfe55-bd4e-4712-9223-65dd8c6ec8ee
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: bd90778b-2566-44f1-bd22-f53be8ad5486
+        source: "Cook Career Feature"
+        sourceguid: 7e4dfe55-bd4e-4712-9223-65dd8c6ec8ee
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 21807ead-3ae7-47ad-99aa-ff72765114eb
+        source: "Cook Career Feature"
+        sourceguid: 7e4dfe55-bd4e-4712-9223-65dd8c6ec8ee
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: cda34153-631d-4431-ab74-ff83e5a58b0e
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 44e45f10-8fe4-40e9-8699-a8cca16646fa
+        source: "Cook Career Feature"
+        sourceguid: cda34153-631d-4431-ab74-ff83e5a58b0e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: c2a405eb-961a-46f3-8b4b-91386e9805db
+        source: "Cook Career Feature"
+        sourceguid: cda34153-631d-4431-ab74-ff83e5a58b0e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: b91ad376-007f-4190-9104-f52963795a3f
+        source: "Cook Career Feature"
+        sourceguid: cda34153-631d-4431-ab74-ff83e5a58b0e
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 5799cb17-6748-4031-95d8-5cc727e81c9f
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 6be2491a-1d0a-4b6f-a751-53964c23f876
+        source: "Cook Career Feature"
+        sourceguid: 5799cb17-6748-4031-95d8-5cc727e81c9f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: e2045ece-3768-4509-8085-4f460746daa7
+        source: "Cook Career Feature"
+        sourceguid: 5799cb17-6748-4031-95d8-5cc727e81c9f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 6ea3a11f-3d22-4358-b1f0-808f14de448a
+        source: "Cook Career Feature"
+        sourceguid: 5799cb17-6748-4031-95d8-5cc727e81c9f
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: b5e32e2b-b427-4152-b6ca-ac91f7bb1d5c
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 7bffbbbd-20c0-4450-87c9-9f132ccddf04
+        source: "Cook Career Feature"
+        sourceguid: b5e32e2b-b427-4152-b6ca-ac91f7bb1d5c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 1bc622e9-029d-4d88-bcdf-7ed0a7c736b4
+        source: "Cook Career Feature"
+        sourceguid: b5e32e2b-b427-4152-b6ca-ac91f7bb1d5c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 9cf0d4a2-7922-448c-8307-4a4f79dc46db
+        source: "Cook Career Feature"
+        sourceguid: b5e32e2b-b427-4152-b6ca-ac91f7bb1d5c
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 0636e6de-341e-439e-b99a-af172bc560db
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: aa6a37f4-cb25-4ae0-a6e6-f91252cfbb7a
+        source: "Cook Career Feature"
+        sourceguid: 0636e6de-341e-439e-b99a-af172bc560db
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 7741c590-ec7f-433f-9cf2-245355712800
+        source: "Cook Career Feature"
+        sourceguid: 0636e6de-341e-439e-b99a-af172bc560db
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: a4a64b07-5843-48fe-b6b1-820ba3b01469
+        source: "Cook Career Feature"
+        sourceguid: 0636e6de-341e-439e-b99a-af172bc560db
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 730f578d-8fca-42a4-841c-19f60e8240e9
+      implementation: 3
+      source: "Cook Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 3eb2a5b5-40ab-47b3-bac5-ebbfbabf3d26
+        source: "Cook Career Feature"
+        sourceguid: 730f578d-8fca-42a4-841c-19f60e8240e9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: f3be04bb-aafa-4afc-b6d8-696792197d9b
+        source: "Cook Career Feature"
+        sourceguid: 730f578d-8fca-42a4-841c-19f60e8240e9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 6d5fc38b-ef99-4c6d-b738-357762563d19
+        source: "Cook Career Feature"
+        sourceguid: 730f578d-8fca-42a4-841c-19f60e8240e9
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 5a67901a-cc3d-4a7b-be2a-db9198e5e6d0
+    implementation: 3
+    source: "Cook Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 6e8b7e27-710a-4282-b1f6-32343f663f17
+      source: "Cook Career Feature"
+      sourceguid: 5a67901a-cc3d-4a7b-be2a-db9198e5e6d0
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (1 use), Endurance (1 use), Lift (1 use), Nature Lore (2 uses), Slashing (1 use)."
+    guid: 73c51823-2bb8-4deb-a04f-90f223b435b6
+    implementation: 3
+    source: "Cook Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 1
+      name: Expertises
+      description: "Alchemy (1 use)"
+      guid: 965a2d9a-9ef4-4cf4-9853-5cff6348e4af
+      source: "Cook Career Feature"
+      sourceguid: 73c51823-2bb8-4deb-a04f-90f223b435b6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 1
+      name: Expertises
+      description: "Endurance (1 use)"
+      guid: 89a3ace8-3f46-4a00-b9dd-480554e9082d
+      source: "Cook Career Feature"
+      sourceguid: 73c51823-2bb8-4deb-a04f-90f223b435b6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: 5e2b580c-2b1a-423e-9ffb-bc11cbefb4b8
+      source: "Cook Career Feature"
+      sourceguid: 73c51823-2bb8-4deb-a04f-90f223b435b6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: a22217c6-65ed-4254-8936-754c4a180237
+      num: 2
+      name: Expertises
+      description: "Nature Lore (2 uses)"
+      guid: 85def232-11ed-4daa-b57a-de1545abf369
+      source: "Cook Career Feature"
+      sourceguid: 73c51823-2bb8-4deb-a04f-90f223b435b6
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4e7a4dca-510b-4059-b69f-499845a1ae9b
+      num: 1
+      name: Expertises
+      description: "Slashing (1 use)"
+      guid: f2cf129c-6f7f-40df-85f5-53ce6c93f3b0
+      source: "Cook Career Feature"
+      sourceguid: 73c51823-2bb8-4deb-a04f-90f223b435b6
+  - __typeName: CharacterFeature
+    name: "Trait: Hearty Meals"
+    description: "Camping trait. As a rest activity, you can turn a normal ration into something more if you have cook's utensils. The ration becomes a hearty ration (which has an equipment card)."
+    guid: b7180792-fa00-4906-8776-db6d4ace3bca
+    implementation: 1
+    source: "Cook Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Cook's utensils, hearty ration (2), pot, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 4f3e6fc7-0b51-499a-8c3d-f2b9c92302da
+    implementation: 2
+    source: "Cook Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 3da34104-a1fc-44b2-b2b0-40d60e2d64cd
+      source: "Cook Career Feature"
+      sourceguid: 4f3e6fc7-0b51-499a-8c3d-f2b9c92302da
+      equipment:
+      - itemid: db6736a9-3b7c-4588-a1e1-de803cb63576
+        quantity: 1
+      - itemid: 8585995c-fc4e-4729-b70c-69a19f559e0a
+        quantity: 2
+      - itemid: 880dd636-2ea1-420d-a140-1699da048d1a
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

@@ -1,0 +1,251 @@
+# Crows Playtest 2 -- background: Conjurer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 193525a5-abcc-4074-9738-dc18701cd6ce
+name: "Conjurer"
+description: "You studied conjuration magic on your own or with a teacher."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 6e5bd39c-5504-4f92-a059-eb62c6ab717b
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 95a509a9-68c1-4528-bfc5-031020852ea2
+      implementation: 3
+      source: "Conjurer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: c95abef9-229c-440e-9a4d-1aab35973a98
+        source: "Conjurer Career Feature"
+        sourceguid: 95a509a9-68c1-4528-bfc5-031020852ea2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: e46f1fda-62c1-48aa-ae7c-dd9499cc6432
+        source: "Conjurer Career Feature"
+        sourceguid: 95a509a9-68c1-4528-bfc5-031020852ea2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 9b187539-b8fc-4207-85a4-a782a2ad2f39
+        source: "Conjurer Career Feature"
+        sourceguid: 95a509a9-68c1-4528-bfc5-031020852ea2
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 56599ac7-8d8e-4dc1-8252-f4e50da78999
+      implementation: 3
+      source: "Conjurer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 49b4680d-ed32-4e2d-b312-a7d68eb8a9ae
+        source: "Conjurer Career Feature"
+        sourceguid: 56599ac7-8d8e-4dc1-8252-f4e50da78999
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 6b25c43b-f72f-40c9-a1f1-74e95bc03e27
+        source: "Conjurer Career Feature"
+        sourceguid: 56599ac7-8d8e-4dc1-8252-f4e50da78999
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 6bc9d4dc-28b1-406d-a3eb-37b5a2e28928
+        source: "Conjurer Career Feature"
+        sourceguid: 56599ac7-8d8e-4dc1-8252-f4e50da78999
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 4de3f727-34e0-4178-8d58-afa071f2274f
+      implementation: 3
+      source: "Conjurer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: e82e88f1-03a1-4a53-92b3-d7c2311731b5
+        source: "Conjurer Career Feature"
+        sourceguid: 4de3f727-34e0-4178-8d58-afa071f2274f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 5f9b4a32-97ed-4632-ba19-83099496b7ce
+        source: "Conjurer Career Feature"
+        sourceguid: 4de3f727-34e0-4178-8d58-afa071f2274f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 5f186f7e-c8dd-4924-bd81-fe403ea0aa11
+        source: "Conjurer Career Feature"
+        sourceguid: 4de3f727-34e0-4178-8d58-afa071f2274f
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 87413b1d-b178-49f8-b555-23d826f37aaa
+      implementation: 3
+      source: "Conjurer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: b9b5e287-54b2-419b-8f29-d055aca870cc
+        source: "Conjurer Career Feature"
+        sourceguid: 87413b1d-b178-49f8-b555-23d826f37aaa
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: c1a3a43d-6b72-4f4f-9cca-c9e426eaaadc
+        source: "Conjurer Career Feature"
+        sourceguid: 87413b1d-b178-49f8-b555-23d826f37aaa
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 641e1abc-7343-4a40-8d42-a2bb4c651d78
+        source: "Conjurer Career Feature"
+        sourceguid: 87413b1d-b178-49f8-b555-23d826f37aaa
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 378b9017-56fb-4735-940f-35590fbd0eb9
+    implementation: 3
+    source: "Conjurer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 6e67aa95-6d4c-471e-8fd5-ea7cbf81ca4b
+      source: "Conjurer Career Feature"
+      sourceguid: 378b9017-56fb-4735-940f-35590fbd0eb9
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Conjuration (2 uses), Handle Pet (1 use), Magic Lore (1 use), Monster Lore (1 use), Navigate (1 use)."
+    guid: 9940e5aa-e31a-487f-80e8-33f258e78129
+    implementation: 3
+    source: "Conjurer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: cf9240ba-9ad6-45a1-ad00-01897f77e619
+      num: 2
+      name: Expertises
+      description: "Conjuration (2 uses)"
+      guid: 412f2bd0-c972-4cb1-9d06-b89060e66a9a
+      source: "Conjurer Career Feature"
+      sourceguid: 9940e5aa-e31a-487f-80e8-33f258e78129
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      num: 1
+      name: Expertises
+      description: "Handle Pet (1 use)"
+      guid: 65568df2-ea53-4e96-970f-0c89929e1353
+      source: "Conjurer Career Feature"
+      sourceguid: 9940e5aa-e31a-487f-80e8-33f258e78129
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 1
+      name: Expertises
+      description: "Magic Lore (1 use)"
+      guid: 2a64928d-418d-407d-a0ae-a1bd4eb926b1
+      source: "Conjurer Career Feature"
+      sourceguid: 9940e5aa-e31a-487f-80e8-33f258e78129
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+      num: 1
+      name: Expertises
+      description: "Monster Lore (1 use)"
+      guid: a39c7912-18ca-4cba-a186-c363fa7f733f
+      source: "Conjurer Career Feature"
+      sourceguid: 9940e5aa-e31a-487f-80e8-33f258e78129
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+      num: 1
+      name: Expertises
+      description: "Navigate (1 use)"
+      guid: 098616c2-8d62-4005-87f4-3691ba994a4f
+      source: "Conjurer Career Feature"
+      sourceguid: 9940e5aa-e31a-487f-80e8-33f258e78129
+  - __typeName: CharacterFeature
+    name: "Trait: Jumper"
+    description: "Conjuration trait. When you cast a conjuration spell that teleports a target, you can teleport the target an additional number of squares equal to your Mind. This trait stacks with Long Distance Jump."
+    guid: ff28e5a9-0b29-4ab1-a5de-c4f1fb037747
+    implementation: 1
+    source: "Conjurer Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Chain, torch, spellbooks: jaunt, summon object, teleport object. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: dc942ab2-7e0c-4b43-99a8-a39be84be3de
+    implementation: 2
+    source: "Conjurer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 4c3857d0-be0e-43a3-9652-781629e1105e
+      source: "Conjurer Career Feature"
+      sourceguid: dc942ab2-7e0c-4b43-99a8-a39be84be3de
+      equipment:
+      - itemid: e18b827c-aceb-4bc1-a664-2e5e81f3a78b
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: f5e10961-ee2c-4de8-b2ca-1dd4558ecf5e
+        quantity: 1
+      - itemid: a9fef3a1-2671-45ab-9bf6-7bebf7fd37bb
+        quantity: 1
+      - itemid: 0897e6bb-440e-4fc7-9af0-05c508c64844
+        quantity: 1

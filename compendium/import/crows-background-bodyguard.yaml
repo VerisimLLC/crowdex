@@ -1,0 +1,233 @@
+# Crows Playtest 2 -- background: Bodyguard
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: c320d335-a266-491c-976f-68102013d213
+name: "Bodyguard"
+description: "You protected a person of importance."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 674049cc-46de-4026-8f48-a8a12dd60402
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: a63ff1b1-efba-4934-9410-65973b85ee92
+      implementation: 3
+      source: "Bodyguard Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 1dfdb318-c2b2-4cef-abc7-fb8a06bc9c8e
+        source: "Bodyguard Career Feature"
+        sourceguid: a63ff1b1-efba-4934-9410-65973b85ee92
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 1a8491ef-0863-48cc-b089-b86e64abc62b
+        source: "Bodyguard Career Feature"
+        sourceguid: a63ff1b1-efba-4934-9410-65973b85ee92
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 2341f1cd-75b5-4ca2-9783-f49ffd197929
+        source: "Bodyguard Career Feature"
+        sourceguid: a63ff1b1-efba-4934-9410-65973b85ee92
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: 30d557bb-1115-4202-bf6a-4d88989a3e32
+      implementation: 3
+      source: "Bodyguard Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 2cb7cd23-86f9-4907-ab01-441430e77296
+        source: "Bodyguard Career Feature"
+        sourceguid: 30d557bb-1115-4202-bf6a-4d88989a3e32
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 6fbe1ee7-f11d-433a-9226-861b4842ade9
+        source: "Bodyguard Career Feature"
+        sourceguid: 30d557bb-1115-4202-bf6a-4d88989a3e32
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: ee8434cd-8642-45de-a6eb-5b8ba7ef5337
+        source: "Bodyguard Career Feature"
+        sourceguid: 30d557bb-1115-4202-bf6a-4d88989a3e32
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: ce15b075-df78-4b67-9d0c-7e10c8f73568
+      implementation: 3
+      source: "Bodyguard Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: ebc0e9a6-6953-4e24-a078-c262a0c0e33e
+        source: "Bodyguard Career Feature"
+        sourceguid: ce15b075-df78-4b67-9d0c-7e10c8f73568
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 5ed1dbb4-932f-4948-98aa-f8f845d18107
+        source: "Bodyguard Career Feature"
+        sourceguid: ce15b075-df78-4b67-9d0c-7e10c8f73568
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 7ac0b328-a12c-4427-9be9-bbb64d2b298d
+        source: "Bodyguard Career Feature"
+        sourceguid: ce15b075-df78-4b67-9d0c-7e10c8f73568
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 6eef4cc8-dac1-4394-ad22-50a3625caeca
+      implementation: 3
+      source: "Bodyguard Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 1984e9ec-292a-4364-8516-0b8012526eb6
+        source: "Bodyguard Career Feature"
+        sourceguid: 6eef4cc8-dac1-4394-ad22-50a3625caeca
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: b5d67c2a-7f5b-4011-a968-82a696d6d518
+        source: "Bodyguard Career Feature"
+        sourceguid: 6eef4cc8-dac1-4394-ad22-50a3625caeca
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 6555129e-4bd2-475b-bd43-3860089797fc
+        source: "Bodyguard Career Feature"
+        sourceguid: 6eef4cc8-dac1-4394-ad22-50a3625caeca
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 9."
+    guid: 1b4f1fc9-5e08-416a-b0cc-29cda101ba47
+    implementation: 3
+    source: "Bodyguard Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 9
+      name: Stamina
+      guid: a6fa3baf-aea1-447b-8ba1-b6ac3ec3e4b4
+      source: "Bodyguard Career Feature"
+      sourceguid: 1b4f1fc9-5e08-416a-b0cc-29cda101ba47
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Endurance (1 use), Search (1 use), Slashing (1 use)."
+    guid: ffeb3995-c40b-4bdd-953a-cc041f98e596
+    implementation: 3
+    source: "Bodyguard Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 1
+      name: Expertises
+      description: "Endurance (1 use)"
+      guid: 3c9358cf-4dd8-44e4-a938-61a6484b81c2
+      source: "Bodyguard Career Feature"
+      sourceguid: ffeb3995-c40b-4bdd-953a-cc041f98e596
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      num: 1
+      name: Expertises
+      description: "Search (1 use)"
+      guid: 9ae3986b-349d-4ef3-a365-94ed3efd89f6
+      source: "Bodyguard Career Feature"
+      sourceguid: ffeb3995-c40b-4bdd-953a-cc041f98e596
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4e7a4dca-510b-4059-b69f-499845a1ae9b
+      num: 1
+      name: Expertises
+      description: "Slashing (1 use)"
+      guid: bcdde05a-fd1e-4fec-967f-8e8aabc7e466
+      source: "Bodyguard Career Feature"
+      sourceguid: ffeb3995-c40b-4bdd-953a-cc041f98e596
+  - __typeName: CharacterFeature
+    name: "Trait: Interposing Arm"
+    description: "Armor trait. When you wield a shield with at least 1 AD and a creature makes a weapon attack against a creature adjacent to you, you can use your reaction to cause the damage to apply your shield before the target."
+    guid: 82d8e537-47a8-4ca3-a46d-c848fd05110e
+    implementation: 1
+    source: "Bodyguard Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Ball bearings, light armor, shield, sword, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 2d8fd0c2-bc1b-4ad5-a09c-3ba8fd4b5576
+    implementation: 2
+    source: "Bodyguard Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 0ef712cb-925e-479d-9482-fc534c8d029e
+      source: "Bodyguard Career Feature"
+      sourceguid: 2d8fd0c2-bc1b-4ad5-a09c-3ba8fd4b5576
+      equipment:
+      - itemid: aafca935-a2f4-4f4a-a68d-3d6aae2c685b
+        quantity: 1
+      - itemid: 3b5f4e41-2428-4e6a-9f2d-ebad493545fa
+        quantity: 1
+      - itemid: a9969dd0-ac10-4814-87e2-367d5ce4673f
+        quantity: 1
+      - itemid: c2590254-6ae5-4ac0-98c0-18814a97d587
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

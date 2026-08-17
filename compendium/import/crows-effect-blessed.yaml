@@ -1,0 +1,75 @@
+# Crows Playtest 2 -- Blessed (rework of the Playtest 1 stacking version)
+#
+# The Rules, p.12 (Conditions):
+#   "While you are blessed, you gain an edge on all tests and attacks you make
+#    deal additional damage equal to the characteristic used to make the attack.
+#    You lose this condition at the end of a dungeon turn."
+#
+# WHAT CHANGED FROM PLAYTEST 1
+# Playtest 1 Blessed was a stacking level: +1 per level to all tests, +1 per
+# level to damage, cancelling 1-to-1 against Boned. Playtest 2 deletes Boned,
+# drops the levels, and restates the bonus as an edge plus characteristic damage.
+# So both modifiers are rewritten and stackable flips to false -- Playtest 2 adds
+# "You can't gain a second instance of a condition you already have."
+#
+# The id and guid are deliberately preserved so any crow already carrying the
+# condition, and anything referencing it, keeps working.
+#
+# ONE APPROXIMATION, FLAGGED. "Damage equal to the characteristic used to make
+# the attack" has no symbol -- there is no "characteristic used for this roll"
+# in GoblinScript. "Highest Characteristic" is used instead. It is exactly right
+# whenever a crow attacks with their best characteristic, which is the normal
+# case: Crows attacks read "2d10 + A or S" with the player choosing, and spell
+# attacks use Mind, which is a caster's strong stat. It over-rewards only a crow
+# who deliberately attacks with their weaker characteristic. To drop the
+# approximation instead, delete the second modifier and note the bonus in the
+# description.
+_table: characterOngoingEffects
+__typeName: CharacterOngoingEffect
+id: 41064284-15aa-444b-ad97-01c6448483b0
+guid: fb533be8-3503-4874-8d61-06cc1519f819
+name: Blessed
+description: >-
+  While you are blessed, you gain an edge on all tests, and attacks you make
+  deal additional damage equal to the characteristic used to make the attack.
+  You lose this condition at the end of a dungeon turn. (The damage bonus is
+  automated as your highest characteristic; the dungeon-turn expiry is tracked
+  manually.)
+crowsCondition: true
+stackable: false
+statusEffect: true
+indefiniteDuration: true
+clearStacksWhenApplying: false
+implementation: 3
+iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
+display:
+  __typeName: DisplayInfo
+  bgcolor: "#ffe8a0ff"
+  hueshift: 0
+  brightness: 1
+  saturation: 1
+modifiers:
+  - __typeName: CharacterModifier
+    name: Blessed
+    guid: 85371b3a-c396-4cbe-b092-007e1736f93d
+    behavior: power
+    modtype: edge
+    rollType: all
+    activationCondition: true
+    description: You gain an edge on all tests while blessed.
+    source: Condition
+    sourceguid: fb533be8-3503-4874-8d61-06cc1519f819
+  - __typeName: CharacterModifier
+    name: Blessed
+    guid: 9f028ef2-53d1-4c1d-9f69-32e175b3c59f
+    behavior: power
+    modtype: none
+    rollType: ability_power_roll
+    activationCondition: true
+    damageModifier: Highest Characteristic
+    damageModifierType: none
+    description: >-
+      Your attacks deal additional damage equal to the characteristic used to
+      make the attack (automated as your highest characteristic).
+    source: Condition
+    sourceguid: fb533be8-3503-4874-8d61-06cc1519f819

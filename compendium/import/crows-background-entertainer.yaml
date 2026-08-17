@@ -1,0 +1,260 @@
+# Crows Playtest 2 -- background: Entertainer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: b234e2aa-9437-4da9-8853-fd8ff26147ad
+name: "Entertainer"
+description: "You were an acrobat, dancer, and/or musician."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: a0217563-e9a2-4624-82b8-21f2ddc8b7fa
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Agility to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: 47372297-b80e-47fc-b07e-d5adaea2d5f8
+      implementation: 3
+      source: "Entertainer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: f1e2dbfb-01a2-4a13-84c7-98a8980db9a6
+        source: "Entertainer Career Feature"
+        sourceguid: 47372297-b80e-47fc-b07e-d5adaea2d5f8
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 232c8fda-e21b-4771-bd80-a949ec3919a5
+        source: "Entertainer Career Feature"
+        sourceguid: 47372297-b80e-47fc-b07e-d5adaea2d5f8
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 8a991dde-d756-4cab-aace-a6b615b997cf
+        source: "Entertainer Career Feature"
+        sourceguid: 47372297-b80e-47fc-b07e-d5adaea2d5f8
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: d46be95a-649e-471c-8625-c8fa319ab8e9
+      implementation: 3
+      source: "Entertainer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: df57107d-84c9-42b7-affa-12cd2d6d29e2
+        source: "Entertainer Career Feature"
+        sourceguid: d46be95a-649e-471c-8625-c8fa319ab8e9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: e734cc14-9eae-4ae5-b4ad-251b3eaa256a
+        source: "Entertainer Career Feature"
+        sourceguid: d46be95a-649e-471c-8625-c8fa319ab8e9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: ee290d26-4d1d-4288-8c4d-28f935b87361
+        source: "Entertainer Career Feature"
+        sourceguid: d46be95a-649e-471c-8625-c8fa319ab8e9
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 06852a0b-dbf2-4d59-a615-7c19b1676bfb
+      implementation: 3
+      source: "Entertainer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 4e34c92d-5726-4751-acac-80901156553e
+        source: "Entertainer Career Feature"
+        sourceguid: 06852a0b-dbf2-4d59-a615-7c19b1676bfb
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 1bbe8903-9d61-4ace-962a-7291304838ce
+        source: "Entertainer Career Feature"
+        sourceguid: 06852a0b-dbf2-4d59-a615-7c19b1676bfb
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 2b2df82e-fb9b-4f66-b5ad-81e096b215e6
+        source: "Entertainer Career Feature"
+        sourceguid: 06852a0b-dbf2-4d59-a615-7c19b1676bfb
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 13bb633f-be6e-4b9d-9e49-ac4156125941
+      implementation: 3
+      source: "Entertainer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 39317d52-cef1-40bd-8e50-c36bde79924d
+        source: "Entertainer Career Feature"
+        sourceguid: 13bb633f-be6e-4b9d-9e49-ac4156125941
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 0636afec-cc54-4953-b373-f83162f936da
+        source: "Entertainer Career Feature"
+        sourceguid: 13bb633f-be6e-4b9d-9e49-ac4156125941
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 92d299c2-af1c-419e-a7b4-636512dc0cd9
+        source: "Entertainer Career Feature"
+        sourceguid: 13bb633f-be6e-4b9d-9e49-ac4156125941
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: 131c5b69-52e1-405b-bf6c-42578a9fed34
+    implementation: 3
+    source: "Entertainer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: 0500f8d8-993d-4b7d-95a7-916943ccbb83
+      source: "Entertainer Career Feature"
+      sourceguid: 131c5b69-52e1-405b-bf6c-42578a9fed34
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (2 uses), Endurance (1 use), Gymnastics (2 uses), Handle Pet (1 use), Historical Lore (1 use), Thievery (2 uses)."
+    guid: 6c37fef4-501a-41f8-9545-1d14c9607a4f
+    implementation: 3
+    source: "Entertainer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 2
+      name: Expertises
+      description: "Athletics (2 uses)"
+      guid: 9bc1b794-92fc-4408-af05-0ceab1d84c10
+      source: "Entertainer Career Feature"
+      sourceguid: 6c37fef4-501a-41f8-9545-1d14c9607a4f
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 1
+      name: Expertises
+      description: "Endurance (1 use)"
+      guid: 3c925704-0fbb-4d03-b5ca-c8c1f5bcbd6d
+      source: "Entertainer Career Feature"
+      sourceguid: 6c37fef4-501a-41f8-9545-1d14c9607a4f
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9987741a-c5f1-402b-ab3e-38c12b986f98
+      num: 2
+      name: Expertises
+      description: "Gymnastics (2 uses)"
+      guid: c8735f9c-2fe5-4151-b822-c4447069f128
+      source: "Entertainer Career Feature"
+      sourceguid: 6c37fef4-501a-41f8-9545-1d14c9607a4f
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      num: 1
+      name: Expertises
+      description: "Handle Pet (1 use)"
+      guid: 77511934-c614-4235-9ea5-6cabb4050486
+      source: "Entertainer Career Feature"
+      sourceguid: 6c37fef4-501a-41f8-9545-1d14c9607a4f
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      num: 1
+      name: Expertises
+      description: "Historical Lore (1 use)"
+      guid: 14f5a8d6-20bb-4a5b-9c07-53ce1d02b082
+      source: "Entertainer Career Feature"
+      sourceguid: 6c37fef4-501a-41f8-9545-1d14c9607a4f
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 2
+      name: Expertises
+      description: "Thievery (2 uses)"
+      guid: d715a722-79a8-4cbb-8fb5-aef33eb40abc
+      source: "Entertainer Career Feature"
+      sourceguid: 6c37fef4-501a-41f8-9545-1d14c9607a4f
+  - __typeName: CharacterFeature
+    name: "Trait: Song of Rest"
+    description: "Camping trait. As a rest activity, you can play a song on an instrument. At the end of the rest, each ally who rested with you is blessed."
+    guid: 6a4de694-7a13-4567-9f20-cb365f87df15
+    implementation: 1
+    source: "Entertainer Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: 10-foot pole, chalk, mirror, musical instrument (lute), torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: dd5ce19e-2e93-4025-9143-7fedabb20b8e
+    implementation: 2
+    source: "Entertainer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 8b823d10-ebb2-44f1-ab8a-df39891a3b44
+      source: "Entertainer Career Feature"
+      sourceguid: dd5ce19e-2e93-4025-9143-7fedabb20b8e
+      equipment:
+      - itemid: aab94a9c-3e00-4b58-9526-cb85de5f584d
+        quantity: 1
+      - itemid: 7e2d8974-0ea3-4fd3-9b4e-44ffed6d5da9
+        quantity: 1
+      - itemid: cbd5f059-6175-47b4-8af4-9b50b3417bf4
+        quantity: 1
+      - itemid: 360b7d3b-960c-4f32-aecd-7f4ae725041a
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1

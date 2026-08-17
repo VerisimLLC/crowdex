@@ -1,0 +1,13 @@
+# Crows Playtest 2 -- conditions bundle (Stage 2 / W4)
+#
+# Brings the Crows condition set onto the August-September 2026 playtest.
+# Import order matters only in that Boned is retired last, so the two conditions
+# replacing it already exist by the time it is hidden.
+#
+# The four entries in charConditions (Prone, Surprised, Unconscious, Grabbed)
+# are unchanged by Playtest 2 and are deliberately not touched here.
+_bundle:
+  - _include: "crows-effect-weakened.yaml"
+  - _include: "crows-effect-vulnerable.yaml"
+  - _include: "crows-effect-blessed.yaml"
+  - _include: "crows-effect-boned.yaml"

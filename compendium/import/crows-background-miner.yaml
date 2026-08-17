@@ -1,0 +1,253 @@
+# Crows Playtest 2 -- background: Miner
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: d0b748e5-90fc-411f-8b46-72f8a0b4b44a
+name: "Miner"
+description: "You worked in mines, digging and hauling ore."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 4ab6a220-6112-4e0c-87be-4ffacb2f5ab4
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 87ae5ab7-18ed-4b74-950a-ad93250b0e5d
+      implementation: 3
+      source: "Miner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: ff4d428a-9a89-451c-aa4f-bf4427772bb1
+        source: "Miner Career Feature"
+        sourceguid: 87ae5ab7-18ed-4b74-950a-ad93250b0e5d
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: be3468d5-883d-4b81-8262-ed3399c06f16
+        source: "Miner Career Feature"
+        sourceguid: 87ae5ab7-18ed-4b74-950a-ad93250b0e5d
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: a3fdb0b8-7e98-4550-99a1-327c5c083c1a
+        source: "Miner Career Feature"
+        sourceguid: 87ae5ab7-18ed-4b74-950a-ad93250b0e5d
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: dec95001-d689-4d9e-9a53-bac51cbc52aa
+      implementation: 3
+      source: "Miner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 7e97fab7-8318-4970-9e7e-f58cab6da3cd
+        source: "Miner Career Feature"
+        sourceguid: dec95001-d689-4d9e-9a53-bac51cbc52aa
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 4735f795-8fbf-4d72-9883-2ef76cda7052
+        source: "Miner Career Feature"
+        sourceguid: dec95001-d689-4d9e-9a53-bac51cbc52aa
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: ff10279b-e2dd-4901-88db-1b0721c9b0a7
+        source: "Miner Career Feature"
+        sourceguid: dec95001-d689-4d9e-9a53-bac51cbc52aa
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 4225161d-8860-4421-ab02-c6a7abed5361
+      implementation: 3
+      source: "Miner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 04c85dc9-a4ba-432d-951f-5f378c021ebe
+        source: "Miner Career Feature"
+        sourceguid: 4225161d-8860-4421-ab02-c6a7abed5361
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: c972f858-3472-4c98-b626-2957d018255e
+        source: "Miner Career Feature"
+        sourceguid: 4225161d-8860-4421-ab02-c6a7abed5361
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 7691e160-4f9e-4dd0-be58-a8e739395009
+        source: "Miner Career Feature"
+        sourceguid: 4225161d-8860-4421-ab02-c6a7abed5361
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 3f64c35d-dbf1-4472-bdd0-585c591d6e4c
+      implementation: 3
+      source: "Miner Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 37b356c4-52f4-49c3-a41f-b9caafb9d9bf
+        source: "Miner Career Feature"
+        sourceguid: 3f64c35d-dbf1-4472-bdd0-585c591d6e4c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 67bd9489-265c-4603-a0df-fca03ebb6887
+        source: "Miner Career Feature"
+        sourceguid: 3f64c35d-dbf1-4472-bdd0-585c591d6e4c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 94a12040-1630-4723-8f9e-fd374a9c5a86
+        source: "Miner Career Feature"
+        sourceguid: 3f64c35d-dbf1-4472-bdd0-585c591d6e4c
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 9da4e16f-16a6-4afb-bf55-7a40efe9c16f
+    implementation: 3
+    source: "Miner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 749def11-a49b-489f-9001-d0d0a419b958
+      source: "Miner Career Feature"
+      sourceguid: 9da4e16f-16a6-4afb-bf55-7a40efe9c16f
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (1 use), Endurance (2 uses), Lift (1 use), Navigate (1 use), Stabbing (1 use)."
+    guid: c2e61639-b6ca-4b67-bd9e-5ae39dc2f534
+    implementation: 3
+    source: "Miner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: c2bcd722-6ad8-4fea-bda2-424073e76ae3
+      source: "Miner Career Feature"
+      sourceguid: c2e61639-b6ca-4b67-bd9e-5ae39dc2f534
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 2
+      name: Expertises
+      description: "Endurance (2 uses)"
+      guid: c393f730-66ac-4776-84d9-83d308c91881
+      source: "Miner Career Feature"
+      sourceguid: c2e61639-b6ca-4b67-bd9e-5ae39dc2f534
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: b1e6852a-7ec8-4cb0-ad86-f665ab786b14
+      source: "Miner Career Feature"
+      sourceguid: c2e61639-b6ca-4b67-bd9e-5ae39dc2f534
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+      num: 1
+      name: Expertises
+      description: "Navigate (1 use)"
+      guid: 350a1642-b8a1-4135-8b00-1ce344c61d1e
+      source: "Miner Career Feature"
+      sourceguid: c2e61639-b6ca-4b67-bd9e-5ae39dc2f534
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 015fe62d-4d71-4028-a5bd-821eee14c002
+      num: 1
+      name: Expertises
+      description: "Stabbing (1 use)"
+      guid: 26e05c98-0c69-4e50-b955-97d2724cd0b3
+      source: "Miner Career Feature"
+      sourceguid: c2e61639-b6ca-4b67-bd9e-5ae39dc2f534
+  - __typeName: CharacterFeature
+    name: "Trait: Lasting Light"
+    description: "Leverage trait. When you carry a mundane light source, its UD maximum increases by 1. (The background lists this trait's tree as Scavenging; in this booklet the trait appears in the Leverage tree.)"
+    guid: 9621c9c1-31d8-42cb-8a6b-5fed376396ff
+    implementation: 1
+    source: "Miner Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Chalk, grappling hook, lantern, oil flask, pickaxe, shovel. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: 68406aef-8e73-4395-b2d6-4a4af04e3b6c
+    implementation: 2
+    source: "Miner Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: cf6dec32-cc6a-425f-9ab9-1074093fb150
+      source: "Miner Career Feature"
+      sourceguid: 68406aef-8e73-4395-b2d6-4a4af04e3b6c
+      equipment:
+      - itemid: 7e2d8974-0ea3-4fd3-9b4e-44ffed6d5da9
+        quantity: 1
+      - itemid: f1f41261-c1d4-4cfb-b786-276c547a243a
+        quantity: 1
+      - itemid: 9e3e5570-f28a-49aa-84e8-d8c7bcc220df
+        quantity: 1
+      - itemid: f3b04bec-1d0f-4fca-a886-0fc1622e84c4
+        quantity: 1
+      - itemid: b1cb8195-2079-45af-b43a-16bbe9f5f364
+        quantity: 1
+      - itemid: 111190c5-ba65-442c-b808-6ecefbc580f5
+        quantity: 1

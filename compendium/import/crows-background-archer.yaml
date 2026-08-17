@@ -1,0 +1,242 @@
+# Crows Playtest 2 -- background: Archer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# Trait and Equipment are carried through verbatim. Equipment changed for
+# most backgrounds in Playtest 2, but several of the new items do not exist
+# in tbl_Gear yet, so that belongs with the inventory-card pass.
+_table: careers
+__typeName: Background
+id: 24c12a93-7dd3-463f-b272-70ec76ef25fd
+name: "Archer"
+description: "You served as a soldier or member of the watch who was specially trained with a bow."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 152cf553-1585-4b21-9784-4a8b0fa7f173
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Agility to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: 33d245d7-b051-4b33-8f5f-c574f846910a
+      implementation: 3
+      source: "Archer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: f9fe908d-924e-462c-b435-da75a2d01a6b
+        source: "Archer Career Feature"
+        sourceguid: 33d245d7-b051-4b33-8f5f-c574f846910a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 8fb4a85f-1029-4a96-81fa-27de75b33e93
+        source: "Archer Career Feature"
+        sourceguid: 33d245d7-b051-4b33-8f5f-c574f846910a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 20a1f909-d8df-4ec0-b6a0-fd52eb2b5991
+        source: "Archer Career Feature"
+        sourceguid: 33d245d7-b051-4b33-8f5f-c574f846910a
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: 60f66e52-dec0-4cba-b847-dcbeb63ac769
+      implementation: 3
+      source: "Archer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 72f3bb14-8a9b-49e4-8df8-8259e9f31a1f
+        source: "Archer Career Feature"
+        sourceguid: 60f66e52-dec0-4cba-b847-dcbeb63ac769
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 39b6838e-4ebd-4240-810e-95070b335207
+        source: "Archer Career Feature"
+        sourceguid: 60f66e52-dec0-4cba-b847-dcbeb63ac769
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: e0b79bbb-ee58-4029-a0e2-ec8e095236e8
+        source: "Archer Career Feature"
+        sourceguid: 60f66e52-dec0-4cba-b847-dcbeb63ac769
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: aeefa820-b3af-4039-a11c-714869a81731
+      implementation: 3
+      source: "Archer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 1b0691b5-3195-4e63-b401-d89d3547acaf
+        source: "Archer Career Feature"
+        sourceguid: aeefa820-b3af-4039-a11c-714869a81731
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a66de4e4-86fa-4826-8d36-fd5c983042d0
+        source: "Archer Career Feature"
+        sourceguid: aeefa820-b3af-4039-a11c-714869a81731
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: e4f25c24-007f-456c-84d9-6319a7e1e658
+        source: "Archer Career Feature"
+        sourceguid: aeefa820-b3af-4039-a11c-714869a81731
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: e6d8e93e-1898-4cb9-8641-1b0108c5fbb2
+      implementation: 3
+      source: "Archer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 7b53e40b-7c7c-4767-a827-3d5661df9665
+        source: "Archer Career Feature"
+        sourceguid: e6d8e93e-1898-4cb9-8641-1b0108c5fbb2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 73d86e0a-5b39-4cf9-a901-e3d383476987
+        source: "Archer Career Feature"
+        sourceguid: e6d8e93e-1898-4cb9-8641-1b0108c5fbb2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 7b930af4-cfab-48ef-b20b-eccbfef6091b
+        source: "Archer Career Feature"
+        sourceguid: e6d8e93e-1898-4cb9-8641-1b0108c5fbb2
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 0b3959ba-b480-41ad-adda-0ae68b5ba3f0
+    implementation: 3
+    source: "Archer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 932ee4c9-15bb-4594-b10b-16821cbd8637
+      source: "Archer Career Feature"
+      sourceguid: 0b3959ba-b480-41ad-adda-0ae68b5ba3f0
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (1 use), Bow (2 uses), Stealth (2 uses), Unarmed (1 use)."
+    guid: e21d42ad-f45e-4376-9eee-a8f5a4712a00
+    implementation: 3
+    source: "Archer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: de79fa26-1bff-422c-886e-b0f3f5eb50a7
+      source: "Archer Career Feature"
+      sourceguid: e21d42ad-f45e-4376-9eee-a8f5a4712a00
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+      num: 2
+      name: Expertises
+      description: "Bow (2 uses)"
+      guid: 1c093f3f-5f9f-4551-972e-7a55caf02164
+      source: "Archer Career Feature"
+      sourceguid: e21d42ad-f45e-4376-9eee-a8f5a4712a00
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+      num: 2
+      name: Expertises
+      description: "Stealth (2 uses)"
+      guid: cb1df417-31c4-4e1c-bc12-54bfa96f7dd6
+      source: "Archer Career Feature"
+      sourceguid: e21d42ad-f45e-4376-9eee-a8f5a4712a00
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 36482a89-657f-4ea4-98a6-fb06575d9147
+      num: 1
+      name: Expertises
+      description: "Unarmed (1 use)"
+      guid: 95a5b7d7-ce77-45ab-8fd3-8a2a602699c7
+      source: "Archer Career Feature"
+      sourceguid: e21d42ad-f45e-4376-9eee-a8f5a4712a00
+  - __typeName: CharacterFeature
+    name: "Trait: Point Blank"
+    description: "Archery trait. When you make a ranged attack with a bow, you don't suffer the -1 penalty for having an enemy within 1 square of you."
+    guid: 451c9cf6-8fef-4ec9-abac-58a6235a6035
+    implementation: 1
+    source: "Archer Career Feature"
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Quiver of 20 arrows, shortbow, spyglass, torch, whistle. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    guid: e8517a66-2380-4d04-91f8-407ab8f05035
+    implementation: 2
+    source: "Archer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: f9ded1ae-8b38-4f34-99e5-224b064f5682
+      source: "Archer Career Feature"
+      sourceguid: e8517a66-2380-4d04-91f8-407ab8f05035
+      equipment:
+      - itemid: 8a2ea3cb-6c17-443a-af68-e57939d1671b
+        quantity: 20
+      - itemid: 4ad193cf-b73e-42c3-892c-17a7234bdf54
+        quantity: 1
+      - itemid: 12fee74f-5696-43c8-8fb7-7e4831fc666f
+        quantity: 1
+      - itemid: ba269512-5676-4f7b-a854-37e3fe07d223
+        quantity: 1
+      - itemid: 27865d2f-1c11-4ca2-9162-fe29213a1be2
+        quantity: 1
