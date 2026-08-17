@@ -3567,21 +3567,11 @@ end
 
 -- The flat skill bonus (+1, +2 with advancement) the crow has in the weapon
 -- skill, or 0 without it. Deliberately SkillProficiencyBonus and NOT
--- SkillMod: SkillMod folds in the skill's characteristic, which the attack
--- roll already adds separately as statValue -- using it double-counts the
--- characteristic.
-local function CrowsSkillModForWeaponType(c, weaponType)
-    if weaponType == nil then
-        return 0
-    end
-    local skillsTable = dmhub.GetTable(Skill.tableName) or {}
-    for _, sk in unhidden_pairs(skillsTable) do
-        if sk.name == weaponType then
-            return c:SkillProficiencyBonus(sk) or 0
-        end
-    end
-    return 0
-end
+-- Playtest 2 removed the weapon-skill bonus from attack rolls. An attack is
+-- 2d10 + Agility or Strength, full stop; the matching weapon expertise is a
+-- pool you spend AFTER the roll to improve its tier, never a number added to
+-- it. The old CrowsSkillModForWeaponType helper is gone with it -- do not
+-- reinstate a skill term here.
 
 -- Ammunition compatibility: a ranged weapon with an Ammunition Type keyword
 -- (crowsAmmoType) only attacks while the crow carries compatible ammunition;
@@ -3696,16 +3686,14 @@ end
 --   qualities (display string), parrySpent (true = -1 damage penalty)
 local function BuildCrowsAttackAbility(c, args)
     local statValue, statName = CrowsStatForWeapon(c, args.statSpec)
-    local skillMod = CrowsSkillModForWeaponType(c, args.weaponType)
     local penalty = cond(args.parrySpent, 1, 0)
     local t2 = math.max(0, (args.t2base or 0) + statValue - penalty)
     local t3 = math.max(0, (args.t3base or 0) + statValue - penalty)
 
     local descLines = {
-        string.format("%s attack: 2d10 + %s (%d)%s.",
+        string.format("%s attack: 2d10 + %s (%d).",
             cond(args.mode == "melee", "Melee", "Ranged"),
-            statName, statValue,
-            cond(skillMod ~= 0, string.format(" + %s skill (%d)", args.weaponType or "?", skillMod), "")),
+            statName, statValue),
     }
     if args.qualities ~= nil and args.qualities ~= "" then
         descLines[#descLines + 1] = string.format("Qualities: %s, %s", args.weaponType or "", args.qualities)
@@ -3758,7 +3746,7 @@ local function BuildCrowsAttackAbility(c, args)
         actionResourceId = CharacterResource.actionResourceId,
         behaviors = {
             ActivatedAbilityPowerRollBehavior.new{
-                roll = string.format("2d10 + %d", statValue + skillMod),
+                roll = string.format("2d10 + %d", statValue),
                 tiers = {
                     tier1,
                     string.format("%d damage", t2),

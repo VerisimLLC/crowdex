@@ -36,6 +36,13 @@ creature.RegisterAttribute{
 -- etc.). The Skill game type keeps its category list as static Lua data (see
 -- MCDMSkills.lua); skills imported with these category ids group under the
 -- right headings in skill pickers and the compendium editor.
+--
+-- Playtest 2 retired skills in favour of expertises (see creature:Crowdex-
+-- Expertises below), but this registry stays: the item editor still reads the
+-- weapon and spellcasting categories to populate the dropdowns that set an
+-- item's crowsWeaponType and spellbook discipline (CrowdexInventory.lua). The
+-- Skills table rows themselves are left in place rather than deleted, so
+-- nothing that still references one breaks.
 Skill.categories = {
     {
         id = "general",
@@ -58,42 +65,54 @@ end
 
 Skill.category = "general"
 
--- The list of skills this creature actually has, derived from the rules
--- system: every compendium skill whose proficiency modifiers (background
--- skill grants, manual overrides from the skills dialog, etc.) produce a
--- non-zero bonus. Skill.SkillsInfo is rebuilt on every refreshTables and is
--- already sorted by name. Entries are shaped for the character sheet/panel
--- skill lists: {id, name, bonus, category, attribute}.
-function creature:CrowdexSkills()
+-- The expertises this creature has, and how many uses are left in each.
+--
+-- Playtest 2 deleted skills. An expertise is not a bonus on the roll -- it is a
+-- pool you spend AFTER a roll to improve the result by one tier -- so it is
+-- modelled as a CharacterResource per expertise (usageLimit "long", refreshed
+-- by the Finish Rest action). A crow's uses come from their background's
+-- resource grants and from advancement.
+--
+-- Expertise resources are identified by their grouping ("General Expertise",
+-- "Spellcasting Expertise", "Weapon Expertise"), which keeps the three
+-- categories the rules define without needing a parallel registry.
+--
+-- Entries are shaped for the sheet and side panel:
+--   {id, name, category, max, used, remaining}
+-- sorted by name. Any creature can be asked -- a monster simply has none.
+local EXPERTISE_CATEGORIES = {
+    ["General Expertise"] = "General",
+    ["Spellcasting Expertise"] = "Spellcasting",
+    ["Weapon Expertise"] = "Weapon",
+}
+
+function creature:CrowdexExpertises()
     local result = {}
-    -- monster.SkillProficiencyBonus (DMHub Game Rules/Monster.lua) indexes
-    -- self.skillRatings directly. A Crows monster (e.g. an imported Bear) has
-    -- no skillRatings field, so calling it would error when the Crows side
-    -- panel renders for a selected monster. Such creatures have no listed
-    -- skills here; skip the bonus computation entirely.
-    if self.typeName == "monster" and not self:has_key("skillRatings") then
-        return result
-    end
-    for _, skillInfo in ipairs(Skill.SkillsInfo or {}) do
-        local bonus = 0
-        if self.SkillProficiencyBonus ~= nil then
-            bonus = self:SkillProficiencyBonus(skillInfo) or 0
-        else
-            local level = self:SkillProficiencyLevel(skillInfo)
-            if level ~= nil then
-                bonus = level.multiplier or 0
+    local resourceTable = dmhub.GetTable("characterResources") or {}
+
+    for key, quantity in pairs(self:GetResources() or {}) do
+        local info = resourceTable[key]
+        if info ~= nil then
+            local category = EXPERTISE_CATEGORIES[info:try_get("grouping", "")]
+            if category ~= nil then
+                local max = tonumber(quantity) or 0
+                local used = 0
+                pcall(function()
+                    used = self:GetResourceUsage(key, info:try_get("usageLimit", "long")) or 0
+                end)
+                result[#result + 1] = {
+                    id = key,
+                    name = info.name,
+                    category = category,
+                    max = max,
+                    used = used,
+                    remaining = math.max(0, max - used),
+                }
             end
         end
-        if bonus ~= 0 then
-            result[#result + 1] = {
-                id = skillInfo.id,
-                name = skillInfo.name,
-                bonus = bonus,
-                category = skillInfo.category,
-                attribute = skillInfo.attribute,
-            }
-        end
     end
+
+    table.sort(result, function(a, b) return a.name < b.name end)
     return result
 end
 

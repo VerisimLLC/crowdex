@@ -120,12 +120,14 @@ local function GetCharacteristic(props, attrid)
     return props:GetAttribute(attrid):Modifier()
 end
 
-local function GetSkills(props)
+local function GetExpertises(props)
     if props == nil then return {} end
-    -- Skills come from the rules system (background proficiency modifiers
-    -- etc.), not from a stored property. See creature:CrowdexSkills in
-    -- CrowdexRules.lua.
-    return props:CrowdexSkills()
+    -- Expertises are resource pools granted by the background, not a stored
+    -- property. See creature:CrowdexExpertises in CrowdexRules.lua. Wrapped in
+    -- pcall so the panel still renders for a selected monster, which has none.
+    local result = {}
+    pcall(function() result = props:CrowdexExpertises() or {} end)
+    return result
 end
 
 -- The ordered list of magic-item worn slot keys used in section 6.
@@ -1468,32 +1470,22 @@ end
 
 --- Skills section. Collapsed by default. When expanded, shows a filter
 --- dropdown above a flat scrollable list of "Name +N" rows.
-local function CrowdexSkillsSection(token)
+local function CrowdexExpertisesSection(token)
     local expanded = false
     local currentFilter = "all"
     -- Slot reused across crows via setToken; track the live token so the
-    -- filter dropdown re-renders the right crow's skills.
+    -- filter dropdown re-renders the right crow's expertises.
     local currentToken = token
 
-    local function skillMatchesFilter(skill, filt)
+    -- Playtest 2 has exactly three expertise categories and no further
+    -- subdivision, so the filter is those three plus All.
+    local function expertiseMatchesFilter(exp, filt)
         if filt == "all" then return true end
-        if filt == "combat" then
-            return (skill.subcategory or ""):lower() == "combat"
-        end
-        if filt == "lore" then
-            return (skill.subcategory or ""):lower() == "lore"
-        end
-        if filt == "spellcasting" then
-            return (skill.category or ""):lower() == "spellcasting"
-        end
-        if filt == "weapon" then
-            return (skill.category or ""):lower() == "weapon"
-        end
-        return true
+        return (exp.category or ""):lower() == filt
     end
 
-    local skillsListPanel
-    skillsListPanel = gui.Panel{
+    local expertiseListPanel
+    expertiseListPanel = gui.Panel{
         width = "100%",
         height = "auto",
         maxHeight = 200,
@@ -1503,12 +1495,12 @@ local function CrowdexSkillsSection(token)
         refreshCharacter = function(element, tok)
             if tok == nil or tok.properties == nil then return end
             currentToken = tok
-            local skills = GetSkills(tok.properties)
+            local expertises = GetExpertises(tok.properties)
             local children = {}
-            for _, skill in ipairs(skills) do
-                if skillMatchesFilter(skill, currentFilter) then
-                    local bonus = tonumber(skill.bonus) or 0
-                    local sign = (bonus >= 0) and "+" or ""
+            for _, exp in ipairs(expertises) do
+                if expertiseMatchesFilter(exp, currentFilter) then
+                    local remaining = exp.remaining or 0
+                    local spent = remaining <= 0
                     children[#children + 1] = gui.Panel{
                         width = "100%",
                         height = "auto",
@@ -1521,8 +1513,8 @@ local function CrowdexSkillsSection(token)
                             height = "auto",
                             halign = "left",
                             fontSize = 12,
-                            color = "white",
-                            text = skill.name or "(unnamed)",
+                            color = cond(spent, "#777", "white"),
+                            text = exp.name or "(unnamed)",
                         },
                         gui.Label{
                             width = "auto",
@@ -1530,8 +1522,8 @@ local function CrowdexSkillsSection(token)
                             halign = "right",
                             fontSize = 12,
                             bold = true,
-                            color = (bonus > 0) and "#9bd97a" or "#ccc",
-                            text = string.format("%s%d", sign, bonus),
+                            color = cond(spent, "#777", "#9bd97a"),
+                            text = string.format("%d/%d", remaining, exp.max or 0),
                         },
                     }
                 end
@@ -1543,7 +1535,7 @@ local function CrowdexSkillsSection(token)
                     fontSize = 11,
                     italics = true,
                     color = "#666",
-                    text = "(no skills match filter)",
+                    text = "(no expertises match filter)",
                 }
             end
             element.children = children
@@ -1557,8 +1549,7 @@ local function CrowdexSkillsSection(token)
         halign = "right",
         options = {
             {id = "all",          text = "All"},
-            {id = "combat",       text = "Combat"},
-            {id = "lore",         text = "Lore"},
+            {id = "general",      text = "General"},
             {id = "spellcasting", text = "Spellcasting"},
             {id = "weapon",       text = "Weapon"},
         },
@@ -1566,7 +1557,7 @@ local function CrowdexSkillsSection(token)
         change = function(element)
             currentFilter = element.idChosen or "all"
             if currentToken ~= nil and currentToken.valid then
-                skillsListPanel:FireEventTree("refreshCharacter", currentToken)
+                expertiseListPanel:FireEventTree("refreshCharacter", currentToken)
             end
         end,
     }
@@ -1596,7 +1587,7 @@ local function CrowdexSkillsSection(token)
             filterDropdown,
         },
 
-        skillsListPanel,
+        expertiseListPanel,
     }
 
     local headerCount
@@ -1607,11 +1598,15 @@ local function CrowdexSkillsSection(token)
         fontSize = 11,
         bold = true,
         color = "#aaa",
-        text = "SKILLS",
+        text = "EXPERTISES",
         refreshCharacter = function(element, tok)
             if tok == nil or tok.properties == nil then return end
-            local skills = GetSkills(tok.properties)
-            element.text = string.format("SKILLS (%d)", #skills)
+            local expertises = GetExpertises(tok.properties)
+            local remaining = 0
+            for _, exp in ipairs(expertises) do
+                remaining = remaining + (exp.remaining or 0)
+            end
+            element.text = string.format("EXPERTISES (%d uses left)", remaining)
         end,
     }
 
@@ -1705,7 +1700,7 @@ local function CrowdexOperationalPanel(token)
         CrowdexSeparator(),
         CrowdexCharacteristicsRow(token),
         CrowdexSeparator(),
-        CrowdexSkillsSection(token),
+        CrowdexExpertisesSection(token),
     }
 end
 

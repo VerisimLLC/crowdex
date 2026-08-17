@@ -2,11 +2,11 @@ local mod = dmhub.GetModLoading()
 
 -- The Crows "Sheet" tab. This is the single integrated character surface:
 -- the creation flow (name + feature, characteristics, background) folds into
--- the same screen that shows skills, traits, and the inventory. There is no
+-- the same screen that shows expertises, traits, and the inventory. There is no
 -- separate Builder tab any more (it is deregistered below).
 --
 -- Layout: a two-column row inside a full-height host.
---   Left column (scrolls):  identity, characteristics, background, skills,
+--   Left column (scrolls):  identity, characteristics, background, expertises,
 --                           traits.
 --   Right column (scrolls): the full inventory interface (slots, party,
 --                           item index), reused verbatim from
@@ -22,12 +22,13 @@ local mod = dmhub.GetModLoading()
 -- Field accessors.
 -- ---------------------------------------------------------------------------
 
-local function GetSkills(props)
+local function GetExpertises(props)
     if props == nil then return {} end
-    -- Skills come from the rules system (background proficiency modifiers
-    -- etc.), not from a stored property. See creature:CrowdexSkills in
-    -- CrowdexRules.lua.
-    return props:CrowdexSkills()
+    -- Expertises are resource pools granted by the background, not a stored
+    -- property. See creature:CrowdexExpertises in CrowdexRules.lua.
+    local result = {}
+    pcall(function() result = props:CrowdexExpertises() or {} end)
+    return result
 end
 
 local function GetTraits(props)
@@ -107,17 +108,13 @@ local function ItalicEmpty(text)
     }
 end
 
--- A single name + bonus row used in the SKILLS list.
-local function SkillRow(name, bonus)
-    local b = tonumber(bonus) or 0
-    local bonusText
-    if b > 0 then
-        bonusText = string.format("+%d", b)
-    elseif b < 0 then
-        bonusText = tostring(b)
-    else
-        bonusText = "0"
-    end
+-- One expertise: its name, and how many uses are left of its maximum. An
+-- expertise is spent after a roll to improve the result by one tier, so what
+-- matters on the sheet is what remains, not a bonus.
+local function ExpertiseRow(exp)
+    local remaining = exp.remaining or 0
+    local usesText = string.format("%d/%d", remaining, exp.max or 0)
+    local spent = remaining <= 0
 
     return gui.Panel{
         width = "100%",
@@ -130,18 +127,18 @@ local function SkillRow(name, bonus)
             width = "auto-grow",
             height = "auto",
             fontSize = 12,
-            color = "#dddddd",
             halign = "left",
-            text = name or "",
+            text = exp.name or "",
+            color = cond(spent, "#8a8a8a", "#dddddd"),
         },
         gui.Label{
-            width = 40,
+            width = 44,
             height = "auto",
             fontSize = 12,
-            color = "white",
+            color = cond(spent, "#8a8a8a", "white"),
             halign = "right",
             textAlignment = "right",
-            text = bonusText,
+            text = usesText,
         },
     }
 end
@@ -846,10 +843,15 @@ local function CreateBackgroundSection()
 end
 
 -- ---------------------------------------------------------------------------
--- Section 4: Skills.
+-- Section 4: Expertises.
+--
+-- Playtest 2 replaced skills with expertises: a pool of uses spent after a
+-- roll to improve its result by one tier, refreshed on a rest. So each row
+-- shows uses remaining rather than a bonus, and a spent expertise dims rather
+-- than disappearing -- you still want to see you have it.
 -- ---------------------------------------------------------------------------
 
-local function CreateSkillsSection()
+local function CreateExpertisesSection()
     local body
     body = gui.Panel{
         width = "100%",
@@ -857,37 +859,30 @@ local function CreateSkillsSection()
         flow = "vertical",
 
         refreshCharacterInfo = function(element, props)
-            local skills = GetSkills(props)
-            local buckets = {
-                general      = {},
-                spellcasting = {},
-                weapon       = {},
-            }
-            for _, sk in ipairs(skills) do
-                local cat = sk.category
-                if cat == nil then cat = "general" end
-                cat = string.lower(tostring(cat))
-                if buckets[cat] == nil then
-                    buckets.general[#buckets.general + 1] = sk
-                else
-                    buckets[cat][#buckets[cat] + 1] = sk
-                end
+            local buckets = { General = {}, Spellcasting = {}, Weapon = {} }
+            for _, exp in ipairs(GetExpertises(props)) do
+                local list = buckets[exp.category] or buckets.General
+                list[#list + 1] = exp
             end
 
             local children = {}
 
             local function appendBucket(label, list)
                 if #list == 0 then return end
+                local remaining = 0
+                for _, exp in ipairs(list) do
+                    remaining = remaining + (exp.remaining or 0)
+                end
                 children[#children + 1] = SheetSubHeading(
-                    string.format("%s (%d)", label, #list))
-                for _, sk in ipairs(list) do
-                    children[#children + 1] = SkillRow(sk.name, sk.bonus)
+                    string.format("%s (%d uses left)", label, remaining))
+                for _, exp in ipairs(list) do
+                    children[#children + 1] = ExpertiseRow(exp)
                 end
             end
 
-            appendBucket("General",      buckets.general)
-            appendBucket("Spellcasting", buckets.spellcasting)
-            appendBucket("Weapon",       buckets.weapon)
+            appendBucket("General",      buckets.General)
+            appendBucket("Spellcasting", buckets.Spellcasting)
+            appendBucket("Weapon",       buckets.Weapon)
 
             element.children = children
         end,
@@ -898,12 +893,12 @@ local function CreateSkillsSection()
         height = "auto",
         flow = "vertical",
 
-        SheetSectionHeading("Skills"),
+        SheetSectionHeading("Expertises"),
         body,
 
-        -- Hide the whole section (heading included) until the crow has skills.
+        -- Hide the whole section (heading included) until the crow has one.
         refreshCharacterInfo = function(element, props)
-            element:SetClass("collapsed", #GetSkills(props) == 0)
+            element:SetClass("collapsed", #GetExpertises(props) == 0)
         end,
     }
 end
@@ -984,7 +979,7 @@ local function CreateCrowdexSheetTab()
         CreateIdentitySection(),
         CreateCharacteristicsSection(),
         CreateBackgroundSection(),
-        CreateSkillsSection(),
+        CreateExpertisesSection(),
         CreateTraitsSection(),
     }
 
