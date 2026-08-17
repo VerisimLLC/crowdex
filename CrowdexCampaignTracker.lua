@@ -656,16 +656,24 @@ local function RefillRestUsageDice(props)
 end
 
 -- Resolve a rest for every crow on the map (The Rules, Resting): full Stamina,
--- one wound cleared -- two for anyone being tended -- and rest-recharging Usage
--- Dice refilled. Expertise refresh belongs here too, but expertises do not
--- exist yet; that lands with them.
+-- one wound cleared -- two for anyone being tended -- rest-recharging Usage
+-- Dice refilled, and every expertise use restored.
 --
--- A rest finished in the Miasma also costs each human a Mind test against it,
--- and grants no expertise recovery. The Miasma is an outdoor phenomenon that
--- cannot enter enclosed stone or metal, so it applies in Wilderness only --
--- villages sit inside sealed ruins and dungeons are indoors.
+-- Expertises are CharacterResources with usageLimit "long", and the engine
+-- reads a resource as spent only while its recorded refreshid matches the
+-- creature's current one (creature:GetResourceUsage in Resource.lua). So
+-- handing the crow a fresh longRestId restores all thirty pools at once. The
+-- whole party shares one id, because they share one rest. Draw Steel's own
+-- creature:Rest is deliberately not used -- it also moves xp, victories and
+-- class levels, none of which Crows has.
 --
--- Returns a summary table: { crows, wounds, dice, tended, miasma }.
+-- Resting in the Miasma is the exception: "When you finish a rest in the
+-- Miasma, you don't regain any uses of your expertises, but all of the other
+-- normal effects of resting apply." That is why the id is withheld rather than
+-- the rest being skipped.
+--
+-- Returns a summary table:
+--   { crows, wounds, dice, tended, miasma, expertises }.
 local function FinishRest()
     local inv = CrowdexInventoryUI
     local crows = dmhub.GetTokens({ playerControlled = true })
@@ -685,7 +693,13 @@ local function FinishRest()
         end
     end
 
-    local summary = { crows = 0, wounds = 0, dice = 0, tended = 0, miasma = 0 }
+    -- The Miasma is an outdoor phenomenon and cannot enter enclosed stone or
+    -- metal, so it applies in Wilderness only: villages sit inside sealed ruins
+    -- and dungeons are indoors.
+    local inMiasma = GetMode() == MODE_WILDERNESS
+    local restId = dmhub.GenerateGuid()
+
+    local summary = { crows = 0, wounds = 0, dice = 0, tended = 0, miasma = 0, expertises = 0 }
 
     for _, tok in ipairs(crows) do
         if tok ~= nil and tok.valid and tok.properties ~= nil then
@@ -710,6 +724,13 @@ local function FinishRest()
                     end
 
                     summary.dice = summary.dice + RefillRestUsageDice(props)
+
+                    -- Expertise uses come back with a fresh long-rest id --
+                    -- unless the rest was spent in the Miasma.
+                    if not inMiasma then
+                        props.longRestId = restId
+                        summary.expertises = summary.expertises + 1
+                    end
                 end,
             }
             summary.crows = summary.crows + 1
@@ -717,7 +738,7 @@ local function FinishRest()
         end
     end
 
-    if GetMode() == MODE_WILDERNESS then
+    if inMiasma then
         summary.miasma = FireMiasmaCheck()
     end
 
@@ -1747,7 +1768,7 @@ local function CreateRestBlock()
         halign = "left",
         tmargin = 4,
         hover = function(element)
-            gui.Tooltip("Full Stamina, one wound cleared (two if tended), and rest-recharging Usage Dice refilled for every crow.")(element)
+            gui.Tooltip("Full Stamina, one wound cleared (two if tended), rest-recharging Usage Dice refilled, and expertise uses restored for every crow. A rest in the Wilderness restores no expertises and prompts the Miasma test.")(element)
         end,
         press = function(element)
             local s = FinishRest()
@@ -1761,8 +1782,12 @@ local function CreateRestBlock()
             if s.dice > 0 then
                 parts[#parts + 1] = string.format("%d usage die pool%s refilled", s.dice, s.dice == 1 and "" or "s")
             end
+            if s.expertises > 0 then
+                parts[#parts + 1] = "expertises restored"
+            end
             if s.miasma > 0 then
-                parts[#parts + 1] = string.format("Miasma test prompted for %d", s.miasma)
+                parts[#parts + 1] = string.format(
+                    "no expertise recovery in the Miasma; test prompted for %d", s.miasma)
             end
             resultLabel.text = table.concat(parts, ", ") .. "."
             resultLabel:SetClass("collapsed", false)
