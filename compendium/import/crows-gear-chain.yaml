@@ -1,0 +1,23 @@
+# Crows Playtest 2 -- Chain
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: e18b827c-aceb-4bc1-a664-2e5e81f3a78b
+name: Chain
+category: Gear
+costInGold: 5
+description: 'A 10-foot length of iron chain. Craft: Blacksmithing (1 use), 1 iron bar, 5.'
+domains:
+  item:e18b827c-aceb-4bc1-a664-2e5e81f3a78b: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1094aa90-9cca-4f10-b4d6-5a2ab5457f95
+implementation: 1
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 2

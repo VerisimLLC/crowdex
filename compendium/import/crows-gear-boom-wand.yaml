@@ -1,0 +1,44 @@
+# Crows Playtest 2 -- Boom Wand
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: e3982ed4-f6c8-41f5-ab59-341287c41ea9
+name: Boom Wand
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+  implementation: 1
+  numTargets: '1'
+  guid: 5d954308-e272-43f1-8e0d-f478c21e949e
+  behaviors: {}
+  keywords:
+    Magic: true
+  categorization: Ability
+  name: Boom Wand
+  range: 15
+  description: 'Create a 5 cube of fire within 15 squares. Each creature in the area makes an Agility
+    RR: 11 or less 0 damage; 12-16 5 damage; 17+ 10 damage. Roll the Usage Die after activating.'
+  iconid: fbc1dcc4-9c9e-4e53-8e9f-c78a4e4680fb
+  targetType: self
+costInGold: 500
+description: 'Action: create a 5 cube of fire within 15 squares. Each creature in the area makes an Agility
+  Resistance Roll. 11 or less: 0 damage; 12-16: 5 damage; 17+: 10 damage. Usage Dice 1, rolled on activation;
+  once spent the wand is useless (it is not restored). Craft: Enchanting (1 use), gem worth 100 gc, 100.'
+domains:
+  item:e3982ed4-f6c8-41f5-ab59-341287c41ea9: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: fbc1dcc4-9c9e-4e53-8e9f-c78a4e4680fb
+implementation: 1
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+usageDice: 1
+usageDiceRestore: useless
+usageDiceTrigger: activate
+weight: 1

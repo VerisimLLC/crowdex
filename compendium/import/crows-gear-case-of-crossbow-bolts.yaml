@@ -1,0 +1,56 @@
+# Crows Playtest 2 -- Case of Crossbow Bolts
+#
+# Playtest 2 change: description, massQuantity, name, stackLimit, usageDice, usageDiceRestore, usageDiceTrigger
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 782a32c8-02d6-4b4d-be58-fb5dd975a76c
+name: Case of Crossbow Bolts
+ammoAugmentation:
+  __typeName: CharacterModifier
+  behavior: modifyability
+  ability:
+    __typeName: ActivatedAbility
+    iconid: ui-icons/skills/1.png
+    modifiers: {}
+    guid: 557f95e8-5736-447b-b0b5-0786f5e70175
+    abilityModification: true
+    numTargets: '1'
+    behaviors: {}
+    abilityType: none
+    targetType: self
+    repeatTargets: false
+    range: 1
+    description: ''
+    name: New Ability
+    display:
+      hueshift: 0
+      bgcolor: '#ffffffff'
+      brightness: 1
+      saturation: 1
+  attributes: {}
+  name: Ammo Modification
+  description: Ammunition modifies
+  unconditional: true
+  source: Ammunition
+  guid: 30cd25f7-0b20-403b-a602-03945e654adc
+category: Gear
+costInGold: 5
+crowsAmmoType: Bolts
+description: 'Ammunition for crossbows. UD 2 (activate; useless): roll the usage dice when you shoot,
+  and the case is spent for good at 0. Craft: Blacksmithing (1 use), 1 hickory log, 5.'
+domains:
+  item:782a32c8-02d6-4b4d-be58-fb5dd975a76c: true
+equipmentCategory: 41b5fb30-e155-4107-88a7-803cbcb8d1fb
+iconid: 88a51037-430e-491e-ab42-dc17405a2d2b
+massQuantity: 1
+projectileRotation: 315
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+usageDice: 2
+usageDiceRestore: useless
+usageDiceTrigger: activate
+weight: 2

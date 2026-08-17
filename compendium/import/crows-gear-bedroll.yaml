@@ -1,0 +1,23 @@
+# Crows Playtest 2 -- Bedroll
+#
+# Playtest 2 change: description, hidden
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 2dccafc8-60da-4724-8a56-72fed0653ba2
+name: Bedroll
+category: Gear
+costInGold: 5
+description: Retired in the August-September 2026 playtest. Resting no longer requires a bedroll.
+domains:
+  item:2dccafc8-60da-4724-8a56-72fed0653ba2: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+hidden: true
+iconid: c92a79d1-d456-4b93-a55d-7f3b06a7f45c
+implementation: 1
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 2

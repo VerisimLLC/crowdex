@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- Pot
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 880dd636-2ea1-420d-a140-1699da048d1a
+name: Pot
+category: Gear
+costInGold: 5
+description: 'Iron pot for cooking. Makes great scrambled eggs and soup! Craft: Blacksmithing (1 use),
+  1 iron bar, 5.'
+domains:
+  item:880dd636-2ea1-420d-a140-1699da048d1a: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 483e185d-3d8b-458f-9333-4348802a70fa
+implementation: 1
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 2

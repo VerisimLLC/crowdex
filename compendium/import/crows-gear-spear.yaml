@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Spear
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 1c4a745e-7ecf-4be9-8951-ae9059ce7bb3
+name: Spear
+category: Gear
+costInGold: 12
+crowsAttackStat: S
+crowsMeleeRange: 1
+crowsQualities: Brutal
+crowsTier2: 3 + S
+crowsTier3: 7 + S
+crowsWeaponType: Stabbing
+description: 'Melee 1. Attack 2d10 + S; 12-16: 3 + S; 17+: 7 + S. Stabbing, Brutal. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+domains:
+  item:1c4a745e-7ecf-4be9-8951-ae9059ce7bb3: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: cc6666d1-3d2c-4f4f-81dc-0d5ca4e907f2
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 3

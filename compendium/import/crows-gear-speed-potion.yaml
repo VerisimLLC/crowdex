@@ -1,0 +1,46 @@
+# Crows Playtest 2 -- Speed Potion
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 8694fc6f-ebda-4adb-b860-0a1d0b47ced7
+name: Speed Potion
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+  guid: a0d96960-e17a-432a-b7f4-6464724067a3
+  categorization: Ability
+  numTargets: '1'
+  consumables:
+    8694fc6f-ebda-4adb-b860-0a1d0b47ced7: 1
+  behaviors:
+  - __typeName: ActivatedAbilityApplyOngoingEffectBehavior
+    ongoingEffect: 9c6ecf41-e1f5-4849-adab-03a9cc16930d
+    ongoingEffectCustom: 9c6ecf41-e1f5-4849-adab-03a9cc16930d
+    guid: 6c2a9a8a-411a-4b89-9838-a1ad1a1d2bc4
+  keywords:
+    Potion: true
+  iconid: f55310a5-7c60-440b-9f42-8b11ae89f12d
+  name: Speed Potion
+  range: 1
+  description: 'Gain the Hastened effect: +1 speed for 1 Usage Die (duration tracked manually).'
+  implementation: 2
+  targetType: self
+costInGold: 100
+description: 'Maneuver: consume to increase your speed by 1. Duration: 1 Usage Die. Craft: Alchemy (1
+  use), 1 vial of any monster''s blood, 20.'
+domains:
+  item:8694fc6f-ebda-4adb-b860-0a1d0b47ced7: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: f55310a5-7c60-440b-9f42-8b11ae89f12d
+keywords:
+  Potion: true
+slotsRequired: 1
+stackLimit: 5
+type: Gear
+weight: 1

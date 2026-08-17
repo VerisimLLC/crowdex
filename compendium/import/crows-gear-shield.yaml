@@ -1,0 +1,25 @@
+# Crows Playtest 2 -- Shield
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: a9969dd0-ac10-4814-87e2-367d5ce4673f
+name: Shield
+category: Gear
+costInGold: 15
+crowsAD: 5
+crowsShield: true
+description: 'A sturdy shield. AD 5. Must be wielded in a hand slot to absorb damage. Craft: Blacksmithing
+  (1 use), 2 iron bars, 15.'
+domains:
+  item:a9969dd0-ac10-4814-87e2-367d5ce4673f: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 61696f63-34a2-41b0-be78-2c36ecd0bce0
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 3

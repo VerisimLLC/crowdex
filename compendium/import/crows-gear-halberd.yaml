@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Halberd
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: d1c4d086-b825-4e52-994f-fb61b6ee830c
+name: Halberd
+category: Gear
+costInGold: 15
+crowsAttackStat: S
+crowsMeleeRange: 2
+crowsQualities: Dismember
+crowsTier2: 3 + S
+crowsTier3: 7 + S
+crowsWeaponType: Chopping
+description: 'Melee 2. Attack 2d10 + S; 12-16: 3 + S; 17+: 7 + S. Chopping, Dismember. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+domains:
+  item:d1c4d086-b825-4e52-994f-fb61b6ee830c: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: 7cbde417-8031-4caf-a178-57163beed6ac
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 5

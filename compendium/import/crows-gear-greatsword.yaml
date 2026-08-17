@@ -1,0 +1,30 @@
+# Crows Playtest 2 -- Greatsword
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 5242b8b5-fdda-4a74-a672-562bab146715
+name: Greatsword
+category: Gear
+costInGold: 15
+crowsAD: 6
+crowsAttackStat: S
+crowsMeleeRange: 1
+crowsQualities: Disengage, Parry 6
+crowsTier2: 4 + S
+crowsTier3: 8 + S
+crowsWeaponType: Slashing
+description: 'Melee 1. Attack 2d10 + S; 12-16: 4 + S; 17+: 8 + S. Slashing, Disengage, Parry 6. Craft:
+  Blacksmithing (1 use), 1 iron bar, 10.'
+domains:
+  item:5242b8b5-fdda-4a74-a672-562bab146715: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: f8e8fa16-b051-49ca-a78d-b97ef27af7f1
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 4

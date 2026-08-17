@@ -1,0 +1,18 @@
+_table: tbl_Gear
+__typeName: equipment
+id: 3824b6aa-a241-42c6-b6f4-128696e558a3
+name: Tent
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 06995586-46d2-499e-888a-33a3180d5727
+weight: 4
+costInGold: 100
+slotsRequired: 2
+stackLimit: 1
+implementation: 1
+description: >-
+  Canvas tent that sleeps up to four humans. It blocks bad weather. It does not
+  block the Miasma.
+domains:
+  "item:3824b6aa-a241-42c6-b6f4-128696e558a3": true

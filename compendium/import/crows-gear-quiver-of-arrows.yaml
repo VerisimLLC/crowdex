@@ -1,0 +1,56 @@
+# Crows Playtest 2 -- Quiver of Arrows
+#
+# Playtest 2 change: description, massQuantity, name, stackLimit, usageDice, usageDiceRestore, usageDiceTrigger
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 8a2ea3cb-6c17-443a-af68-e57939d1671b
+name: Quiver of Arrows
+ammoAugmentation:
+  __typeName: CharacterModifier
+  behavior: modifyability
+  ability:
+    __typeName: ActivatedAbility
+    display:
+      hueshift: 0
+      bgcolor: '#ffffffff'
+      brightness: 1
+      saturation: 1
+    modifiers: {}
+    guid: 3759184e-e425-436e-a7d0-af1998cd2c90
+    abilityModification: true
+    numTargets: '1'
+    behaviors: {}
+    abilityType: none
+    name: New Ability
+    repeatTargets: false
+    range: 1
+    description: ''
+    iconid: ui-icons/skills/1.png
+    targetType: self
+  attributes: {}
+  name: Ammo Modification
+  description: Ammunition modifies
+  unconditional: true
+  source: Ammunition
+  guid: 0de52bce-337d-4535-982b-9c41b7d6e527
+category: Gear
+costInGold: 5
+crowsAmmoType: Arrows
+description: 'Ammunition for shortbows and longbows. UD 2 (activate; useless): roll the usage dice when
+  you shoot, and the quiver is spent for good at 0. Craft: Blacksmithing (1 use), 1 hickory log, 5.'
+domains:
+  item:8a2ea3cb-6c17-443a-af68-e57939d1671b: true
+equipmentCategory: 41b5fb30-e155-4107-88a7-803cbcb8d1fb
+iconid: 88a51037-430e-491e-ab42-dc17405a2d2b
+massQuantity: 1
+projectileRotation: 315
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+usageDice: 2
+usageDiceRestore: useless
+usageDiceTrigger: activate
+weight: 2

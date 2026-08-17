@@ -1,0 +1,25 @@
+# Crows Playtest 2 -- Padlock
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: deaff42c-55ed-4350-bc95-8c098d79bde7
+name: Padlock
+category: Gear
+costInGold: 25
+description: 'Iron padlock. Includes a key. Fine (750 gc): tests to pick or break the lock take a -1 penalty.
+  Masterwork (1,500 gc): tests to pick or break the lock take a -2 penalty. Craft: Blacksmithing (1 use),
+  1 iron bar, 10/150/300.'
+domains:
+  item:deaff42c-55ed-4350-bc95-8c098d79bde7: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: c8c93a86-ecb5-4eec-ad39-f36e74c80c8c
+implementation: 1
+slotsRequired: 1
+stackLimit: 3
+type: Gear
+weight: 1

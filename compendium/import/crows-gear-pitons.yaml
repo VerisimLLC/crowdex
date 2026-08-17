@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- Pitons
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: a1cb5970-16da-4415-ac9e-1216112fd753
+name: Pitons
+category: Gear
+costInGold: 5
+description: 'Iron spikes used to secure ropes. Come in multiples of 10. Craft: Blacksmithing (1 use),
+  1 iron bar, 5.'
+domains:
+  item:a1cb5970-16da-4415-ac9e-1216112fd753: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 847185a3-2c47-4c94-a550-ac32cdcc68ee
+implementation: 1
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+weight: 1

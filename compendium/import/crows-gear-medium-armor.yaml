@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- Medium Armor
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 2bd52b89-c72e-4b14-92ba-401407573c21
+name: Medium Armor
+category: Gear
+costInGold: 150
+crowsAD: 10
+description: 'A suit of medium armor. AD 10. Choose one suit of armor in your backpack slots to wear;
+  you can only don a new suit outside of combat. Craft: Blacksmithing (1 use), 4 iron bars, 30.'
+domains:
+  item:2bd52b89-c72e-4b14-92ba-401407573c21: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 02302b4b-d942-41b8-a4d5-8a39b6426824
+slotsRequired: 3
+stackLimit: 1
+type: Gear
+weight: 8

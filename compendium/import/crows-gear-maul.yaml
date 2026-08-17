@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Maul
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: f6c2ba71-0a69-471b-9faa-ed91e0cb578f
+name: Maul
+category: Gear
+costInGold: 15
+crowsAttackStat: S
+crowsMeleeRange: 1
+crowsQualities: Pummeling
+crowsTier2: 4 + S
+crowsTier3: 8 + S
+crowsWeaponType: Bashing
+description: 'Melee 1. Attack 2d10 + S; 12-16: 4 + S; 17+: 8 + S. Bashing, Pummeling. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+domains:
+  item:f6c2ba71-0a69-471b-9faa-ed91e0cb578f: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: b438387f-c576-45f5-9d30-52d0e300ec8b
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 6

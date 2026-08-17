@@ -1,0 +1,28 @@
+# Crows Playtest 2 -- Longbow
+#
+# Playtest 2 change: crowsTier2, crowsTier3, description
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 343f0e00-55ac-4507-b392-4362cdf8535f
+name: Longbow
+category: Gear
+costInGold: 12
+crowsAmmoType: Arrows
+crowsAttackStat: A
+crowsRangedRange: 20
+crowsTier2: 3 + A
+crowsTier3: 6 + A
+crowsWeaponType: Bow
+description: 'Ranged 20. Attack 2d10 + A; 12-16: 3 + A; 17+: 6 + A. Bow. Uses arrows. Craft: Blacksmithing
+  (1 use), 1 hickory log, 10.'
+domains:
+  item:343f0e00-55ac-4507-b392-4362cdf8535f: true
+equipmentCategory: 1ad9b15d-48fa-4689-bcba-8f63b9942d31
+iconid: 1d47f01f-bfb7-4700-a40b-ef87378ad787
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 3

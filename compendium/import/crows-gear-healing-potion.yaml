@@ -1,0 +1,46 @@
+# Crows Playtest 2 -- Healing Potion
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 77fd0842-fd10-4729-9fd4-df57727f36e2
+name: Healing Potion
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+  guid: cdb2822f-0a5b-4f78-93be-78601a9ddcf7
+  categorization: Ability
+  numTargets: '1'
+  consumables:
+    77fd0842-fd10-4729-9fd4-df57727f36e2: 1
+  behaviors:
+  - __typeName: ActivatedAbilityHealBehavior
+    roll: 1d6
+    guid: 4770fe5d-d6bd-4f47-b3b3-e1992bb9b885
+  keywords:
+    Potion: true
+  iconid: 746461c6-058c-4bf1-aa9a-b5c2f4b23783
+  name: Healing Potion
+  range: 1
+  description: Regain 1d6 Stamina. If your Stamina is already at maximum, instead remove 1 wound (do this
+    manually).
+  implementation: 2
+  targetType: self
+costInGold: 100
+description: 'Maneuver: consume to regain 1d6 Stamina, or remove 1 wound if your Stamina is already at
+  maximum. Craft: Alchemy (1 use), 1 vial of any monster''s blood, 20.'
+domains:
+  item:77fd0842-fd10-4729-9fd4-df57727f36e2: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 746461c6-058c-4bf1-aa9a-b5c2f4b23783
+keywords:
+  Potion: true
+slotsRequired: 1
+stackLimit: 5
+type: Gear
+weight: 1

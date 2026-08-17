@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- Heavy Armor
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 1f34b8a7-2e47-4001-b31e-e354356740b2
+name: Heavy Armor
+category: Gear
+costInGold: 400
+crowsAD: 15
+description: 'A suit of heavy armor. AD 15. Choose one suit of armor in your backpack slots to wear; you
+  can only don a new suit outside of combat. Craft: Blacksmithing (1 use), 9 iron bars, 80.'
+domains:
+  item:1f34b8a7-2e47-4001-b31e-e354356740b2: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 30431abb-e57c-4b7d-aab1-9159c8b78fba
+slotsRequired: 4
+stackLimit: 1
+type: Gear
+weight: 15

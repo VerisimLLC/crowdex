@@ -1,0 +1,52 @@
+# Crows Playtest 2 -- Acid Vial
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 01039d82-6646-4def-a21b-5537882a2ac0
+name: Acid Vial
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+  guid: fc4cd877-d469-4f61-b552-7f53dfeee13b
+  categorization: Ability
+  numTargets: '1'
+  consumables:
+    01039d82-6646-4def-a21b-5537882a2ac0: 1
+  behaviors:
+  - __typeName: ActivatedAbilityPowerRollBehavior
+    tiers:
+    - ''
+    - 4 + {Agility} damage
+    - 8 + {Agility} damage
+    roll: 2d10 + Agility
+    guid: 37ec1b5c-8d52-4c9c-a2e5-b70dbc0a0219
+  keywords:
+    Ranged: true
+    Strike: true
+  iconid: 58251b6a-42cb-46f5-b808-6b3f1a913983
+  name: Acid Vial
+  range: 5
+  description: 'Make a ranged 5 attack using Agility. 12-16: 4 + A damage; 17+: 8 + A damage.'
+  implementation: 3
+  targetType: target
+costInGold: 10
+description: 'Maneuver: pour onto a surface to destroy up to 1 cubic foot of mundane matter. Action: make
+  a ranged 5 attack with it using Agility; 12-16: 4 + A damage; 17+: 8 + A damage. Craft: Alchemy (1 use),
+  1 vial of any monster''s blood, 5.'
+domains:
+  item:01039d82-6646-4def-a21b-5537882a2ac0: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 58251b6a-42cb-46f5-b808-6b3f1a913983
+keywords:
+  Ranged: true
+  Attack: true
+slotsRequired: 1
+stackLimit: 5
+type: Gear
+weight: 1

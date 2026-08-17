@@ -1,0 +1,31 @@
+# Crows Playtest 2 -- Knife
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 10c54280-6bb9-42ea-b7ed-a191783a8cef
+name: Knife
+category: Gear
+costInGold: 10
+crowsAD: 2
+crowsAttackStat: A or S
+crowsMeleeRange: 1
+crowsQualities: Light, Disengage, Parry 2
+crowsRangedRange: 5
+crowsTier2: 2 + A or S
+crowsTier3: 4 + A or S
+crowsWeaponType: Slashing
+description: 'Melee 1/Ranged 5. Attack 2d10 + A or S; 12-16: 2 + A or S; 17+: 4 + A or S. Slashing, Light,
+  Disengage, Parry 2. Craft: Blacksmithing (1 use), 1 iron bar, 5.'
+domains:
+  item:10c54280-6bb9-42ea-b7ed-a191783a8cef: true
+equipmentCategory: 4ec7fd08-6477-4370-92eb-2f7c41277284
+iconid: da7a1880-a2d3-4f0a-ad6e-5c6aea35347a
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+weight: 1

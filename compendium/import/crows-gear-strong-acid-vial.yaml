@@ -1,0 +1,52 @@
+# Crows Playtest 2 -- Strong Acid Vial
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: cbc00d7b-34c3-49b9-8ff4-480f16883c81
+name: Strong Acid Vial
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+  guid: 9e7c71ef-543d-440a-9163-99bc63ec3771
+  categorization: Ability
+  numTargets: '1'
+  consumables:
+    cbc00d7b-34c3-49b9-8ff4-480f16883c81: 1
+  behaviors:
+  - __typeName: ActivatedAbilityPowerRollBehavior
+    tiers:
+    - ''
+    - 7 + {Agility} damage
+    - 14 + {Agility} damage
+    roll: 2d10 + Agility
+    guid: eb23c2c3-634a-45bd-a60e-950fba8377a9
+  keywords:
+    Ranged: true
+    Strike: true
+  iconid: 48052c44-c390-4bef-8b40-b3fa98684722
+  name: Strong Acid Vial
+  range: 5
+  description: 'Make a ranged 5 attack using Agility. 12-16: 7 + A damage; 17+: 14 + A damage.'
+  implementation: 3
+  targetType: target
+costInGold: 250
+description: 'Maneuver: pour onto a surface to destroy up to 5 cubic feet of mundane matter. Action: make
+  a ranged 5 attack with it using Agility; 12-16: 7 + A damage; 17+: 14 + A damage. Craft: Alchemy (1
+  use), 1 vial of any monster''s blood, 50.'
+domains:
+  item:cbc00d7b-34c3-49b9-8ff4-480f16883c81: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 48052c44-c390-4bef-8b40-b3fa98684722
+keywords:
+  Ranged: true
+  Attack: true
+slotsRequired: 1
+stackLimit: 5
+type: Gear
+weight: 1

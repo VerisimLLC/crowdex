@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Axe
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 39adaee1-0392-4fb1-b9df-16e708f25e74
+name: Axe
+category: Gear
+costInGold: 12
+crowsAttackStat: S
+crowsMeleeRange: 1
+crowsQualities: Dismember
+crowsTier2: 3 + S
+crowsTier3: 7 + S
+crowsWeaponType: Chopping
+description: 'Melee 1. Attack 2d10 + S; 12-16: 3 + S; 17+: 7 + S. Chopping, Dismember. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+domains:
+  item:39adaee1-0392-4fb1-b9df-16e708f25e74: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: 6620de8e-83c7-4602-a0b7-744f432dc79b
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 3

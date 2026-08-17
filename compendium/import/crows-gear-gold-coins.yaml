@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- Gold Coins
+#
+# Playtest 2 change: description, stackLimit
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 7bcc2011-6a2a-42d6-93c7-37c702866017
+name: Gold Coins
+category: Gear
+costInGold: 1
+description: Gold coins (gc), the currency of Cornath. A single inventory slot holds a loose stack of
+  up to 250 gc; a coin purse holds 500. Money is spent on equipment and village institutions; treasure
+  brought back to the village converts to XP (its gold value, split among the players).
+domains:
+  item:7bcc2011-6a2a-42d6-93c7-37c702866017: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 6a37e798-6045-4804-9de8-ef2df632e88a
+implementation: 1
+slotsRequired: 1
+stackLimit: 250
+type: Gear
+weight: 0

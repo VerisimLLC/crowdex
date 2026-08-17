@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Pike
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 33da296f-8ab0-40c6-bfc9-1243e40d0911
+name: Pike
+category: Gear
+costInGold: 15
+crowsAttackStat: S
+crowsMeleeRange: 2
+crowsQualities: Brutal
+crowsTier2: 3 + S
+crowsTier3: 7 + S
+crowsWeaponType: Stabbing
+description: 'Melee 2. Attack 2d10 + S; 12-16: 3 + S; 17+: 7 + S. Stabbing, Brutal. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+domains:
+  item:33da296f-8ab0-40c6-bfc9-1243e40d0911: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: 00b10982-71c6-4dcb-b263-81d53c04a31d
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 5

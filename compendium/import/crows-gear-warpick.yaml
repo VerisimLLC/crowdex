@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Warpick
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: ed3f887c-a98c-4bfc-befe-4fd5696763e3
+name: Warpick
+category: Gear
+costInGold: 15
+crowsAttackStat: S
+crowsMeleeRange: 1
+crowsQualities: Brutal
+crowsTier2: 4 + S
+crowsTier3: 9 + S
+crowsWeaponType: Stabbing
+description: 'Melee 1. Attack 2d10 + S; 12-16: 4 + S; 17+: 9 + S. Stabbing, Brutal. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+domains:
+  item:ed3f887c-a98c-4bfc-befe-4fd5696763e3: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: 9ca5b72f-f2c2-4d80-bf89-53d32464399a
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 6
