@@ -169,6 +169,45 @@ local LEADER_TIERS = {
 
 mod:RegisterDocumentForCheckpointBackups(WILDERNESS_DOC)
 
+-- Resting
+-- -------
+-- A rest is its own unit of time in Playtest 2 -- not three dungeon turns as it
+-- was in Playtest 1. Finishing one restores every crow's Stamina, removes a
+-- wound, and refills equipment whose Usage Dice recharge on a rest; a rest
+-- taken in the Miasma also triggers each human's Mind test against it.
+--
+-- Each crow may perform one rest activity. Only two have effects worth
+-- automating: Tend Wounds (its target loses 2 wounds instead of 1) and Seclude
+-- Camp (-1 EN for the rest). The others are prompts for the table -- recorded
+-- so the Director can see who is doing what, and so nobody doubles up.
+--
+-- State lives in its own synced document:
+--   activities -- map of token id -> activity id
+--   tendTargets -- map of tending token id -> the token id they are tending
+local REST_DOC = "crowdex_rest"
+
+local REST_NONE = "none"
+local REST_TEND = "tend"
+local REST_SECLUDE = "seclude"
+local REST_ACTIVITY_OPTIONS = {
+    { id = REST_NONE, text = "--" },
+    { id = "craft", text = "Craft Equipment" },
+    { id = "harvest", text = "Harvest" },
+    { id = "identify", text = "Identify Item" },
+    { id = "prepare", text = "Prepare for Task" },
+    { id = "repair", text = "Repair Armor" },
+    { id = REST_SECLUDE, text = "Seclude Camp" },
+    { id = REST_TEND, text = "Tend Wounds" },
+}
+
+-- Activities the Finish Rest button resolves by itself. Everything else is
+-- narrated at the table, so the button reports it rather than applying it.
+local REST_AUTOMATED = {
+    [REST_TEND] = true,
+}
+
+mod:RegisterDocumentForCheckpointBackups(REST_DOC)
+
 ----------------------------------------------------------------------
 -- Document accessors / state math.
 ----------------------------------------------------------------------
@@ -276,6 +315,65 @@ end
 
 -- The encounter table (a RollTable id in the "encounterTables" table) chosen for
 -- this area, or "" for none.
+----------------------------------------------------------------------
+-- Rest state (synced).
+----------------------------------------------------------------------
+
+local function GetRestDoc()
+    return mod:GetDocumentSnapshot(REST_DOC)
+end
+
+local function GetRestActivity(tokenid)
+    local acts = GetRestDoc().data.activities
+    if type(acts) ~= "table" then return REST_NONE end
+    return acts[tokenid] or REST_NONE
+end
+
+local function SetRestActivity(tokenid, activityId)
+    local doc = GetRestDoc()
+    doc:BeginChange()
+    if type(doc.data.activities) ~= "table" then
+        doc.data.activities = {}
+    end
+    if activityId == REST_NONE then
+        doc.data.activities[tokenid] = nil
+    else
+        doc.data.activities[tokenid] = activityId
+    end
+    -- Choosing anything other than Tend Wounds drops a stale target, so the
+    -- pairing can never outlive the activity that created it.
+    if activityId ~= REST_TEND and type(doc.data.tendTargets) == "table" then
+        doc.data.tendTargets[tokenid] = nil
+    end
+    doc:CompleteChange("Set rest activity", {undoable = false})
+end
+
+local function GetTendTarget(tokenid)
+    local targets = GetRestDoc().data.tendTargets
+    if type(targets) ~= "table" then return nil end
+    return targets[tokenid]
+end
+
+local function SetTendTarget(tokenid, targetid)
+    local doc = GetRestDoc()
+    doc:BeginChange()
+    if type(doc.data.tendTargets) ~= "table" then
+        doc.data.tendTargets = {}
+    end
+    doc.data.tendTargets[tokenid] = targetid
+    doc:CompleteChange("Set tend wounds target", {undoable = false})
+end
+
+-- Clear every crow's activity. Called once a rest is finished so the next rest
+-- starts from a blank slate rather than silently repeating the last one.
+local function ClearRestActivities()
+    local doc = GetRestDoc()
+    doc:BeginChange()
+    doc.data.activities = {}
+    doc.data.tendTargets = {}
+    doc:CompleteChange("Clear rest activities", {undoable = false})
+end
+
 local ENCOUNTER_TABLES = "encounterTables"
 
 local function GetEncounterTableId()
@@ -524,6 +622,107 @@ local function FireMiasmaCheck()
         end
     end
     return #crows
+end
+
+----------------------------------------------------------------------
+-- Finishing a rest.
+----------------------------------------------------------------------
+
+-- Refill every Usage Dice pool on this crow whose item recharges on a rest
+-- (The Rules, Equipment Usage Dice: a "Rest" entry restores the item's maximum
+-- when the carrier finishes a rest). CrowdexInventory's own RestoreUsageDice
+-- takes a UI row/env pair and cannot be driven headlessly, so this walks the
+-- slots with the exported accessors instead. A nil `ud` reads as full, which is
+-- how the inventory stores "untouched", so clearing the field IS the refill.
+-- Returns the number of pools refilled.
+local function RefillRestUsageDice(props)
+    local inv = CrowdexInventoryUI
+    if inv == nil or inv.GetSlot == nil then return 0 end
+    local refilled = 0
+    for _, kind in ipairs({"hands", "belt", "backpack"}) do
+        for i = 1, (inv.ROW_CAPACITY[kind] or 0) do
+            local slot = inv.GetSlot(props, kind, i)
+            if slot ~= nil and slot.itemid ~= nil
+                    and (inv.UsageDiceForItem(slot.itemid) or 0) > 0
+                    and inv.UsageDiceRestore(slot.itemid) == "rest"
+                    and slot.ud ~= nil then
+                slot.ud = nil
+                inv.SetSlot(props, kind, i, slot)
+                refilled = refilled + 1
+            end
+        end
+    end
+    return refilled
+end
+
+-- Resolve a rest for every crow on the map (The Rules, Resting): full Stamina,
+-- one wound cleared -- two for anyone being tended -- and rest-recharging Usage
+-- Dice refilled. Expertise refresh belongs here too, but expertises do not
+-- exist yet; that lands with them.
+--
+-- A rest finished in the Miasma also costs each human a Mind test against it,
+-- and grants no expertise recovery. The Miasma is an outdoor phenomenon that
+-- cannot enter enclosed stone or metal, so it applies in Wilderness only --
+-- villages sit inside sealed ruins and dungeons are indoors.
+--
+-- Returns a summary table: { crows, wounds, dice, tended, miasma }.
+local function FinishRest()
+    local inv = CrowdexInventoryUI
+    local crows = dmhub.GetTokens({ playerControlled = true })
+
+    -- Who is being tended, and by whom. Tend Wounds targets a creature with at
+    -- least 2 wounds who is not the tender, so a target only counts once even
+    -- if two crows nominate them.
+    local tendedBy = {}
+    for _, tok in ipairs(crows) do
+        if tok ~= nil and tok.valid then
+            if GetRestActivity(tok.id) == REST_TEND then
+                local target = GetTendTarget(tok.id)
+                if target ~= nil and target ~= tok.id then
+                    tendedBy[target] = tok.id
+                end
+            end
+        end
+    end
+
+    local summary = { crows = 0, wounds = 0, dice = 0, tended = 0, miasma = 0 }
+
+    for _, tok in ipairs(crows) do
+        if tok ~= nil and tok.valid and tok.properties ~= nil then
+            local isTended = tendedBy[tok.id] ~= nil
+            tok:ModifyProperties{
+                description = "Finish a rest",
+                combine = true,
+                execute = function()
+                    local props = tok.properties
+
+                    -- "At the end of a rest, you regain all your Stamina."
+                    props.damage_taken = 0
+
+                    -- "...and the number of wounds you have decreases by 1."
+                    -- Tend Wounds makes it 2 for its target.
+                    local toRemove = isTended and 2 or 1
+                    for _ = 1, toRemove do
+                        if inv ~= nil and inv.RemoveWound ~= nil
+                                and inv.RemoveWound(props) ~= nil then
+                            summary.wounds = summary.wounds + 1
+                        end
+                    end
+
+                    summary.dice = summary.dice + RefillRestUsageDice(props)
+                end,
+            }
+            summary.crows = summary.crows + 1
+            if isTended then summary.tended = summary.tended + 1 end
+        end
+    end
+
+    if GetMode() == MODE_WILDERNESS then
+        summary.miasma = FireMiasmaCheck()
+    end
+
+    ClearRestActivities()
+    return summary
 end
 
 -- Map a 1d6 weather roll to the weather for a season (Rules Booklet tables).
@@ -1398,6 +1597,234 @@ end
 -- below are only shown while the mode is Dungeon.
 ----------------------------------------------------------------------
 
+----------------------------------------------------------------------
+-- Rest block (Director only).
+----------------------------------------------------------------------
+--
+-- Shown in every mode -- crows rest in dungeons, in the wild and in town. One
+-- row per crow: their rest activity, plus a target picker when that activity is
+-- Tend Wounds. The Finish Rest button resolves the whole party at once.
+--
+-- Not here yet, and deliberately: the rest encounter check and Seclude Camp's
+-- -1 EN. Both need the d10 encounter model that arrives with the travel
+-- rebuild; wiring them to today's d6 EN would only have to be undone.
+local function CreateRestBlock()
+    local block
+    local crowListPanel
+    local emptyLabel
+    local resultLabel
+
+    -- Legal Tend Wounds targets: another crow carrying at least 2 wounds
+    -- ("Pick a creature who has at least 2 wounds who rests with you. You can't
+    -- choose yourself.").
+    local function TendCandidates(selfId)
+        local options = { { id = "none", text = "(pick target)" } }
+        local inv = CrowdexInventoryUI
+        for _, tok in ipairs(dmhub.GetTokens({ playerControlled = true })) do
+            if tok ~= nil and tok.valid and tok.id ~= selfId and tok.properties ~= nil then
+                local wounds = 0
+                if inv ~= nil and inv.CountWoundedSlots ~= nil then
+                    wounds = inv.CountWoundedSlots(tok.properties) or 0
+                end
+                if wounds >= 2 then
+                    options[#options + 1] = {
+                        id = tok.id,
+                        text = string.format("%s (%d)", tok.name or "Crow", wounds),
+                    }
+                end
+            end
+        end
+        return options
+    end
+
+    local function CreateRestRow(tokenid)
+        local nameLabel
+        local activityDropdown
+        local tendDropdown
+
+        nameLabel = gui.Label{
+            classes = {"sizeXs"},
+            width = 110,
+            height = 22,
+            valign = "center",
+        }
+
+        activityDropdown = gui.Dropdown{
+            classes = {"sizeXs"},
+            options = REST_ACTIVITY_OPTIONS,
+            idChosen = GetRestActivity(tokenid),
+            width = 132,
+            height = 24,
+            valign = "center",
+            change = function(element)
+                SetRestActivity(tokenid, element.idChosen)
+                block:FireEvent("refreshRest")
+            end,
+        }
+
+        tendDropdown = gui.Dropdown{
+            classes = {"sizeXs", "collapsed"},
+            options = TendCandidates(tokenid),
+            idChosen = GetTendTarget(tokenid) or "none",
+            width = 132,
+            height = 24,
+            hmargin = 4,
+            valign = "center",
+            hover = function(element)
+                gui.Tooltip("Who this crow tends. They lose 2 wounds instead of 1.")(element)
+            end,
+            change = function(element)
+                SetTendTarget(tokenid, element.idChosen ~= "none" and element.idChosen or nil)
+            end,
+        }
+
+        return gui.Panel{
+            flow = "horizontal",
+            width = "100%",
+            height = "auto",
+            vmargin = 1,
+
+            nameLabel,
+            activityDropdown,
+            tendDropdown,
+
+            refreshRow = function(element)
+                local tok = dmhub.GetCharacterById(tokenid)
+                if tok == nil then return end
+
+                local inv = CrowdexInventoryUI
+                local wounds = 0
+                if inv ~= nil and inv.CountWoundedSlots ~= nil and tok.properties ~= nil then
+                    wounds = inv.CountWoundedSlots(tok.properties) or 0
+                end
+                nameLabel.text = string.format("%s%s", tok.name or "Crow",
+                    wounds > 0 and string.format("  (%d)", wounds) or "")
+
+                local activity = GetRestActivity(tokenid)
+                activityDropdown.idChosen = activity
+
+                local tending = activity == REST_TEND
+                tendDropdown:SetClass("collapsed", not tending)
+                if tending then
+                    -- Rebuild the candidate list each refresh: wound counts move
+                    -- as the party takes damage, so who is a legal target moves
+                    -- with them.
+                    tendDropdown.options = TendCandidates(tokenid)
+                    tendDropdown.idChosen = GetTendTarget(tokenid) or "none"
+                end
+            end,
+        }
+    end
+
+    crowListPanel = gui.Panel{
+        flow = "vertical",
+        width = "100%",
+        height = "auto",
+        data = { rowsById = {}, signature = nil },
+    }
+
+    emptyLabel = gui.Label{
+        classes = {"label", "sizeXs", "collapsed"},
+        text = "No crows on the map.",
+        width = "100%",
+        height = "auto",
+        color = "#9a9a9a",
+    }
+
+    resultLabel = gui.Label{
+        classes = {"sizeXs", "collapsed"},
+        width = "100%",
+        height = "auto",
+        color = "#9a9a9a",
+        tmargin = 2,
+    }
+
+    local finishButton = gui.Button{
+        classes = {"sizeXs"},
+        text = "Finish Rest",
+        width = 110,
+        height = 24,
+        halign = "left",
+        tmargin = 4,
+        hover = function(element)
+            gui.Tooltip("Full Stamina, one wound cleared (two if tended), and rest-recharging Usage Dice refilled for every crow.")(element)
+        end,
+        press = function(element)
+            local s = FinishRest()
+            local parts = {
+                string.format("%d crow%s rested", s.crows, s.crows == 1 and "" or "s"),
+                string.format("%d wound%s cleared", s.wounds, s.wounds == 1 and "" or "s"),
+            }
+            if s.tended > 0 then
+                parts[#parts + 1] = string.format("%d tended", s.tended)
+            end
+            if s.dice > 0 then
+                parts[#parts + 1] = string.format("%d usage die pool%s refilled", s.dice, s.dice == 1 and "" or "s")
+            end
+            if s.miasma > 0 then
+                parts[#parts + 1] = string.format("Miasma test prompted for %d", s.miasma)
+            end
+            resultLabel.text = table.concat(parts, ", ") .. "."
+            resultLabel:SetClass("collapsed", false)
+            block:FireEvent("refreshRest")
+        end,
+    }
+
+    block = gui.Panel{
+        flow = "vertical",
+        width = "100%",
+        height = "auto",
+        tmargin = 8,
+
+        gui.Label{
+            classes = {"sizeXs"},
+            text = "REST",
+            width = "100%",
+            height = "auto",
+            color = "#9a9a9a",
+            bmargin = 2,
+        },
+        crowListPanel,
+        emptyLabel,
+        finishButton,
+        resultLabel,
+
+        refreshRest = function(element)
+            local crows = dmhub.GetTokens({ playerControlled = true })
+            table.sort(crows, function(a, b)
+                return (a.name or "") < (b.name or "")
+            end)
+
+            local ids = {}
+            for _, c in ipairs(crows) do ids[#ids + 1] = c.id end
+            local signature = table.concat(ids, ",")
+
+            if signature ~= crowListPanel.data.signature then
+                local oldRows = crowListPanel.data.rowsById
+                local newRows = {}
+                local children = {}
+                for _, c in ipairs(crows) do
+                    local r = oldRows[c.id] or CreateRestRow(c.id)
+                    newRows[c.id] = r
+                    children[#children + 1] = r
+                end
+                crowListPanel.data.rowsById = newRows
+                crowListPanel.data.signature = signature
+                crowListPanel.children = children
+            end
+
+            for _, r in pairs(crowListPanel.data.rowsById) do
+                r:FireEvent("refreshRow")
+            end
+
+            emptyLabel:SetClass("collapsed", #crows > 0)
+            finishButton:SetClass("collapsed", #crows == 0)
+        end,
+    }
+
+    return block
+end
+
 local function CreateDungeonTurnSection()
     local isDM = dmhub.isDM
 
@@ -1434,6 +1861,7 @@ local function CreateDungeonTurnSection()
     local modeSelector
     local dungeonTurnBlock
     local wildernessBlock
+    local restBlock
 
     if isDM then
         -- Editable clock: click to type a new time as "mm:ss" or a number of
@@ -1547,6 +1975,9 @@ local function CreateDungeonTurnSection()
                 wildernessBlock:FireEvent("refreshWilderness")
             end
         end
+        if restBlock ~= nil then
+            restBlock:FireEvent("refreshRest")
+        end
 
         local data = GetDoc().data
         local remaining = ComputeRemaining(data)
@@ -1616,13 +2047,19 @@ local function CreateDungeonTurnSection()
     }
 
     -- Wilderness travel block (Director only). Collapsed unless mode is Wilderness.
+    -- The rest block sits below both and shows in every mode: crows rest in
+    -- dungeons, in the wild and in town alike.
     if isDM then
         wildernessBlock = CreateWildernessBlock()
+        restBlock = CreateRestBlock()
     end
 
     local children = { modeHeader, modeSelector, dungeonTurnBlock }
     if wildernessBlock ~= nil then
         children[#children + 1] = wildernessBlock
+    end
+    if restBlock ~= nil then
+        children[#children + 1] = restBlock
     end
 
     return gui.Panel{
@@ -1661,6 +2098,7 @@ local function CreateDungeonTurnSection()
             mod:GetDocumentPath(DUNGEON_TURN_DOC),
             mod:GetDocumentPath(CAMPAIGN_MODE_DOC),
             mod:GetDocumentPath(WILDERNESS_DOC),
+            mod:GetDocumentPath(REST_DOC),
             "/actionRequests",
         },
         thinkTime = 0.1,

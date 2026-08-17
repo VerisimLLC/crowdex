@@ -521,6 +521,31 @@ local function MoveWound(props, fromIndex, toIndex)
     return true
 end
 
+-- Clear one wound (The Rules, Resting: "the number of wounds you have decreases
+-- by 1. You choose which wound you lose."). The rules leave the choice to the
+-- player, so this picks the one that does the most good and leaves the rest
+-- draggable: a slot holding BOTH a wound and an item first, since only those
+-- cost speed, then any wounded slot. Both passes run low index upward, which
+-- undoes the most recently assigned wound first (AssignWound fills from the
+-- bottom of the backpack up). Returns the slot index cleared, or nil when the
+-- creature has no wounds.
+local function RemoveWound(props)
+    local capacity = CrowsBackpackCapacity(props)
+    for i = 1, capacity do
+        if IsSlotWounded(props, i) and OccupantOf(props, "backpack", i) ~= nil then
+            SetSlotWounded(props, i, false)
+            return i
+        end
+    end
+    for i = 1, capacity do
+        if IsSlotWounded(props, i) then
+            SetSlotWounded(props, i, false)
+            return i
+        end
+    end
+    return nil
+end
+
 -- True when slots (anchor .. anchor+n-1) all exist in the section and are
 -- free. ignoreKind/ignoreAnchor exclude an item's own current position so it
 -- can be moved to an overlapping span.
@@ -4516,6 +4541,7 @@ CrowdexInventoryUI = {
     CountWoundedItemSlots = CountWoundedItemSlots,
     AssignWound = AssignWound,
     MoveWound = MoveWound,
+    RemoveWound = RemoveWound,
     -- The full inventory tab panel, reused as the right-hand column of the
     -- integrated Crows character sheet (CrowdexCharacterSheet.lua).
     CreateInventoryTab = CreateCrowdexInventoryTab,
