@@ -73,7 +73,7 @@ end
 -- discipline names that skill. Outcomes per casting tier are stored on the
 -- item and run through the standard power-roll pipeline, so damage (scaled by
 -- {Mind}), push, and prone resolve automatically. Other outcomes (heal, AD,
--- blessed/boned, teleport-self, summon, etc.) are not reachable from the tier
+-- blessed/weakened, teleport-self, summon, etc.) are not reachable from the tier
 -- command grammar yet and read as descriptive tier text.
 --
 -- Usage Dice are deliberately not modeled here (a separate change): a wielded

@@ -51,9 +51,14 @@ end
 -- Returns the character's active Crows conditions as a sorted list of
 -- { id, name, stacks, kind, info } entries. Two sources feed this:
 --   - "condition" entries: charConditions inflicted via InflictCondition
---     (Grabbed, Prone, Unconscious). These don't stack.
+--     (Grabbed, Prone, Surprised, Unconscious).
 --   - "effect" entries: characterOngoingEffects flagged crowsCondition: true
---     (Blessed, Boned). These are stackable; stacks is the level.
+--     (Blessed, Weakened, Vulnerable, plus item-granted Hastened and Raging).
+-- Nothing stacks. Playtest 2 retired the Blessed/Boned level system and added
+-- the blanket rule "You can't gain a second instance of a condition you already
+-- have", so every Crows entry is stackable = false and `stacks` is always 1.
+-- The stacks plumbing is kept because the engine reports it and a future
+-- item-granted effect could still want it.
 local function GetActiveCrowsConditions(props)
     local result = {}
     if props == nil then return result end
@@ -868,11 +873,12 @@ local function CrowdexArmorRow()
 end
 
 --- Strip of condition chips, driven by the game's condition content tables.
---- Grabbed/Prone/Unconscious live in the charConditions table and are
---- inflicted via creature:InflictCondition. Blessed/Boned live in
---- characterOngoingEffects (flagged crowsCondition: true) and are applied
---- via creature:ApplyOngoingEffect, which accumulates stacks (their level).
---- Clicking a chip removes the condition (or one level of a stacked one).
+--- Grabbed/Prone/Surprised/Unconscious live in the charConditions table and
+--- are inflicted via creature:InflictCondition. Blessed/Weakened/Vulnerable
+--- live in characterOngoingEffects (flagged crowsCondition: true) and are
+--- applied via creature:ApplyOngoingEffect. Clicking a chip removes the
+--- condition. Nothing stacks in Playtest 2, so the stack-aware paths below are
+--- dormant rather than dead -- they still serve any future stackable effect.
 local function CrowdexConditionsRow(token)
     -- The sidebar is built once and re-pointed at different crows via the
     -- setToken/refreshCharacter events (see SingleCharacterDisplaySidePanel),

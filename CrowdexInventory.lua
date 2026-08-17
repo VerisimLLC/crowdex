@@ -3514,8 +3514,8 @@ end
 -- 12-16 tier 2, 17+ tier 3) with the same natural 19-20 crit. So wielded
 -- weapons generate ActivatedAbilities through the standard power-roll
 -- pipeline; tier damage routes through TakeDamage, i.e. the Crows
--- armor/stamina/wounds waterfall, and power-roll modifiers (Blessed/Boned)
--- apply automatically. Doom (natural 2-3) is noted in the ability rules
+-- armor/stamina/wounds waterfall, and power-roll modifiers (Blessed's edge,
+-- Weakened's bane) apply automatically. Doom (natural 2-3) is noted in the rules
 -- text but not yet automated.
 --
 -- Numbers are baked at build time (the abilities are rebuilt on every
