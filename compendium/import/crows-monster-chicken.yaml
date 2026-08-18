@@ -1,0 +1,80 @@
+# Crows Playtest 2 -- Chicken (The Ref Book, Animals)
+#
+# The one animal missing from the imported roster; every other Playtest 2
+# animal is already in the game and already carries its Playtest 2 numbers.
+#
+# This is also the format spike for the remaining stat blocks. It mirrors the
+# shape the existing Crows animals use, which is a Draw Steel monster with
+# Crows substitutions:
+#   cr             holds Power (0 here)
+#   creatureSize   "1T" / "1S" / "1M" / "2L" ... rather than a word
+#   crowsSlots     the wound-model backpack; animals and humans have them,
+#                  monsters proper do not
+#   attributes     agility / mind / strength, not the Draw Steel five
+#   tiers          {"", "1 damage", "2 damage"} -- tier 1 is a miss in Crows,
+#                  so it is deliberately empty
+description: Chicken
+id: 6b6cb2a2-7a4f-4a3e-9d21-0f6e5c4f11a7
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Chicken
+    keywords:
+      Animal: true
+    cr: 0
+    creatureSize: 1T
+    max_hitpoints: 2
+    damage_taken: 0
+    walkingSpeed: 2
+    movementSpeeds:
+      fly: 3
+    crowsSlots: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: -4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Clumsy Flyer
+      description: If the chicken is still in the air when they stop flying, they fall.
+      guid: 2f0a1d64-83c5-4a1e-9b77-6c2e9a0d5b31
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Peck
+      guid: 8c1d5b90-4e2f-4a77-9d3c-1b6e0f7a2c48
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: "1"
+      repeatTargets: false
+      range: "1"
+      meleeRange: 1
+      iconid: ui-icons/skills/1.png
+      description: ""
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
