@@ -1,0 +1,14 @@
+# Crows Playtest 2 -- the eight undead stat blocks (Stage 6 / W20)
+#
+# The Ref Book's Undead section, recorded as Undead A..H. The book titles
+# the power 15 block "Undead Creature E", duplicating the power 12 block;
+# it is recorded here as Undead F, with the discrepancy noted in the entry.
+_bundle:
+  - _include: "crows-monster-undead-a.yaml"
+  - _include: "crows-monster-undead-b.yaml"
+  - _include: "crows-monster-undead-c.yaml"
+  - _include: "crows-monster-undead-d.yaml"
+  - _include: "crows-monster-undead-e.yaml"
+  - _include: "crows-monster-undead-f.yaml"
+  - _include: "crows-monster-undead-g.yaml"
+  - _include: "crows-monster-undead-h.yaml"

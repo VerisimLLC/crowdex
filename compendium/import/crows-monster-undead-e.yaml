@@ -1,0 +1,144 @@
+# Crows Playtest 2 -- Undead E (The Ref Book, Undead)
+#
+# Common names: babbling death, hideous choir.
+#
+# Monster import REPLACES the whole record.
+description: Undead E
+id: 13f240ec-760e-40b1-ac00-fe999374253f
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Undead
+    monster_type: Undead E
+    keywords:
+      Undead: true
+    cr: 12
+    creatureSize: 1L
+    max_hitpoints: 60
+    damage_taken: 0
+    walkingSpeed: 4
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: -2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 3
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Common Names
+      description: Also called babbling death, hideous choir.
+      guid: 9a78a596-892d-4968-ac1e-6be2cf43ede7
+      implementation: 0
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:9a78a596-892d-4968-ac1e-6be2cf43ede7: true
+    - __typeName: CharacterFeature
+      name: Grabbing Fist
+      description: When the undead gets a tier 3 result with their fist against a Medium or smaller target,
+        the target is grabbed. The undead can grab up to two targets at a time, and deals an additional
+        3 damage to targets they have grabbed with melee attacks.
+      guid: e7bf867c-3c54-44a3-9dfb-4b31ea68da85
+      implementation: 3
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:e7bf867c-3c54-44a3-9dfb-4b31ea68da85: true
+      implementationDetails: The grab is automated on the Fist ability's tier 3. The two-target cap and
+        the additional 3 damage against grabbed targets are applied by hand.
+    - __typeName: CharacterFeature
+      name: Bite Frenzy (1/Day)
+      description: As an action, the undead makes a bite attack that targets each enemy within 1 square
+        of them.
+      guid: cf15ce65-4a0e-4d74-8f84-e4af2e110687
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:cf15ce65-4a0e-4d74-8f84-e4af2e110687: true
+    - __typeName: CharacterFeature
+      name: Horrid Gnashing
+      description: When a non-undead creature with a Mind score of 1 or lower starts their turn within
+        1 square of the undead, they take a bane on all tests until the start of their next turn.
+      guid: 085ade71-9773-420b-8e6d-38c25e5d81f7
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:085ade71-9773-420b-8e6d-38c25e5d81f7: true
+    - __typeName: CharacterFeature
+      name: Reactions (2)
+      description: This creature has 2 reactions each round rather than 1.
+      guid: 08500ef2-494d-419f-9764-932f82cbf541
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:08500ef2-494d-419f-9764-932f82cbf541: true
+      implementationDetails: There is no engine field for a reaction count; the Ref applies it.
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Fist
+      guid: fd01eb11-8ce0-49df-b283-4942c2299632
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '2'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Targets two creatures. Tier 3 grabs a Medium or smaller target.
+      implementation: 3
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 3 damage
+        - 5 damage; grabbed
+      meleeRange: 1
+      implementationDetails: 'Automated: the tier 3 result applies the grabbed condition.'
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: f502b388-9bb5-4c9b-9d0d-28422948b196
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 6 damage
+        - 10 damage
+      meleeRange: 1
+    resources: {}
+    equipment: {}
+    levelChoices: {}
+    skillProficiencies: {}

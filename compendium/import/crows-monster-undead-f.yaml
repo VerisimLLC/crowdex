@@ -1,0 +1,132 @@
+# Crows Playtest 2 -- Undead F (The Ref Book, Undead)
+#
+# Common names: gore beast, rot pile, sludge.
+#
+# Monster import REPLACES the whole record.
+description: Undead F
+id: 57bc9f7d-8dfe-4e1d-9793-924db3b3dd17
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Undead
+    monster_type: Undead F
+    keywords:
+      Undead: true
+    cr: 15
+    creatureSize: 1L
+    max_hitpoints: 75
+    damage_taken: 0
+    walkingSpeed: 4
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: -2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Common Names
+      description: Also called gore beast, rot pile, sludge.
+      guid: eca16527-4cdf-4331-9bfb-9dff78390f3a
+      implementation: 0
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:eca16527-4cdf-4331-9bfb-9dff78390f3a: true
+    - __typeName: CharacterFeature
+      name: Exploding Mote (2/Day)
+      description: 'As an action, the undead hurls a chunk of their flesh that explodes into gas in a
+        4 cube within 10 squares of them. Each non-undead creature in the area makes a Strength resistance
+        roll: 11 or less 15 damage; 12-16 7 damage; 17+ no effect.'
+      guid: 4aaf0467-343e-4355-ba9c-87516cbdb7b9
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:4aaf0467-343e-4355-ba9c-87516cbdb7b9: true
+      implementationDetails: Resistance rolls are rolled by each target and adjudicated by the Ref.
+    - __typeName: CharacterFeature
+      name: Glorp Through (3/Day)
+      description: As a maneuver, the undead moves their speed without provoking opportunity attacks and
+        while entering other creatures' spaces at no speed penalty. Each creature whose space they enter
+        takes 1d6 damage. If they end this movement in another creature's space, the undead slides the
+        creature into the nearest unoccupied space of their choice.
+      guid: 98ee3510-4e8c-4539-9de8-11c5bb7cf120
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:98ee3510-4e8c-4539-9de8-11c5bb7cf120: true
+    - __typeName: CharacterFeature
+      name: Liquid Death
+      description: When the undead is reduced to 0 Stamina, their body explodes in a fountain of acidic
+        gore. Each creature within 2 squares of them takes 1d10 damage.
+      guid: 055585d8-b49d-4be3-af45-e0728e5cec0c
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:055585d8-b49d-4be3-af45-e0728e5cec0c: true
+    - __typeName: CharacterFeature
+      name: Reactions (3)
+      description: This creature has 3 reactions each round rather than 1.
+      guid: c9f6be91-11d7-4726-b6ec-0b0ffb1c1219
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:c9f6be91-11d7-4726-b6ec-0b0ffb1c1219: true
+      implementationDetails: There is no engine field for a reaction count; the Ref applies it.
+    - __typeName: CharacterFeature
+      name: Book discrepancy
+      description: 'The Ref Book prints this block''s title as "Undead Creature E", which is also the
+        title of the power 12 block on the previous page. Recorded as Undead F: the lore heading facing
+        it reads Undead F, and the power ladder runs 12 then 15.'
+      guid: 00d398de-f606-4e44-aad3-2c84d32a8252
+      implementation: 0
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:00d398de-f606-4e44-aad3-2c84d32a8252: true
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Boneshard
+      guid: faf8d6aa-bc15-4661-b5ee-52ed765ccd93
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: Melee 2 or Ranged 5.
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+        Ranged: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 4
+        tiers:
+        - ''
+        - 7 damage
+        - 12 damage
+      meleeRange: 2
+    resources: {}
+    equipment: {}
+    levelChoices: {}
+    skillProficiencies: {}
+    movementSpeeds:
+      climb: 4

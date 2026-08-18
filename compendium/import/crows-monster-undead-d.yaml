@@ -1,0 +1,133 @@
+# Crows Playtest 2 -- Undead D (The Ref Book, Undead)
+#
+# Common names: fire belly, skull mountain.
+#
+# Monster import REPLACES the whole record.
+description: Undead D
+id: 5d2e5927-1bb1-44a0-9505-54462a8c778f
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Undead
+    monster_type: Undead D
+    keywords:
+      Undead: true
+    cr: 10
+    creatureSize: '2'
+    max_hitpoints: 50
+    damage_taken: 0
+    walkingSpeed: 5
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: -2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 3
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Common Names
+      description: Also called fire belly, skull mountain.
+      guid: dc64074e-c0be-4a3b-a16c-56c42fa4054a
+      implementation: 0
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:dc64074e-c0be-4a3b-a16c-56c42fa4054a: true
+    - __typeName: CharacterFeature
+      name: Fire Beam (1/Day)
+      description: 'As an action, the undead shoots fire in a 10 x 2 line within 1 square of them. Each
+        creature in the area makes an Agility resistance roll: 11 or less 10 damage; 12-16 5 damage; 17+
+        no effect.'
+      guid: 5dd81223-c78b-4d48-b75b-c8eeed8b0709
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:5dd81223-c78b-4d48-b75b-c8eeed8b0709: true
+      implementationDetails: Resistance rolls are rolled by each target and adjudicated by the Ref.
+    - __typeName: CharacterFeature
+      name: Absorb
+      description: As a maneuver, the undead can grab the corpse of a human who has died within the last
+        24 hours that is within 2 squares of them and incorporate it into their form. The corpse and any
+        mundane equipment it carries are destroyed, and the undead regains 10 Stamina.
+      guid: f84004c3-5a23-485c-ba8b-09b0bf8e9ed2
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:f84004c3-5a23-485c-ba8b-09b0bf8e9ed2: true
+    - __typeName: CharacterFeature
+      name: Reactions (2)
+      description: This creature has 2 reactions each round rather than 1.
+      guid: 1064b4c4-7aed-4c1c-8bf7-2f60a81a1bfb
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:1064b4c4-7aed-4c1c-8bf7-2f60a81a1bfb: true
+      implementationDetails: There is no engine field for a reaction count; the Ref applies it.
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Claws
+      guid: bafed0f6-89a9-4cea-a4e3-483ddecd35d8
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '2'
+      repeatTargets: false
+      range: '2'
+      iconid: ui-icons/skills/1.png
+      description: Targets two creatures.
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 3 damage
+        - 5 damage
+      meleeRange: 2
+    - __typeName: ActivatedAbility
+      name: Rend
+      guid: cecc494a-f429-484f-8c75-681102502077
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '2'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 5 damage
+        - 9 damage
+      meleeRange: 2
+    resources: {}
+    equipment: {}
+    levelChoices: {}
+    skillProficiencies: {}
