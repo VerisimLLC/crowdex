@@ -69,8 +69,9 @@ end
 -- flagged crowsSpellbook) that grants a single castable spell ability while
 -- held in a hand slot, exactly like a weapon grants its attack (see
 -- character:GetCrowsWeaponAttacks in CrowdexInventory.lua). The casting is a
--- Mind test (2d10 + Mind + the applicable spellcasting skill); the spell's
--- discipline names that skill. Outcomes per casting tier are stored on the
+-- flat Mind test (2d10 + Mind); the spell's discipline names the spellcasting
+-- EXPERTISE that can be spent on it, which is not a bonus added to the roll.
+-- Outcomes per casting tier are stored on the
 -- item and run through the standard power-roll pipeline, so damage (scaled by
 -- {Mind}), push, and prone resolve automatically. Other outcomes (heal, AD,
 -- blessed/weakened, teleport-self, summon, etc.) are not reachable from the tier
@@ -99,29 +100,18 @@ local function SpellbookResourceId(castingTime)
     return CharacterResource.actionResourceId
 end
 
--- The flat proficiency bonus the crow has in the spell's discipline skill (the
--- spellcasting skill added to a casting), or 0. Mirrors CrowdexInventory's
--- CrowsSkillModForWeaponType: proficiency bonus only, since the Mind
--- characteristic is already added separately by the roll formula.
-local function DisciplineSkillBonus(c, discipline)
-    if discipline == nil or discipline == "" then return 0 end
-    local skillsTable = dmhub.GetTable(Skill.tableName) or {}
-    for _, sk in unhidden_pairs(skillsTable) do
-        if sk.name == discipline then
-            return c:SkillProficiencyBonus(sk) or 0
-        end
-    end
-    return 0
-end
 
 -- Builds the casting ability for one wielded spellbook item.
+--
+-- The casting is a flat 2d10 + Mind. Playtest 1 added the discipline's skill
+-- bonus on top; Playtest 2 makes a discipline an EXPERTISE -- "a spell's
+-- discipline describes ... the spellcasting expertise than can be used for the
+-- test made to cast the spell" -- and an expertise is spent after the roll to
+-- improve the result, never added to it. Same correction as the weapon skill
+-- coming off attack rolls in stage 4, and Endurance coming off the Miasma test.
 local function BuildCrowsSpellbookAbility(c, item)
     local discipline = item:try_get("crowsSpellDiscipline", "")
-    local skillBonus = DisciplineSkillBonus(c, discipline)
     local roll = "2d10 + Mind"
-    if skillBonus ~= 0 then
-        roll = string.format("2d10 + Mind + %d", skillBonus)
-    end
 
     local attack = item:try_get("crowsSpellAttack", false)
     local keywords = { Magic = true }
@@ -137,10 +127,9 @@ local function BuildCrowsSpellbookAbility(c, item)
 
     local descLines = {}
     local rank = item:try_get("crowsSpellRank")
-    descLines[#descLines + 1] = string.format("Casting (%s%s): 2d10 + Mind%s.",
+    descLines[#descLines + 1] = string.format("Casting (%s%s): 2d10 + Mind.",
         cond(discipline ~= "", discipline, "spell"),
-        cond(rank ~= nil, " R" .. tostring(rank), ""),
-        cond(skillBonus ~= 0, string.format(" + %s skill (%d)", discipline, skillBonus), ""))
+        cond(rank ~= nil, " R" .. tostring(rank), ""))
     local rangeText = item:try_get("crowsSpellRangeText")
     if rangeText ~= nil and rangeText ~= "" then
         descLines[#descLines + 1] = "Range: " .. rangeText

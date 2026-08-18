@@ -1,0 +1,42 @@
+# Crows Playtest 2 -- Whistle of Dog Summoning
+#
+# Occupies no magic item slot. The dog uses the Dog stat block in The Ref.
+#
+# Gear import REPLACES the whole record, so this file carries the entire item.
+_table: tbl_Gear
+__typeName: equipment
+id: 0ba5ef77-4b12-4a29-b020-1ee1a8701454
+name: Whistle of Dog Summoning
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  name: Whistle of Dog Summoning
+  guid: d6975e2b-eb41-454d-8858-6fa373a057ac
+  actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+  categorization: Ability
+  numTargets: '1'
+  range: 0
+  targetType: self
+  iconid: 18a2c299-b567-4c1e-9ac9-00ab7543d3b9
+  description: Summon a dog who is your pet until the end of the dungeon turn, or until their Stamina
+    drops to 0. Roll the Usage Die after activating.
+  implementation: 1
+  keywords:
+    Magic: true
+  behaviors: {}
+costInGold: 500
+description: 'Action: you blow this whistle and summon a dog who is your pet. The dog disappears at the
+  end of the dungeon turn or if their Stamina drops to 0. Usage Dice 1, rolled on activation; restored
+  on a rest. Craft: Enchanting (2 uses), gem worth 100 gc, 100.'
+domains:
+  item:0ba5ef77-4b12-4a29-b020-1ee1a8701454: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 18a2c299-b567-4c1e-9ac9-00ab7543d3b9
+implementation: 1
+slotsRequired: 1
+stackLimit: 5
+type: Gear
+usageDice: 1
+usageDiceRestore: rest
+usageDiceTrigger: activate
+weight: 0

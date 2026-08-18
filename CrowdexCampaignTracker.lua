@@ -1072,61 +1072,74 @@ local function FinishRest()
     local restId = dmhub.GenerateGuid()
 
     local summary = { crows = 0, wounds = 0, dice = 0, tended = 0, miasma = 0,
-                      expertises = 0, cleansed = 0 }
+                      expertises = 0, cleansed = 0, chaos = 0 }
 
     for _, tok in ipairs(crows) do
         if tok ~= nil and tok.valid and tok.properties ~= nil then
+            -- "If you have more than one magic item equipped in the same slot,
+            -- your body is overwhelmed with chaos, and you CAN'T REST." That is
+            -- a hard block, not a penalty applied afterwards, so this crow is
+            -- skipped entirely: no Stamina, no wound cleared, no expertises.
+            local chaos = false
+            if inv ~= nil and inv.WornSlotConflicts ~= nil then
+                chaos = #(inv.WornSlotConflicts(tok.properties)) > 0
+            end
+
             local isTended = tendedBy[tok.id] ~= nil
-            tok:ModifyProperties{
-                description = "Finish a rest",
-                combine = true,
-                execute = function()
-                    local props = tok.properties
+            if chaos then
+                summary.chaos = summary.chaos + 1
+            else
+                tok:ModifyProperties{
+                    description = "Finish a rest",
+                    combine = true,
+                    execute = function()
+                        local props = tok.properties
 
-                    -- "At the end of a rest, you regain all your Stamina."
-                    props.damage_taken = 0
+                        -- "At the end of a rest, you regain all your Stamina."
+                        props.damage_taken = 0
 
-                    -- "...and the number of wounds you have decreases by 1."
-                    -- Tend Wounds makes it 2 for its target.
-                    local toRemove = isTended and 2 or 1
-                    for _ = 1, toRemove do
-                        if inv ~= nil and inv.RemoveWound ~= nil
-                                and inv.RemoveWound(props) ~= nil then
-                            summary.wounds = summary.wounds + 1
+                        -- "...and the number of wounds you have decreases by 1."
+                        -- Tend Wounds makes it 2 for its target.
+                        local toRemove = isTended and 2 or 1
+                        for _ = 1, toRemove do
+                            if inv ~= nil and inv.RemoveWound ~= nil
+                                    and inv.RemoveWound(props) ~= nil then
+                                summary.wounds = summary.wounds + 1
+                            end
                         end
-                    end
 
-                    summary.dice = summary.dice + RefillRestUsageDice(props)
+                        summary.dice = summary.dice + RefillRestUsageDice(props)
 
-                    -- Expertise uses come back with a fresh long-rest id --
-                    -- unless the rest was spent in the Miasma. The terminal
-                    -- Miasma effect is the written exception: "Finishing a rest
-                    -- in the Miasma regains the uses of your expertises."
-                    if not inMiasma or HasTerminalMiasma(props) then
-                        props.longRestId = restId
-                        summary.expertises = summary.expertises + 1
-                    end
-
-                    -- "You lose all levels of cruelty when you finish a rest in
-                    -- a location that has no Miasma." The effects go with it:
-                    -- five of the seven rows run only "until you are out of the
-                    -- Miasma", and the sixth ends with the last cruelty level.
-                    -- The terminal row is permanent and stays.
-                    if not inMiasma then
-                        if GetCruelty(props) > 0 then
-                            summary.cleansed = summary.cleansed + 1
+                        -- Expertise uses come back with a fresh long-rest id --
+                        -- unless the rest was spent in the Miasma. The terminal
+                        -- Miasma effect is the written exception: "Finishing a rest
+                        -- in the Miasma regains the uses of your expertises."
+                        if not inMiasma or HasTerminalMiasma(props) then
+                            props.longRestId = restId
+                            summary.expertises = summary.expertises + 1
                         end
-                        props.crowdex_cruelty = 0
-                        if HasTerminalMiasma(props) then
-                            props.crowdex_miasmaEffects = { [MIASMA_TERMINAL] = true }
-                        else
-                            props.crowdex_miasmaEffects = {}
+
+                        -- "You lose all levels of cruelty when you finish a rest in
+                        -- a location that has no Miasma." The effects go with it:
+                        -- five of the seven rows run only "until you are out of the
+                        -- Miasma", and the sixth ends with the last cruelty level.
+                        -- The terminal row is permanent and stays.
+                        if not inMiasma then
+                            if GetCruelty(props) > 0 then
+                                summary.cleansed = summary.cleansed + 1
+                            end
+                            props.crowdex_cruelty = 0
+                            if HasTerminalMiasma(props) then
+                                props.crowdex_miasmaEffects = { [MIASMA_TERMINAL] = true }
+                            else
+                                props.crowdex_miasmaEffects = {}
+                            end
                         end
-                    end
-                end,
-            }
-            summary.crows = summary.crows + 1
-            if isTended then summary.tended = summary.tended + 1 end
+                    end,
+                }
+                summary.crows = summary.crows + 1
+                if isTended then summary.tended = summary.tended + 1 end
+            end
         end
     end
 
@@ -2106,6 +2119,10 @@ local function CreateRestBlock()
             end
             if s.cleansed > 0 then
                 parts[#parts + 1] = string.format("cruelty cleared from %d", s.cleansed)
+            end
+            if s.chaos > 0 then
+                parts[#parts + 1] = string.format(
+                    "%d could NOT rest (two magic items on one slot)", s.chaos)
             end
             resultLabel.text = table.concat(parts, ", ") .. "."
             resultLabel:SetClass("collapsed", false)

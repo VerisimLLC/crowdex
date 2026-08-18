@@ -25,9 +25,30 @@ local ROW_CAPACITY = {
     backpack = 10,
     hands = 2,
     belt = 4,
+    -- "You have six magic item slots that can be used to wear magic items."
+    -- The kind is "magic" rather than "worn" because slot.worn already means
+    -- something else here: the one suit of armour a crow currently has on.
+    -- These rows are NOT one-per-body-slot: an item names the body slot it
+    -- occupies, and wearing two things on the same one is a legal (if painful)
+    -- choice, so six generic rows is what models the rule. The printed
+    -- inventory sheet has no worn section at all, which is also why a worn item
+    -- costs no backpack or belt slot.
+    magic = 6,
 }
 
 local HAND_LABELS = { "L", "R" }
+
+-- The six magic item slots, in the order the rules list them.
+local MAGIC_SLOTS = { "Head", "Neck", "Waist", "Arms", "Finger", "Feet" }
+
+-- The cards and the rules disagree on one name: every ring card reads "Slot
+-- Ring" while the rules call the slot Finger. Cards also vary between "Slot X"
+-- and "Slot: X". Normalise to the rules' vocabulary.
+local MAGIC_SLOT_ALIASES = {
+    ring = "Finger", rings = "Finger", finger = "Finger",
+    head = "Head", neck = "Neck", waist = "Waist",
+    arms = "Arms", arm = "Arms", feet = "Feet", foot = "Feet",
+}
 
 -- Every slot row is this wide, regardless of section.
 local SLOT_WIDTH = 280
@@ -82,6 +103,42 @@ local function SetSlot(props, kind, index, slot)
     rows[kind][SlotKey(index)] = slot
     rows[kind][index] = nil
     props.crowdex_inventory = rows
+end
+
+-- Which of the six magic item slots this item must occupy to be used, or nil
+-- for an item that is not worn. Declared as crowsMagicSlot on the tbl_Gear
+-- entry; the card says so in its "Slot X" line.
+local function MagicSlotForItem(itemid)
+    local gearTable = dmhub.GetTable("tbl_Gear") or {}
+    local item = itemid ~= nil and gearTable[itemid] or nil
+    if item == nil then return nil end
+    local raw = item:try_get("crowsMagicSlot", "")
+    if type(raw) ~= "string" or raw == "" then return nil end
+    return MAGIC_SLOT_ALIASES[string.lower(trim(raw))]
+end
+
+-- Which body slots this crow has doubled up on, and the count worn per slot.
+--
+-- "If you have more than one magic item equipped in the same slot, your body is
+-- overwhelmed with chaos, and you can't rest and at the end of each DT, you
+-- gain 1d6 wounds." Doubling up is a choice with a price, not an error, so the
+-- worn column allows it and reports the consequence rather than refusing it.
+local function WornSlotConflicts(props)
+    if props == nil then return {}, {} end
+    local counts, order = {}, {}
+    for i = 1, ROW_CAPACITY.magic do
+        local slot = GetSlot(props, "magic", i)
+        local name = slot ~= nil and MagicSlotForItem(slot.itemid) or nil
+        if name ~= nil then
+            if counts[name] == nil then order[#order + 1] = name end
+            counts[name] = (counts[name] or 0) + 1
+        end
+    end
+    local conflicts = {}
+    for _, name in ipairs(order) do
+        if counts[name] > 1 then conflicts[#conflicts + 1] = name end
+    end
+    return conflicts, counts
 end
 
 -- How many adjacent slots an item occupies (cards: "Occupies 2 Slots").
@@ -1729,7 +1786,17 @@ local function SlotRow(kind, index, label, env)
             if target.data == nil or target.data.kind == nil or target.data.index == nil then
                 return false
             end
-            return target.data.kind ~= kind or target.data.index ~= index
+            if target.data.kind == kind and target.data.index == index then
+                return false
+            end
+            -- Only an item whose card names a magic item slot can be worn.
+            if target.data.kind == "magic" then
+                local slot = element.data.slot
+                if slot == nil or MagicSlotForItem(slot.itemid) == nil then
+                    return false
+                end
+            end
+            return true
         end,
 
         -- Drag a filled slot onto another slot: move into free space (a
@@ -2084,6 +2151,41 @@ local function SlotColumn(title, kind, labels, env)
         -- Sheet context fires refreshCharacterInfo (props); panel context fires
         -- refreshCharacter (the token). Both resolve to the displayed token's
         -- properties so the column sizes itself for that token.
+        refreshCharacterInfo = function(element, props)
+            ApplyToken(element, props)
+        end,
+        refreshCharacter = function(element, token)
+            ApplyToken(element, token ~= nil and token.properties or nil)
+        end,
+    }
+end
+
+-- The chaos warning for doubling up on a magic item slot. Only rendered while
+-- it applies, so an ordinary crow never sees it.
+local function WornConflictBanner(env)
+    local function ApplyToken(element, props)
+        local isCharacter = props == nil or props.typeName == "character"
+        local conflicts = isCharacter and WornSlotConflicts(props) or {}
+        if #conflicts == 0 then
+            element:SetClass("collapsed", true)
+            return
+        end
+        element.text = string.format(
+            "Chaos: more than one magic item worn on %s. You can't rest, and at "
+            .. "the end of each dungeon turn you gain 1d6 wounds.",
+            table.concat(conflicts, " and "))
+        element:SetClass("collapsed", false)
+    end
+
+    return gui.Label{
+        classes = { "collapsed" },
+        width = SLOT_WIDTH,
+        height = "auto",
+        fontSize = 12,
+        bold = true,
+        color = "#d08a8a",
+        vmargin = 4,
+
         refreshCharacterInfo = function(element, props)
             ApplyToken(element, props)
         end,
@@ -2555,15 +2657,8 @@ local function CreateCrowdexInventoryTab()
                 SlotColumn("Hands", "hands", HAND_LABELS, g_sheetEnv),
                 SlotColumn("Belt", "belt", nil, g_sheetEnv),
 
-                SectionHeading("Worn (Magic)"),
-                gui.Label{
-                    width = "100%",
-                    height = "auto",
-                    fontSize = 12,
-                    italics = true,
-                    color = "#888888",
-                    text = "Magic item slots coming soon.",
-                },
+                SlotColumn("Worn (Magic)", "magic", nil, g_sheetEnv),
+                WornConflictBanner(g_sheetEnv),
             },
         },
 
@@ -4524,6 +4619,11 @@ CrowdexInventoryUI = {
     RollUsageDiceForSlot = RollUsageDiceForSlot,
     RestoreUsageDice = RestoreUsageDice,
     RefuelUsageDice = RefuelUsageDice,
+    -- Magic item slots: which slot an item claims, and whether a crow has
+    -- doubled up (which blocks their rest -- see CrowdexCampaignTracker).
+    MAGIC_SLOTS = MAGIC_SLOTS,
+    MagicSlotForItem = MagicSlotForItem,
+    WornSlotConflicts = WornSlotConflicts,
     IsSlotWounded = IsSlotWounded,
     CountWoundedSlots = CountWoundedSlots,
     CountWoundedItemSlots = CountWoundedItemSlots,

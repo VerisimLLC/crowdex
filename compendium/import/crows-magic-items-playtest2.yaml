@@ -1,0 +1,15 @@
+# Crows Playtest 2 -- magic item slots and the items that use them (W22)
+#
+# The six magic items and two spellbooks held back until the slot system
+# existed, plus the slot field on the ring that was already in the game.
+# Five of these occupy a magic item slot: three Finger, one Neck, one Head.
+_bundle:
+  - _include: "crows-gear-minor-telekinesis-ring.yaml"
+  - _include: "crows-gear-death-ring.yaml"
+  - _include: "crows-gear-life-ring.yaml"
+  - _include: "crows-gear-necklace-of-teeth.yaml"
+  - _include: "crows-gear-plague-mask.yaml"
+  - _include: "crows-gear-hurling-wand.yaml"
+  - _include: "crows-gear-whistle-of-dog-summoning.yaml"
+  - _include: "crows-gear-group-healing.yaml"
+  - _include: "crows-gear-wound-closure.yaml"

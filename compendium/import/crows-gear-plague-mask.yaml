@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- Plague Mask
+#
+# The only Head-slot item in the set. Its card prices the craft gem in "gp"
+# rather than gc; recorded as gc, the game's only currency.
+#
+# Gear import REPLACES the whole record, so this file carries the entire item.
+_table: tbl_Gear
+__typeName: equipment
+id: a3fc9d91-c083-438d-88eb-ae5ff7935dcb
+name: Plague Mask
+category: Gear
+costInGold: 500
+crowsMagicSlot: Head
+description: 'While you wear the mask, you have a +2 bonus on Mind resistance rolls made to resist the
+  effects of the Miasma. Slot: Head. Craft: Enchanting (1 use), gem worth 100 gc, 100.'
+domains:
+  item:a3fc9d91-c083-438d-88eb-ae5ff7935dcb: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: d9442270-3f02-42f0-9e4d-03a4e6302212
+implementation: 1
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 0
