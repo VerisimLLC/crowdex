@@ -48,4 +48,5 @@ _bundle:
   - _include: "crows-gear-strong-acid-vial.yaml"
   - _include: "crows-gear-strong-poison.yaml"
   - _include: "crows-gear-sword.yaml"
+  - _include: "crows-gear-tent.yaml"
   - _include: "crows-gear-warpick.yaml"
