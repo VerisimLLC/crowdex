@@ -1,0 +1,455 @@
+# Crows Playtest 2 -- the expertise spend (W9)
+#
+# One after-roll chip per expertise. Rolling a test offers the crow's own
+# general expertises; a casting or weapon attack offers their spellcasting and
+# weapon ones. Clicking a chip raises the result one tier and spends one use.
+#
+# Three fields carry the whole mechanism, and each is load-bearing:
+#
+#   resourceCostType: none    The legacy named-resource cost is charged ONLY
+#                             while the modern cost enum is inactive. Any other
+#                             value here and the expertise is never billed.
+#   activationAfterRoll: "0"  Must be a STRING or the chip is never offered at
+#                             all; falsy so it arrives UNCHECKED, because
+#                             spending an expertise is the player's choice.
+#   displayAfterRoll          Hides the chip from crows without that expertise.
+#                             Without it, all eighteen general expertises show
+#                             on every test.
+#
+# Import REPLACES the whole record.
+_table: globalRuleMods
+__typeName: GlobalRuleMod
+id: c0f1e2d3-a4b5-4c6d-8e9f-0a1b2c3d4e5f
+name: Crows Expertises
+hidden: false
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: After you make a test, you can use an applicable expertise to improve the test's result
+      by one tier (to a maximum of tier 3). You can only apply one expertise and one use per test.
+    guid: 4a2f5567-eccb-424d-af2f-21accd37d138
+    implementation: 4
+    source: Crows Expertises
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 615f6aa1-591f-49ab-872a-5b72a10ed5ef
+      name: Stabbing
+      description: After a roll, spend 1 use of Stabbing to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Stabbing > 0
+      resourceCostType: none
+      resourceCost: 015fe62d-4d71-4028-a5bd-821eee14c002
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 89e9885f-5087-4b27-8a69-00d11124f401
+      name: Search
+      description: After a test, spend 1 use of Search to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Search > 0
+      resourceCostType: none
+      resourceCost: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 91bab4b1-e72c-4777-815f-9b6e66d4d72d
+      name: Chopping
+      description: After a roll, spend 1 use of Chopping to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Chopping > 0
+      resourceCostType: none
+      resourceCost: 073fb617-cfc6-493c-9624-03a967f85ac6
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 95e0828e-6f7b-4d93-bb0e-63552bd80a34
+      name: Alchemy
+      description: After a test, spend 1 use of Alchemy to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Alchemy > 0
+      resourceCostType: none
+      resourceCost: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: ed8a333e-8559-4e6e-9e09-199fd5771c6b
+      name: Navigate
+      description: After a test, spend 1 use of Navigate to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Navigate > 0
+      resourceCostType: none
+      resourceCost: 1f6f824b-1b93-46cc-8704-46ab53082744
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 4777c32c-4d52-4a0f-9155-5bb2e2853ab6
+      name: Pick Lock
+      description: After a test, spend 1 use of Pick Lock to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Pick Lock > 0
+      resourceCostType: none
+      resourceCost: 255318e0-5227-4cff-8fbf-9608bb180516
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 5a2eca35-57e4-43c9-a42d-c9542f55b379
+      name: Unarmed
+      description: After a roll, spend 1 use of Unarmed to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Unarmed > 0
+      resourceCostType: none
+      resourceCost: 36482a89-657f-4ea4-98a6-fb06575d9147
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: f4887d9c-1bf7-4797-9c1b-72c3ff125b24
+      name: Bow
+      description: After a roll, spend 1 use of Bow to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Bow > 0
+      resourceCostType: none
+      resourceCost: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 07368303-f9c7-4c3f-8dd2-16781e21a388
+      name: Thievery
+      description: After a test, spend 1 use of Thievery to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Thievery > 0
+      resourceCostType: none
+      resourceCost: 452f3e58-5227-4322-8db5-c35d6536fc30
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 83f05b19-2581-42dd-a843-79c66866cff4
+      name: Slashing
+      description: After a roll, spend 1 use of Slashing to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Slashing > 0
+      resourceCostType: none
+      resourceCost: 4e7a4dca-510b-4059-b69f-499845a1ae9b
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: a698ccaf-d0cd-4133-b04b-31add701fbbd
+      name: Elemental
+      description: After a roll, spend 1 use of Elemental to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Elemental > 0
+      resourceCostType: none
+      resourceCost: 5a680fc5-efe0-42a6-9479-1c378510b416
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 3e455993-d9bc-4201-8f1e-aa8e4a417583
+      name: Magic Lore
+      description: After a test, spend 1 use of Magic Lore to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Magic Lore > 0
+      resourceCostType: none
+      resourceCost: 5a857a74-80d0-4549-a643-52f040c05a05
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 041a423d-1579-42e0-8920-344ea5608a1a
+      name: Historical Lore
+      description: After a test, spend 1 use of Historical Lore to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Historical Lore > 0
+      resourceCostType: none
+      resourceCost: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 7bc9b143-f8be-4a5a-b7a9-6017671be60a
+      name: Endurance
+      description: After a test, spend 1 use of Endurance to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Endurance > 0
+      resourceCostType: none
+      resourceCost: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 3098d37c-c682-4b31-9470-0233aba14bb1
+      name: Benefaction
+      description: After a roll, spend 1 use of Benefaction to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Benefaction > 0
+      resourceCostType: none
+      resourceCost: 6e8db242-87e2-4e83-a489-c162b53cfb02
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 635d2fe4-2b6e-427b-a478-72406c0b40ba
+      name: Monster Lore
+      description: After a test, spend 1 use of Monster Lore to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Monster Lore > 0
+      resourceCostType: none
+      resourceCost: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 7bcb4965-3b01-49bd-bb46-10b15fdc6973
+      name: Bashing
+      description: After a roll, spend 1 use of Bashing to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Bashing > 0
+      resourceCostType: none
+      resourceCost: 74a6c31d-4fb5-41d7-aa03-7684ada38ffc
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: a72e80f8-8b49-47d6-be20-96de0b78dcb8
+      name: Religious Lore
+      description: After a test, spend 1 use of Religious Lore to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Religious Lore > 0
+      resourceCostType: none
+      resourceCost: 8b115a39-e57b-44ed-b110-18c8bf192869
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: c7b3df91-62b8-4195-b41f-57d0a1877d36
+      name: Enchanting
+      description: After a test, spend 1 use of Enchanting to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Enchanting > 0
+      resourceCostType: none
+      resourceCost: 8b57bd22-c458-47cf-a11f-2684e944880b
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: c90acc2a-4cb1-488d-b943-ea4233acb323
+      name: Illusion
+      description: After a roll, spend 1 use of Illusion to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Illusion > 0
+      resourceCostType: none
+      resourceCost: 8bc9b675-b597-4e4a-890e-4d1d38fe9e54
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: a33141c6-6fd8-40ac-9082-dbbf25a49ca5
+      name: Stealth
+      description: After a test, spend 1 use of Stealth to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Stealth > 0
+      resourceCostType: none
+      resourceCost: 9471dc81-8abf-498c-8224-d8a419d0939a
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 276f0896-324c-4064-9a92-7fe130c2b203
+      name: Gymnastics
+      description: After a test, spend 1 use of Gymnastics to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Gymnastics > 0
+      resourceCostType: none
+      resourceCost: 9987741a-c5f1-402b-ab3e-38c12b986f98
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: edffd009-9cf8-46a5-a068-9d1bc5c38c42
+      name: Handle Pet
+      description: After a test, spend 1 use of Handle Pet to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Handle Pet > 0
+      resourceCostType: none
+      resourceCost: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: a33f25fb-0dc2-4af9-822e-5d28d41f497f
+      name: Necromancy
+      description: After a roll, spend 1 use of Necromancy to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Necromancy > 0
+      resourceCostType: none
+      resourceCost: 9c077c0d-f42f-4e6e-b1aa-d4d0b3c4b27c
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: a83c9988-6f2e-4e86-9acc-3e3b58b8220b
+      name: Nature Lore
+      description: After a test, spend 1 use of Nature Lore to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Nature Lore > 0
+      resourceCostType: none
+      resourceCost: a22217c6-65ed-4254-8936-754c4a180237
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: da2758d0-a478-46b6-bfec-a13a9092f176
+      name: Athletics
+      description: After a test, spend 1 use of Athletics to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Athletics > 0
+      resourceCostType: none
+      resourceCost: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: bfe03769-2826-43dc-9106-101e7498c535
+      name: Conjuration
+      description: After a roll, spend 1 use of Conjuration to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Conjuration > 0
+      resourceCostType: none
+      resourceCost: cf9240ba-9ad6-45a1-ad00-01897f77e619
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: c9bd135b-03aa-42fd-8b48-df663cb8efb2
+      name: Lift
+      description: After a test, spend 1 use of Lift to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Lift > 0
+      resourceCostType: none
+      resourceCost: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: db4d9093-2623-4f91-8ebe-036ab316b87e
+      name: Alteration
+      description: After a roll, spend 1 use of Alteration to improve the result by one tier.
+      source: Expertise
+      rollType: ability_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Alteration > 0
+      resourceCostType: none
+      resourceCost: df3af2b7-a0eb-4b2e-8466-3ee53c550e88
+      keywords: {}
+    - __typeName: CharacterModifier
+      behavior: power
+      guid: 82f75d3e-ce08-4d71-b616-00364cbe6dce
+      name: Blacksmithing
+      description: After a test, spend 1 use of Blacksmithing to improve the result by one tier.
+      source: Expertise
+      rollType: test_power_roll
+      modtype: tierup
+      activationCondition: false
+      activationAfterRoll: '0'
+      displayAfterRoll: resources.Blacksmithing > 0
+      resourceCostType: none
+      resourceCost: f6f45422-7646-46f7-8531-b0d6a40de282
+      keywords: {}
