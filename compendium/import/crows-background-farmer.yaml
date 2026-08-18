@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: 10-foot pole, animal feed (6), goat (pet), pot, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: 10-foot pole, animal feed (6), goat (pet), pot, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: df578c73-ca85-4a13-b921-0b1a4bc3223c
     implementation: 2
     source: "Farmer Career Feature"

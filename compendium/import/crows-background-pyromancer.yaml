@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Magnifying glass, string, torch, spellbooks: fire hands, fire lance. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Magnifying glass, string, torch, spellbooks: fire hands, fire lance. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 6957c003-f737-4a1e-94d7-d562f44ae72f
     implementation: 2
     source: "Pyromancer Career Feature"

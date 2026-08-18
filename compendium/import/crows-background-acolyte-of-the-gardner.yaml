@@ -244,7 +244,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Holy symbol, torch, spellbooks: fire hands, minor healing, spark. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Holy symbol, torch, spellbooks: fire hands, minor healing, spark. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: a83fe681-0330-45b4-bd05-f3f025e28c1c
     implementation: 2
     source: "Acolyte of the Gardner Career Feature"

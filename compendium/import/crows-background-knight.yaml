@@ -208,7 +208,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Animal feed (6), greatsword, horse (pet), lantern, light armor, oil flask. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Animal feed (6), greatsword, horse (pet), lantern, light armor, oil flask. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 483d36e2-e3e1-4969-8fde-95640dca5150
     implementation: 2
     source: "Knight Career Feature"

@@ -350,7 +350,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Animal feed (6), horse (pet), lantern, lore book (historical), oil flask, 50 gold coins. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Animal feed (6), horse (pet), lantern, lore book (historical), oil flask, 50 gold coins. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 17368841-3924-41a7-bffe-40044fbc9239
     implementation: 2
     source: "Noble Career Feature"

@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Crowbar, grappling hook, knife (extra), lockpick set, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Crowbar, grappling hook, knife (extra), lockpick set, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 2728eed2-fefa-48b5-856f-258bb4dcfe1b
     implementation: 2
     source: "Thief Career Feature"

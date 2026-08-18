@@ -235,7 +235,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Extra knife, poison vial, quiver of 20 arrows, shortbow, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Extra knife, poison vial, quiver of 20 arrows, shortbow, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 5e7e5e34-379f-4685-bd73-cb432d8e30c7
     implementation: 2
     source: "Assassin Career Feature"

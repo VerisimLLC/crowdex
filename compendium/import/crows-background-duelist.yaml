@@ -208,7 +208,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Light armor, lore book (historical), mirror, sword, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Light armor, lore book (historical), mirror, sword, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 01d861d9-29fa-4adc-b505-ff63d1d27cd2
     implementation: 2
     source: "Duelist Career Feature"

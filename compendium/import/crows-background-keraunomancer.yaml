@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Mace, mirror, torch, spellbooks: spark, thunder. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Mace, mirror, torch, spellbooks: spark, thunder. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 4843d8d9-7b1d-450f-842a-902fa55394b3
     implementation: 2
     source: "Keraunomancer Career Feature"

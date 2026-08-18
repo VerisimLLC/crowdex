@@ -465,7 +465,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Lock, pot, string, tent, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Lock, pot, string, tent, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 068780d2-040e-4829-aed6-50e8275cde58
     implementation: 2
     source: "Beggar Career Feature"

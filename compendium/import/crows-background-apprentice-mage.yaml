@@ -244,7 +244,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Spellbooks: acid spit, jaunt, light, take shape, thunder. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Spellbooks: acid spit, jaunt, light, take shape, thunder. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 53475813-449d-4c58-b709-4aaa3381831f
     implementation: 2
     source: "Apprentice Mage Career Feature"

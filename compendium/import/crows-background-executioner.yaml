@@ -208,7 +208,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Chain, greataxe, ladder, lock, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Chain, greataxe, ladder, lock, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 025e2b2b-30ce-475f-9b43-b091b43457b2
     implementation: 2
     source: "Executioner Career Feature"

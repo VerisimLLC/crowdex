@@ -208,7 +208,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Light armor, quiver of 20 arrows, shortbow, spear, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Light armor, quiver of 20 arrows, shortbow, spear, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: c388dc08-595f-494f-b635-d06b1afa6921
     implementation: 2
     source: "Soldier Career Feature"

@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Holy symbol, magnifying glass, torch, spellbooks: minor healing, summon object. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Holy symbol, magnifying glass, torch, spellbooks: minor healing, summon object. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: d7ba238e-7ec1-4fc5-b028-981bc4c97638
     implementation: 2
     source: "Acolyte of the Smith Career Feature"

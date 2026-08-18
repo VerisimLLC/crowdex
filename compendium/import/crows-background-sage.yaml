@@ -244,7 +244,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Journal, lore book (monsters), lore book (nature), quill and ink pot, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Journal, lore book (monsters), lore book (nature), quill and ink pot, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: d2486252-5e26-48e4-9204-7d111e7d5673
     implementation: 2
     source: "Sage Career Feature"

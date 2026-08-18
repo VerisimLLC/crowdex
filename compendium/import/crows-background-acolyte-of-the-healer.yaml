@@ -217,7 +217,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with a holy symbol, a lantern, a mace, an oil flask, and two spellbooks: minor blessing and minor healing. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with a holy symbol, a lantern, a mace, an oil flask, and two spellbooks: minor blessing and minor healing. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 7a894b99-915f-4628-99d0-3e978ecda83a
     implementation: 2
     source: "Acolyte of the Healer Career Feature"

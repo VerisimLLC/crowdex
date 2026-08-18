@@ -208,7 +208,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Ball bearings, light armor, shield, sword, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Ball bearings, light armor, shield, sword, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 2d8fd0c2-bc1b-4ad5-a09c-3ba8fd4b5576
     implementation: 2
     source: "Bodyguard Career Feature"

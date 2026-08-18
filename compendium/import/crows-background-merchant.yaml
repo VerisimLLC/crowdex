@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Journal, lantern, merchant's scales, oil flask, quill and ink pot, 50 gold coins. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Journal, lantern, merchant's scales, oil flask, quill and ink pot, 50 gold coins. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 13bfba88-120f-4889-98e0-78adf5947d5d
     implementation: 2
     source: "Merchant Career Feature"

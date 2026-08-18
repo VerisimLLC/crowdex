@@ -323,7 +323,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Chalk, light armor, lore book (monsters), rage potion, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Chalk, light armor, lore book (monsters), rage potion, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 921b1103-9148-4295-83cf-f7208d7341e5
     implementation: 2
     source: "Pugilist Career Feature"

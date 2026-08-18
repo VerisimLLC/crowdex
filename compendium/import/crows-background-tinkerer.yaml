@@ -235,7 +235,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Alchemist's tools, blacksmith's tools, handaxe, lockpick set, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Alchemist's tools, blacksmith's tools, handaxe, lockpick set, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 5fe1ac1a-822d-42f5-ac9b-b474df9d5eb0
     implementation: 2
     source: "Tinkerer Career Feature"

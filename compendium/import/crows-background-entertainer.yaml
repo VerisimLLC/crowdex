@@ -235,7 +235,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: 10-foot pole, chalk, mirror, musical instrument (lute), torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: 10-foot pole, chalk, mirror, musical instrument (lute), torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: dd5ce19e-2e93-4025-9143-7fedabb20b8e
     implementation: 2
     source: "Entertainer Career Feature"

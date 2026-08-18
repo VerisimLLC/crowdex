@@ -1,5 +1,9 @@
 # Crows Playtest 2 -- Undead F (The Ref Book, Undead)
 #
+# The first export titled this block "Undead Creature E", duplicating the
+# power 12 block. MCDM confirmed the typo and the v2 export prints
+# "Undead Creature F", so the in-entry discrepancy note has been dropped.
+#
 # Common names: gore beast, rot pile, sludge.
 #
 # Monster import REPLACES the whole record.
@@ -85,18 +89,6 @@ info:
       domains:
         CharacterFeature:c9f6be91-11d7-4726-b6ec-0b0ffb1c1219: true
       implementationDetails: There is no engine field for a reaction count; the Ref applies it.
-    - __typeName: CharacterFeature
-      name: Book discrepancy
-      description: 'The Ref Book prints this block''s title as "Undead Creature E", which is also the
-        title of the power 12 block on the previous page. MCDM have confirmed this is a typo, so the
-        block is recorded as Undead F -- which the facing lore heading and the 12-then-15 power ladder
-        both already said.'
-      guid: 00d398de-f606-4e44-aad3-2c84d32a8252
-      implementation: 0
-      source: Trait
-      modifiers: {}
-      domains:
-        CharacterFeature:00d398de-f606-4e44-aad3-2c84d32a8252: true
     innateActivatedAbilities:
     - __typeName: ActivatedAbility
       name: Boneshard

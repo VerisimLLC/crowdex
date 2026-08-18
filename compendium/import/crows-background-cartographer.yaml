@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Compass, journal, lantern, lore book (historical), oil flask, quill and inkpot. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Compass, journal, lantern, lore book (historical), oil flask, quill and inkpot. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 44884f3a-a86f-4f45-ab33-59764bdb34c8
     implementation: 2
     source: "Cartographer Career Feature"

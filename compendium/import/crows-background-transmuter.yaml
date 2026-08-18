@@ -235,7 +235,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Chalk, torch, spellbooks: jaunt, animal form, repair, take shape. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Chalk, torch, spellbooks: jaunt, animal form, repair, take shape. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 200d7be1-2829-4d1f-a621-98a1058c5b35
     implementation: 2
     source: "Transmuter Career Feature"

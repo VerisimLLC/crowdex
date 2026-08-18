@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Chain, torch, spellbooks: jaunt, summon object, teleport object. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Chain, torch, spellbooks: jaunt, summon object, teleport object. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: dc942ab2-7e0c-4b43-99a8-a39be84be3de
     implementation: 2
     source: "Conjurer Career Feature"

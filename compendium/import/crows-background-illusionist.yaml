@@ -235,7 +235,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Card deck, whistle, spellbooks: cacophony, light, minor phantasm. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Card deck, whistle, spellbooks: cacophony, light, minor phantasm. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 5881661f-cfdc-4801-a20d-0c7a41c8952d
     implementation: 2
     source: "Illusionist Career Feature"

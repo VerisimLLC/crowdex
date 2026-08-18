@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Chalk, grappling hook, lantern, oil flask, pickaxe, shovel. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Chalk, grappling hook, lantern, oil flask, pickaxe, shovel. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 68406aef-8e73-4395-b2d6-4a4af04e3b6c
     implementation: 2
     source: "Miner Career Feature"

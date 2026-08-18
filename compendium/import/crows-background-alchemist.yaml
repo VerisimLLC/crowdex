@@ -244,7 +244,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Acid vial, alchemist's tools, bucket, healing potion, lantern, oil flask. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Acid vial, alchemist's tools, bucket, healing potion, lantern, oil flask. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: dec60de3-76a3-41aa-a077-7499a8d6350f
     implementation: 2
     source: "Alchemist Career Feature"

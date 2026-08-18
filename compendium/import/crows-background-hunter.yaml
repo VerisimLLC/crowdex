@@ -235,7 +235,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Animal feed (6), dog (pet), quiver of 20 arrows, shortbow, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Animal feed (6), dog (pet), quiver of 20 arrows, shortbow, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: b9f0b3b3-e05b-401d-96f7-fc07b1c2a535
     implementation: 2
     source: "Hunter Career Feature"

@@ -474,7 +474,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Cook's utensils, hearty ration (2), pot, torch. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Cook's utensils, hearty ration (2), pot, torch. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: 4f3e6fc7-0b51-499a-8c3d-f2b9c92302da
     implementation: 2
     source: "Cook Career Feature"

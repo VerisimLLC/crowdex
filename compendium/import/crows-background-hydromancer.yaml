@@ -226,7 +226,7 @@ modifierInfo:
     modifiers: []
   - __typeName: CharacterFeature
     name: Equipment
-    description: "You start with: Journal, quill and inkpot, torch, spellbooks: create water, stream. Like all crows, you also start with a bedroll, an empty coin purse, a knife, a rope, and six rations."
+    description: "You start with: Journal, quill and inkpot, torch, spellbooks: create water, stream. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
     guid: eedd5dd0-16ee-4c27-b766-c70707ad11e0
     implementation: 2
     source: "Hydromancer Career Feature"
