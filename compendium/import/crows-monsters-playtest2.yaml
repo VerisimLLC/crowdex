@@ -1,0 +1,11 @@
+# Crows Playtest 2 -- monster changes (Stage 6 / W20)
+#
+# The animals were already imported and already on Playtest 2 numbers; only the
+# chicken was missing. What remained were four stat blocks still carrying
+# Playtest 1 values -- three of them the Blood Library's whole cast.
+_bundle:
+  - _include: "crows-monster-chicken.yaml"
+  - _include: "crows-monster-blood-creature-a.yaml"
+  - _include: "crows-monster-blood-creature-b.yaml"
+  - _include: "crows-monster-blood-creature-c.yaml"
+  - _include: "crows-monster-ring-collector.yaml"
