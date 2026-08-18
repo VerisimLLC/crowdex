@@ -1,0 +1,23 @@
+# Crows Playtest 2 -- new card: Smoke Bomb
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: 74e88b14-e9aa-4120-8fa8-71259a241a83
+name: Smoke Bomb
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 9d574222-434e-4116-8b98-b1359d79e56b
+costInGold: 50
+weight: 1
+stackLimit: 2
+slotsRequired: 1
+description: 'Maneuver: throw the bomb up to 10 squares. It explodes, creating a 3-cube area of heavy
+  concealment. It becomes light concealment in d6 combat rounds, then dissipates in d6 rounds. Craft:
+  Alchemy (1 use), 1 demon part, 10.'
+implementation: 1
+domains:
+  item:74e88b14-e9aa-4120-8fa8-71259a241a83: true
+consumable: true

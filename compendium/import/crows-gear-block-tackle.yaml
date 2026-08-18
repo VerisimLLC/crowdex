@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- new card: Block & Tackle
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: 4f00beea-a383-462d-9aad-55fd8795039d
+name: Block & Tackle
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: a52de8c9-53e3-4203-9522-29f481f41905
+costInGold: 100
+weight: 6
+stackLimit: 1
+slotsRequired: 1
+description: 'Set of 2 hooked pulleys that can be used to lift up to 500 lbs. Rope sold separately. Fine
+  (500 gc): lifts up to 1,000 lbs. Masterwork (1,000 gc): lifts up to 1,500 lbs. Craft: Blacksmithing
+  (1/2/3 uses), 2 iron bars, 20/100/200.'
+implementation: 1
+domains:
+  item:4f00beea-a383-462d-9aad-55fd8795039d: true

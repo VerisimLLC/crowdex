@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- new card: Surgical Kit
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: 83cf0ecb-76b1-4e43-893e-2c42d2bf53aa
+name: Surgical Kit
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 39df56ff-8a49-4567-964b-e905b0204325
+costInGold: 100
+weight: 2
+stackLimit: 1
+slotsRequired: 1
+description: Scalpels, threads, needles and bandages made for closing wounds. Use this kit with the Tend
+  Wounds rest activity to have the target lose 1 additional wound. UD 1 (useless; rolled on use).
+implementation: 1
+domains:
+  item:83cf0ecb-76b1-4e43-893e-2c42d2bf53aa: true
+usageDice: 1
+usageDiceTrigger: activate
+usageDiceRestore: useless

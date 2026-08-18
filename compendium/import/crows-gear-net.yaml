@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- new card: Net
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: dee8d683-63f1-427f-aa1a-edfed797b8d8
+name: Net
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: a52de8c9-53e3-4203-9522-29f481f41905
+costInGold: 5
+weight: 3
+stackLimit: 1
+slotsRequired: 1
+description: This fishing net unfurls when hurled. You can hurl it at a Medium or smaller creature as
+  part of the Grab maneuver, which gives you an edge on the test and gives them a bane on tests made to
+  break the grab. It has 5 Stamina.
+implementation: 1
+domains:
+  item:dee8d683-63f1-427f-aa1a-edfed797b8d8: true

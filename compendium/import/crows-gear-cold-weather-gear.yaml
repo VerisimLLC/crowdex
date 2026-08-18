@@ -1,0 +1,21 @@
+# Crows Playtest 2 -- new card: Cold Weather Gear
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: 131490e2-10d1-42c5-a9fb-4dff6e3987ec
+name: Cold Weather Gear
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 39df56ff-8a49-4567-964b-e905b0204325
+costInGold: 10
+weight: 4
+stackLimit: 1
+slotsRequired: 1
+description: Used to survive cold snaps and blizzards. Cold weather gear counts as worn if you want to
+  wear it and it is in a backpack slot.
+implementation: 1
+domains:
+  item:131490e2-10d1-42c5-a9fb-4dff6e3987ec: true

@@ -2,22 +2,34 @@
 #
 # Weapon retunes, ammunition on usage dice, renames, the coin stack cap, the
 # retired bedroll, craft prerequisites restated as expertise uses, craft
-# materials restated as generic parts, and the crafting-material size ladder
-# collapsed into Bar / Log / Monster Part.
+# materials restated as generic parts, the crafting-material size ladder
+# collapsed into Bar / Log / Monster Part, and eleven new cards.
+#
+# The magic items among the new cards -- the Death and Life Rings, the Necklace
+# of Teeth, the Hurling Wand, the Whistle of Dog Summoning and the Plague Mask --
+# are NOT here. They occupy magic item slots, which the module does not model
+# yet, so they would import as decorative text.
 _bundle:
   - _include: "crows-gear-11-foot-pole.yaml"
   - _include: "crows-gear-acid-vial.yaml"
   - _include: "crows-gear-axe.yaml"
+  - _include: "crows-gear-bear-trap.yaml"
   - _include: "crows-gear-bedroll.yaml"
+  - _include: "crows-gear-block-tackle.yaml"
   - _include: "crows-gear-boom-wand.yaml"
+  - _include: "crows-gear-candle.yaml"
   - _include: "crows-gear-case-of-crossbow-bolts.yaml"
   - _include: "crows-gear-chain.yaml"
+  - _include: "crows-gear-cold-weather-gear.yaml"
   - _include: "crows-gear-crafting-material-bar.yaml"
   - _include: "crows-gear-crafting-material-large.yaml"
   - _include: "crows-gear-crafting-material-log.yaml"
   - _include: "crows-gear-crossbow.yaml"
+  - _include: "crows-gear-fine-coin-purse.yaml"
   - _include: "crows-gear-fire-bomb.yaml"
+  - _include: "crows-gear-flail.yaml"
   - _include: "crows-gear-glaive.yaml"
+  - _include: "crows-gear-glue-pot.yaml"
   - _include: "crows-gear-gold-coins.yaml"
   - _include: "crows-gear-greataxe.yaml"
   - _include: "crows-gear-greatsword.yaml"
@@ -37,6 +49,7 @@ _bundle:
   - _include: "crows-gear-miner-s-pick.yaml"
   - _include: "crows-gear-minor-telekinesis-ring.yaml"
   - _include: "crows-gear-monster-part.yaml"
+  - _include: "crows-gear-net.yaml"
   - _include: "crows-gear-oil-flask.yaml"
   - _include: "crows-gear-padlock.yaml"
   - _include: "crows-gear-pike.yaml"
@@ -47,11 +60,14 @@ _bundle:
   - _include: "crows-gear-rage-potion.yaml"
   - _include: "crows-gear-shield.yaml"
   - _include: "crows-gear-shortbow.yaml"
+  - _include: "crows-gear-smoke-bomb.yaml"
+  - _include: "crows-gear-soap.yaml"
   - _include: "crows-gear-spear.yaml"
   - _include: "crows-gear-speed-potion.yaml"
   - _include: "crows-gear-stiletto.yaml"
   - _include: "crows-gear-strong-acid-vial.yaml"
   - _include: "crows-gear-strong-poison.yaml"
+  - _include: "crows-gear-surgical-kit.yaml"
   - _include: "crows-gear-sword.yaml"
   - _include: "crows-gear-tent.yaml"
   - _include: "crows-gear-warpick.yaml"

@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- new card: Candle
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: f9298d24-b897-4a27-9b12-d923f62922dc
+name: Candle
+type: Gear
+category: Gear
+equipmentCategory: 23f3122f-be24-4a27-9877-0400d263d2ff
+iconid: f8fac2c7-0b4b-4248-880e-05036dd13a94
+costInGold: 1
+weight: 0
+stackLimit: 5
+slotsRequired: 1
+description: 'Maneuver: light the candle. Sheds light 0/5. UD 1 (useless; rolled at the end of each dungeon
+  turn) -- once spent the candle is gone.'
+implementation: 1
+domains:
+  item:f9298d24-b897-4a27-9b12-d923f62922dc: true
+usageDice: 1
+usageDiceTrigger: dt
+usageDiceRestore: useless
