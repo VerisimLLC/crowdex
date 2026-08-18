@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- Crafting Material, Bar
+#
+# Was "Crafting Material, Medium". Playtest 2 replaced the size ladder with named kinds;
+# the id is reused so anything already carrying one still resolves.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 925e221c-8408-438c-ab41-95270af4e02c
+name: Crafting Material, Bar
+category: Gear
+costInGold: 0
+description: A metal bar used in crafting. The Ref determines the nature of the crafting material.
+domains:
+  item:925e221c-8408-438c-ab41-95270af4e02c: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1d02cdf9-c071-4483-b506-088e441acaf7
+implementation: 1
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+weight: 2

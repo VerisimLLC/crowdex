@@ -1,0 +1,23 @@
+# Crows Playtest 2 -- Crafting Material, Large
+#
+# Was "Crafting Material, Large", retired: the size ladder is gone.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: c4abb4ec-17f8-4099-8e5a-a46ca30dd4e7
+name: Crafting Material, Large
+category: Gear
+costInGold: 0
+description: Retired in the August-September 2026 playtest. Crafting materials are named by kind now --
+  Bar, Log or Monster Part -- rather than sized, and nothing that large survived the change.
+domains:
+  item:c4abb4ec-17f8-4099-8e5a-a46ca30dd4e7: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+hidden: true
+iconid: fe1843cf-7783-4ca4-a956-468103149844
+implementation: 1
+slotsRequired: 4
+stackLimit: 1
+type: Gear
+weight: 4

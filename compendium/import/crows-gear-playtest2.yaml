@@ -1,8 +1,9 @@
 # Crows Playtest 2 -- gear changes (Stage 6 / W19)
 #
-# Weapon retunes, ammunition moved onto usage dice, two renames, the coin
-# stack cap, the retired bedroll, craft prerequisites restated as expertise
-# uses, and craft materials restated as generic parts.
+# Weapon retunes, ammunition on usage dice, renames, the coin stack cap, the
+# retired bedroll, craft prerequisites restated as expertise uses, craft
+# materials restated as generic parts, and the crafting-material size ladder
+# collapsed into Bar / Log / Monster Part.
 _bundle:
   - _include: "crows-gear-11-foot-pole.yaml"
   - _include: "crows-gear-acid-vial.yaml"
@@ -11,6 +12,9 @@ _bundle:
   - _include: "crows-gear-boom-wand.yaml"
   - _include: "crows-gear-case-of-crossbow-bolts.yaml"
   - _include: "crows-gear-chain.yaml"
+  - _include: "crows-gear-crafting-material-bar.yaml"
+  - _include: "crows-gear-crafting-material-large.yaml"
+  - _include: "crows-gear-crafting-material-log.yaml"
   - _include: "crows-gear-crossbow.yaml"
   - _include: "crows-gear-fire-bomb.yaml"
   - _include: "crows-gear-glaive.yaml"
@@ -32,6 +36,7 @@ _bundle:
   - _include: "crows-gear-medium-armor.yaml"
   - _include: "crows-gear-miner-s-pick.yaml"
   - _include: "crows-gear-minor-telekinesis-ring.yaml"
+  - _include: "crows-gear-monster-part.yaml"
   - _include: "crows-gear-oil-flask.yaml"
   - _include: "crows-gear-padlock.yaml"
   - _include: "crows-gear-pike.yaml"
