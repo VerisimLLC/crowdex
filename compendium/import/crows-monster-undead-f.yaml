@@ -88,8 +88,9 @@ info:
     - __typeName: CharacterFeature
       name: Book discrepancy
       description: 'The Ref Book prints this block''s title as "Undead Creature E", which is also the
-        title of the power 12 block on the previous page. Recorded as Undead F: the lore heading facing
-        it reads Undead F, and the power ladder runs 12 then 15.'
+        title of the power 12 block on the previous page. MCDM have confirmed this is a typo, so the
+        block is recorded as Undead F -- which the facing lore heading and the 12-then-15 power ladder
+        both already said.'
       guid: 00d398de-f606-4e44-aad3-2c84d32a8252
       implementation: 0
       source: Trait
