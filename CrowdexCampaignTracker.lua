@@ -113,8 +113,66 @@ local SPEED_BAND_OPTIONS = {
 local SPEED_BAND_HEXES = { slow = -1, normal = 0, fast = 1, vfast = 2 }
 
 -- Custom creature trigger fired on each crow by the Miasma check. The imported
--- "Miasma" global rule reacts to it and prompts that crow's test.
+-- "Miasma" global rule reacts to it and prompts that crow's test. The trigger
+-- carries the crow's cruelty as its value, because the rule's roll subtracts it:
+-- "For each level of cruelty you have, you take a -1 penalty to RRs against the
+-- Miasma." Trigger Value is a first-class GoblinScript symbol on custom
+-- triggers, so the penalty needs no custom attribute plumbing.
 local MIASMA_TRIGGER = "Miasma Check"
+
+-- The Miasma Effects table (The Rules, Miasma). Rolled as 1d10 + your current
+-- cruelty level; you gain BOTH effects of the row you land on, and the second
+-- lasts as long as the first. A row already affecting you is rerolled.
+--
+-- The last row is terminal: it wipes the other effects and all cruelty, can
+-- never be rolled away from, and hands the character to the Ref as an NPC. Its
+-- second effect reverses the Miasma's rest penalty, which FinishRest honours.
+local MIASMA_TERMINAL = "13+"
+local MIASMA_EFFECTS = {
+    { key = "1-2", min = 1, max = 2,
+      first = "You become despondent. You only speak if spoken to first and give "
+           .. "one-word responses until you exit the Miasma.",
+      second = "You have an edge on tests made to sneak or hide." },
+    { key = "3-4", min = 3, max = 4,
+      first = "You become ravenous and greedy. You must eat at least 2 rations "
+           .. "during a rest to get the benefits of a rest until you are out of "
+           .. "the Miasma.",
+      second = "Your ravenous nature makes you good at finding food. You gain a "
+            .. "+2 bonus on tests made related to the forage role." },
+    { key = "5-6", min = 5, max = 6,
+      first = "You enter a destructive rage and destroy one mundane item randomly "
+           .. "chosen by the Ref from your backpack.",
+      second = "Destroying something makes you feel good. You regain 3 Stamina "
+            .. "or, if your Stamina is full, lose 1 wound." },
+    { key = "7-8", min = 7, max = 8,
+      first = "You become deceitful for the sake of it. You only communicate in "
+           .. "lies and try to get away with it until you are out of the Miasma.",
+      second = "You lie even to yourself. Choose an expertise you do not have. "
+            .. "You gain that expertise." },
+    { key = "9-10", min = 9, max = 10,
+      first = "You become lazy. You refuse to have any travel role until you are "
+           .. "out of the Miasma.",
+      second = "When you rest, you recover 2 wounds instead of 1." },
+    { key = "11-12", min = 11, max = 12,
+      first = "You relish violence. In combat, you must keep pursuing and fighting "
+           .. "your foes until you can no longer sense them. This effect ends when "
+           .. "you no longer have cruelty.",
+      second = "Your relish in violence gives you a +1 damage bonus on weapon attacks." },
+    { key = MIASMA_TERMINAL, min = 13, max = 999,
+      first = "All of your other Miasma effects end and all your levels of cruelty "
+           .. "disappear. You can't suffer any new Miasma effects and are "
+           .. "permanently selfish and cruel. You become an NPC controlled by the Ref.",
+      second = "Finishing a rest in the Miasma regains the uses of your expertises." },
+}
+
+local function MiasmaRowForRoll(total)
+    for _, row in ipairs(MIASMA_EFFECTS) do
+        if total >= row.min and total <= row.max then
+            return row
+        end
+    end
+    return MIASMA_EFFECTS[#MIASMA_EFFECTS]
+end
 
 -- Travel roles (The Rules, Travel Roles). Playtest 2 renamed and re-scoped
 -- them: Leader became Supporter, Forager became Tracker, and each role now
@@ -812,14 +870,127 @@ local function CrowTokens()
     return result
 end
 
+----------------------------------------------------------------------
+-- Cruelty and Miasma effects (durable, per crow).
+----------------------------------------------------------------------
+-- Both live on the creature rather than in the synced rest document: cruelty
+-- outlives a rest, follows the character between sessions, and penalises their
+-- rolls. The crowdex_ prefix matches how the module already stores wounded
+-- inventory slots.
+
+local function GetCruelty(props)
+    if props == nil then return 0 end
+    return props:try_get("crowdex_cruelty", 0) or 0
+end
+
+-- Which effect rows are on this crow, as a set of row keys.
+local function GetMiasmaEffects(props)
+    if props == nil then return {} end
+    return props:try_get("crowdex_miasmaEffects", {}) or {}
+end
+
+local function HasTerminalMiasma(props)
+    return GetMiasmaEffects(props)[MIASMA_TERMINAL] == true
+end
+
+local function MiasmaEffectRows(props)
+    local held = GetMiasmaEffects(props)
+    local rows = {}
+    for _, row in ipairs(MIASMA_EFFECTS) do
+        if held[row.key] then rows[#rows + 1] = row end
+    end
+    return rows
+end
+
+-- Set cruelty, clamped at zero. Losing the last level also ends the 11-12
+-- effect, whose first half explicitly runs only "when you no longer have
+-- cruelty" -- and its second half lasts as long as its first.
+local function SetCruelty(tok, value)
+    if tok == nil or not tok.valid or tok.properties == nil then return end
+    local newValue = math.max(0, math.floor(value or 0))
+    tok:ModifyProperties{
+        description = "Set cruelty",
+        execute = function()
+            local props = tok.properties
+            props.crowdex_cruelty = newValue
+            if newValue == 0 then
+                local held = props:try_get("crowdex_miasmaEffects", {}) or {}
+                if held["11-12"] then
+                    held["11-12"] = nil
+                    props.crowdex_miasmaEffects = held
+                end
+            end
+        end,
+    }
+end
+
+-- Roll 1d10 + cruelty on the Miasma Effects table and record the row.
+--
+-- "If the result is a pair of effects that is already affecting you, then roll
+-- again for a different result." That reroll cannot be unbounded: a crow who
+-- holds every row a given cruelty level can reach would loop forever, so the
+-- attempts are capped and the caller is told when nothing new was available.
+--
+-- Returns { roll, total, row, rerolls } or nil if no new effect could land.
+local function RollMiasmaEffect(tok)
+    if tok == nil or not tok.valid or tok.properties == nil then return nil end
+    local props = tok.properties
+
+    -- The terminal row bars any further effects outright.
+    if HasTerminalMiasma(props) then return nil end
+
+    local cruelty = GetCruelty(props)
+    local result = nil
+    for attempt = 1, 20 do
+        local roll = dmhub.RollInstant("1d10")
+        local total = roll + cruelty
+        local row = MiasmaRowForRoll(total)
+        if not GetMiasmaEffects(props)[row.key] then
+            result = { roll = roll, total = total, row = row, rerolls = attempt - 1 }
+            break
+        end
+    end
+    if result == nil then return nil end
+
+    tok:ModifyProperties{
+        description = "Gain a Miasma effect",
+        execute = function()
+            if result.row.key == MIASMA_TERMINAL then
+                -- The terminal row wipes everything else on its way in.
+                props.crowdex_miasmaEffects = { [MIASMA_TERMINAL] = true }
+                props.crowdex_cruelty = 0
+            else
+                local held = props:try_get("crowdex_miasmaEffects", {}) or {}
+                held[result.row.key] = true
+                props.crowdex_miasmaEffects = held
+            end
+        end,
+    }
+    return result
+end
+
+-- A tier 1 on the Miasma test: "The human gains a level of cruelty and must
+-- roll for a Miasma effect on the Miasma Effects table." The level lands first,
+-- so it counts toward the roll it triggers.
+local function ApplyMiasmaTier1(tok)
+    if tok == nil or not tok.valid or tok.properties == nil then return nil end
+    if HasTerminalMiasma(tok.properties) then return nil end
+    SetCruelty(tok, GetCruelty(tok.properties) + 1)
+    return RollMiasmaEffect(tok)
+end
+
 -- Fire the Miasma Check custom trigger on every crow on the map. Each crow's
 -- imported "Miasma" global rule reacts and prompts that player's miasma test.
--- Returns the number of crows prompted.
+-- The crow's cruelty rides along as the trigger value so the rule can subtract
+-- it from the roll. Returns the number of crows prompted.
 local function FireMiasmaCheck()
     local crows = CrowTokens()
     for _, tok in ipairs(crows) do
         if tok ~= nil and tok.valid and tok.properties ~= nil then
-            tok.properties:DispatchEvent("custom", { triggername = MIASMA_TRIGGER, triggervalue = 0 })
+            tok.properties:DispatchEvent("custom", {
+                triggername = MIASMA_TRIGGER,
+                triggervalue = GetCruelty(tok.properties),
+            })
         end
     end
     return #crows
@@ -900,7 +1071,8 @@ local function FinishRest()
     local inMiasma = GetMode() == MODE_WILDERNESS
     local restId = dmhub.GenerateGuid()
 
-    local summary = { crows = 0, wounds = 0, dice = 0, tended = 0, miasma = 0, expertises = 0 }
+    local summary = { crows = 0, wounds = 0, dice = 0, tended = 0, miasma = 0,
+                      expertises = 0, cleansed = 0 }
 
     for _, tok in ipairs(crows) do
         if tok ~= nil and tok.valid and tok.properties ~= nil then
@@ -927,10 +1099,29 @@ local function FinishRest()
                     summary.dice = summary.dice + RefillRestUsageDice(props)
 
                     -- Expertise uses come back with a fresh long-rest id --
-                    -- unless the rest was spent in the Miasma.
-                    if not inMiasma then
+                    -- unless the rest was spent in the Miasma. The terminal
+                    -- Miasma effect is the written exception: "Finishing a rest
+                    -- in the Miasma regains the uses of your expertises."
+                    if not inMiasma or HasTerminalMiasma(props) then
                         props.longRestId = restId
                         summary.expertises = summary.expertises + 1
+                    end
+
+                    -- "You lose all levels of cruelty when you finish a rest in
+                    -- a location that has no Miasma." The effects go with it:
+                    -- five of the seven rows run only "until you are out of the
+                    -- Miasma", and the sixth ends with the last cruelty level.
+                    -- The terminal row is permanent and stays.
+                    if not inMiasma then
+                        if GetCruelty(props) > 0 then
+                            summary.cleansed = summary.cleansed + 1
+                        end
+                        props.crowdex_cruelty = 0
+                        if HasTerminalMiasma(props) then
+                            props.crowdex_miasmaEffects = { [MIASMA_TERMINAL] = true }
+                        else
+                            props.crowdex_miasmaEffects = {}
+                        end
                     end
                 end,
             }
@@ -1913,10 +2104,192 @@ local function CreateRestBlock()
                 parts[#parts + 1] = string.format(
                     "no expertise recovery in the Miasma; test prompted for %d", s.miasma)
             end
+            if s.cleansed > 0 then
+                parts[#parts + 1] = string.format("cruelty cleared from %d", s.cleansed)
+            end
             resultLabel.text = table.concat(parts, ", ") .. "."
             resultLabel:SetClass("collapsed", false)
             block:FireEvent("refreshRest")
         end,
+    }
+
+    ------------------------------------------------------------------
+    -- Miasma: cruelty levels and the effects table.
+    ------------------------------------------------------------------
+    -- The test itself is rolled by the imported Miasma global rule on each
+    -- player's screen. What the rule cannot do is mutate the crow's cruelty or
+    -- roll the effects table, so the outcome lands here: one button per written
+    -- tier, which is also why there is no tier 2 button -- tier 2 is "no
+    -- effect". Only shown in the Wilderness, the one mode the Miasma reaches.
+
+    local miasmaListPanel
+    local miasmaResultLabel
+
+    local function CreateMiasmaRow(tokenid)
+        local nameLabel = gui.Label{
+            classes = {"sizeXs"},
+            width = 110,
+            height = 22,
+            halign = "left",
+            valign = "center",
+        }
+
+        local crueltyLabel = gui.Label{
+            classes = {"sizeXs"},
+            width = 76,
+            height = 22,
+            halign = "left",
+            valign = "center",
+            color = "#9a9a9a",
+        }
+
+        local tier1Button = gui.Button{
+            classes = {"sizeXs"},
+            text = "Tier 1",
+            width = 64,
+            height = 24,
+            halign = "left",
+            valign = "center",
+            hover = function(element)
+                gui.Tooltip("Tier 1: gain a level of cruelty, then roll 1d10 + cruelty on the Miasma Effects table. A pair you already have is rerolled.")(element)
+            end,
+            press = function(element)
+                local tok = dmhub.GetCharacterById(tokenid)
+                if tok == nil then return end
+                local name = tok.name or "The crow"
+                local outcome = ApplyMiasmaTier1(tok)
+                if outcome == nil then
+                    miasmaResultLabel.text = string.format(
+                        "%s is already permanently cruel -- no further effects.", name)
+                else
+                    miasmaResultLabel.text = string.format(
+                        "%s: cruelty %d, rolled %d (%d with cruelty)%s -- %s / %s",
+                        name, GetCruelty(tok.properties), outcome.roll, outcome.total,
+                        outcome.rerolls > 0
+                            and string.format(", %d reroll%s", outcome.rerolls,
+                                              outcome.rerolls == 1 and "" or "s")
+                            or "",
+                        outcome.row.first, outcome.row.second)
+                end
+                miasmaResultLabel:SetClass("collapsed", false)
+                block:FireEvent("refreshRest")
+            end,
+        }
+
+        local tier3Button = gui.Button{
+            classes = {"sizeXs"},
+            text = "Tier 3",
+            width = 64,
+            height = 24,
+            halign = "left",
+            valign = "center",
+            hmargin = 4,
+            hover = function(element)
+                gui.Tooltip("Tier 3: remove all levels of cruelty. (The written alternative -- improving another resting human's result by a tier -- is a choice made at the table.)")(element)
+            end,
+            press = function(element)
+                local tok = dmhub.GetCharacterById(tokenid)
+                if tok == nil then return end
+                SetCruelty(tok, 0)
+                miasmaResultLabel.text = string.format(
+                    "%s shakes off the Miasma: all cruelty removed.", tok.name or "The crow")
+                miasmaResultLabel:SetClass("collapsed", false)
+                block:FireEvent("refreshRest")
+            end,
+        }
+
+        local effectsLabel = gui.Label{
+            classes = {"sizeXs", "collapsed"},
+            width = "100%",
+            height = "auto",
+            color = "#9a9a9a",
+            lmargin = 4,
+        }
+
+        return gui.Panel{
+            flow = "vertical",
+            width = "100%",
+            height = "auto",
+            vmargin = 1,
+
+            gui.Panel{
+                flow = "horizontal",
+                width = "100%",
+                height = "auto",
+                nameLabel,
+                crueltyLabel,
+                tier1Button,
+                tier3Button,
+            },
+            effectsLabel,
+
+            refreshRow = function(element)
+                local tok = dmhub.GetCharacterById(tokenid)
+                if tok == nil or tok.properties == nil then return end
+                local props = tok.properties
+
+                nameLabel.text = tok.name or "Crow"
+
+                local terminal = HasTerminalMiasma(props)
+                local cruelty = GetCruelty(props)
+                if terminal then
+                    crueltyLabel.text = "lost"
+                else
+                    crueltyLabel.text = string.format("cruelty %d", cruelty)
+                end
+
+                -- Nothing more can be inflicted on a crow who has taken the
+                -- terminal row, and there is no cruelty left to clear.
+                tier1Button:SetClass("collapsed", terminal)
+                tier3Button:SetClass("collapsed", terminal or cruelty == 0)
+
+                local rows = MiasmaEffectRows(props)
+                if #rows == 0 then
+                    effectsLabel:SetClass("collapsed", true)
+                else
+                    local parts = {}
+                    for _, row in ipairs(rows) do
+                        parts[#parts + 1] = string.format("[%s] %s / %s",
+                            row.key, row.first, row.second)
+                    end
+                    effectsLabel.text = table.concat(parts, "\n")
+                    effectsLabel:SetClass("collapsed", false)
+                end
+            end,
+        }
+    end
+
+    miasmaListPanel = gui.Panel{
+        flow = "vertical",
+        width = "100%",
+        height = "auto",
+        data = { rowsById = {}, signature = nil },
+    }
+
+    miasmaResultLabel = gui.Label{
+        classes = {"sizeXs", "collapsed"},
+        width = "100%",
+        height = "auto",
+        color = "#9a9a9a",
+        tmargin = 2,
+    }
+
+    local miasmaBlock = gui.Panel{
+        flow = "vertical",
+        width = "100%",
+        height = "auto",
+        tmargin = 6,
+
+        gui.Label{
+            classes = {"sizeXs"},
+            text = "MIASMA",
+            width = "100%",
+            height = "auto",
+            color = "#9a9a9a",
+            bmargin = 2,
+        },
+        miasmaListPanel,
+        miasmaResultLabel,
     }
 
     block = gui.Panel{
@@ -1937,6 +2310,7 @@ local function CreateRestBlock()
         emptyLabel,
         finishButton,
         resultLabel,
+        miasmaBlock,
 
         refreshRest = function(element)
             local crows = CrowTokens()
@@ -1965,6 +2339,29 @@ local function CreateRestBlock()
 
             emptyLabel:SetClass("collapsed", #crows > 0)
             finishButton:SetClass("collapsed", #crows == 0)
+
+            -- The Miasma reaches the Wilderness only; villages sit inside
+            -- sealed ruins and dungeons are indoors.
+            local inMiasma = GetMode() == MODE_WILDERNESS
+            miasmaBlock:SetClass("collapsed", not inMiasma or #crows == 0)
+            if inMiasma and #crows > 0 then
+                if signature ~= miasmaListPanel.data.signature then
+                    local oldRows = miasmaListPanel.data.rowsById
+                    local newRows = {}
+                    local children = {}
+                    for _, c in ipairs(crows) do
+                        local r = oldRows[c.id] or CreateMiasmaRow(c.id)
+                        newRows[c.id] = r
+                        children[#children + 1] = r
+                    end
+                    miasmaListPanel.data.rowsById = newRows
+                    miasmaListPanel.data.signature = signature
+                    miasmaListPanel.children = children
+                end
+                for _, r in pairs(miasmaListPanel.data.rowsById) do
+                    r:FireEvent("refreshRow")
+                end
+            end
         end,
     }
 
