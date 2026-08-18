@@ -1,0 +1,103 @@
+# Crows Playtest 2 -- Warrior, Pike (Power 10) (The Ref Book, Humans)
+#
+# Humans carry inventory slots, so the wound model applies to them, and
+# their expertises are granted as real resources rather than printed as
+# text: these double as hirelings, who follow PC rules and can spend them.
+description: Warrior, Pike (Power 10)
+id: 56831965-9d51-4b9b-83d0-72dc9eba1670
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Warrior, Pike (Power 10)
+    keywords:
+      Human: true
+    cr: 10
+    creatureSize: 1M
+    max_hitpoints: 40
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 3
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Athletics (2 uses), Lift (2 uses), Stabbing (2 uses).'
+      guid: 150b5204-9a4b-4177-a4bb-83de889cf84f
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+        num: 2
+        name: Expertises
+        description: Athletics (2 uses)
+        guid: a7a1e31d-ec2b-4b7a-a868-5ba64a97144e
+        source: Trait
+        sourceguid: 150b5204-9a4b-4177-a4bb-83de889cf84f
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+        num: 2
+        name: Expertises
+        description: Lift (2 uses)
+        guid: 67b795cd-2e96-45e4-bd9f-76ba5724e019
+        source: Trait
+        sourceguid: 150b5204-9a4b-4177-a4bb-83de889cf84f
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 015fe62d-4d71-4028-a5bd-821eee14c002
+        num: 2
+        name: Expertises
+        description: Stabbing (2 uses)
+        guid: 0164a8f8-f7ad-47a5-8b91-f0034a906e13
+        source: Trait
+        sourceguid: 150b5204-9a4b-4177-a4bb-83de889cf84f
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Heavy armor, pike.'
+      guid: d101eb9e-3367-4d8f-b890-c308f3c4e499
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Pike
+      guid: df63f752-1e53-41ee-8423-c531bf3791a7
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '2'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 5
+        tiers:
+        - ''
+        - 6 damage
+        - 10 damage
+      meleeRange: 2
+    crowsAD: 15

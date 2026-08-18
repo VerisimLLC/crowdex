@@ -1,0 +1,102 @@
+# Crows Playtest 2 -- Thief (Power 9) (The Ref Book, Humans)
+#
+# Humans carry inventory slots, so the wound model applies to them, and
+# their expertises are granted as real resources rather than printed as
+# text: these double as hirelings, who follow PC rules and can spend them.
+description: Thief (Power 9)
+id: c751fbeb-0bb5-4ee2-8462-cc541851f7eb
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Thief (Power 9)
+    keywords:
+      Human: true
+    cr: 9
+    creatureSize: 1M
+    max_hitpoints: 35
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 3
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Stealth (4 uses), Thievery (4 uses).'
+      guid: 965ee8d8-a944-48db-bb26-629f16e9cc2f
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        num: 4
+        name: Expertises
+        description: Stealth (4 uses)
+        guid: 5fea9448-7c9b-428c-af06-1bf0642e28d6
+        source: Trait
+        sourceguid: 965ee8d8-a944-48db-bb26-629f16e9cc2f
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+        num: 4
+        name: Expertises
+        description: Thievery (4 uses)
+        guid: 61dfe002-6221-4216-8113-b443c4c5c6d0
+        source: Trait
+        sourceguid: 965ee8d8-a944-48db-bb26-629f16e9cc2f
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Crowbar, knife, lock pick set (fine).'
+      guid: 6522254b-7ed2-4747-a193-e0aa7c5f7f9e
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Book discrepancy
+      description: 'Book prints Power: 6 in the block titled Thief (Power 9). Recorded as 9: the title
+        and the stat ladder agree, and the Power 6 Thief is a separate block at Stamina 20.'
+      guid: f13d3d90-e4e0-476c-8546-5aa9b297e62e
+      implementation: 0
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Knife
+      guid: 69696274-e6f6-4cfd-ab7d-c7184dc2d62d
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: 'Thrown: Melee 1 or Ranged 5.'
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 5 damage
+        - 7 damage
+      meleeRange: 1
+    crowsAD: 2

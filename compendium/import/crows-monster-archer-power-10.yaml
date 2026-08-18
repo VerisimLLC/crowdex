@@ -1,0 +1,101 @@
+# Crows Playtest 2 -- Archer (Power 10) (The Ref Book, Humans)
+#
+# Humans carry inventory slots, so the wound model applies to them, and
+# their expertises are granted as real resources rather than printed as
+# text: these double as hirelings, who follow PC rules and can spend them.
+description: Archer (Power 10)
+id: 4d7abb19-eb39-4705-ac07-7ca7f18eef09
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Archer (Power 10)
+    keywords:
+      Human: true
+    cr: 10
+    creatureSize: 1M
+    max_hitpoints: 40
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 3
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Athletics (1 use), Stealth (1 use), Bow (2 uses).'
+      guid: 2621940f-9414-421d-bda0-a665cceff3b3
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+        num: 1
+        name: Expertises
+        description: Athletics (1 use)
+        guid: 028dc02d-5e1b-4481-b032-cff3fc8f9594
+        source: Trait
+        sourceguid: 2621940f-9414-421d-bda0-a665cceff3b3
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        num: 1
+        name: Expertises
+        description: Stealth (1 use)
+        guid: 4db17eff-efc0-4636-a9e7-2ccaddf9ce32
+        source: Trait
+        sourceguid: 2621940f-9414-421d-bda0-a665cceff3b3
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+        num: 2
+        name: Expertises
+        description: Bow (2 uses)
+        guid: a07a1944-bcd5-4ef6-91f3-af24d5318afd
+        source: Trait
+        sourceguid: 2621940f-9414-421d-bda0-a665cceff3b3
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Longbow, quiver of 20 arrows.'
+      guid: d6fa1af0-58b8-4e82-ac25-6704a24621dd
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Longbow
+      guid: dba08918-8655-44ab-8cc0-76937eb72e70
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '22'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 5
+        tiers:
+        - ''
+        - 6 damage
+        - 9 damage

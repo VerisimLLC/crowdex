@@ -1,0 +1,93 @@
+# Crows Playtest 2 -- Conjurer (The Ref Book, Humans)
+#
+# Humans carry inventory slots, so the wound model applies to them, and
+# their expertises are granted as real resources rather than printed as
+# text: these double as hirelings, who follow PC rules and can spend them.
+description: Conjurer
+id: 0baf98a9-835b-43cd-bc85-a7127548e6ef
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Conjurer
+    keywords:
+      Human: true
+    cr: 3
+    creatureSize: 1M
+    max_hitpoints: 5
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Magic Lore (1 use), Conjuration (1 use).'
+      guid: 2672c908-6fb6-4732-9c72-b16084d0377d
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+        num: 1
+        name: Expertises
+        description: Magic Lore (1 use)
+        guid: 86c5362a-2fc3-4c4e-b800-f06811aeb823
+        source: Trait
+        sourceguid: 2672c908-6fb6-4732-9c72-b16084d0377d
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: cf9240ba-9ad6-45a1-ad00-01897f77e619
+        num: 1
+        name: Expertises
+        description: Conjuration (1 use)
+        guid: e27f4625-fcd4-4ddb-824c-509d5bf3e761
+        source: Trait
+        sourceguid: 2672c908-6fb6-4732-9c72-b16084d0377d
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Spellbooks: jaunt, summon object, teleport object.'
+      guid: 24e153af-04f6-495f-afc7-b5bf3a449083
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Unarmed
+      guid: c05de3b2-bff5-4c1d-9dd4-dcc232f53126
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 1 damage
+        - 2 damage
+      meleeRange: 1

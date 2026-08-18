@@ -1,11 +1,39 @@
-# Crows Playtest 2 -- monster changes (Stage 6 / W20)
+# Crows Playtest 2 -- monsters (Stage 6 / W20)
 #
-# The animals were already imported and already on Playtest 2 numbers; only the
-# chicken was missing. What remained were four stat blocks still carrying
-# Playtest 1 values -- three of them the Blood Library's whole cast.
+# The chicken, the four Playtest 1 restats, and the 27 human stat blocks.
+# Humans carry inventory slots so the wound model applies, and their
+# expertises are granted as spendable resources because they double as
+# hirelings, who follow PC rules.
 _bundle:
-  - _include: "crows-monster-chicken.yaml"
+  - _include: "crows-monster-alchemist.yaml"
+  - _include: "crows-monster-archer-power-10.yaml"
+  - _include: "crows-monster-archer-power-4.yaml"
+  - _include: "crows-monster-archer-power-7.yaml"
+  - _include: "crows-monster-blacksmith.yaml"
   - _include: "crows-monster-blood-creature-a.yaml"
   - _include: "crows-monster-blood-creature-b.yaml"
   - _include: "crows-monster-blood-creature-c.yaml"
+  - _include: "crows-monster-chicken.yaml"
+  - _include: "crows-monster-commoner.yaml"
+  - _include: "crows-monster-conjurer.yaml"
+  - _include: "crows-monster-cultist.yaml"
+  - _include: "crows-monster-elementalist.yaml"
+  - _include: "crows-monster-enchanter.yaml"
+  - _include: "crows-monster-guide.yaml"
+  - _include: "crows-monster-illusionist.yaml"
+  - _include: "crows-monster-priest.yaml"
   - _include: "crows-monster-ring-collector.yaml"
+  - _include: "crows-monster-sage-power-3.yaml"
+  - _include: "crows-monster-sage-power-6.yaml"
+  - _include: "crows-monster-thief-power-3.yaml"
+  - _include: "crows-monster-thief-power-6.yaml"
+  - _include: "crows-monster-thief-power-9.yaml"
+  - _include: "crows-monster-torchbearer.yaml"
+  - _include: "crows-monster-transmuter.yaml"
+  - _include: "crows-monster-trapper.yaml"
+  - _include: "crows-monster-warrior-pike-power-10.yaml"
+  - _include: "crows-monster-warrior-pike-power-4.yaml"
+  - _include: "crows-monster-warrior-pike-power-7.yaml"
+  - _include: "crows-monster-warrior-sword-power-10.yaml"
+  - _include: "crows-monster-warrior-sword-power-4.yaml"
+  - _include: "crows-monster-warrior-sword-power-7.yaml"

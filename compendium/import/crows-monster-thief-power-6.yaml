@@ -1,0 +1,94 @@
+# Crows Playtest 2 -- Thief (Power 6) (The Ref Book, Humans)
+#
+# Humans carry inventory slots, so the wound model applies to them, and
+# their expertises are granted as real resources rather than printed as
+# text: these double as hirelings, who follow PC rules and can spend them.
+description: Thief (Power 6)
+id: b7ed6ce9-2866-4cb2-8f96-0eeecb560e62
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Thief (Power 6)
+    keywords:
+      Human: true
+    cr: 6
+    creatureSize: 1M
+    max_hitpoints: 20
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Stealth (3 uses), Thievery (3 uses).'
+      guid: d673f068-8ea3-4358-8541-eed1c6737dcf
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        num: 3
+        name: Expertises
+        description: Stealth (3 uses)
+        guid: 333ce73c-431f-40ab-babf-8ecfd5a38996
+        source: Trait
+        sourceguid: d673f068-8ea3-4358-8541-eed1c6737dcf
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+        num: 3
+        name: Expertises
+        description: Thievery (3 uses)
+        guid: 83503b3b-f611-43eb-ad49-c5e4dd9223f7
+        source: Trait
+        sourceguid: d673f068-8ea3-4358-8541-eed1c6737dcf
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Crowbar, knife, lock pick set.'
+      guid: b5aa44dc-2c1b-433a-a893-0ecf1f17ab70
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Knife
+      guid: c94f4192-aa8b-4090-a359-e35d685dc176
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: 'Thrown: Melee 1 or Ranged 5.'
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 4 damage
+        - 6 damage
+      meleeRange: 1
+    crowsAD: 2

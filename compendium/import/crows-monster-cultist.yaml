@@ -1,0 +1,92 @@
+# Crows Playtest 2 -- Cultist (The Ref Book, Humans)
+#
+# Humans carry inventory slots, so the wound model applies to them, and
+# their expertises are granted as real resources rather than printed as
+# text: these double as hirelings, who follow PC rules and can spend them.
+description: Cultist
+id: 07ffccb1-23b3-4270-8dc1-c92b756a444d
+hidden: false
+info:
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Cultist
+    keywords:
+      Human: true
+    cr: 3
+    creatureSize: 1M
+    max_hitpoints: 5
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Religious Lore (1 use), Necromancy (1 use).'
+      guid: 7c947bfb-0a35-4528-bda3-279a48f94c4e
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+        num: 1
+        name: Expertises
+        description: Religious Lore (1 use)
+        guid: 56af00d8-0f2f-4efe-876b-c3e576a3493e
+        source: Trait
+        sourceguid: 7c947bfb-0a35-4528-bda3-279a48f94c4e
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 9c077c0d-f42f-4e6e-b1aa-d4d0b3c4b27c
+        num: 1
+        name: Expertises
+        description: Necromancy (1 use)
+        guid: 4d21ed9a-1bbb-4dad-bab6-786e40e5a5d9
+        source: Trait
+        sourceguid: 7c947bfb-0a35-4528-bda3-279a48f94c4e
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Spellbooks: bone capture, minor curse, monster sense.'
+      guid: fa0a3a1e-d8fb-407f-84b9-ca855c137a13
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Bone Capture
+      guid: 4eedfd81-a97a-4986-b76b-d10af75b1ce6
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 3 damage
+        - 4 damage
