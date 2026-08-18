@@ -16,6 +16,16 @@
 #                             Without it, all eighteen general expertises show
 #                             on every test.
 #
+# VERIFIED ON TESTS ONLY. The 18 general chips work end to end. The 12
+# spellcasting and weapon chips are correctly built and correctly offered by
+# GetAfterRollModifiersForPowerRoll for "ability_power_roll", but they never
+# reach the screen: the ability card resolves and dismisses the moment the
+# dice land, so the after-roll window that a test roll gives you never opens.
+# They are inert rather than wrong -- nothing is charged and nothing is
+# applied -- and they will start working unchanged if the ability roll ever
+# holds its dialog open the way a test does. Until then, a weapon or
+# spellcasting expertise is spent by hand.
+#
 # Import REPLACES the whole record.
 _table: globalRuleMods
 __typeName: GlobalRuleMod
