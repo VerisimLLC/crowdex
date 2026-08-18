@@ -1,10 +1,8 @@
 # Crows Playtest 2 -- Acid Vial
 #
-# Craft prerequisite restated: a skill bonus is now a number of
-# expertise uses.
+# Craft line taken verbatim from the Playtest 2 card.
 #
-# Emitted from the live record: gear import REPLACES the whole entry, so a
-# partial file would silently drop every field it omits.
+# Emitted from the live record: gear import REPLACES the whole entry.
 _table: tbl_Gear
 __typeName: equipment
 id: 01039d82-6646-4def-a21b-5537882a2ac0
@@ -14,10 +12,9 @@ consumable:
   __typeName: ActivatedAbility
   actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
   guid: fc4cd877-d469-4f61-b552-7f53dfeee13b
-  categorization: Ability
+  implementation: 3
   numTargets: '1'
-  consumables:
-    01039d82-6646-4def-a21b-5537882a2ac0: 1
+  iconid: 58251b6a-42cb-46f5-b808-6b3f1a913983
   behaviors:
   - __typeName: ActivatedAbilityPowerRollBehavior
     tiers:
@@ -29,16 +26,17 @@ consumable:
   keywords:
     Ranged: true
     Strike: true
-  iconid: 58251b6a-42cb-46f5-b808-6b3f1a913983
+  consumables:
+    01039d82-6646-4def-a21b-5537882a2ac0: 1
   name: Acid Vial
   range: 5
   description: 'Make a ranged 5 attack using Agility. 12-16: 4 + A damage; 17+: 8 + A damage.'
-  implementation: 3
+  categorization: Ability
   targetType: target
 costInGold: 10
 description: 'Maneuver: pour onto a surface to destroy up to 1 cubic foot of mundane matter. Action: make
   a ranged 5 attack with it using Agility; 12-16: 4 + A damage; 17+: 8 + A damage. Craft: Alchemy (1 use),
-  1 vial of any monster''s blood, 5.'
+  1 monster part (any), 5.'
 domains:
   item:01039d82-6646-4def-a21b-5537882a2ac0: true
 equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77

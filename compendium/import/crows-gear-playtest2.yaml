@@ -1,8 +1,8 @@
 # Crows Playtest 2 -- gear changes (Stage 6 / W19)
 #
 # Weapon retunes, ammunition moved onto usage dice, two renames, the coin
-# stack cap, the retired bedroll, and a corpus-wide restatement of craft
-# prerequisites from a skill bonus to a number of expertise uses.
+# stack cap, the retired bedroll, craft prerequisites restated as expertise
+# uses, and craft materials restated as generic parts.
 _bundle:
   - _include: "crows-gear-11-foot-pole.yaml"
   - _include: "crows-gear-acid-vial.yaml"

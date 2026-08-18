@@ -1,10 +1,8 @@
 # Crows Playtest 2 -- Oil Flask
 #
-# Craft prerequisite restated: a skill bonus is now a number of
-# expertise uses.
+# Craft line taken verbatim from the Playtest 2 card.
 #
-# Emitted from the live record: gear import REPLACES the whole entry, so a
-# partial file would silently drop every field it omits.
+# Emitted from the live record: gear import REPLACES the whole entry.
 _table: tbl_Gear
 __typeName: equipment
 id: f3b04bec-1d0f-4fca-a886-0fc1622e84c4
@@ -12,7 +10,7 @@ name: Oil Flask
 category: Gear
 costInGold: 5
 description: 'A pint of oil. Consume to refuel a lantern (restores its Usage Dice). Craft: Alchemy (1
-  use), 1 of any Small or larger creature''s fat, 5.'
+  use), 5 monster parts (any), 5.'
 domains:
   item:f3b04bec-1d0f-4fca-a886-0fc1622e84c4: true
 equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77

@@ -1,10 +1,8 @@
 # Crows Playtest 2 -- Lockpick Set
 #
-# Craft prerequisite restated: a skill bonus is now a number of
-# expertise uses.
+# Craft line taken verbatim from the Playtest 2 card.
 #
-# Emitted from the live record: gear import REPLACES the whole entry, so a
-# partial file would silently drop every field it omits.
+# Emitted from the live record: gear import REPLACES the whole entry.
 _table: tbl_Gear
 __typeName: equipment
 id: c40e7fdb-562b-4d19-b9f7-a03a9812b6fe
@@ -13,7 +11,7 @@ category: Gear
 costInGold: 25
 description: 'Without this, you take a -1 penalty on tests made to pick locks. Fine (750 gc): grants a
   +1 bonus on tests to pick locks. Masterwork (1,500 gc): grants a +2 bonus on tests to pick locks. Craft:
-  Blacksmithing (1 use), 1 iron bar, 10/150/300.'
+  Blacksmithing (1 use), 1 iron bar, 10.'
 domains:
   item:c40e7fdb-562b-4d19-b9f7-a03a9812b6fe: true
 equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77

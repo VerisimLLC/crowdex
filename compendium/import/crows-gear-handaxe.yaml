@@ -1,10 +1,8 @@
 # Crows Playtest 2 -- Handaxe
 #
-# Craft prerequisite restated: a skill bonus is now a number of
-# expertise uses.
+# Craft line taken verbatim from the Playtest 2 card.
 #
-# Emitted from the live record: gear import REPLACES the whole entry, so a
-# partial file would silently drop every field it omits.
+# Emitted from the live record: gear import REPLACES the whole entry.
 _table: tbl_Gear
 __typeName: equipment
 id: 720e00a4-a3f6-40d9-b5b7-c51e3ea1994c

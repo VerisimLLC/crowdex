@@ -1,10 +1,8 @@
 # Crows Playtest 2 -- Fire Bomb
 #
-# Craft prerequisite restated: a skill bonus is now a number of
-# expertise uses.
+# Craft line taken verbatim from the Playtest 2 card.
 #
-# Emitted from the live record: gear import REPLACES the whole entry, so a
-# partial file would silently drop every field it omits.
+# Emitted from the live record: gear import REPLACES the whole entry.
 _table: tbl_Gear
 __typeName: equipment
 id: 188720dd-bb92-406a-99b0-57c12ef51d5f
@@ -14,24 +12,24 @@ consumable:
   __typeName: ActivatedAbility
   actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
   guid: 7438970a-2506-4d7b-a8a1-be20c2d07b26
-  categorization: Ability
+  implementation: 1
   numTargets: '1'
-  consumables:
-    188720dd-bb92-406a-99b0-57c12ef51d5f: 1
+  iconid: 9d574222-434e-4116-8b98-b1359d79e56b
   behaviors: {}
   keywords:
     Ranged: true
-  iconid: 9d574222-434e-4116-8b98-b1359d79e56b
+  consumables:
+    188720dd-bb92-406a-99b0-57c12ef51d5f: 1
   name: Fire Bomb
   range: 10
   description: 'Throw up to 10 squares; explodes in a 3 cube. Each creature in the cube makes an Agility
     RR: 11 or less 10 damage; 12-16 5 damage; 17+ 0 damage.'
-  implementation: 1
+  categorization: Ability
   targetType: self
 costInGold: 250
 description: 'Action: throw the bomb up to 10 squares. It explodes in a 3 cube. Each creature in the cube
   makes an Agility Resistance Roll. 11 or less: 10 damage; 12-16: 5 damage; 17+: 0 damage. (Adjudicate
-  each RR and apply damage manually.) Craft: Alchemy (1 use), 1 monster heart, 50.'
+  each RR and apply damage manually.) Craft: Alchemy (1 use), 3 demon parts, 50.'
 domains:
   item:188720dd-bb92-406a-99b0-57c12ef51d5f: true
 equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77

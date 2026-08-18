@@ -1,10 +1,8 @@
 # Crows Playtest 2 -- Rage Potion
 #
-# Craft prerequisite restated: a skill bonus is now a number of
-# expertise uses.
+# Craft line taken verbatim from the Playtest 2 card.
 #
-# Emitted from the live record: gear import REPLACES the whole entry, so a
-# partial file would silently drop every field it omits.
+# Emitted from the live record: gear import REPLACES the whole entry.
 _table: tbl_Gear
 __typeName: equipment
 id: 13a7dfd8-83da-4b78-8b71-9e18a8b84c5f
@@ -14,28 +12,28 @@ consumable:
   __typeName: ActivatedAbility
   actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
   guid: ecc650da-f442-4923-9646-851bc98916bd
-  categorization: Ability
+  implementation: 2
   numTargets: '1'
-  consumables:
-    13a7dfd8-83da-4b78-8b71-9e18a8b84c5f: 1
+  iconid: 3a5ec8ee-4723-4e19-877a-fe44914eabf1
   behaviors:
   - __typeName: ActivatedAbilityApplyOngoingEffectBehavior
-    ongoingEffect: 49a10570-1648-419c-ab00-01c33bc79963
     ongoingEffectCustom: 49a10570-1648-419c-ab00-01c33bc79963
     guid: 4fa3e66a-07ba-43de-aa18-98bf1b9dcf8c
+    ongoingEffect: 49a10570-1648-419c-ab00-01c33bc79963
   keywords:
     Potion: true
-  iconid: 3a5ec8ee-4723-4e19-877a-fe44914eabf1
+  consumables:
+    13a7dfd8-83da-4b78-8b71-9e18a8b84c5f: 1
   name: Rage Potion
   range: 1
   description: 'Gain the Raging effect: +5 AD (manual) and +2 damage with melee attacks while you keep
     attacking each round.'
-  implementation: 2
+  categorization: Ability
   targetType: self
 costInGold: 250
 description: 'Maneuver: consume to gain +5 AD and deal an additional 2 damage with melee attacks. Lasts
-  as long as you keep making attacks against creatures each round. Craft: Alchemy (1 use), 1 vial of any
-  blood creature''s blood, 50.'
+  as long as you keep making attacks against creatures each round. Craft: Alchemy (2 uses), 2 monster
+  parts (any), 50.'
 domains:
   item:13a7dfd8-83da-4b78-8b71-9e18a8b84c5f: true
 equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77

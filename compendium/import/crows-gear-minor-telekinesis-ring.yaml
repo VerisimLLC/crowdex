@@ -1,10 +1,8 @@
 # Crows Playtest 2 -- Minor Telekinesis Ring
 #
-# Craft prerequisite restated: a skill bonus is now a number of
-# expertise uses.
+# Craft line taken verbatim from the Playtest 2 card.
 #
-# Emitted from the live record: gear import REPLACES the whole entry, so a
-# partial file would silently drop every field it omits.
+# Emitted from the live record: gear import REPLACES the whole entry.
 _table: tbl_Gear
 __typeName: equipment
 id: bc73efb0-4dec-42b4-820f-2adbdc500562
@@ -13,13 +11,13 @@ category: Gear
 consumable:
   __typeName: ActivatedAbility
   actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
-  implementation: 1
+  categorization: Ability
   numTargets: '1'
   guid: 59ab57a6-1dcb-4ed1-9411-1ff654dbbc42
   behaviors: {}
   keywords:
     Magic: true
-  categorization: Ability
+  implementation: 1
   name: Minor Telekinesis Ring
   range: 10
   description: Pick an unattended Small or smaller object within 10 squares and vertically slide it up
@@ -29,7 +27,7 @@ consumable:
 costInGold: 1000
 description: 'Action: pick an unattended Small or smaller object within 10 squares of you. You vertically
   slide that object up to 10 squares. Usage Dice 1, rolled on activation; restored on a rest. Craft: Enchanting
-  (1 use), gem worth 200 gc, 200.'
+  (2 uses), gem worth 100 gc, 100.'
 domains:
   item:bc73efb0-4dec-42b4-820f-2adbdc500562: true
 equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
