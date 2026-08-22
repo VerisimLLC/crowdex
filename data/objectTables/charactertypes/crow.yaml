@@ -1,0 +1,10 @@
+__typeName: CharacterType
+characteristics: []
+id: 52eb1e76-4585-4c83-8007-e4aa1a3ad2ec
+mtime: 1787422843273
+modifierInfo:
+  __typeName: ClassLevel
+  features: []
+ctime: 1787422843273
+name: Crow
+_table: characterTypes
