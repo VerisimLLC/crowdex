@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 380376d1-03c9-4267-83ee-24f153b82bad
+name: Sieze the Advantage
+description: When you hit with a weapon attack using Agility that has at least one edge and no banes, you deal additional
+  damage equal to twice your Agility.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5c150ca9-6be5-42c2-88d9-7a8d07fb54ca
+    name: Sieze the Advantage
+    description: When you hit with a weapon attack using Agility that has at least one edge and no banes, you deal
+      additional damage equal to twice your Agility.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:380376d1-03c9-4267-83ee-24f153b82bad: true
+  domains:
+    CrowdexTrait:380376d1-03c9-4267-83ee-24f153b82bad: true

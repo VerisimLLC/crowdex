@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 1ea61f8e-7f8c-48f5-a1bd-bcf5eb50f629
+name: Repair, Repair
+description: When you take the Repair Armor rest activity, you can choose up to two pieces of armor and restore
+  their AD instead of one.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 755eed98-792b-4929-9554-35bc9e7ba5bf
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5b2521de-2f9f-4382-8253-eb964933929b
+    name: Repair, Repair
+    description: When you take the Repair Armor rest activity, you can choose up to two pieces of armor and restore
+      their AD instead of one.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:1ea61f8e-7f8c-48f5-a1bd-bcf5eb50f629: true
+  domains:
+    CrowdexTrait:1ea61f8e-7f8c-48f5-a1bd-bcf5eb50f629: true

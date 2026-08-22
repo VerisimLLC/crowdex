@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: fa6f412d-f6d4-434b-b2f5-bd4802ad29e0
+name: Long-Distance Illusion
+description: When you cast a ranged illusion spell, the spell's range increases a number of squares equal to your
+  Mind.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Illusion
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: eeb5ca42-fee6-4a39-adb8-c0288a404fa6
+    name: Long-Distance Illusion
+    description: When you cast a ranged illusion spell, the spell's range increases a number of squares equal to
+      your Mind.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:fa6f412d-f6d4-434b-b2f5-bd4802ad29e0: true
+  domains:
+    CrowdexTrait:fa6f412d-f6d4-434b-b2f5-bd4802ad29e0: true

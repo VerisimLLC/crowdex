@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Ladder
+_table: tbl_Gear
+__typeName: equipment
+id: b596bfe8-db6f-43cb-a10c-101b66642662
+name: "Ladder"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1a6fd322-5262-4678-abe2-e66b659bb904
+costInGold: 30
+weight: 2
+stackLimit: 1
+slotsRequired: 2
+description: "A collapsible ladder. As a maneuver, it expands to 10 feet. A fine ladder expands to 20 feet; a masterwork ladder expands to 30 feet."
+implementation: 1
+domains:
+  item:b596bfe8-db6f-43cb-a10c-101b66642662: true

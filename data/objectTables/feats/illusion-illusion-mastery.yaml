@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: fa547938-b9ad-49be-a1f6-64582690c25e
+name: Illusion Mastery
+description: Non-doom tier 1 results of rank 0 and 1 illusion spells you cast don't add to the chaos count. Your
+  illusion spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 8c36e08d-39f9-4f3a-85ed-aceec4cc2c04
+- fa6f412d-f6d4-434b-b2f5-bd4802ad29e0
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: bf1a69dc-1a10-4dea-a205-d3d6b6a2dc26
+    name: Illusion Mastery
+    description: Non-doom tier 1 results of rank 0 and 1 illusion spells you cast don't add to the chaos count.
+      Your illusion spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:fa547938-b9ad-49be-a1f6-64582690c25e: true
+  domains:
+    CrowdexTrait:fa547938-b9ad-49be-a1f6-64582690c25e: true

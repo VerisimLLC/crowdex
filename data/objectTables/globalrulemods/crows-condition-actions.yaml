@@ -1,0 +1,85 @@
+# Crows Playtest 2 condition helpers. Import adds this global rule record.
+__typeName: GlobalRuleMod
+_table: globalRuleMods
+id: 3c8ce2c5-389f-43c4-a4ac-6c02f4bd7352
+name: Crows Condition Actions
+hidden: false
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    name: Drop Prone
+    guid: 125e42d8-ed96-48c5-96eb-33758e300325
+    source: Crows Conditions
+    description: On your turn, you can drop prone without using an action.
+    implementation: 4
+    modifiers:
+    - __typeName: CharacterModifier
+      guid: 26b0c851-8e41-4c21-a348-84abeec0b02b
+      sourceguid: 125e42d8-ed96-48c5-96eb-33758e300325
+      source: Crows Conditions
+      name: Drop Prone
+      description: Drop prone on your turn without using an action.
+      behavior: activated
+      filterCondition: not (Conditions has 'Prone')
+      activatedAbility:
+        __typeName: ActivatedAbility
+        name: Drop Prone
+        guid: 83766a01-42f5-4f06-bec8-8f1b43334f08
+        implementation: 4
+        description: You drop prone. This uses no action and can only be done on your turn.
+        categorization: Common Ability
+        abilityType: none
+        targetType: self
+        selfTarget: true
+        targetFilter: Your Turn
+        numTargets: '1'
+        range: 1
+        repeatTargets: false
+        modifiers: []
+        persistence: []
+        strain: []
+        iconid: 7008efe0-3299-427f-a12a-d5f54253b77d
+        behaviors:
+        - __typeName: ActivatedAbilityDrawSteelCommandBehavior
+          rule: prone
+  - __typeName: CharacterFeature
+    name: Make Loud Noise
+    guid: 42f43045-2e9a-45f0-8692-82950b0b3926
+    source: Crows Conditions
+    description: A loud noise wakes sleeping creatures within 10 squares.
+    implementation: 3
+    modifiers:
+    - __typeName: CharacterModifier
+      guid: 25af4bd0-638b-4cb8-9e34-82b4fb9d7024
+      sourceguid: 42f43045-2e9a-45f0-8692-82950b0b3926
+      source: Crows Conditions
+      name: Make Loud Noise
+      description: Make a loud noise, waking sleeping creatures within 10 squares.
+      behavior: activated
+      filterCondition: not (Conditions has 'Unconscious')
+      activatedAbility:
+        __typeName: ActivatedAbility
+        name: Make Loud Noise
+        guid: 039011da-c670-46b2-8e54-72883ad304c7
+        implementation: 3
+        implementationDetails: Targets in range are automated; the Ref can remove Unconscious manually when sound carries through an obstruction.
+        description: You make a loud noise. Each sleeping creature within 10 squares wakes up and is no longer unconscious.
+        categorization: Common Ability
+        abilityType: none
+        targetType: all
+        targetFilter: Conditions has 'Unconscious'
+        numTargets: '99'
+        range: '10'
+        repeatTargets: false
+        modifiers: []
+        persistence: []
+        strain: []
+        iconid: ui-icons/skills/1.png
+        behaviors:
+        - __typeName: ActivatedAbilityPurgeEffectsBehavior
+          chatMessage: Awakened by a loud noise.
+          mode: conditions
+          purgeType: all
+          conditions:
+          - bfe300f4-83f9-4303-9abb-951974025e88

@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 56d4f413-ceef-4ac4-8b07-2dcfdf17c659
+name: Destructive
+description: You deal double damage to objects with bashing weapon attacks.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: efeb2f27-f6f8-418a-9c26-16372323f1a0
+    name: Destructive
+    description: You deal double damage to objects with bashing weapon attacks.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:56d4f413-ceef-4ac4-8b07-2dcfdf17c659: true
+  domains:
+    CrowdexTrait:56d4f413-ceef-4ac4-8b07-2dcfdf17c659: true

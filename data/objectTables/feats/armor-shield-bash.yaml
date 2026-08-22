@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 761f63bd-fee5-43dd-94ca-a8f77d9b780b
+name: Shield Bash
+description: When get a tier 3 result on the Knockback maneuver and force move the target while you have a shield
+  equipped, the target is also knocked prone.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 8c47c116-a8ec-4112-951a-3e0b3c1375c7
+- 071228da-b192-4c41-964b-dfd705c42549
+- 387c36f3-7eec-4c48-aa92-20f18f58850d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 44b0aa4a-f0fb-45ec-a29d-72b500c6f307
+    name: Shield Bash
+    description: When get a tier 3 result on the Knockback maneuver and force move the target while you have a shield
+      equipped, the target is also knocked prone.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:761f63bd-fee5-43dd-94ca-a8f77d9b780b: true
+  domains:
+    CrowdexTrait:761f63bd-fee5-43dd-94ca-a8f77d9b780b: true

@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 48c84fe3-d3c2-4819-8e10-294f93ff069b
+name: Stalwart
+description: While wearing armor, the distance you can be force moved is reduced by 1, and you can't be knocked
+  prone by tier 1 and 2 attack results or by tier 2 and 3 RR results.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f51229c7-8076-4800-aec0-c729e0af158d
+    name: Stalwart
+    description: While wearing armor, the distance you can be force moved is reduced by 1, and you can't be knocked
+      prone by tier 1 and 2 attack results or by tier 2 and 3 RR results.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:48c84fe3-d3c2-4819-8e10-294f93ff069b: true
+  domains:
+    CrowdexTrait:48c84fe3-d3c2-4819-8e10-294f93ff069b: true

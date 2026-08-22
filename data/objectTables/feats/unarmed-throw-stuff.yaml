@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: d56ca1d2-90aa-4c8c-b818-a701993e5573
+name: Throw Stuff
+description: When you use an improvised weapon that occupies 1 slot, it has a range of melee 1/range 5.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: fdd7b6da-f7d1-4e7e-b6c6-4aab3d7934f2
+    name: Throw Stuff
+    description: When you use an improvised weapon that occupies 1 slot, it has a range of melee 1/range 5.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d56ca1d2-90aa-4c8c-b818-a701993e5573: true
+  domains:
+    CrowdexTrait:d56ca1d2-90aa-4c8c-b818-a701993e5573: true

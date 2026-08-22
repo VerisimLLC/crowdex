@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: a26b04d3-347f-496e-9b3a-70b3d8e2ced3
+name: Double Tap
+description: When you make an attack with a bow, you can use two pieces of ammunition per target. If the attack
+  hits, it deals additional damage equal to your Agility.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 929bd5ba-b85c-48a3-9f47-87252bc369b5
+- ad6ee170-7e3b-4a7e-b168-9d3af0b95c09
+- db3f6c68-8a08-41e0-b096-789ee29f99ec
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0584053e-f43d-4fa7-ba16-3de4a8af9379
+    name: Double Tap
+    description: When you make an attack with a bow, you can use two pieces of ammunition per target. If the attack
+      hits, it deals additional damage equal to your Agility.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a26b04d3-347f-496e-9b3a-70b3d8e2ced3: true
+  domains:
+    CrowdexTrait:a26b04d3-347f-496e-9b3a-70b3d8e2ced3: true

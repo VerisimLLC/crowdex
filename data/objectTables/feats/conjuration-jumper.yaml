@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: fb82532c-30e5-4828-ba00-b887f3e47af1
+name: Jumper
+description: When you cast a conjuration spell that teleports a target, you can teleport the target an additional
+  number of squares equal to your Mind. This trait stacks with Long Distance Jump.
+tag: Crows Trait
+implementation: 2
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 86c5b201-33f0-45af-84e6-74532021fdf3
+    name: Jumper
+    description: When you cast a conjuration spell that teleports a target, you can teleport the target an additional
+      number of squares equal to your Mind. This trait stacks with Long Distance Jump.
+    implementation: 2
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:fb82532c-30e5-4828-ba00-b887f3e47af1: true
+  domains:
+    CrowdexTrait:fb82532c-30e5-4828-ba00-b887f3e47af1: true

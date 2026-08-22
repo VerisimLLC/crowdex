@@ -1,0 +1,145 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 83618357-c1e4-4e21-80fd-f9f9701084de
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1.30601
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Horse, Draft
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    monster_type: Horse, Draft
+    walkingSpeed: 8
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 10
+    cr: 5
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When hauling a vehicle, the horse has 5 open slots that can be used to carry equipment.
+      source: Trait
+      name: Draft Animal
+      modifiers: []
+      domains:
+        CharacterFeature:9f891aa7-0c14-462b-a44c-07972b773c1c: true
+      guid: 9f891aa7-0c14-462b-a44c-07972b773c1c
+      implementation: 1
+    keywords:
+      Animal: true
+    levelChoices: []
+    creatureSize: 1L
+    damage_taken: 0
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 60ed4b90-20b9-4bab-8c99-09de34871ada
+    crowsSlots: 15
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 6 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Kick
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 030d3032-98ae-4d88-905d-8030e06e4b98
+  tokenType: null
+  bestiaryId: d0ca963b-3452-481a-b958-afe29d9b049e
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 3
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACpVVbXObOBD+Kxr6saUFjGPwt7Q39zJ37XTizN1HzyIW0FhInCScup3777cS2EndOE38AbyrR/v67PIt2m7dYcBP0GO0jnqtrEMTvWGRUAocXnMn9vSuryshhRNoo/W3KPWP7y6e4Q7eQoUd7IU2z7zyWd+hudFSvp/veRvgnBE1oa0zqFrXeaUhEKmyOk3Ya5Z5FUV28hN5RUbvBauhhxa9vCD56oG8lSPcQiUpkgakxf++1zkznqtOMNEPEntUDpzQKlrnPiQcENwtmBadnbGk5pRfq434OkOjjWiprKNB9qBQairIn4LvvFij5UYM840AGPuTacrQY4QdJBx8xt2IthONi9aJL7oRbecUWoKmXm65llTLdfSqmX/+vvVBzEGlj6duQLV49NeOoQvJIqkXySKLywIwzuuiiMtkWccFHWByhXlVFqFtU3K31G26pbQKNd/h4U6bOvRpQ33dzd7o6CNKvJceiab3gJspJB9wr2vRHJv+aJe4ViHmUcT+v31nd0JK+y59O6g2BMl9/jdo9Wg4/uGxdVpeLQvIKLVVFefLJI+hKTFOYZmnSVOlq6YOdAvdmNObhOj5BLoDuROq3QyI5LQgDf47isFT6lI282BuZ0Id/Pwo0YP0brnBwKmN+Boa9pdX9vBl2wk3aKE8bdIkAKP1MrB1yvli8XgHhsqD5tfJ8oUR/nAG+5G9/3SoWAejpHwZsD12gktqseuQdbQa6AmWLZkeCGeldpaOwDEOilXIRos1c5pEYw7sVKW3wZHuQagQ2Xkc67IpyhRgFSc8zeP8KqtiyHMeJ6tylVWr1YKn/Cm2zXR/lplnkfFsZaT3U/+Lgcax+2ZOnaGDWwPiJax6OF2zuScylLhH+aHT4gkWTNty62CHatouRxq6ifm/+w6+YSGF07auRjeZPK3si7S5PuLD5wIs/g1yJETmS3a+9R9JAtpph77YQXJ0cLRwYekIVb/ceHwKP9z/aQePKqHoA0sE2eNvRo8DTYz/ZiVY01ZN4iypyjivoIoLXpZxUta4yItVCjVMO0Df2Y0fIGKXn/Gw7T4b3QguUHFxuc3nofwPBjl1FBQIAAA=
+forkTime: 1781750444188
+description: Horse, Draft
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 11
+ctime: 1787361593054
+mtime: 1787361593054
+hidden: true
+id: d0ca963b-3452-481a-b958-afe29d9b049e

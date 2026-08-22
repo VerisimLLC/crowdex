@@ -1,0 +1,102 @@
+# Crows Playtest 2 -- Bear, Cave (The Ref Book)
+description: Bear, Cave
+id: 5c809280-6037-5da7-895d-a4722e533fae
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Bear, Cave
+    keywords:
+      Animal: true
+    cr: 9
+    creatureSize: 1L
+    max_hitpoints: 30
+    damage_taken: 0
+    walkingSpeed: 6
+    crowsSlots: 15
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 3
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Dangerous When Cornered
+      description: When the bear has 22 or lower Stamina, they deal an additional 2 damage with attacks.
+      guid: 72f9bf77-c1b3-579c-9b85-ef664c268cc7
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: No Dim Light Penalty
+      description: Dim light imposes no penalties for the bear.
+      guid: aad6514d-9639-5369-a5ba-472deca48bfd
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: d93b1710-dcf0-5078-9954-e3c29b49d148
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 6 damage
+        - 6 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Claws
+      guid: b96d4802-b0b7-581f-812f-7561a94d67f4
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '2'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 2 damage
+        - 3 damage
+      meleeRange: 1

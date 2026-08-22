@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8303fd07-762f-4903-bb58-955e1bb529e6
+name: Blessings for a Curse
+description: When you cast a necromancy spell that targets a creature, you can remove the blessed condition from
+  you and any willing ally within 5 squares of you to make the target vulnerable.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 19e70c42-5dfd-4fe4-b08b-1bbfd611c991
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 1004a773-d291-43ed-bcd9-2c21f155861b
+    name: Blessings for a Curse
+    description: When you cast a necromancy spell that targets a creature, you can remove the blessed condition
+      from you and any willing ally within 5 squares of you to make the target vulnerable.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8303fd07-762f-4903-bb58-955e1bb529e6: true
+  domains:
+    CrowdexTrait:8303fd07-762f-4903-bb58-955e1bb529e6: true

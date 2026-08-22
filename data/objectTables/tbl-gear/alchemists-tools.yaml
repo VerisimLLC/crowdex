@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Alchemist's Tools
+_table: tbl_Gear
+__typeName: equipment
+id: 25aac037-4ffd-4faa-82eb-6dc48fec60d7
+name: "Alchemist's Tools"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 13bab3d6-6a9d-47dd-a336-144883afb76c
+costInGold: 15
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Required to make crafting rolls for alchemy items. Fine tools grant +1 on Alchemy crafting rolls; masterwork tools grant +2."
+implementation: 1
+domains:
+  item:25aac037-4ffd-4faa-82eb-6dc48fec60d7: true

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 728b3ca7-5616-4c5c-a02e-4fc78b3985ef
+name: Labeled Inventory
+description: Each of your backpack slot's number is reduced by 1 (minimum 1), making it easier to pull equipment
+  from your backpack.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 9e2eaf64-33f9-48be-bbdb-918a88f8a9c4
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 4b4ccad0-47b7-4cdc-b563-c6f4ccfa1d25
+    name: Labeled Inventory
+    description: Each of your backpack slot's number is reduced by 1 (minimum 1), making it easier to pull equipment
+      from your backpack.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:728b3ca7-5616-4c5c-a02e-4fc78b3985ef: true
+  domains:
+    CrowdexTrait:728b3ca7-5616-4c5c-a02e-4fc78b3985ef: true

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 59bd1160-09e7-42e6-b149-219d3a8f23c8
+name: Split Alteration
+description: When you cast an alteration spell that has a target of 1 creature, object, ally, enemy, or target,
+  you can target one additional qualifying target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a4a695a3-d2de-4ac4-8e77-ab999073d707
+- d8a53287-6f0d-42bd-9a4a-50b1b3084c65
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: cf846f0e-faa5-4681-9720-376be1fdd2e1
+    name: Split Alteration
+    description: When you cast an alteration spell that has a target of 1 creature, object, ally, enemy, or target,
+      you can target one additional qualifying target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:59bd1160-09e7-42e6-b149-219d3a8f23c8: true
+  domains:
+    CrowdexTrait:59bd1160-09e7-42e6-b149-219d3a8f23c8: true

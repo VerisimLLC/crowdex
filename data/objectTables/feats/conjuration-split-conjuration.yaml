@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: cccea9d2-ae49-495c-ace6-9bfdca4f3727
+name: Split Conjuration
+description: When you cast a conjuration spell that has a target of 1 creature, object, ally, enemy, or target,
+  you can target one additional qualifying target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- f2dd6983-0341-4455-bd1e-d7d9dcec1e5b
+- 06540bac-c159-4a63-858b-365eed0a100a
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 045a4adb-46f3-49d7-b170-e03635319f1b
+    name: Split Conjuration
+    description: When you cast a conjuration spell that has a target of 1 creature, object, ally, enemy, or target,
+      you can target one additional qualifying target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:cccea9d2-ae49-495c-ace6-9bfdca4f3727: true
+  domains:
+    CrowdexTrait:cccea9d2-ae49-495c-ace6-9bfdca4f3727: true

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 84482cea-7ffa-4b95-a721-c62f177fc1b6
+name: Special Item
+description: As a rest activity, choose a non- weapon, non-armor mundane item you have. You gain a +1 bonus on tests
+  that reasonably incorporate the use of this item (per the Ref). The bonus lasts until you use this activity again.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 31328eba-37fd-4e73-9c2e-8cf71f255136
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 22c4e080-dd4a-454c-8275-0143be2ceb08
+    name: Special Item
+    description: As a rest activity, choose a non- weapon, non-armor mundane item you have. You gain a +1 bonus
+      on tests that reasonably incorporate the use of this item (per the Ref). The bonus lasts until you use this
+      activity again.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:84482cea-7ffa-4b95-a721-c62f177fc1b6: true
+  domains:
+    CrowdexTrait:84482cea-7ffa-4b95-a721-c62f177fc1b6: true

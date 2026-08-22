@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 902d2f24-067d-46b7-b1b0-e4ff7fc1832d
+name: Tripping Counter
+description: When you counter with a bashing weapon against a creature who got a doom result on the triggering attack,
+  you knock the target prone regardless of their size.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 51cd8b37-4a0b-462e-97be-36f95d3d0282
+    name: Tripping Counter
+    description: When you counter with a bashing weapon against a creature who got a doom result on the triggering
+      attack, you knock the target prone regardless of their size.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:902d2f24-067d-46b7-b1b0-e4ff7fc1832d: true
+  domains:
+    CrowdexTrait:902d2f24-067d-46b7-b1b0-e4ff7fc1832d: true

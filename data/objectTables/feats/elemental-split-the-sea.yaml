@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: bd00d8ef-7407-441a-861b-ad1a95fbd127
+name: Split the Sea
+description: When you cast an elemental spell that has a target of 1 creature, object, ally, enemy, or target, you
+  can target one additional qualifying target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- c98a3d65-b86f-4399-a29a-e5d6b5bfe1c4
+- 1e1b8224-505f-499a-a46b-fb0e31498824
+- 3c0ec03b-ea83-4227-93a2-0777950df72a
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 99a94053-ce57-4080-abf0-735b6dbde0bb
+    name: Split the Sea
+    description: When you cast an elemental spell that has a target of 1 creature, object, ally, enemy, or target,
+      you can target one additional qualifying target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:bd00d8ef-7407-441a-861b-ad1a95fbd127: true
+  domains:
+    CrowdexTrait:bd00d8ef-7407-441a-861b-ad1a95fbd127: true

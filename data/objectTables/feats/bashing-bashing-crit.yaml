@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: f24237f8-3548-463d-8aa6-7a43e948081c
+name: Bashing Crit
+description: You score a crit on bashing weapon attacks when the dice without modifiers equal 18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 31fd07cd-a0fc-4e80-89df-a6be44cf61aa
+- 861ef7c3-735c-4d1b-90c6-8155a4deb7a3
+- 107b1c62-de95-4597-8dde-9374e6611502
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f83eece1-acdd-4d58-b0f7-3aa5b3ed50e2
+    name: Bashing Crit
+    description: You score a crit on bashing weapon attacks when the dice without modifiers equal 18, 19, or 20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f24237f8-3548-463d-8aa6-7a43e948081c: true
+  domains:
+    CrowdexTrait:f24237f8-3548-463d-8aa6-7a43e948081c: true

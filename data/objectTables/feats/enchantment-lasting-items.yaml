@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 87551298-de26-4146-a8e6-f0b1cd0650b5
+name: Lasting Items
+description: Enchanting items you create that become useless when they have no UD gain an additional 1 UD.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- b57fcde8-8b2f-48ca-bb30-e7cec8a1d4ec
+- 7d53302b-f7e7-46a3-87aa-00ccce747133
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 6c9dc88c-ab32-485b-92ec-09e7d03f510e
+    name: Lasting Items
+    description: Enchanting items you create that become useless when they have no UD gain an additional 1 UD.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:87551298-de26-4146-a8e6-f0b1cd0650b5: true
+  domains:
+    CrowdexTrait:87551298-de26-4146-a8e6-f0b1cd0650b5: true

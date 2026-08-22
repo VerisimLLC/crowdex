@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: f476a08d-0af1-41ae-af01-123c521405e5
+name: Improved Chop
+description: You score a crit on chopping weapon attacks when the dice without modifiers equal 17, 18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 7239bb94-7e94-4dda-bb9d-c53c35ffa4e3
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c711ce37-c467-4e41-9830-4b5814e4841c
+    name: Improved Chop
+    description: You score a crit on chopping weapon attacks when the dice without modifiers equal 17, 18, 19, or
+      20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f476a08d-0af1-41ae-af01-123c521405e5: true
+  domains:
+    CrowdexTrait:f476a08d-0af1-41ae-af01-123c521405e5: true

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7281558a-3fcb-4a35-872e-0e84bfaf5d16
+name: Energy Transfer
+description: As a rest activity, choose a magic item you can touch and an item you're crafting. You destroy the
+  magic item, and the other item gains a number of crafting points equal to the destroyed item's crafting goal.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a5cdadc4-8b47-45b3-9866-56589620ba8f
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 6156c92b-c360-4d48-bbbf-c0c240bacc66
+    name: Energy Transfer
+    description: As a rest activity, choose a magic item you can touch and an item you're crafting. You destroy
+      the magic item, and the other item gains a number of crafting points equal to the destroyed item's crafting
+      goal.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7281558a-3fcb-4a35-872e-0e84bfaf5d16: true
+  domains:
+    CrowdexTrait:7281558a-3fcb-4a35-872e-0e84bfaf5d16: true

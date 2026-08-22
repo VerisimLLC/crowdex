@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Stiletto
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 52192283-5091-4e8a-ac16-ab3d3a790053
+name: Stiletto
+category: Gear
+costInGold: 10
+crowsAttackStat: A or S
+crowsMeleeRange: 1
+crowsQualities: Light
+crowsRangedRange: 5
+crowsTier2: 2 + A or S
+crowsTier3: 5 + A or S
+crowsWeaponType: Stabbing
+description: 'Melee 1/Ranged 5. Attack 2d10 + A or S; 12-16: 2 + A or S; 17+: 5 + A or S. Stabbing, Light.
+  Craft: Blacksmithing (1 use), 1 iron bar, 5. (Price table instead gives the Stiletto Brutal and the
+  throw to the Spear; the card wins here.)'
+domains:
+  item:52192283-5091-4e8a-ac16-ab3d3a790053: true
+equipmentCategory: 4ec7fd08-6477-4370-92eb-2f7c41277284
+iconid: ee717c06-6af0-4d96-938b-e55227da7266
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+weight: 1

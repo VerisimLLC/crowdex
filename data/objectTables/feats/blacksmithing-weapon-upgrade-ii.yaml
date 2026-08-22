@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: f3a3c055-734c-4f28-865a-e2075f8c4519
+name: Weapon Upgrade II
+description: When you craft a weapon, you can add the Defensive or Dismembering qualities to it if the weapon doesn't
+  already have those qualities. Alternatively, you add a range of ranged 5 to the weapon.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 5ede37e6-6aa0-40ad-b346-14f37d8cdb83
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 06aacc12-ec5b-4e67-8666-d8f22ba867d8
+    name: Weapon Upgrade II
+    description: When you craft a weapon, you can add the Defensive or Dismembering qualities to it if the weapon
+      doesn't already have those qualities. Alternatively, you add a range of ranged 5 to the weapon.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f3a3c055-734c-4f28-865a-e2075f8c4519: true
+  domains:
+    CrowdexTrait:f3a3c055-734c-4f28-865a-e2075f8c4519: true

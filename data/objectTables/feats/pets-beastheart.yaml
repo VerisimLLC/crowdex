@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: cab18d94-c017-49bd-af98-6956490125e2
+name: Beastheart
+description: When you take the Command maneuver, you can command up to two pets you own.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 34d8af3f-98e6-4615-8525-254484f11151
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: dc8a9770-1200-4846-af88-9b69638958af
+    name: Beastheart
+    description: When you take the Command maneuver, you can command up to two pets you own.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:cab18d94-c017-49bd-af98-6956490125e2: true
+  domains:
+    CrowdexTrait:cab18d94-c017-49bd-af98-6956490125e2: true

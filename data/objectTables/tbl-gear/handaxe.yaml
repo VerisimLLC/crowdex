@@ -1,0 +1,28 @@
+# Crows Playtest 2 -- Handaxe
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 720e00a4-a3f6-40d9-b5b7-c51e3ea1994c
+name: Handaxe
+category: Gear
+costInGold: 10
+crowsAttackStat: A or S
+crowsMeleeRange: 1
+crowsQualities: Light, Dismember
+crowsRangedRange: 5
+crowsTier2: 2 + A or S
+crowsTier3: 5 + A or S
+crowsWeaponType: Chopping
+description: 'Melee 1/Ranged 5. Attack 2d10 + A or S; 12-16: 2 + A or S; 17+: 5 + A or S. Chopping, Light,
+  Dismember. Craft: Blacksmithing (1 use), 1 iron bar, 5.'
+domains:
+  item:720e00a4-a3f6-40d9-b5b7-c51e3ea1994c: true
+equipmentCategory: 4ec7fd08-6477-4370-92eb-2f7c41277284
+iconid: 73868bcf-7aa9-48ec-8569-c57ffb4e5443
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+weight: 2

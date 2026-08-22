@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: a65a0362-373e-4a51-a860-59df9634c8c6
+name: Collision Damage
+description: When you force move a creature into an object with a bashing weapon attack, the creature takes additional
+  damage equal to the forced movement remaining when they collide.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 31fd07cd-a0fc-4e80-89df-a6be44cf61aa
+- 861ef7c3-735c-4d1b-90c6-8155a4deb7a3
+- 107b1c62-de95-4597-8dde-9374e6611502
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 7b5ca406-d988-4c88-8dd2-8f34e342f615
+    name: Collision Damage
+    description: When you force move a creature into an object with a bashing weapon attack, the creature takes
+      additional damage equal to the forced movement remaining when they collide.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a65a0362-373e-4a51-a860-59df9634c8c6: true
+  domains:
+    CrowdexTrait:a65a0362-373e-4a51-a860-59df9634c8c6: true

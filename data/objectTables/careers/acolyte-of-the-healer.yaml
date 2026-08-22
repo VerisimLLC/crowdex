@@ -1,0 +1,242 @@
+# Crows Playtest 2 -- background: Acolyte of the Healer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: d34225a7-65d4-449e-8355-ee07ed643fce
+name: "Acolyte of the Healer"
+description: "You served the god of healing."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: a8f06efe-1442-4d2f-a164-b82572a676ca
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: f9da04de-a9fe-4620-a495-a3ea63f4f111
+      implementation: 3
+      source: "Acolyte of the Healer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: c97c0098-3582-4251-a04c-f236541fed10
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: f9da04de-a9fe-4620-a495-a3ea63f4f111
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ebdff38a-3467-42c6-adec-a009d3aaef2e
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: f9da04de-a9fe-4620-a495-a3ea63f4f111
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 5558517c-70d5-418a-9817-f32bc8329b0d
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: f9da04de-a9fe-4620-a495-a3ea63f4f111
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: a5078ca5-db85-4a86-ab8f-22ba4605672e
+      implementation: 3
+      source: "Acolyte of the Healer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: eaa83dff-e0d2-4e2d-9a6b-91e1d632c687
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: a5078ca5-db85-4a86-ab8f-22ba4605672e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 293dc6bd-9649-412e-bb7c-626b97d5a770
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: a5078ca5-db85-4a86-ab8f-22ba4605672e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: bc09de74-6f24-4fa8-b28b-af3b20ac9810
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: a5078ca5-db85-4a86-ab8f-22ba4605672e
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: a3a7f20a-f98a-4e77-9289-25dae0baaad5
+      implementation: 3
+      source: "Acolyte of the Healer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 82dae30b-9d69-427e-9d35-43efb48ed448
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: a3a7f20a-f98a-4e77-9289-25dae0baaad5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: cc152429-6847-4b78-b887-e33b0370979b
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: a3a7f20a-f98a-4e77-9289-25dae0baaad5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: aae3e73b-f1f3-46b1-b876-80bba0f09b78
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: a3a7f20a-f98a-4e77-9289-25dae0baaad5
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 20e36203-6de2-4faa-b7f6-b721c550c1ad
+      implementation: 3
+      source: "Acolyte of the Healer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 07981037-5ac2-4e3d-bba1-2ce02b85a4b3
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: 20e36203-6de2-4faa-b7f6-b721c550c1ad
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 626cef1a-9d66-422e-855b-fcb1bcea90a7
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: 20e36203-6de2-4faa-b7f6-b721c550c1ad
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 05ee1c5d-33b6-4dac-beb4-799e34cb5d61
+        source: "Acolyte of the Healer Career Feature"
+        sourceguid: 20e36203-6de2-4faa-b7f6-b721c550c1ad
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 3002bb42-cda9-4c9b-b6b8-6695c348d2e3
+    implementation: 3
+    source: "Acolyte of the Healer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 39aa327d-78bf-4e64-9a68-b59dae448ffd
+      source: "Acolyte of the Healer Career Feature"
+      sourceguid: 3002bb42-cda9-4c9b-b6b8-6695c348d2e3
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (1 use), Benefaction (2 uses), Lift (1 use), Religious Lore (2 uses)."
+    guid: 83c412fd-6df6-4866-a329-14880b9d43cb
+    implementation: 3
+    source: "Acolyte of the Healer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 1
+      name: Expertises
+      description: "Alchemy (1 use)"
+      guid: 3876e259-7d84-484e-bc51-050d8e504bc5
+      source: "Acolyte of the Healer Career Feature"
+      sourceguid: 83c412fd-6df6-4866-a329-14880b9d43cb
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 6e8db242-87e2-4e83-a489-c162b53cfb02
+      num: 2
+      name: Expertises
+      description: "Benefaction (2 uses)"
+      guid: e8ba3736-fdde-4269-80a2-3137041af7b0
+      source: "Acolyte of the Healer Career Feature"
+      sourceguid: 83c412fd-6df6-4866-a329-14880b9d43cb
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: 538c5425-6b6a-4e2a-b4e8-9a9859d469c6
+      source: "Acolyte of the Healer Career Feature"
+      sourceguid: 83c412fd-6df6-4866-a329-14880b9d43cb
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+      num: 2
+      name: Expertises
+      description: "Religious Lore (2 uses)"
+      guid: 54c6a3aa-900f-4621-905d-3a5cbbd9ad82
+      source: "Acolyte of the Healer Career Feature"
+      sourceguid: 83c412fd-6df6-4866-a329-14880b9d43cb
+  - __typeName: CharacterFeature
+    name: "Trait: Enhanced Healing"
+    description: "When you cast a benefaction spell that restores Stamina to a target, the target regains additional Stamina equal to your Mind."
+    guid: 0284177a-4eb7-4a62-abf8-681a62d1313d
+    implementation: 2
+    source: "Acolyte of the Healer Career Feature"
+    crowdexTraitId: 2f664917-56ba-46c7-8793-594c645e068c
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Torch, Minor Blessing, Minor Healing, Holy Symbol, Surgical Kit. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 7a894b99-915f-4628-99d0-3e978ecda83a
+    implementation: 2
+    source: "Acolyte of the Healer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: d9c22310-c30b-45e2-817e-7998ee744a5b
+      source: "Acolyte of the Healer Career Feature"
+      sourceguid: 7a894b99-915f-4628-99d0-3e978ecda83a
+      equipment:
+      - itemid: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+        quantity: 1
+      - itemid: 27c91f9d-fa28-4a1b-b1e9-4cc2c72144db
+        quantity: 1
+      - itemid: e054d4d5-dbbb-48ee-8a18-4f0b6f4de4c6
+        quantity: 1
+      - itemid: 0be6a62f-f672-43fc-a1f6-06336694bfa5
+        quantity: 1
+      - itemid: 83cf0ecb-76b1-4e43-893e-2c42d2bf53aa
+        quantity: 1

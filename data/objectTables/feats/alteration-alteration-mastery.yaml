@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8dc987f6-1fe0-4581-b3e0-6b64ba9d562b
+name: Alteration Mastery
+description: Non-doom tier 1 results of rank 0 and 1 alteration spells you cast don't add to the chaos count. Your
+  alteration spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 585ea2e7-1fe9-4f86-85db-405b5a0cfe6d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: eb0e9bc7-4406-4dc1-a8e6-3faee5bbe1c5
+    name: Alteration Mastery
+    description: Non-doom tier 1 results of rank 0 and 1 alteration spells you cast don't add to the chaos count.
+      Your alteration spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8dc987f6-1fe0-4581-b3e0-6b64ba9d562b: true
+  domains:
+    CrowdexTrait:8dc987f6-1fe0-4581-b3e0-6b64ba9d562b: true

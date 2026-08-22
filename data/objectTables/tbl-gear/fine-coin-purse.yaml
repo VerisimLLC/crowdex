@@ -1,0 +1,20 @@
+# Crows Playtest 2 -- new card: Fine Coin Purse
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: 7503ab6a-e6c7-48dc-b010-1d77bf9ec288
+name: Fine Coin Purse
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 500
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: Holds up to 750 coins, where a plain purse holds 500 and a bare slot only 250.
+implementation: 1
+domains:
+  item:7503ab6a-e6c7-48dc-b010-1d77bf9ec288: true

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: baeb652a-0bfb-4dfe-8848-81504e734840
+name: Spinning Shaft
+description: When you get a tier 3 result on a melee stabbing weapon attack, choose another target within the weapon's
+  distance. That target takes damage equal to your Strength.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- f6a83ab7-764e-40dd-957c-41d2c46d6131
+- 5dbbae6f-8538-42a3-b0ba-4b1e35ee44e7
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 653d411f-7b09-4775-915f-118b9333c8a6
+    name: Spinning Shaft
+    description: When you get a tier 3 result on a melee stabbing weapon attack, choose another target within the
+      weapon's distance. That target takes damage equal to your Strength.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:baeb652a-0bfb-4dfe-8848-81504e734840: true
+  domains:
+    CrowdexTrait:baeb652a-0bfb-4dfe-8848-81504e734840: true

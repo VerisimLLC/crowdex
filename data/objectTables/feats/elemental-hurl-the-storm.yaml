@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: fda475ea-cacd-4823-b164-b2283b06a36e
+name: Hurl the Storm
+description: When you cast a ranged elemental spell, the spell's range increases a number of squares equal to your
+  Mind.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Elemental
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 49ce9e87-f33d-4e0a-8a1f-a9783cd2a472
+    name: Hurl the Storm
+    description: When you cast a ranged elemental spell, the spell's range increases a number of squares equal to
+      your Mind.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:fda475ea-cacd-4823-b164-b2283b06a36e: true
+  domains:
+    CrowdexTrait:fda475ea-cacd-4823-b164-b2283b06a36e: true

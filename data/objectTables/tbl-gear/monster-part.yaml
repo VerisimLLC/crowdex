@@ -1,0 +1,25 @@
+# Crows Playtest 2 -- Monster Part
+#
+# Was "Crafting Material, Tiny". Playtest 2 replaced the size ladder with named kinds;
+# the id is reused so anything already carrying one still resolves.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 53c04edc-0b9d-43c5-81cc-58a01a9ef92c
+name: Monster Part
+category: Gear
+costInGold: 0
+description: 'A piece of a monster: an organ, a length of sinew, a vial of blood. Harvested from a corpse
+  with the Harvest rest activity, which yields 1d6 parts from a Medium or smaller body and more from larger
+  ones. Most craftable items ask for parts by monster type -- animal, blood creature, demon, undead, angel,
+  elemental -- or for any part at all.'
+domains:
+  item:53c04edc-0b9d-43c5-81cc-58a01a9ef92c: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 9bfb6e86-cc23-4bf2-aa73-6f1d138b7f12
+implementation: 1
+slotsRequired: 1
+stackLimit: 5
+type: Gear
+weight: 0

@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 414b350d-7c36-4410-a8e2-8a38166bdd3a
+name: Finesse the Blade
+description: You can use Agility instead of Strength when making an attack and dealing damage with a sword.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Slashing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0d7971dc-b90c-44a0-9722-13f7c33dc815
+    name: Finesse the Blade
+    description: You can use Agility instead of Strength when making an attack and dealing damage with a sword.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:414b350d-7c36-4410-a8e2-8a38166bdd3a: true
+  domains:
+    CrowdexTrait:414b350d-7c36-4410-a8e2-8a38166bdd3a: true

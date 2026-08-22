@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9e058904-cb54-4a2e-a8ce-ec173193bd8f
+name: Don't Waste a Drop
+description: You can use an acid or a poison twice before it is consumed.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 13d0fcd3-92a7-4411-82d1-20a9149d67f0
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c44d120f-304f-4b45-aa56-935e160ace84
+    name: Don't Waste a Drop
+    description: You can use an acid or a poison twice before it is consumed.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9e058904-cb54-4a2e-a8ce-ec173193bd8f: true
+  domains:
+    CrowdexTrait:9e058904-cb54-4a2e-a8ce-ec173193bd8f: true

@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Shovel
+_table: tbl_Gear
+__typeName: equipment
+id: 686c6792-85a8-475b-8051-9c1419885f42
+name: "Shovel"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1e53e3d9-e678-4fd6-967c-37fa2856be3d
+costInGold: 10
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Used to dig holes. It can serve as a makeshift crowbar, but might break."
+implementation: 1
+domains:
+  item:686c6792-85a8-475b-8051-9c1419885f42: true

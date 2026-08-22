@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Animal Feed
+_table: tbl_Gear
+__typeName: equipment
+id: 20815e97-82f3-4161-8671-52eb66b2a2bc
+name: "Animal Feed"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 746461c6-058c-4bf1-aa9a-b5c2f4b23783
+costInGold: 1
+weight: 0
+stackLimit: 6
+slotsRequired: 1
+description: "A day's worth of food for a pet. It must be consumed during a rest for the pet to gain the benefits of resting."
+implementation: 1
+domains:
+  item:20815e97-82f3-4161-8671-52eb66b2a2bc: true

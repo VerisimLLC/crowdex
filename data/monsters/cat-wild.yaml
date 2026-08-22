@@ -1,0 +1,187 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 1dbfbf74-8457-4a65-917a-2e08398c32c4
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Cat, Wild
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      climb: 6
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 2 damage
+        - 4 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: ae8cd928-9d19-4fe6-80eb-3a1c506cd6ec
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Scratch
+      description: Targets two creatures.
+      numTargets: "2"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 4fd466d9-579d-475f-b82f-7c1318a092ac
+    walkingSpeed: 6
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 9
+    cr: 2
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: If the cat moves at least 4 squares before making an attack on the same turn, the attack deals an additional 2 damage. (Applied manually.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:68c0473a-453f-443f-9316-0ae738459d34: true
+      name: Charge
+      guid: 68c0473a-453f-443f-9316-0ae738459d34
+    - __typeName: CharacterFeature
+      description: Dim light imposes no penalties for this creature.
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:adb0c624-f5f5-473c-8c40-531d3bd6a23a: true
+      name: No Dim Light Penalty
+      guid: adb0c624-f5f5-473c-8c40-531d3bd6a23a
+    keywords:
+      Animal: true
+    levelChoices: []
+    damage_taken: 0
+    creatureSize: 1S
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 50aa95bf-c583-42d6-842d-3ce1a5772e43
+    crowsSlots: 1
+    monster_type: Cat, Wild
+  tokenType: null
+  bestiaryId: e78b0209-05a6-4881-a6ec-1183271d2d18
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACu1XS28bNxD+K8T20qKms289bo6LFgHawLCM5mhwydkVIS65Ibl2lSD/vUOu5Kiy7DgtiuZQHaQld+ab5zekPia3t347wFvWQ7JMeqOdB5ucEXy8gx60Xw0AwiXLjwlXsm+SZY0vb9XIblijUMfbET5F+aga0RDpkvkz8k4qEbAE61kHt55tQCfLFHfg/SiHAB+AD9Baptxf4Djz0Bm7RcgLLXumAh63wPxoYSU/BFvZKjrM/rhdSz8YqT36u4hyyTLHXwvOjJaDe8oaXzPLONr7eQKOglmUPkzP5ZFYjA0ct3Lw0mBoyZuW+DUQ9JqEBDqCDwqY86Qk7v3IEJo00BoLpGcbqTvCNMp4xjfE6Kjr0BZBdH0Wl7uXAtDXKCyEDMaYIjmZEntOvr8YBiVBIKgemVLb8x+Cb/qz2110thulwI16ztNyVjBaVkVLyxK/FkVW05TBrJiX1UIU5dQDQrYS7JN5E6ZnUsfXx7lZvshIbJ/TDTWVDL29sUz64I7sBxV7kk3Zzk4r5n+jbj/JnijZrT1BI8ZhlbQhA2CWvcQFFgyLIR3Zd975QXrfGhLUf43qV1Fne5BsJpqU13lJ26qtKGaE0zkvU1oVmSgaUbO8YP842S8y8m8k+5SjG9jeGzsNjR1pnzGt4A7U5drIZ/gptcY5cMG9vMNfcdFIJUNhTtP0SC4Wo4E1u5PGvlDlytyDvTZKvd7pBQykop1K2j3gWpTBnVxkKfmRZGHL74uIZpJkashkz9WwLnBdHqxPRfzCVB9XqYzTbsCuuAmcD4MwyoYZN01S+WEnmqxkp2P3kIM87Xr6tfQnWBIFxv4BOonxCukGxbYh4vUIbi1bPw35xgZKaHBuap+m40ZhKpfJd+3uE/RdcOL5LrNMd7C3t+cVzLlY5HO6ENmCli3UdJ5CQwuW8SqtuaiBx6pNwd1M55I2OgZ22KMrLOsGHnr0N1AAz3VsHwSuJ5eylzBXcqOjz6Ok4dm9chuplHuVnQ+6i07yEP/17px6E2Qxqrqas5yWYtbgEE1LytoF0IxVZZa2TTZr4+HqYzV24U2L5LTfjwfjt8iU7Igp+bfNlBXH3uXrx2TZwRJ/bx6ODXf+iEL5f0ihshVlXYsFrWYLgadG1dJmnrd0xrMim7N0kbP/KfTFzrpnKtzk4kV5uh7H9m9GPx1QzlvQnV8/fS252MtH/jEHvzM1wtQBMegHiNNe7Vn21QayvYEDnp6qltTi68FpvkeP+l9M6H5LajzbsZnv4BdrxgFTixBVytiialrKq3lBy1zgtMdvWnDAas5mOZTF9NfA3LuVMn5HmNglV9a0kkvQXD59xzj25E/kGwA4Gw0AAA==
+forkTime: 1781750329187
+description: Cat, Wild
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 6
+ctime: 1787361593368
+mtime: 1787361593368
+hidden: true
+id: e78b0209-05a6-4881-a6ec-1183271d2d18

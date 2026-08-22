@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 6477f581-5968-4d28-ae3c-b38cf79b418f
+name: Expert Plan
+description: When you take the Prepare for Task rest activity and have a journal, quill, and inkpot, you can diagram
+  your preparations to share with your allies. Each human who rests with you gains the activity's benefit.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- c20b36a4-90bc-4f08-9d82-f83f0ebed958
+- 05cc2cc4-84da-448f-a7dd-0983da276b2a
+- 728b3ca7-5616-4c5c-a02e-4fc78b3985ef
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0f6421fc-da5d-434f-a875-830b71927fe0
+    name: Expert Plan
+    description: When you take the Prepare for Task rest activity and have a journal, quill, and inkpot, you can
+      diagram your preparations to share with your allies. Each human who rests with you gains the activity's benefit.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:6477f581-5968-4d28-ae3c-b38cf79b418f: true
+  domains:
+    CrowdexTrait:6477f581-5968-4d28-ae3c-b38cf79b418f: true

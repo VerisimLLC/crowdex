@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: d964146a-d73b-4b28-862c-9ecd55cd7e56
+name: Enchant Weapons
+description: You can use your blacksmith's tools as enchanter's tools and your number of uses in the Blacksmithing
+  expertise in place of Enchantment when crafting magic weapons.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- f3a3c055-734c-4f28-865a-e2075f8c4519
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 82a1a74a-b8ff-4d5f-9685-63a53cf3f35f
+    name: Enchant Weapons
+    description: You can use your blacksmith's tools as enchanter's tools and your number of uses in the Blacksmithing
+      expertise in place of Enchantment when crafting magic weapons.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d964146a-d73b-4b28-862c-9ecd55cd7e56: true
+  domains:
+    CrowdexTrait:d964146a-d73b-4b28-862c-9ecd55cd7e56: true

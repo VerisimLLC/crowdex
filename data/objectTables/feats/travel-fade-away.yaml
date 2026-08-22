@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: e3fe0840-e0fb-4d70-96c4-3998f4461bb6
+name: Fade Away
+description: When you are in the scout role and carrying a spyglass and encounter other creatures while traveling,
+  you can begin the encounter hidden from those creatures.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Travel
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 25152ab8-c7b4-47f8-a26e-5494a96b0d85
+- 87e39da8-346a-4136-a5c8-099f6697fe65
+- f5cec97a-ceb0-4623-b620-80d11878fcee
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f071dad7-f6a3-428f-b1ae-2921541a3ad2
+    name: Fade Away
+    description: When you are in the scout role and carrying a spyglass and encounter other creatures while traveling,
+      you can begin the encounter hidden from those creatures.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e3fe0840-e0fb-4d70-96c4-3998f4461bb6: true
+  domains:
+    CrowdexTrait:e3fe0840-e0fb-4d70-96c4-3998f4461bb6: true

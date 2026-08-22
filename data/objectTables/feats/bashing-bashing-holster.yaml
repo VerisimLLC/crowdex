@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 62d19562-98d6-498f-be82-6bea712e530d
+name: Bashing Holster
+description: You gain an additional belt slot that can only hold bashing weapons.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a65a0362-373e-4a51-a860-59df9634c8c6
+- f24237f8-3548-463d-8aa6-7a43e948081c
+- ea676c7c-d42b-44bb-b574-96c6e7f53d55
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 064edae0-0eac-4114-a160-95b2952e05bf
+    name: Bashing Holster
+    description: You gain an additional belt slot that can only hold bashing weapons.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:62d19562-98d6-498f-be82-6bea712e530d: true
+  domains:
+    CrowdexTrait:62d19562-98d6-498f-be82-6bea712e530d: true

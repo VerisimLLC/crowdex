@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Holy Symbol
+_table: tbl_Gear
+__typeName: equipment
+id: 0be6a62f-f672-43fc-a1f6-06336694bfa5
+name: "Holy Symbol"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: d9442270-3f02-42f0-9e4d-03a4e6302212
+costInGold: 15
+weight: 0
+stackLimit: 2
+slotsRequired: 1
+description: "A symbol of your god. It can be worn in the neck slot, but it is not magic."
+implementation: 1
+domains:
+  item:0be6a62f-f672-43fc-a1f6-06336694bfa5: true

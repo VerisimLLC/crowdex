@@ -1,0 +1,154 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: d89210e3-e2ab-4cca-8eaa-d6f53dd73548
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Deer
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    monster_type: Deer
+    walkingSpeed: 8
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 5
+    cr: 2
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: If the deer moves at least 4 squares before making an attack on the same turn, the attack deals an additional 2 damage. (Applied manually.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:8e604dfa-f915-43fc-b27d-7e844cfe71a0: true
+      name: Charge
+      guid: 8e604dfa-f915-43fc-b27d-7e844cfe71a0
+    - __typeName: CharacterFeature
+      description: Dim light imposes no penalties for this creature.
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:943db2c1-8a4e-49ef-903d-88ed71ea2add: true
+      name: No Dim Light Penalty
+      guid: 943db2c1-8a4e-49ef-903d-88ed71ea2add
+    keywords:
+      Animal: true
+    levelChoices: []
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 97d44232-f38f-41a9-b3ba-747e605e19ce
+    crowsSlots: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 2 damage
+        - 4 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Ram
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 21838198-caca-42f0-8376-6498b6384d3f
+  tokenType: null
+  bestiaryId: b4fc0f66-a6a5-48ab-9e5b-c5a6dff57e0a
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 2
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACrVVTY/bNhD9K4R6adFwY0n0WvZtm6BFgCZYrBe9GiNxJBOmSIWkvHWC/PeSlLRxXHvrtKgPtjl88/lmhp+TzcYdOvwALSarpNXKOjTJK5IIpcDhXeXE3v/yu1JI4QTaZPU5ScPXN4onuEOwUOIW9kKbK1Xu9ROaBy3lL6NesAHOGcE9Gppnu8ZjvCTj6Yz8TLIg8oE9u0mCIAsAwqGFBsM592d2dN7IHh6hlD6QGqTFL9/KnOlPRc8w0XYSW1QOnNAqWbEQEnYI7hFMg86OWC+ufHqNNuLTCE3WovFV7Q2SozqpoR4P0IYTR1sZ0Y0K8b5vny37BANG2E7CISS87dFuRe2S1SyU3Ihm6xRaD03Duam09JVcJT/U4yfo2xDDGFN6PnMDqsHJX9NHDrK0yIt0WdAKKqAsq2e0yBe39JYti/I2LxjPo3kYcnv0XHstpVUs+Q4PT9rwSNPas7obvfmr9yjx6+lMNG0APAwhhYBbzUU9cX6WpEqrGHMvaPhvX9udkNK+Tm861cQgq5D/A1rdmwrfBSxPl7fzAjLK+KKkbD5jFOol0hTmLJ3VZbqoeey2yMaY3nBIru+fJ5A7oZp1h+idFl6CH3vRhY66lM04lpuxnw5hepRoQQa3lcHYUmvxKRL2Pghb+HOzFa7TQoW2mUdcsspirw4pX6xdtQXjq4Pm18Hwhfl9cwL7e/O+q4nbIuGIhrR6j5aAIxLBOsKI/diDt01KrLWfhxZCUQgoj3FQ7YhWUdl6Z8SbV6/icbzk6IONYM5F8AaSTON+Q3686zopkHujqgcpDzc/Hc1ZiHtYAmNbF3g7Y7wGWi/TOWV5XdEyW3C6wIKxqsZFCrPkmqbjugWh4vVpcVZXOXlhAgbOfLSPBkRst9M9dGGQs39B3FvREhk2CfFOtPUsKU069FUOLwDxhHkyhCVT690clfeDJkH996h+H3UOR8VespyXWZXSAhhStsSaLmc5p0WBfJEiZJ7R/1zsq5z8H8U+F+jx3hun9gXXEvco32y1eGFAhz7fONihGvb+tCDcsJPeIn59PcveDaasM6gat73cEHcTPj7fYPEPkD0OLiJ7zybOBz890t/tIJ0cHD3z554Bofj3G6fZZD3q/yNzk0gov1o833v8zei+8+sp9O+CM5blGa3zoqYshSUt8xLogi38hM8xXVY4bGX9ZNdST9s3Pj/3RteiEqgqcZnd00j+AlzfN0ajCQAA
+forkTime: 1781750392678
+description: Deer
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 8
+ctime: 1787361592889
+mtime: 1787361592889
+hidden: true
+id: b4fc0f66-a6a5-48ab-9e5b-c5a6dff57e0a

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: c7570e56-1312-4ae0-8ec4-33e5a67159d4
+name: Double Axe
+description: When you are wielding two handaxes, you can throw both as a ranged attack, dealing double damage to
+  the target on a hit.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 417ecc6e-1631-4367-bcf7-c3e22eb2df36
+- 4f84f4ab-cb93-450d-b2a4-6404b9841614
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 960b372c-ef55-4ca2-8a5c-b9b261a8dcaa
+    name: Double Axe
+    description: When you are wielding two handaxes, you can throw both as a ranged attack, dealing double damage
+      to the target on a hit.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c7570e56-1312-4ae0-8ec4-33e5a67159d4: true
+  domains:
+    CrowdexTrait:c7570e56-1312-4ae0-8ec4-33e5a67159d4: true

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: f79c7cff-4b3e-4e0f-bca0-22e88d06e7e1
+name: Soothing Candies
+description: As a rest activity, you can use your cook's utensils to turn a ration into 1d10 soothing candies (which
+  have an equipment card).
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- b7a9abc3-a1e9-4d5b-9643-0a7da9821815
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 191e7516-6efd-4f9d-a81c-6da41a939f0b
+    name: Soothing Candies
+    description: As a rest activity, you can use your cook's utensils to turn a ration into 1d10 soothing candies
+      (which have an equipment card).
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f79c7cff-4b3e-4e0f-bca0-22e88d06e7e1: true
+  domains:
+    CrowdexTrait:f79c7cff-4b3e-4e0f-bca0-22e88d06e7e1: true

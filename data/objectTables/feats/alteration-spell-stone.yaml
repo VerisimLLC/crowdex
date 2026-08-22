@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 70276d73-036b-42ca-a874-e3f91c313c5a
+name: Spell Stone
+description: Choose up to three alteration spellbooks in your possession. The stone absorbs and destroys those books.
+  A creature wielding the stone has those spellbooks equipped. The stone can only hold three spells.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 694e5060-fb02-4cfd-bfc8-8c68c9577464
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 998f6611-2f66-498c-b997-cea4fb85ecf6
+    name: Spell Stone
+    description: Choose up to three alteration spellbooks in your possession. The stone absorbs and destroys those
+      books. A creature wielding the stone has those spellbooks equipped. The stone can only hold three spells.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:70276d73-036b-42ca-a874-e3f91c313c5a: true
+  domains:
+    CrowdexTrait:70276d73-036b-42ca-a874-e3f91c313c5a: true

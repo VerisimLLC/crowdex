@@ -1,0 +1,150 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: "-MXKRxqZFqZ8i639xrqO"
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Snake, Venomous Giant
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    skillProficiencies: []
+    max_hitpoints: 15
+    cr: 4
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage; boned
+        - 5 damage; twice boned
+      implementation: 3
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: Highly Venomous.
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      implementationDetails: Damage auto-applies; Boned / twice Boned is applied manually.
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      guid: c0e1ffcc-26aa-477a-945e-ac500abbac23
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When the snake gets a tier 2 result with its bite, the target is Boned; on a tier 3 result, it is Boned twice. (Apply the Boned effect manually.)
+      source: Trait
+      name: Highly Venomous
+      modifiers: []
+      implementation: 1
+      guid: 07d3407d-d2f9-4421-be5a-75c3d482696e
+      domains:
+        CharacterFeature:07d3407d-d2f9-4421-be5a-75c3d482696e: true
+    - __typeName: CharacterFeature
+      description: The snake is aware of the exact location of any human, blood creature, demon, or bird or mammal animal within 2 squares and suffers no penalties on attacks against, or tests to observe, them.
+      source: Trait
+      name: Heat Sense
+      modifiers: []
+      implementation: 1
+      guid: 2921edff-ab5a-42bb-b940-0f03b641b2f7
+      domains:
+        CharacterFeature:2921edff-ab5a-42bb-b940-0f03b641b2f7: true
+    walkingSpeed: 6
+    creatureSize: 1L
+    movementSpeeds:
+      climb: 6
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -4
+        id: mind
+    monster_category: Animal
+    keywords:
+      Animal: true
+    crowsSlots: 5
+    monster_type: Snake, Venomous Giant
+  tokenType: null
+  bestiaryId: 1b0669f9-6c7b-4be4-92e5-20c45c9bc5d4
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACqVWW2/bNhT+K4T20mFWIsmyXTtPyYpdgHUo4qB9DI6oI4kwRWokFdct9t93SMmO5zqXbgZsmYfnxu/7SOprdH/vdh3+CS1Gq6jVyjo00YRFdiOk/GB0JbhARV8brb5G97KHOygkOVcgLf5NnkIpcHjNnXigZ3ldCCnc6J+GoOMSJ347X6vABh6ENq8M+aC3aG61lDdjnM8BzhlRkjfUh7yGfMiSlWnCfmKZN1FjhzKRN2T0nLISWqjxihVaYenNUzLPDma3FRwfJ8+hcGRzpj81PYLVdhJbVA6c0CpaTX2b2CG4OzA1Ojv6kpnTkmttxJfRNVqLmpDuDbIj7NSA0Y1w6IclWm5EN0b8JupG7thHVLrVvb0IAX17KEUo+BhhOwk7j0rTo21E5aJV4nkxFO8UWnJN/bjmWhLcq+iHavwEqfimxibT81AYUDXu6/0bg3foQEjfzLuANoPe6Ri6TpKGrtiNB51djhQMI2HZMF+yFlQPUu7C0mCA5Y6kQ+kU+QbKw2pH4zDw5hYl4u3Ql+96g7utNmUQx5q0tBnbp6n33vUwOrO8Vpei2ivrLO1cq6DOXsT+v70M+8tephedqn07dR/meYJpVXEeZ3OAOF8sIF7mM4yBz5IEigJ4Ng1L5R67W7S6Nxx/96FlupzP3kIW5+WiiPNZksdQLTFOYZanSVWki+pUvc8plRPPeVhbOBPChvQiVLAhFPaSYr8KUAFP3oChrtD8gkGkT2zmn0/cvhXtpwYVcw0y60sxr1QGzG9cljHK20vHtsI1TNBEQbqfBO+BWa+NIJIrptU+bDqGTSjk4DAo6oK9uSYp7UKKwY5Vhdw9KuvHbzU7KGakLFmU05x+4jKrlnGeZ2lc4AzixYxPy/xtNl/OwypfFEmpWxAqTJ+itHpVkWcUOh4TJwdC2L1BQTR3Z0C4JwSS/Qce7w4U+v26BTq3dBVwxs8UyaTmAUxvBbVjTU+QT1ghtS4ZN0PaCSuRFDhh2hDXpvTPFtoWJMUI//BSEIqkYf/qqQaVUiWzPZFoLFOadahA+vsoCMI54BvyqT3SLqR1aElITjNdWDQPg5zaixdYz5ZZimVVxVAQDXlWFHGxzJM4qZJpMc/TIqsW/5v1VxV5BeuUjq1RWXw14ec63YLcCFWvO6RrcDU/OhvGq2rnL+vASjgQjN7atdT+opmdHLCj1zOth/u86N1wjlhnUNWueVqG13v/8EIBFj+C7MejPRB2SPFEvfG14bsLZPsCRy8e564IocrvTx7n++wh/kWuHi+kh6DbwFVAkEvRFgNrZ/z3220tvoRr+o8gXfh83wjXaaE8h+nsTOw/bV51qUEKAAA=
+forkTime: 1781750015538
+description: Snake, Venomous Giant
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 27
+ctime: 1787361592409
+mtime: 1787361592409
+hidden: true
+id: 1b0669f9-6c7b-4be4-92e5-20c45c9bc5d4

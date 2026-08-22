@@ -1,0 +1,130 @@
+# Crows Playtest 2 -- Thief (Power 3) (The Ref Book)
+description: Thief (Power 3)
+id: 870182f6-df41-4683-b80a-f64de4ba2ebe
+hidden: false
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Thief (Power 3)
+    keywords:
+      Human: true
+    cr: 3
+    creatureSize: 1M
+    max_hitpoints: 5
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Stealth (2 uses), Thievery (2 uses).'
+      guid: 4a538ac1-1cf7-420c-b864-6c17ac6754ad
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        num: 2
+        name: Expertises
+        description: Stealth (2 uses)
+        guid: bbf78780-e40c-49f9-b409-6e731f036ff2
+        source: Trait
+        sourceguid: 4a538ac1-1cf7-420c-b864-6c17ac6754ad
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+        num: 2
+        name: Expertises
+        description: Thievery (2 uses)
+        guid: c97d28ef-a2bf-45bd-9384-526aff09c55d
+        source: Trait
+        sourceguid: 4a538ac1-1cf7-420c-b864-6c17ac6754ad
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Crowbar, knife, lock pick set.'
+      guid: 3958aff4-1a38-4066-bf3f-a81eb3efe37b
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Disengage
+      description: While wielding a knife, the thief can shift 1 additional square with the Shift maneuver.
+      guid: 2c5de648-b465-58a9-8304-b32491ba5168
+      implementation: 2
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Stealthy
+      description: When the thief tests to hide or sneak while not wearing armor, they can roll twice and choose
+        either result.
+      guid: e05c542e-73e4-5a1a-a418-a25ab2b6ecce
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Knife
+      guid: c78d905b-1a25-4020-9e81-d2523a043f85
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: 'Thrown: Melee 1 or Ranged 5.'
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 3 damage
+        - 5 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Disengage
+      guid: 2f3838ad-562e-58cb-a39b-91a725cf0036
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Shift 2 squares while wielding the required weapon.
+      implementation: 2
+      keywords: {}
+      behaviors:
+      - __typeName: ActivatedAbilityDrawSteelCommandBehavior
+        rule: Shift 2
+    crowsAD: 2

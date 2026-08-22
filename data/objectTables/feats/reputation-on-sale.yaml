@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 0ae3d4ef-9b43-4ecb-9916-b8021af52b60
+name: On Sale
+description: Items affect by your Discount trait are 10% cheaper for you instead of 5%.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 51a89230-6180-432a-bd08-07acc345efd7
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f86cbf34-24c5-4cd2-9d96-b3eeda7c2342
+    name: On Sale
+    description: Items affect by your Discount trait are 10% cheaper for you instead of 5%.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:0ae3d4ef-9b43-4ecb-9916-b8021af52b60: true
+  domains:
+    CrowdexTrait:0ae3d4ef-9b43-4ecb-9916-b8021af52b60: true

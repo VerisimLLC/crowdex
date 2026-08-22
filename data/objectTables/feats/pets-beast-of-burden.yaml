@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: c5fe6fa1-489e-4bf7-a0de-92085f0ece93
+name: Beast of Burden
+description: At the end of a rest, choose one pet you own. This pet gains two additional backpack slots. The additional
+  slots disappear at the end of your next rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- fce3be56-46e6-42bd-bd97-6417ae53775a
+- f7bd9531-bd33-45cb-939a-93f4f526dda4
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 4927a179-511f-40b1-a2d7-a013821e1b3c
+    name: Beast of Burden
+    description: At the end of a rest, choose one pet you own. This pet gains two additional backpack slots. The
+      additional slots disappear at the end of your next rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c5fe6fa1-489e-4bf7-a0de-92085f0ece93: true
+  domains:
+    CrowdexTrait:c5fe6fa1-489e-4bf7-a0de-92085f0ece93: true

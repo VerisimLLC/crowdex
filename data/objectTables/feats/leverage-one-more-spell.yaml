@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7c663de7-291c-4446-8ab5-dcf4a1f4c9ad
+name: One More Spell
+description: You can cast a spell from a spellbook that has no UD remaining. If you do, the spellbook is destroyed
+  after casting the spell.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e6557d05-547c-45d2-b622-9956fae07cc9
+    name: One More Spell
+    description: You can cast a spell from a spellbook that has no UD remaining. If you do, the spellbook is destroyed
+      after casting the spell.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7c663de7-291c-4446-8ab5-dcf4a1f4c9ad: true
+  domains:
+    CrowdexTrait:7c663de7-291c-4446-8ab5-dcf4a1f4c9ad: true

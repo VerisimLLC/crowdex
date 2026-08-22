@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: f5cec97a-ceb0-4623-b620-80d11878fcee
+name: Foraging Expert
+description: When you make a test related to the tracker roll and gain at least 1 ration, you gain 1 additional
+  ration. This trait stacks with Food Finder.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Travel
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 30a8c337-9f90-4143-91a1-965854436a0d
+    name: Foraging Expert
+    description: When you make a test related to the tracker roll and gain at least 1 ration, you gain 1 additional
+      ration. This trait stacks with Food Finder.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f5cec97a-ceb0-4623-b620-80d11878fcee: true
+  domains:
+    CrowdexTrait:f5cec97a-ceb0-4623-b620-80d11878fcee: true

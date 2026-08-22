@@ -1,0 +1,138 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Elephant
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    max_hitpoints: 25
+    cr: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ""
+        - 5 damage
+        - 9 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Stomp
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: 21586690-e495-4f8c-96bc-1b01934798e9
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When hauling a vehicle, the elephant has 15 open slots that can be used to carry equipment.
+      source: Trait
+      name: Draft Animal
+      modifiers: []
+      implementation: 1
+      guid: 0b25c092-1dcb-4519-ae55-1d9d5493b828
+      domains:
+        CharacterFeature:0b25c092-1dcb-4519-ae55-1d9d5493b828: true
+    walkingSpeed: 5
+    skillProficiencies: []
+    creatureSize: "2"
+    keywords:
+      Animal: true
+    monster_category: Animal
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 3
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: -1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    crowsSlots: 25
+    monster_type: Elephant
+  tokenType: null
+  bestiaryId: a6134c32-aea7-4416-b64d-474a20133dab
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACp1UyW7bMBD9FUI9NmosWUos39IN6KFFEAftMRhRI4kIRaokFdcJ+u/lULLhus5WH2yTnPXNe/MQ3dy4TY/foMNoGXVaWYcmOmFRB79uWuF6LZSz0TLN/R030TKZ0eNoF1y92yeJfQvKkR9vwQD3j58R3GDQ+z5ECX39lenDgRm5Vmi5Eb0TWnmLHy0q1sIghWoYsDtsBZd4wlyLDKeE/t2yJGe697ZWamf9MzjGQbES2WCxYk77ozEbhj8H0Xeo3DtKJrpeIp1gzJf4u2YQlc88K9Ocz4o0TipexlmeFDFgnvtjUeVZMS8X6SJApCtRCzShxRs5wDWU0jdXg7T4mxrSHQgVng/7Xb4oydKZwbe8H5xuKLYacfxooHbsQokOJNVk9WA4PVwbEGEgR3yP1boGeeuRXvWIHgOatlAKHF5wJ+78b3VRCimceGygB3YbSl1iC3dCmxe6XOo1mist5fvJj2KAcyZMxTqDqnEtXRpv5K/SKpmxt2xOV247CJ8noovU/+asgg6awK65Pxd752MgvBCrQ+5kVBL2frLXYBokvQRbkoPvr9FG3E+m0Uo0KjCA7QE1DXPldNf/q4RgMXS72L5FshG2l7ChltsBbStqFy1JnKURTesUWjuyumy4lh7MZfSmnj6BKVTFHvmP9N55neEVKA/Yvj7SJF+cnRWzGLMij7N6wePirORxUs6SYp6dFwsswujGBq/HJaG0Crjf4matTRVmtfKzvcUdzb9SvqdIb8ZaRgCelZ/gWoWCBxHTf3tqb4WU9jR516smkCZAOhU4HkLhnGC5wlFMXyhElRRn+QLSOKvOSa6zLIa6wDiBPEtmdZmc19Ur1LZdoBM9NqSGnYa50Wu7om027d2ggXJwo/Z2Qnh0p15s7YMIweJ3kIO3mBMoh1o6UjE0IzNfnSBOthm2IR4hllDVf0RPt9GD/7Nob6/2GTeh/ATHuBk39ErcU1Vp0Arx5tLoWnCBik9L8CUb5A80OwgpYQcAAA==
+forkTime: 1781748676956
+description: Elephant
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 17
+ctime: 1787361592676
+mtime: 1787361592676
+hidden: true
+id: a6134c32-aea7-4416-b64d-474a20133dab

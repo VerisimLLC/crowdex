@@ -1,0 +1,147 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -9
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 31ba7973-e0f1-445c-ad2e-76c1b4b9266f
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Crow, Giant
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      fly: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 6 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Peck
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: efb1e88d-0883-4391-a8cd-929e3c1f0332
+    walkingSpeed: 2
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 15
+    cr: 5
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: While flying, the crow has a +2 bonus to grab other creatures, and creatures take a -2 penalty on tests to escape its grab. (Applied manually.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:8c51ea2a-3b76-4e65-8556-decf8677179f: true
+      name: Grabber
+      guid: 8c51ea2a-3b76-4e65-8556-decf8677179f
+    keywords:
+      Animal: true
+    levelChoices: []
+    damage_taken: 0
+    creatureSize: 1L
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 3686d812-7543-4524-a893-d49b540a6efd
+    crowsSlots: 10
+    monster_type: Crow, Giant
+  tokenType: null
+  bestiaryId: 3abbc74f-10dc-48a2-a429-4d3b3d690a9d
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 3
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACp1V247iRhD9lZbzkmjHs9jYYHgjI2UUKYlGwyj7iMp22S7R7na620zYVf49fYEJy8KEhBfT7VOnbqfKX6LNxuwH/A16jJZRL4U2qKI7Zv/usEdh1gNiraPll6jh+2iZTOy7DR/hBUpuTYwa8S8P95aezBI9KPl6xx4JhHFkNfTQ4sbAFkW0dBT4x0iD43fMJ3wNcP0VYQUGW6ms62glqAfu+CqFYEaFa/rsvCW/+Ijhz01HZpAkjA04yT0wWrqnQi1HVaG+5q7qQEFlHf4UmD0w8ejTAj2cwXxyqCtFgyFpc4s+dcSR2VqRaO+Y6ZBVthasA82AfUhZKcWomZGsVVAyaQGKHdPRdwxE/c+RuYJZszhlAwrgZs+kYAa18QzWLwzIyJ4c2T37fjUMnLBmPYgRON/f/+ACFCH2R4spQ3PbkWp7U1R5gpBCPC3nszjDWR4XeT6La6yaYjafJ/NFE7RQU0Oorlavlj2Q8K/PK7S8yYnX0WVlhcbZaF8UkFcT9QP32oRQ8+Sy4aVAt7h/lSro+SCnd1xz3CF/6CS9IxwSwip0VRna2We9KomToWv6OcPtXToldrAjqW40eZKvqJ4l5z8e7BwHGKN8S7VRKFrTuUtlQfYqrZMJ+8BSd2WOXbR+IneR2ueUhfl056k9z07Ol1K+sdbnbcr8HA5WFi+gWnQz6rFu+sKQ0+cDNFpTK7x82EmhDjp+wmr77dx5wNi/UdsMHYb0wGHvMu5G1B01JuyfUlHbGYFaB/2UbSW5reUy+q45/Jy9dkG8LzMFosWjv8NgYVMmWBR1PCmKaZxNF0kMRVXHi3SB0yppJtOpbweE5F7C0hRS+JqfinRt+7rFN5H+ihzxPcn2DvAcQkpuGV2qpPAxjxS7//qj3hLn+mNyP4jWB1m5/J8PG/Rnh62TxSwvII2zel7GWT7JYmgWGCeQZ8nEJj9vai83341DeuEQ3S6gV+Bbu0X9FyhapkeZl6MJ4/Wm9atbenXE+zkDjb8DHzFwfTMuF6KCNojv/zs4MlzpFon6v5PHb+ze/l8LerwiYTeTFfMOH5UcB1taN/yzYlYXSRrP88xKNU9tK4vFNK6zRZlnE5hhaKX7iuk1l/7T6ibIy+RJyYYqQlHR9RV5HsrfVYoWanUIAAA=
+forkTime: 1781750376056
+description: Crow, Giant
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 25
+ctime: 1787361593209
+mtime: 1787361593209
+hidden: true
+id: 3abbc74f-10dc-48a2-a429-4d3b3d690a9d

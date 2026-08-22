@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 887881a6-ba40-489e-9297-82a8b68d84ec
+name: Summoning Ward
+description: Creatures you summon with conjuration spells have AD equal to their power.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5a1b6e2c-bf91-41e0-a143-e79fc8926e55
+    name: Summoning Ward
+    description: Creatures you summon with conjuration spells have AD equal to their power.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:887881a6-ba40-489e-9297-82a8b68d84ec: true
+  domains:
+    CrowdexTrait:887881a6-ba40-489e-9297-82a8b68d84ec: true

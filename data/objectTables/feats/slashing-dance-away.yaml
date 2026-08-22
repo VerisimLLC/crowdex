@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 25decbbd-ac05-4e95-8f20-58909edb0d97
+name: Dance Away
+description: When you counter, you can take the Shift maneuver as part of the reaction while you are wielding a
+  slashing weapon.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 414b350d-7c36-4410-a8e2-8a38166bdd3a
+- 0b66a5b8-9edb-4cd3-897c-5f09b20faf79
+- cc10fd4a-f31e-43ce-a284-c0c3f2926c73
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 051b5203-43a5-4268-896c-aa91254d4609
+    name: Dance Away
+    description: When you counter, you can take the Shift maneuver as part of the reaction while you are wielding
+      a slashing weapon.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:25decbbd-ac05-4e95-8f20-58909edb0d97: true
+  domains:
+    CrowdexTrait:25decbbd-ac05-4e95-8f20-58909edb0d97: true

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 4f84f4ab-cb93-450d-b2a4-6404b9841614
+name: Stop
+description: When you hit with an opportunity attack made with a chopping weapon, the target's speed is reduced
+  to 0 until the end of the current combat turn.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 3738dd5a-6c54-4367-8093-ff4088ffcbf1
+- 06030926-01b2-43ea-88e8-645e9f480cb0
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: d4873b9f-fab2-4628-986f-2c3c6f904bb4
+    name: Stop
+    description: When you hit with an opportunity attack made with a chopping weapon, the target's speed is reduced
+      to 0 until the end of the current combat turn.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:4f84f4ab-cb93-450d-b2a4-6404b9841614: true
+  domains:
+    CrowdexTrait:4f84f4ab-cb93-450d-b2a4-6404b9841614: true

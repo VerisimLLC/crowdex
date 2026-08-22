@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- Light Armor
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 3b5f4e41-2428-4e6a-9f2d-ebad493545fa
+name: Light Armor
+category: Gear
+costInGold: 50
+crowsAD: 5
+description: 'A suit of light armor. AD 5. Choose one suit of armor in your backpack slots to wear; you
+  can only don a new suit outside of combat. Craft: Blacksmithing (1 use), 20 animal parts, 10.'
+domains:
+  item:3b5f4e41-2428-4e6a-9f2d-ebad493545fa: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 67ebb288-6a5c-4512-a1ab-3f2e3359fa63
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 4

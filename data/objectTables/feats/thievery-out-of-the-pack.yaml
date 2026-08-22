@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 2ccdb795-eb71-42a8-8a1b-5c11ab833db7
+name: Out of the Pack
+description: Each of your backpack slot's number is reduced by 1 (minimum 1).
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 4eda4263-c37a-4a23-a66c-f90df0df9dba
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a868f33b-c0e2-465f-9ec5-36f7f993b409
+    name: Out of the Pack
+    description: Each of your backpack slot's number is reduced by 1 (minimum 1).
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:2ccdb795-eb71-42a8-8a1b-5c11ab833db7: true
+  domains:
+    CrowdexTrait:2ccdb795-eb71-42a8-8a1b-5c11ab833db7: true

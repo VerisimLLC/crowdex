@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: b7a9abc3-a1e9-4d5b-9643-0a7da9821815
+name: Kitchen Alchemy
+description: You can use your cook's utensils instead of alchemist's tools when crafting an alchemy item.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- f8fcbebc-74f9-4dd1-92ac-72a4415cb585
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 91d7c5c9-d64c-4c56-9740-806111116b58
+    name: Kitchen Alchemy
+    description: You can use your cook's utensils instead of alchemist's tools when crafting an alchemy item.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b7a9abc3-a1e9-4d5b-9643-0a7da9821815: true
+  domains:
+    CrowdexTrait:b7a9abc3-a1e9-4d5b-9643-0a7da9821815: true

@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: e5005b00-abca-4430-b097-06bac66a9f34
+name: Prone Position
+description: If you are prone, you gain a +1 bonus on attacks made with crossbows.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c54cbe9e-700b-4a27-bb54-722a60e46cef
+    name: Prone Position
+    description: If you are prone, you gain a +1 bonus on attacks made with crossbows.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e5005b00-abca-4430-b097-06bac66a9f34: true
+  domains:
+    CrowdexTrait:e5005b00-abca-4430-b097-06bac66a9f34: true

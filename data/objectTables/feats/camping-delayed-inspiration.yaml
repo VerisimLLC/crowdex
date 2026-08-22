@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: e0aafa99-2fbe-4bb6-8669-94bca40d9573
+name: Delayed Inspiration
+description: When you use the Song of Rest trait, instead of your allies ending the rest blessed, they can choose
+  to be blessed at the start of any DT before they finish their next rest. They can only make this choice once.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 90ed2217-e60d-4739-9a40-8faf76c08ed7
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 1367f863-9dee-46ee-b29b-2209168e1eca
+    name: Delayed Inspiration
+    description: When you use the Song of Rest trait, instead of your allies ending the rest blessed, they can choose
+      to be blessed at the start of any DT before they finish their next rest. They can only make this choice once.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e0aafa99-2fbe-4bb6-8669-94bca40d9573: true
+  domains:
+    CrowdexTrait:e0aafa99-2fbe-4bb6-8669-94bca40d9573: true

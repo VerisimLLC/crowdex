@@ -1,0 +1,28 @@
+# Crows Playtest 2 -- Crossbow
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 09754d57-39c6-4429-906a-eac0df323c26
+name: Crossbow
+category: Gear
+costInGold: 15
+crowsAmmoType: Bolts
+crowsAttackStat: A
+crowsQualities: Reload
+crowsRangedRange: 15
+crowsTier2: 4 + A
+crowsTier3: 8 + A
+crowsWeaponType: Bow
+description: 'Ranged 15. Attack 2d10 + A; 12-16: 4 + A; 17+: 8 + A. Bow, Reload (use a maneuver to load
+  1 bolt before each attack). Uses bolts. Craft: Blacksmithing (1 use), 1 hickory log, 10.'
+domains:
+  item:09754d57-39c6-4429-906a-eac0df323c26: true
+equipmentCategory: 1ad9b15d-48fa-4689-bcba-8f63b9942d31
+iconid: 4097d7cd-8067-4f27-a458-58e1d0087aad
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 4

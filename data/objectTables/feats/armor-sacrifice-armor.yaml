@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: d53c730f-1d50-406e-a2da-2e513e831a68
+name: Sacrifice Armor
+description: When an attack reduces armor you wear or a shield you wield to 0 AD and there is still damage left,
+  you can reduce the remaining damage to 0. If you do, the armor reduced to 0 AD is destroyed.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 48c84fe3-d3c2-4819-8e10-294f93ff069b
+- 6882c24c-dcac-41a5-b389-904c60b41dfe
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 6698c6d4-a722-41e0-bc2f-c53c1a56ba25
+    name: Sacrifice Armor
+    description: When an attack reduces armor you wear or a shield you wield to 0 AD and there is still damage left,
+      you can reduce the remaining damage to 0. If you do, the armor reduced to 0 AD is destroyed.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d53c730f-1d50-406e-a2da-2e513e831a68: true
+  domains:
+    CrowdexTrait:d53c730f-1d50-406e-a2da-2e513e831a68: true

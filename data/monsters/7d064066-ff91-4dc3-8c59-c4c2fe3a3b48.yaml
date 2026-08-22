@@ -1,0 +1,153 @@
+# Crows Playtest 2 -- Alchemist (The Ref Book)
+description: Alchemist
+id: 7d064066-ff91-4dc3-8c59-c4c2fe3a3b48
+hidden: false
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Alchemist
+    keywords:
+      Human: true
+    cr: 3
+    creatureSize: 1M
+    max_hitpoints: 5
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: -1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Alchemy (3 uses), Magic Lore (1 use), Monster Lore (1 use).'
+      guid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+        num: 3
+        name: Expertises
+        description: Alchemy (3 uses)
+        guid: e658d151-fddb-4966-bbe6-2eae3a117356
+        source: Trait
+        sourceguid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+        num: 1
+        name: Expertises
+        description: Magic Lore (1 use)
+        guid: ea5892c4-7eee-421c-b7da-9ec70c40e664
+        source: Trait
+        sourceguid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+        num: 1
+        name: Expertises
+        description: Monster Lore (1 use)
+        guid: 74e363cb-925d-4020-a2f9-8d5dba98967b
+        source: Trait
+        sourceguid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Acid vial (5), alchemist''s tools, fire bomb, poison vial (5).'
+      guid: ace81ba6-a6b3-4147-b45e-6b6dba2fc83a
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Fire Bomb
+      description: 'The alchemist hurls a bomb up to 10 squares. It explodes in a 3 cube. Each creature in the cube
+        makes an Agility RR: tier 1 10 damage; tier 2 5 damage; tier 3 no damage.'
+      guid: 0e03f450-34cf-52f1-9bb4-9eaa022b18f9
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Unarmed
+      guid: 3fd6a970-1176-46e9-9075-a31b65f25ac5
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 2 damage
+        - 3 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Acid Vial
+      guid: 4ea2e5df-ae83-452f-b2f8-720cc1bc2bda
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 5 damage
+        - 9 damage
+    - __typeName: ActivatedAbility
+      name: Fire Bomb
+      guid: 750fff30-7230-590e-b872-2bc16df4cd05
+      abilityType: none
+      categorization: Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '10'
+      iconid: ui-icons/skills/1.png
+      description: 'Throw up to 10 squares; the bomb explodes in a 3 cube. Each creature makes an Agility RR: tier
+        1 10 damage; tier 2 5 damage; tier 3 no damage.'
+      implementation: 1
+      keywords:
+        Ranged: true
+      behaviors: []

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9ca634b3-d01a-4f1e-a2dd-585254106a68
+name: Split Benefaction
+description: When you cast an benefaction spell that has a target of 1 creature, object, ally, enemy, or target,
+  you can target one additional qualifying target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- e4b284a6-3247-4588-bbdb-4d8157f78ea6
+- 2d8f9e22-e81a-44da-8d07-564ba6ba3fcb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 2d4c154b-e03d-46f3-8e16-7c05498f04cb
+    name: Split Benefaction
+    description: When you cast an benefaction spell that has a target of 1 creature, object, ally, enemy, or target,
+      you can target one additional qualifying target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9ca634b3-d01a-4f1e-a2dd-585254106a68: true
+  domains:
+    CrowdexTrait:9ca634b3-d01a-4f1e-a2dd-585254106a68: true

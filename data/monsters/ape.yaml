@@ -1,0 +1,147 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 6
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: e4831adb-43f6-44d9-9114-fa30feef5982
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1.251365
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Ape
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      climb: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 5 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Punch
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: e06f099c-0bdd-46d1-9e36-8e7f366eba13
+    walkingSpeed: 5
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 10
+    cr: 4
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: While the ape has 0 Stamina, its attacks deal an additional 2 damage. (Applied manually -- conditional on current Stamina.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:ef71920c-f35a-4d73-89be-9f1af83b73c9: true
+      name: Dangerous When Cornered
+      guid: ef71920c-f35a-4d73-89be-9f1af83b73c9
+    keywords:
+      Animal: true
+    levelChoices: []
+    damage_taken: 0
+    creatureSize: 1M
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -1
+        id: mind
+    initiativeGrouping: 6b9871bd-f077-4f7d-ba46-9069b6308e5d
+    crowsSlots: 10
+    monster_type: Ape
+  tokenType: null
+  bestiaryId: 05994ef0-512b-4c9c-b1a1-8fa14c249483
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 2
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACpVVXZPaNhT9Kxr3pZ1EGxuDwbzR7TSTh3R2lp3mkbmWrm0NsuRKMhuS6X+vJANDKWwJD9iSzz3361zpe7LZuH2Pf0CHyTLptLIOTfKe+NcddqjcukfkNll+T5gUXZUsZ/7jRg7wApX0Ns4M+HfER9PI5plW/t/vcuigwY2DLapkmfod/GsQfSAOlGc8NUj7LyIGDhtt9oFMiQ5k4GMGwQ0G1+Jb8JJ9jqHC100rXK+Fcj7SLI3AZDn1T4NWD4ahveWOtWCAeYe/j8wRmEX0eWUeL2AxObTMiN4J7XNLvrRCInEtEuiRtGBJStYOOqHgPRHOEnAO2NYSjiAJKAKci2DrVxMyFuqB/LzqeymQkw7UAFLuCaWEaXWCakXYYIwv4JH94ZcQjBrj/A1Ug0YPlnxpUZFHbRQa5AHRDIJ7BNbzrJykjNb5DOiUz3O6KCukZZ1Bvcirec7KUQBc1ALNzcpx3YFQ8fNldZZ3OYnaua6msWk+2hcDwoVwRNfLKEgY651dN7wW6Bb3r9qMIj5I6Q3XEncoH1st3hCNUMqrc8Wc2PknX1VC+v7c0s4Fbh/SqbCFndDmTpMn/YrmWUv568EucHhBmdhS67weGteGTeNBfmvCs5S8I5Ow5Y5d9H6SsDHxz/wgubDO/Xp2tr6W8p21vmzTOIO9l8ULmAbDfEZsmLxxwMW3AzRZi0ZF+ZCzQh10/TQo1v536CJi6E7cPsWAEbaXsA8ptwPaVtRuPHwqI5rWKbR2FFDVMC19MZfJT/XhF+xtiOJtnZkwZ0d/x8lKizotS0bTinM6LXhGS8wLusB5nRcFVpDlsW9jdi/jSam0ikU/V+naN3aLJ5V+Ron4lma7AHgeQ8rumV3hj5QY8yBoeLcf7FZIaT9kD71qYpAs5P98OD4/BSzPymK2gEmY54pOZ+mUQl0izWA2zdK6yuZ1PGhc7MYhvXGR3K+gV5BboZp474y3TdR5Nbhxvk5iv3lEr474OGhg8U+Qg0dMQuKX83IlKmhG9f2wg+zo4Mhwo1tC8R8npyf2aP+/BT1uCeWPJi/mHX7090LvS+spiqpczLOK0zqdz+m0nnNawbSgZVqUVZGnC5zx8b7Vr3Yt9elejTJ5MroWTKBi4vYZeRnKP/lZYBhrCAAA
+forkTime: 1781750546040
+description: Ape
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 1
+ctime: 1787361593529
+mtime: 1787361593529
+hidden: true
+id: 05994ef0-512b-4c9c-b1a1-8fa14c249483

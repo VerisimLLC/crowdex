@@ -1,0 +1,35 @@
+_table: feats
+__typeName: CharacterFeat
+id: 694e5060-fb02-4cfd-bfc8-8c68c9577464
+name: Movement Stone
+description: 'Add the following benefits to those your stone can confer:
+
+  - You can breathe underwater and gain a swimming speed equal to your speed.
+
+  - You gain a climbing speed equal to your speed.'
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- b318ad46-7a5d-4f62-844c-d6f83cd83346
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 808d1056-895c-48d4-9133-29c6f3399e7b
+    name: Movement Stone
+    description: 'Add the following benefits to those your stone can confer:
+
+      - You can breathe underwater and gain a swimming speed equal to your speed.
+
+      - You gain a climbing speed equal to your speed.'
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:694e5060-fb02-4cfd-bfc8-8c68c9577464: true
+  domains:
+    CrowdexTrait:694e5060-fb02-4cfd-bfc8-8c68c9577464: true

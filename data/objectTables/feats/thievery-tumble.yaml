@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 51688352-5f71-4f9e-8817-61be0eaff524
+name: Tumble
+description: When you take damage while not wearing armor, you can use your reaction to halve the damage. You can
+  use this trait a number of times equal to your Agility and then must finish a rest before your use it again.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- f83a47c8-e17c-4779-936f-aecae089fb63
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: eb997da1-1356-4e5c-af45-49d6a866bde9
+    name: Tumble
+    description: When you take damage while not wearing armor, you can use your reaction to halve the damage. You
+      can use this trait a number of times equal to your Agility and then must finish a rest before your use it
+      again.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:51688352-5f71-4f9e-8817-61be0eaff524: true
+  domains:
+    CrowdexTrait:51688352-5f71-4f9e-8817-61be0eaff524: true

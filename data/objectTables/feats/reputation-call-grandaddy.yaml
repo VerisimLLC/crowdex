@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: f27676a3-bedc-4c47-a5cd-519cd2a64ada
+name: Call Grandaddy
+description: Your Call Daddy trait increase the AO chances by 10% instead of 5%.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- b2d76142-c4d9-439e-a3f5-ff6e4d42946c
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: d341abee-5cec-48a3-a0e5-e6efaa26ef05
+    name: Call Grandaddy
+    description: Your Call Daddy trait increase the AO chances by 10% instead of 5%.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f27676a3-bedc-4c47-a5cd-519cd2a64ada: true
+  domains:
+    CrowdexTrait:f27676a3-bedc-4c47-a5cd-519cd2a64ada: true

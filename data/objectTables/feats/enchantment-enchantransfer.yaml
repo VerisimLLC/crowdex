@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: aab5d0f5-f2a2-44d5-b7a8-75c892f81e17
+name: Enchantransfer
+description: As a rest activity, choose two weapons or two suits of armor or two shields you can touch. At least
+  one item must be magic. The magic properties of each item are swapped with the other.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 9a2d5c11-936d-4e98-b48f-971af7db920b
+- 3d6763a5-e043-4beb-a580-1b455c497751
+- a6f43698-1eb3-42ed-9f3e-e770e7124d6d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: b0e2961d-a4bb-4680-b94f-ad29cde536c9
+    name: Enchantransfer
+    description: As a rest activity, choose two weapons or two suits of armor or two shields you can touch. At least
+      one item must be magic. The magic properties of each item are swapped with the other.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:aab5d0f5-f2a2-44d5-b7a8-75c892f81e17: true
+  domains:
+    CrowdexTrait:aab5d0f5-f2a2-44d5-b7a8-75c892f81e17: true

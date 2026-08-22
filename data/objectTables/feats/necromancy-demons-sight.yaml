@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: d8140882-4a76-4176-8e1c-d1d98f560d4e
+name: Demon's Sight
+description: When you cast a necromancy spell, you treat dim light and darkness as if they were bright light until
+  the end of the DT.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- d4f5bc55-7a3d-4e0d-b299-e13aa4779d3b
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5594b0dc-de3a-46cc-9f09-aeeb8ec05c52
+    name: Demon's Sight
+    description: When you cast a necromancy spell, you treat dim light and darkness as if they were bright light
+      until the end of the DT.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d8140882-4a76-4176-8e1c-d1d98f560d4e: true
+  domains:
+    CrowdexTrait:d8140882-4a76-4176-8e1c-d1d98f560d4e: true

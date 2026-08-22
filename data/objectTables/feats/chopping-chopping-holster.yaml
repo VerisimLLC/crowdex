@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 75cd4bbe-252d-4619-8101-4269ff53b833
+name: Chopping Holster
+description: You gain an additional belt slot that can only hold chopping weapons.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 417ecc6e-1631-4367-bcf7-c3e22eb2df36
+- 4f84f4ab-cb93-450d-b2a4-6404b9841614
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e9d61f7a-da54-4270-9857-c4266fb9b0c5
+    name: Chopping Holster
+    description: You gain an additional belt slot that can only hold chopping weapons.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:75cd4bbe-252d-4619-8101-4269ff53b833: true
+  domains:
+    CrowdexTrait:75cd4bbe-252d-4619-8101-4269ff53b833: true

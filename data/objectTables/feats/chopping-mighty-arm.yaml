@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 55a44276-b9bb-4fa9-aca2-b8652a0e1a19
+name: Mighty Arm
+description: While you wield a handaxe, it's non-melee range increases by 2 squares. This bonus stacks with Axe
+  Hurler.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 56df2251-c51b-4728-a478-fe661c98e39c
+- 474027a3-65f9-4ef0-84a6-153618c38e96
+- 3526cb24-510a-4e8e-99bd-4fca365ef6fd
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 3230fecd-1a78-4139-894b-b3e732c718ac
+    name: Mighty Arm
+    description: While you wield a handaxe, it's non-melee range increases by 2 squares. This bonus stacks with
+      Axe Hurler.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:55a44276-b9bb-4fa9-aca2-b8652a0e1a19: true
+  domains:
+    CrowdexTrait:55a44276-b9bb-4fa9-aca2-b8652a0e1a19: true

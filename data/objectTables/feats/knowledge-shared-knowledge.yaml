@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 96914cd2-2c4e-4e0a-96a0-131eafbbdb6d
+name: Shared Knowledge
+description: When you read a lore book as a rest activity to gain an expertise, you can read the book aloud. If
+  you do, choose one human who rests with you. They gain the benefit too.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- c20b36a4-90bc-4f08-9d82-f83f0ebed958
+- 05cc2cc4-84da-448f-a7dd-0983da276b2a
+- 728b3ca7-5616-4c5c-a02e-4fc78b3985ef
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f59d5626-c8b2-4065-a254-7fbb513e1129
+    name: Shared Knowledge
+    description: When you read a lore book as a rest activity to gain an expertise, you can read the book aloud.
+      If you do, choose one human who rests with you. They gain the benefit too.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:96914cd2-2c4e-4e0a-96a0-131eafbbdb6d: true
+  domains:
+    CrowdexTrait:96914cd2-2c4e-4e0a-96a0-131eafbbdb6d: true

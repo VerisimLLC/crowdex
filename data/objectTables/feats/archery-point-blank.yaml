@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: b2a925f0-a795-4836-a41d-c6f46ffdbaa4
+name: Point Blank
+description: When you make a ranged attack with a bow, you don't suffer the -1 penalty for having an enemy within
+  1 square of you.
+tag: Crows Trait
+implementation: 2
+crowdexTraitTree: Archery
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: dc797da9-9930-4602-82d7-e9bcf802d3d7
+    name: Point Blank
+    description: When you make a ranged attack with a bow, you don't suffer the -1 penalty for having an enemy within
+      1 square of you.
+    implementation: 2
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b2a925f0-a795-4836-a41d-c6f46ffdbaa4: true
+  domains:
+    CrowdexTrait:b2a925f0-a795-4836-a41d-c6f46ffdbaa4: true

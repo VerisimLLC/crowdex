@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: f7f6e4fb-7774-42ec-a881-6209f55f4d96
+name: Alteration Stone
+description: As a rest activity, you can create an alteration stone (which has an equipment card). This stone disappears
+  if you create a new one.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0f64443f-e503-47bc-bfea-700300aef0c7
+    name: Alteration Stone
+    description: As a rest activity, you can create an alteration stone (which has an equipment card). This stone
+      disappears if you create a new one.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f7f6e4fb-7774-42ec-a881-6209f55f4d96: true
+  domains:
+    CrowdexTrait:f7f6e4fb-7774-42ec-a881-6209f55f4d96: true

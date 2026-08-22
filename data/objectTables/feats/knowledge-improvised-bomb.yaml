@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 31328eba-37fd-4e73-9c2e-8cf71f255136
+name: Improvised Bomb
+description: As a rest activity, you can make 1 fire bomb without any materials or crafting rolls. The bomb becomes
+  useless at the end of your next rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- c20b36a4-90bc-4f08-9d82-f83f0ebed958
+- 05cc2cc4-84da-448f-a7dd-0983da276b2a
+- 728b3ca7-5616-4c5c-a02e-4fc78b3985ef
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 393c22c9-7a48-4ac3-b74f-3911dfb9a1c7
+    name: Improvised Bomb
+    description: As a rest activity, you can make 1 fire bomb without any materials or crafting rolls. The bomb
+      becomes useless at the end of your next rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:31328eba-37fd-4e73-9c2e-8cf71f255136: true
+  domains:
+    CrowdexTrait:31328eba-37fd-4e73-9c2e-8cf71f255136: true

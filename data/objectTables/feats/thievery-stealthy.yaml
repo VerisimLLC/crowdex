@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: df157c28-86b3-4ece-bf40-0c3cbf2225d8
+name: Stealthy
+description: When you make a test to hide or sneak while you are not wearing armor, you can roll the test twice
+  and choose either result.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 83b93af7-89ab-4245-9e19-eff0d3e107ff
+    name: Stealthy
+    description: When you make a test to hide or sneak while you are not wearing armor, you can roll the test twice
+      and choose either result.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:df157c28-86b3-4ece-bf40-0c3cbf2225d8: true
+  domains:
+    CrowdexTrait:df157c28-86b3-4ece-bf40-0c3cbf2225d8: true

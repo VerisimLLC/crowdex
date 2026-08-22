@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: ff0e7eb8-9a6d-422b-bf60-a77ac8ed2fe5
+name: Fire Bomb
+description: You can use a lit lantern like a fire bomb. The lantern and its oil are destroyed after being used
+  this way.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 8329e805-83ac-4296-a29d-af1b944a2fd6
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 62e41257-0955-469e-bb25-e61fe0402247
+    name: Fire Bomb
+    description: You can use a lit lantern like a fire bomb. The lantern and its oil are destroyed after being used
+      this way.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:ff0e7eb8-9a6d-422b-bf60-a77ac8ed2fe5: true
+  domains:
+    CrowdexTrait:ff0e7eb8-9a6d-422b-bf60-a77ac8ed2fe5: true

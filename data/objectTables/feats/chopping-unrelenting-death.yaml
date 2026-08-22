@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 06030926-01b2-43ea-88e8-645e9f480cb0
+name: Unrelenting Death
+description: When you score a crit with a chopping weapon, any other chopping weapon attacks you make one the same
+  turn gain a +2 bonus.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 56df2251-c51b-4728-a478-fe661c98e39c
+- 474027a3-65f9-4ef0-84a6-153618c38e96
+- 3526cb24-510a-4e8e-99bd-4fca365ef6fd
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: cb7bcb47-d89b-4a22-9d69-ba85d1305905
+    name: Unrelenting Death
+    description: When you score a crit with a chopping weapon, any other chopping weapon attacks you make one the
+      same turn gain a +2 bonus.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:06030926-01b2-43ea-88e8-645e9f480cb0: true
+  domains:
+    CrowdexTrait:06030926-01b2-43ea-88e8-645e9f480cb0: true

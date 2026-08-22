@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Crowbar
+_table: tbl_Gear
+__typeName: equipment
+id: 8cf7ef9d-dbfe-40ca-8f4a-cb08b1132f4d
+name: "Crowbar"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1094aa90-9cca-4f10-b4d6-5a2ab5457f95
+costInGold: 10
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "An iron bar used for prying. A fine crowbar grants +1 on tests that use it; a masterwork crowbar grants +2."
+implementation: 1
+domains:
+  item:8cf7ef9d-dbfe-40ca-8f4a-cb08b1132f4d: true

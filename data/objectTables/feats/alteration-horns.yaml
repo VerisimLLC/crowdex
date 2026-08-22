@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: d8a53287-6f0d-42bd-9a4a-50b1b3084c65
+name: Horns
+description: When you cast an alteration spell, you can harness the magic to grow horns from your head that last
+  until the end of the DT. You can make an unarmed attack with the horns as a maneuver.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 30dad5e1-294e-400e-9e40-6e3149d6f8cf
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 32e8f00a-d919-4e26-89be-2ab83020ce3f
+    name: Horns
+    description: When you cast an alteration spell, you can harness the magic to grow horns from your head that
+      last until the end of the DT. You can make an unarmed attack with the horns as a maneuver.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d8a53287-6f0d-42bd-9a4a-50b1b3084c65: true
+  domains:
+    CrowdexTrait:d8a53287-6f0d-42bd-9a4a-50b1b3084c65: true

@@ -112,6 +112,18 @@ end
 local function BuildCrowsSpellbookAbility(c, item)
     local discipline = item:try_get("crowsSpellDiscipline", "")
     local roll = "2d10 + Mind"
+    local mind = c:AttributeMod("mind")
+
+    local function HasTrait(name)
+        return CrowdexTraits ~= nil and CrowdexTraits.Has ~= nil and CrowdexTraits.Has(c, name)
+    end
+
+    local function AddMindToCharacteristicText(text, outcome)
+        local pattern = "(%d+)%s*%+%s*M(%s+" .. outcome .. ")"
+        return string.gsub(text, pattern, function(base, suffix)
+            return string.format("%d + M%s", (tonumber(base) or 0) + mind, suffix)
+        end)
+    end
 
     local attack = item:try_get("crowsSpellAttack", false)
     local keywords = { Magic = true }
@@ -125,6 +137,34 @@ local function BuildCrowsSpellbookAbility(c, item)
         item:try_get("crowsSpellTier3", ""),
     }
 
+    if discipline == "Elemental" and HasTrait("Burn Baby") then
+        for i, text in ipairs(tiers) do tiers[i] = AddMindToCharacteristicText(text, "damage") end
+    elseif discipline == "Benefaction" and HasTrait("Enhanced Healing") then
+        for i, text in ipairs(tiers) do tiers[i] = AddMindToCharacteristicText(text, "Stamina") end
+    elseif discipline == "Conjuration" and HasTrait("Jumper") then
+        for i, text in ipairs(tiers) do tiers[i] = AddMindToCharacteristicText(text, "squares") end
+    end
+
+    -- Crows spell cards use "N + M" shorthand. Resolve it while the generated
+    -- ability has its caster so the downstream Draw Steel command parser sees
+    -- an exact number and never consults stale Draw Steel characteristic ids.
+    for i, text in ipairs(tiers) do
+        tiers[i] = string.gsub(text, "(%d+)%s*%+%s*M", function(base)
+            return tostring((tonumber(base) or 0) + mind)
+        end)
+    end
+
+    local rangeBonus = 0
+    if item:try_get("crowsSpellRanged", false) then
+        if discipline == "Elemental" and HasTrait("Hurl the Storm") then
+            rangeBonus = mind
+        elseif discipline == "Illusion" and HasTrait("Long-Distance Illusion") then
+            rangeBonus = mind
+        elseif discipline == "Necromancy" and HasTrait("Distant Necromancy") then
+            rangeBonus = mind
+        end
+    end
+
     local descLines = {}
     local rank = item:try_get("crowsSpellRank")
     descLines[#descLines + 1] = string.format("Casting (%s%s): 2d10 + Mind.",
@@ -133,6 +173,7 @@ local function BuildCrowsSpellbookAbility(c, item)
     local rangeText = item:try_get("crowsSpellRangeText")
     if rangeText ~= nil and rangeText ~= "" then
         descLines[#descLines + 1] = "Range: " .. rangeText
+            .. cond(rangeBonus ~= 0, string.format(" (%+d from trait)", rangeBonus), "")
     end
     local targetText = item:try_get("crowsSpellTargetText")
     if targetText ~= nil and targetText ~= "" then
@@ -140,6 +181,19 @@ local function BuildCrowsSpellbookAbility(c, item)
     end
     local durationText = item:try_get("crowsSpellDuration")
     if durationText ~= nil and durationText ~= "" then
+        local lastingTrait = nil
+        if discipline == "Alteration" then
+            lastingTrait = "Lasting Alteration"
+        elseif discipline == "Benefaction" then
+            lastingTrait = "Lasting Benefaction"
+        elseif discipline == "Conjuration" then
+            lastingTrait = "Lasting Conjuration"
+        elseif discipline == "Illusion" then
+            lastingTrait = "Lasting Illusion"
+        end
+        if lastingTrait ~= nil and string.find(string.upper(durationText), "UD", 1, true) and HasTrait(lastingTrait) then
+            durationText = durationText .. " (+1 UD from " .. lastingTrait .. ")"
+        end
         descLines[#descLines + 1] = "Duration: " .. durationText
     end
     local cardText = item:try_get("description")
@@ -147,11 +201,11 @@ local function BuildCrowsSpellbookAbility(c, item)
         descLines[#descLines + 1] = cardText
     end
 
-    return ActivatedAbility.Create{
+    local ability = ActivatedAbility.Create{
         name = item.name,
         description = table.concat(descLines, "\n"),
         iconid = item:try_get("iconid"),
-        range = item:try_get("crowsSpellRange", 1),
+        range = math.max(0, item:try_get("crowsSpellRange", 1) + rangeBonus),
         targetType = item:try_get("crowsSpellTargetType", "target"),
         numTargets = item:try_get("crowsSpellNumTargets", 1),
         keywords = keywords,
@@ -166,6 +220,8 @@ local function BuildCrowsSpellbookAbility(c, item)
             },
         },
     }
+    ability.crowdexExpertiseId = CrowdexExpertise.IdByName(discipline, "Spellcasting") or ""
+    return ability
 end
 
 -- The casting abilities for this crow's wielded spellbooks: one per hand-slot

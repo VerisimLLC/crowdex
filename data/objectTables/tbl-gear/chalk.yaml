@@ -1,0 +1,20 @@
+# Crows Playtest 2 -- Chalk
+_table: tbl_Gear
+__typeName: equipment
+id: b94b8de4-0f4d-4bab-a9c1-42602a10eae0
+name: "Chalk"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: f8fac2c7-0b4b-4248-880e-05036dd13a94
+costInGold: 1
+weight: 0
+stackLimit: 5
+slotsRequired: 1
+description: "A piece of blue, white, or yellow chalk. Use it to mark your way or leave messages on stone. UD 1, rolled on activation; the chalk is useless when depleted."
+implementation: 1
+domains:
+  item:b94b8de4-0f4d-4bab-a9c1-42602a10eae0: true
+usageDice: 1
+usageDiceTrigger: activate
+usageDiceRestore: useless

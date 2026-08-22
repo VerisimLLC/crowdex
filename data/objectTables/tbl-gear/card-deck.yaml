@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Card Deck
+_table: tbl_Gear
+__typeName: equipment
+id: 68420daf-be5a-4a42-bb48-732baecfb822
+name: "Card Deck"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 1
+weight: 0
+stackLimit: 5
+slotsRequired: 1
+description: "A standard deck of 54 playing cards, including two jokers."
+implementation: 1
+domains:
+  item:68420daf-be5a-4a42-bb48-732baecfb822: true

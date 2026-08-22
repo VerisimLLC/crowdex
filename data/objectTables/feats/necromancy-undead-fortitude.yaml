@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: d6ae0bd2-5083-4c08-86c8-99fcb8609f82
+name: Undead Fortitude
+description: When you cast a necromancy spell, you don't need to breathe and can't suffocate until the end of the
+  DT. If you are already under this effect, you can choose a willing ally within 5 squares of you to have it.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a0da6615-1032-4e77-aa00-235b059dbac9
+    name: Undead Fortitude
+    description: When you cast a necromancy spell, you don't need to breathe and can't suffocate until the end of
+      the DT. If you are already under this effect, you can choose a willing ally within 5 squares of you to have
+      it.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d6ae0bd2-5083-4c08-86c8-99fcb8609f82: true
+  domains:
+    CrowdexTrait:d6ae0bd2-5083-4c08-86c8-99fcb8609f82: true

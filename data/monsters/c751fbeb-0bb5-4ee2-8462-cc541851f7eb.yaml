@@ -1,0 +1,138 @@
+# Crows Playtest 2 -- Thief (Power 9) (The Ref Book)
+description: Thief (Power 9)
+id: c751fbeb-0bb5-4ee2-8462-cc541851f7eb
+hidden: false
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Thief (Power 9)
+    keywords:
+      Human: true
+    cr: 9
+    creatureSize: 1M
+    max_hitpoints: 35
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 3
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Stealth (4 uses), Thievery (4 uses).'
+      guid: 965ee8d8-a944-48db-bb26-629f16e9cc2f
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        num: 4
+        name: Expertises
+        description: Stealth (4 uses)
+        guid: 5fea9448-7c9b-428c-af06-1bf0642e28d6
+        source: Trait
+        sourceguid: 965ee8d8-a944-48db-bb26-629f16e9cc2f
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+        num: 4
+        name: Expertises
+        description: Thievery (4 uses)
+        guid: 61dfe002-6221-4216-8113-b443c4c5c6d0
+        source: Trait
+        sourceguid: 965ee8d8-a944-48db-bb26-629f16e9cc2f
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Crowbar, knife, lock pick set (fine).'
+      guid: 6522254b-7ed2-4747-a193-e0aa7c5f7f9e
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Book discrepancy
+      description: 'Book prints Power: 6 in the block titled Thief (Power 9). Recorded as 9: the title and the stat
+        ladder agree, and the Power 6 Thief is a separate block at Stamina 20.'
+      guid: f13d3d90-e4e0-476c-8546-5aa9b297e62e
+      implementation: 0
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Disengage
+      description: While wielding a knife, the thief can shift 1 additional square with the Shift maneuver.
+      guid: 458d4e29-8f8d-58c3-a00b-ea348d80c2ee
+      implementation: 2
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Master Thief
+      description: When the thief makes an Agility RR or tests to hide, sneak, or pick a lock while not wearing
+        armor, they can roll twice and choose either result.
+      guid: b2c18b85-ad3c-5f97-9cf9-f01878e1ddcd
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Knife
+      guid: 69696274-e6f6-4cfd-ab7d-c7184dc2d62d
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: 'Thrown: Melee 1 or Ranged 5.'
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 5 damage
+        - 7 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Disengage
+      guid: 8ba14ceb-93b3-58a1-9f70-e37c0dddaeb6
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Shift 2 squares while wielding the required weapon.
+      implementation: 2
+      keywords: {}
+      behaviors:
+      - __typeName: ActivatedAbilityDrawSteelCommandBehavior
+        rule: Shift 2
+    crowsAD: 2

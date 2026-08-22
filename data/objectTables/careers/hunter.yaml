@@ -1,0 +1,258 @@
+# Crows Playtest 2 -- background: Hunter
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: 7e89830f-6132-4fa3-bb47-1102dfa99a4c
+name: "Hunter"
+description: "You tracked animals in the wild and foraged for food."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: d034c16c-af3c-4dd9-b71b-c70e0d13b65f
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Agility to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: 64cbcfe1-31f2-4b50-976d-cc23e1444ad6
+      implementation: 3
+      source: "Hunter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: bb3b1a71-9065-41ae-b387-8439c65a8e31
+        source: "Hunter Career Feature"
+        sourceguid: 64cbcfe1-31f2-4b50-976d-cc23e1444ad6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 186a99d7-4a70-4324-8597-dc9f9f5c2815
+        source: "Hunter Career Feature"
+        sourceguid: 64cbcfe1-31f2-4b50-976d-cc23e1444ad6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 206b4a91-edfd-489d-bb83-fb319a018117
+        source: "Hunter Career Feature"
+        sourceguid: 64cbcfe1-31f2-4b50-976d-cc23e1444ad6
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: 9c3a74c3-731e-430e-8168-4c28dd449814
+      implementation: 3
+      source: "Hunter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 3a4feb8b-50ad-4954-9523-9d63c61e4be7
+        source: "Hunter Career Feature"
+        sourceguid: 9c3a74c3-731e-430e-8168-4c28dd449814
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 84dd8ac4-4b4c-464d-a483-b0cee1af2a2a
+        source: "Hunter Career Feature"
+        sourceguid: 9c3a74c3-731e-430e-8168-4c28dd449814
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 39d1b251-e2f4-490f-a440-efcbfb6e211a
+        source: "Hunter Career Feature"
+        sourceguid: 9c3a74c3-731e-430e-8168-4c28dd449814
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 689bf88e-8727-4892-b020-d7ea729afee0
+      implementation: 3
+      source: "Hunter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 02ca9217-9351-42c8-b651-30e43a552f1d
+        source: "Hunter Career Feature"
+        sourceguid: 689bf88e-8727-4892-b020-d7ea729afee0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a55c68a7-c885-4de0-a7e7-b82a7e3fcde8
+        source: "Hunter Career Feature"
+        sourceguid: 689bf88e-8727-4892-b020-d7ea729afee0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 012b2dc0-1be8-419d-a4b9-b3cc29695151
+        source: "Hunter Career Feature"
+        sourceguid: 689bf88e-8727-4892-b020-d7ea729afee0
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 2242fafd-f65d-4ea6-8ac4-373855e851e7
+      implementation: 3
+      source: "Hunter Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: aaac1e7f-4694-4c93-957e-7abea2be42ab
+        source: "Hunter Career Feature"
+        sourceguid: 2242fafd-f65d-4ea6-8ac4-373855e851e7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 6069104b-c3cb-4adc-89ca-90c215763256
+        source: "Hunter Career Feature"
+        sourceguid: 2242fafd-f65d-4ea6-8ac4-373855e851e7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: d4fa8c35-f9dc-4f9b-93d4-90a037c0aaca
+        source: "Hunter Career Feature"
+        sourceguid: 2242fafd-f65d-4ea6-8ac4-373855e851e7
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: 292e1e84-48b6-4f00-b096-e50772ff32fd
+    implementation: 3
+    source: "Hunter Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: 3c0ad878-d13b-4600-a052-c0048b685c57
+      source: "Hunter Career Feature"
+      sourceguid: 292e1e84-48b6-4f00-b096-e50772ff32fd
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (1 use), Bow (2 uses), Handle Pet (2 uses), Nature Lore (2 uses), Navigate (1 use), Stealth (1 use)."
+    guid: e069ee0b-2315-45e5-af87-dc47abe5c0bf
+    implementation: 3
+    source: "Hunter Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: 14de5ebc-f0f8-40d1-8b60-ea5e40a5ad29
+      source: "Hunter Career Feature"
+      sourceguid: e069ee0b-2315-45e5-af87-dc47abe5c0bf
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+      num: 2
+      name: Expertises
+      description: "Bow (2 uses)"
+      guid: 3d92d63c-19a4-4898-babc-2b77ebb5991d
+      source: "Hunter Career Feature"
+      sourceguid: e069ee0b-2315-45e5-af87-dc47abe5c0bf
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      num: 2
+      name: Expertises
+      description: "Handle Pet (2 uses)"
+      guid: 666aad48-2246-44ff-b79b-e7e409ed9f90
+      source: "Hunter Career Feature"
+      sourceguid: e069ee0b-2315-45e5-af87-dc47abe5c0bf
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: a22217c6-65ed-4254-8936-754c4a180237
+      num: 2
+      name: Expertises
+      description: "Nature Lore (2 uses)"
+      guid: 5fb3219e-5c7d-4541-91cc-af717488c8a4
+      source: "Hunter Career Feature"
+      sourceguid: e069ee0b-2315-45e5-af87-dc47abe5c0bf
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+      num: 1
+      name: Expertises
+      description: "Navigate (1 use)"
+      guid: cb308565-8db5-43d2-95db-c92238c84e93
+      source: "Hunter Career Feature"
+      sourceguid: e069ee0b-2315-45e5-af87-dc47abe5c0bf
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+      num: 1
+      name: Expertises
+      description: "Stealth (1 use)"
+      guid: 32dfd52a-c9c0-4e7e-9139-d814ef8814f2
+      source: "Hunter Career Feature"
+      sourceguid: e069ee0b-2315-45e5-af87-dc47abe5c0bf
+  - __typeName: CharacterFeature
+    name: "Trait: Foraging Expert"
+    description: "When you make a test related to the tracker roll and gain at least 1 ration, you gain 1 additional ration. This trait stacks with Food Finder."
+    guid: 59077328-5c5f-443e-bb46-fcfc2ca5d47f
+    implementation: 1
+    source: "Hunter Career Feature"
+    crowdexTraitId: f5cec97a-ceb0-4623-b620-80d11878fcee
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Torch, Bear Trap, Quiver of Arrows, Animal Feed x6. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: b9f0b3b3-e05b-401d-96f7-fc07b1c2a535
+    implementation: 2
+    source: "Hunter Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: ce801e22-54d9-45ca-a32d-a0e51d92dc70
+      source: "Hunter Career Feature"
+      sourceguid: b9f0b3b3-e05b-401d-96f7-fc07b1c2a535
+      equipment:
+      - itemid: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+        quantity: 1
+      - itemid: aeeaf03c-cdbf-493c-b0e9-d45ebb0efd4d
+        quantity: 1
+      - itemid: 8a2ea3cb-6c17-443a-af68-e57939d1671b
+        quantity: 1
+      - itemid: 20815e97-82f3-4161-8671-52eb66b2a2bc
+        quantity: 6

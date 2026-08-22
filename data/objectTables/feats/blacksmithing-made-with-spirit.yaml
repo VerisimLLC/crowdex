@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 46c3b6b9-5a01-4374-9aca-50a922f2f200
+name: Made with Spirit
+description: You can ignore the material requirements for crafting a blacksmithing item if the item's crafting goal
+  is 100 or lower.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 12bea291-028f-4b05-8b68-4bb4a483cf52
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a5965085-670e-43b4-bbc9-74e047559042
+    name: Made with Spirit
+    description: You can ignore the material requirements for crafting a blacksmithing item if the item's crafting
+      goal is 100 or lower.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:46c3b6b9-5a01-4374-9aca-50a922f2f200: true
+  domains:
+    CrowdexTrait:46c3b6b9-5a01-4374-9aca-50a922f2f200: true

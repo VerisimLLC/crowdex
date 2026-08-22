@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 0383b04c-b5d5-4cc8-a14a-ae0e85e29885
+name: Conjuration Mastery
+description: Non-doom tier 1 results of rank 0 and 1 conjuration spells you cast don't add to the chaos count. Your
+  conjuration spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 45fcc40f-374c-4cc6-83c0-55f7bb3262b6
+- fb82532c-30e5-4828-ba00-b887f3e47af1
+- 887881a6-ba40-489e-9297-82a8b68d84ec
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 82b09496-a26b-41e7-a63a-d8b3a03fe1db
+    name: Conjuration Mastery
+    description: Non-doom tier 1 results of rank 0 and 1 conjuration spells you cast don't add to the chaos count.
+      Your conjuration spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:0383b04c-b5d5-4cc8-a14a-ae0e85e29885: true
+  domains:
+    CrowdexTrait:0383b04c-b5d5-4cc8-a14a-ae0e85e29885: true

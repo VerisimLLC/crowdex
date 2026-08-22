@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 755eed98-792b-4929-9554-35bc9e7ba5bf
+name: Armor Expert
+description: When you make a crafting roll for an armor item, double the result to determine the number of crafting
+  points added to the project.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: bea73584-c7aa-4387-8095-e9a0cbd35258
+    name: Armor Expert
+    description: When you make a crafting roll for an armor item, double the result to determine the number of crafting
+      points added to the project.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:755eed98-792b-4929-9554-35bc9e7ba5bf: true
+  domains:
+    CrowdexTrait:755eed98-792b-4929-9554-35bc9e7ba5bf: true

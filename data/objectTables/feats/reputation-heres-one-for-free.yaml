@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 78885543-8f17-47c2-9bf4-9c29d36ff814
+name: Here's One for Free
+description: When you purchase 5 or more a single item that is destroyed or useless after being used (such as a
+  torch, ration, or potion) from the merchant affected by your Discount trait, you get one of that item for free.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 55cb04dd-1ae0-46fc-84e0-ec0724f637cf
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ab7a4422-67d3-426e-8f37-04d683ba4e06
+    name: Here's One for Free
+    description: When you purchase 5 or more a single item that is destroyed or useless after being used (such as
+      a torch, ration, or potion) from the merchant affected by your Discount trait, you get one of that item for
+      free.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:78885543-8f17-47c2-9bf4-9c29d36ff814: true
+  domains:
+    CrowdexTrait:78885543-8f17-47c2-9bf4-9c29d36ff814: true

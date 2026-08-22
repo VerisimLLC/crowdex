@@ -1,0 +1,129 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Donkey
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    max_hitpoints: 5
+    cr: 3
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 3 damage
+        - 4 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Kick
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: b7cc0021-5aae-414e-b956-d8c2ae308029
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures: []
+    walkingSpeed: 6
+    skillProficiencies: []
+    creatureSize: 1M
+    keywords:
+      Animal: true
+    monster_category: Animal
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    crowsSlots: 10
+    monster_type: Donkey
+  tokenType: null
+  bestiaryId: 0a41bdff-bd5a-43fb-874a-e58cebe053e2
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACpVUUW+bMBD+K5H3uLECIWnDW7dp0jR1qpJqr9FhDjjF2Mg2zdJq/322gSjK0q3lBe783d3n7+54ZtutPXT4A1pkOWuVNBY1+zBjLfzaNmQ7RdIali+ci2uWz/3RgAqBLuiLkjs8+BjegAbujr4i2F6ji3tmW9HDAxTCQSsQBn874B7EjmS96RBLli+dh6QEi7fc0qN7l7cFCbI0ZEhCmlOeZ7hQvMAGHknpV4bcqz3qtRLi0xjnc4C1mhwjZqxGWdvGO7UDOVdaJvHs/SzxLsfsWId5R+re81kJLdTo7bmzsxP7kggnPqv7c9cRRm0nsEVpwZKSLM88Jeycwg+ga/TNCVivv7tfrTQ9jVC2oVqGTsxOhJKDIN+J77xZouGaujEiAPr2mJqF+5ZkOgEHf+OmR9NQZVkee9E11Y2VaBw08XbNlXBa5uxdNT4+3ngSI6nk8tVbFIhrkE6vAKn70IjimvM4TpNoAYBRlmQYFavFMipveAo4j2/idBU6N9zvYRhJqWSQ3c3lXukytGrjWrsbC7qjO1/vaF0gpAcugwCtKqmamn6xS1zJQLinyH+bK7MjIcxV8rGTdZiZIOlIcDACce5lWaNRveb4zacok9VycQNplJXXRZQt4iyCaoVRAossiasiua5K9voBmtZ1nI6DXwZJLYiwslrtzUYo3+sknlag6O2wesc9OF+nz9Oq3074sINg8CeIfuzhX6t0gTHUw2C+uUA8FZgyvDBXJMu3J4/SKXuI/6/Yk+t04EaR/zFiXA//yQ09hUm7C7vi5+Zeq4o4oeT08l/0POMfCH+F/s0FAAA=
+forkTime: 1781748676956
+description: Donkey
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 9
+ctime: 1787361592783
+mtime: 1787361592783
+hidden: true
+id: 0a41bdff-bd5a-43fb-874a-e58cebe053e2

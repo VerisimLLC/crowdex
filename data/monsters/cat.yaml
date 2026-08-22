@@ -1,0 +1,145 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: f0f922fb-4ab9-4ddf-9383-5a3798acfa63
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Cat
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    monster_type: Cat
+    walkingSpeed: 5
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 4
+    cr: 0
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: Dim light imposes no penalties for this creature.
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:5a71bc36-5ad8-4ca5-b556-e862c4775cd0: true
+      name: No Dim Light Penalty
+      guid: 5a71bc36-5ad8-4ca5-b556-e862c4775cd0
+    keywords:
+      Animal: true
+    levelChoices: []
+    creatureSize: 1T
+    damage_taken: 0
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: -3
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: f9e7aed3-dc30-4fa2-a87d-3970c7a9059b
+    crowsSlots: 1
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 2 damage
+        - 3 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Scratch
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 261b5194-40be-45de-aaa2-2206cd4cd4e8
+  tokenType: null
+  bestiaryId: 0afc93ac-38cf-4fd3-87a7-2b1f97e26803
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 0
+  createdTimestamp: 1781736656708
+fork: H4sIAAAAAAAACp1VbY/jNBD+K1H4CLlL2qRp+21ZBEKC02pb8bWa2JNkVMcOtrNL78R/x3aS0ivtslBVTT2Z9+eZ8Zf4cLCnHj9Bh/E27pQ0FnX8XRSTlGDxgVl6cU/+UJEgS2ji7Zc48z9fGV7pnbyHClt4IaXfafKkXlE/KyG+n+y8D7BWE3fa0Jz9aqfjJAuepdG3UeZFLrFzmNgLFl4h4tBBg/68dOflxfkgBthDJVwiNQiDf34ts3q4Fp3VqOsFdigtWFIy3uY+JewR7B50g9ZMuk7MXHmN0vR5Uo131LiuDhqjiz7JsR87psGy1ks4Gqapn4yCztCdvcehZE6mF3DyRbcDmpZqG29T33ZNTWslGqea+XPDlHDd3Mbf1NPH2xufx5RXdrt6DbLBOV4zBBwWq6wqsk2e5GmFSV5wTABgkSwW6Yrx3H1xHYAb69s7vJ2VVDK0/YinV6V5gGrnkD1O0dyrX1Hg36cb2XRe4XlMySfcKU71jPtNoJiSIeeBEv/ffDRHEsJ8zD70sglJMl//Mxo1aIY/e12ebVbF2hWU87Jy9aV5AvUGkwyKPEvrKitrHhgX0JjKGw/x+zn0CuJIstn1iC5o4ST4+0C9Z9W9aqbRPEycOvkJktSB8GGZxkCrHX0OgO29sIM/Di3ZXpH0tMmD3sgRPZV8t3esBe26g/rH0fGdGX68UvsneX+gLhKekJGbG2XQRFJFPUoQfplEtdKRbclEcwUfLibik4q8+S/B/CnYnC6oWECZVWy5Sgrg6yRnUCRVUawSXK8WLC/LgvE0fg9RuOqAZHh9XdD2XUHeYO3YZ5ftXgMFilzvjzvDdyvRy/GZwH8jtMAXFI+tojdwHjfiwcIR5UiNmWd2pPYj2PMergY7ejJWo2xse58PD7N+uAjA4G8gBqeRLH0HPHpnH7eTn/f9f46QzQEuboxb24Qk/x/pL2bvwf5fkZtFJN3d6fB+wZ+0Gno3+s6FWyslIF8mnC3TJK/d0oF1yZPlpkxZCZu02FTjcKtXsxPKTgs9bLEnrWpihJLRfXSvM/kLnMMCru4HAAA=
+forkTime: 1781750291826
+description: Cat
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 5
+ctime: 1787361592196
+mtime: 1787361592196
+hidden: true
+id: 0afc93ac-38cf-4fd3-87a7-2b1f97e26803

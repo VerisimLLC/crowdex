@@ -1,0 +1,32 @@
+_table: feats
+__typeName: CharacterFeat
+id: 1057c943-3177-4fda-aed9-f6be6ea55984
+name: Recycling
+description: When a potion is consumed, you can retrieve the vial that is left behind. When you have 10 vials from
+  the same potion, you can collect the residue into one vial to create a potion of that type as a rest activity.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 7c663de7-291c-4446-8ab5-dcf4a1f4c9ad
+- 82cf967b-4e62-4ffa-824d-e2d93858bb87
+- 919f6849-0b76-4a00-9958-c41f0c4de55f
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e6f42858-a8da-418b-a090-5b87a9024508
+    name: Recycling
+    description: When a potion is consumed, you can retrieve the vial that is left behind. When you have 10 vials
+      from the same potion, you can collect the residue into one vial to create a potion of that type as a rest
+      activity.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:1057c943-3177-4fda-aed9-f6be6ea55984: true
+  domains:
+    CrowdexTrait:1057c943-3177-4fda-aed9-f6be6ea55984: true

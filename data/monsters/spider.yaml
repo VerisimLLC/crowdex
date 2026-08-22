@@ -1,0 +1,140 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Spider
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    skillProficiencies: []
+    max_hitpoints: 2
+    cr: 0
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: a011e22f-da00-4480-8493-80f81b561bcd
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: The spider is aware of the exact location of any creature within 2 squares and suffers no penalties on attacks against, or tests to observe, them.
+      source: Trait
+      name: Vibration Sense
+      modifiers: []
+      implementation: 1
+      guid: a7f49a2f-261f-4b75-9840-59ca0a39cddd
+      domains:
+        CharacterFeature:a7f49a2f-261f-4b75-9840-59ca0a39cddd: true
+    walkingSpeed: 5
+    creatureSize: 1T
+    movementSpeeds:
+      climb: 5
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: -5
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -4
+        id: mind
+    monster_category: Animal
+    keywords:
+      Animal: true
+    crowsSlots: 0
+    monster_type: Spider
+  tokenType: null
+  bestiaryId: 487be29d-f98d-4adf-baa1-10fa63129083
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACp1U32/TMBD+V6zwCGFxl25t3wYSEg8gtFa8Thf7klh17GA7KwXxv3N20lKVDgaTptbX73599919zx4ewr7Hj9Bhtso6a3xAl71imd8qrT85Wyuh0NC/z1bfswc9wAYqTeAatMcfhFTGQMA7EdQjfcq7SmkVJjxPTqcpznD7mKvCFh6Vdc90+WR36O6t1m8mvxgDQnBKEhqaY1xHGLLMJC/YS8ajiQo7psmiYUafnEnooMH4vo4OJ+9LHZ/YghvOTb+I6XqNHZoAQVmTrcpYEvYIYQOuweAnLJkFtddYp75N0GytGmJ1cMhOeDIjH29USKVJ9MKpfvJIgKE7hs5Sv1L5XsM+dtwO6FtVh2xVRM6datpg0BOUx3cjrCYqV9mLevpLMohFTEXxy613qBHvwRBfCdIM4xwKznE2q3MJRZGX5aLIF+XyOl8U9YJX8xteCZkGN/a3oXmTl7Em9bbF/c46mUa1pslup4T004eY7/i6UJAbaxkJ6KxU9WHoF6ckrEkFDyqP3/1Vkr6/4q970yTNJEqnAsdHKlxEWu7R28EJfB9DSL68mS9glpfytsrLeVHmUC8x5zAveVFX/LaW2fMFJNw4q2kt005EbfRKjksqWnBUBrp3mMTyxAK9PYP9Lp5Ni8ynsEx5Bjsg4dmaBTLjV3Jl2oqkgmgFs2fCjaHYToVWGTZj/stAXuRsJPNDXRPlzFjWowEdzwEjZ1pSEFvCNKCopVfMOhbQB8+CZbby6B5pppS1e51dWKBTdd3W5RJIXbMbXudldTvPl4uyyOdLAQVcL4WU8lnjl7aLtcSfz2laPSvJH4Q47etnVY0rxNZofGJ/1Ewk3oEK/yCJHeitMs26R6TU8xNxTCdkHw+mUR3oJBBnd36tbTwIxdlaTag/1J9uajWEUVc+ODRNaJ+W190Bn446ePwMeiBEHutMYzvGeCLhdLv/OQM/JDi5/pdOlTLyP8ovD9GT/1+HdcxmH5N607AShUKrrhrHdgF/2Km1+pbO1yYJGL4+tCr0Vpk4xNkF1584ABghxQcAAA==
+forkTime: 1781748676956
+description: Spider
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 29
+ctime: 1787361592569
+mtime: 1787361592569
+hidden: true
+id: 487be29d-f98d-4adf-baa1-10fa63129083

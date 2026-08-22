@@ -10,6 +10,14 @@ Steel types and systems, so to run Crowdex you need to own the [Draw Steel Codex
 
 This repository is open to outside contributors. The guide below explains how to get set up to develop Crowdex using GitHub.
 
+## Crows rules reference
+
+The canonical implementation reference is the [August-September 2026 public
+Playtest 2 reference set](reference/README.md). It covers every supplied rules
+and inventory PDF with page-level traceability and an implementation map. The
+May-June 2026 Markdown files in this directory are retained only as historical
+playtest material and must not be used when they conflict with Playtest 2.
+
 ---
 
 ## How DMHub development works (read this first)

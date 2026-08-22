@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 33ee0eba-920c-4973-8df1-47bcdad122f2
+name: Plotting
+description: As a rest activity, choose up to three pieces of equipment you can touch. The first time you or an
+  ally uses this equipment as part of a test before the end of your next rest, they gain a +2 bonus on the roll.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 26a4fff2-3dd1-4ac2-92b1-b131e60b0387
+    name: Plotting
+    description: As a rest activity, choose up to three pieces of equipment you can touch. The first time you or
+      an ally uses this equipment as part of a test before the end of your next rest, they gain a +2 bonus on the
+      roll.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:33ee0eba-920c-4973-8df1-47bcdad122f2: true
+  domains:
+    CrowdexTrait:33ee0eba-920c-4973-8df1-47bcdad122f2: true

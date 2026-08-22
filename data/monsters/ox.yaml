@@ -1,0 +1,138 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Ox
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    max_hitpoints: 20
+    cr: 8
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ""
+        - 4 damage
+        - 8 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Kick
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: b9abd012-36b3-4bed-a53f-17e1a8c2e563
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When hauling a vehicle, the ox has 10 open slots that can be used to carry equipment.
+      source: Trait
+      name: Draft Animal
+      modifiers: []
+      implementation: 1
+      guid: 6a3ad4ef-f3ca-4fba-907d-51e6e36058a5
+      domains:
+        CharacterFeature:6a3ad4ef-f3ca-4fba-907d-51e6e36058a5: true
+    walkingSpeed: 5
+    skillProficiencies: []
+    creatureSize: 1L
+    keywords:
+      Animal: true
+    monster_category: Animal
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 3
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: -1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    crowsSlots: 20
+    monster_type: Ox
+  tokenType: null
+  bestiaryId: 3ace4fd3-edcf-4dac-8fe1-f89b0f6f4aee
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACp1U227bMAz9FcF7XN3GsXN9yzYMGHYrmmB7DGiJtoXIkifJbdNi/z5JdoIsS9t0eUgiihTJw3P4GK3XdtvgN6gxmke1ksaiji5IVMP9uuK2UVxaE82HA2ejOppP/V3nFiJd1Pd7H0Ar0ECd+SOCbTW6oMco8V9/pXh/5OZDGRqqeWO5ks7jZ4WSVNAKLksC5BYrTgVeEFshUffuxpBkQFTjvIxQ1rgLsISCJDmS1iAjVrmj1luCv1re1CjtpU/D60agP0GXKXG2suXM5RxDCizDIi5SCnFW5BDPBhMWjxIcYzoejKYwCqgoxguOOjS3Fi2sIBeurQKEwd++FVUDl+H6uNP5WUnmVreu2cPHvcW/LTsEP2goLFlIXoPwNRnVauovVhq4jU7Hnqr1DsTGYbxsEB0GI4+QlGBxQS2/db9skXPBLX9qlEd+W586xwpuudJnhlyrO9Q3Soh3fZx/A6zVYSrGapSlrbxROydnGjI3+7ck9Sa7G4TLE3nD0P1mhEENZeBV6s7Tg/MpEM7E6pg7mS8JGzfZFegSvUSCrxeC669Umj/0rtGSlzIwgBwA1Q/zM6ebfyUQHNp6/7Tr0Ptw0wjY+o6rFk3FCxvNvS5zzcvKSjSmI3VeUiUclvPoTdF/AlF8EQfcP9F6jQLxBqTD61Ae+QxyNkiGcTrO0zjLkcUwSos4mWACUzrE0ThMBLr+Vt1ekEoG2De4vVOahVEt3Wg3uGf5V5/vOc7rrpYOgBfVx6mSoeCWx/6/uTIbLoS5Si4bWQbOBEj7ArtDKJx6WG6w09In/wRLZmOnyGGcsUkeZ6NBFkMxwziBUZYMijyZFOwVYtvtzJ4dWy+GvYSpVndm6ZdZv2mDBPLWdtLb6+DJZbrY+QcNgsEfIFrnkXpQjqV0omIoO2K+OkGc7DLsnniCWFyy/3h9uHs9xL+I9s50yLge5Wc4RnW3oJf8IVDtSxCLJ861VgWnHCXtl+A5G+QPyztIKFQHAAA=
+forkTime: 1781748676956
+description: Ox
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 13
+ctime: 1787361592942
+mtime: 1787361592942
+hidden: true
+id: 3ace4fd3-edcf-4dac-8fe1-f89b0f6f4aee

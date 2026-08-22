@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: c4310521-eb2b-4421-8e74-1a24bbcd4b9c
+name: Split Illusion
+description: When you cast an illusion spell that has a target of 1 creature, object, ally, enemy, or target, you
+  can target one additional qualifying target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 51607f29-91b9-4c64-9c6d-2623d27e5aff
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 93537392-d78d-4744-9374-0ea2aa7e8b14
+    name: Split Illusion
+    description: When you cast an illusion spell that has a target of 1 creature, object, ally, enemy, or target,
+      you can target one additional qualifying target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c4310521-eb2b-4421-8e74-1a24bbcd4b9c: true
+  domains:
+    CrowdexTrait:c4310521-eb2b-4421-8e74-1a24bbcd4b9c: true

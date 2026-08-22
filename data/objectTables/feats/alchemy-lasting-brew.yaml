@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 2f72ae17-125d-44a8-8513-fb36f6ee35ab
+name: Lasting Brew
+description: Potions and poisons you craft that have a duration listed in UD gain 1 additional UD.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 7d06aea8-8308-4643-966e-3513a1a6f32d
+- 81b7405b-6685-418b-b58d-b793f6efc188
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 152573a3-9f93-414c-91c8-b85e816c0b86
+    name: Lasting Brew
+    description: Potions and poisons you craft that have a duration listed in UD gain 1 additional UD.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:2f72ae17-125d-44a8-8513-fb36f6ee35ab: true
+  domains:
+    CrowdexTrait:2f72ae17-125d-44a8-8513-fb36f6ee35ab: true

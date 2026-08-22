@@ -1,0 +1,63 @@
+# Crows Playtest 2 -- Vulnerable
+#
+# The Rules, p.12 (Conditions):
+#   "While you are vulnerable, each time you take damage you take an additional
+#    1d6 dam. You lose this condition at the end of a dungeon turn."
+#
+# Vulnerable is one half of the pair that replaced Boned (the other is
+# Weakened). It does not stack -- Playtest 2 adds "You can't gain a second
+# instance of a condition you already have".
+#
+# CrowdexInventory adds the 1d6 at the common damage entry point, so attacks,
+# hazards, falls, and damage absorbed by armor all use the same rule. The
+# Dungeon Turn custom trigger removes this condition automatically.
+_table: characterOngoingEffects
+__typeName: CharacterOngoingEffect
+id: 21336719-676b-4476-a6d8-f49b2a4a42b9
+guid: 5ede9aed-b629-43a7-a68a-97e018a4694f
+name: Vulnerable
+description: >-
+  While you are vulnerable, each time you take damage you take an additional
+  1d6 dam. You lose this condition at the end of a dungeon turn.
+crowsCondition: true
+stackable: false
+statusEffect: true
+indefiniteDuration: true
+implementation: 4
+iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
+display:
+  __typeName: DisplayInfo
+  bgcolor: "#c87878ff"
+  hueshift: 0
+  brightness: 1
+  saturation: 1
+modifiers:
+  - __typeName: CharacterModifier
+    name: Vulnerable - Dungeon Turn Expiry
+    guid: 7c4a1e26-9d3f-4b58-8e21-6f5c0a9b3d47
+    behavior: trigger
+    description: Vulnerable ends at the end of a dungeon turn.
+    source: Condition
+    sourceguid: 5ede9aed-b629-43a7-a68a-97e018a4694f
+    triggeredAbility:
+      __typeName: TriggeredAbility
+      name: Vulnerable Ends
+      guid: d0783d62-e18d-4f61-ac1d-5fb6e538677c
+      trigger: custom
+      conditionFormula: Trigger Name = 'Dungeon Turn'
+      mandatory: true
+      silent: true
+      abilityType: none
+      targetType: self
+      numTargets: '1'
+      range: 1
+      repeatTargets: false
+      modifiers: []
+      persistence: []
+      strain: []
+      behaviors:
+      - __typeName: ActivatedAbilityPurgeEffectsBehavior
+        mode: effect
+        ongoingEffect: 21336719-676b-4476-a6d8-f49b2a4a42b9
+        purgeType: all
+        conditions: []

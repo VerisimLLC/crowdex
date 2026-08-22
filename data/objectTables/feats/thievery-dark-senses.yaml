@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: af31c640-d42c-4918-88d5-bc2e39ac5a8b
+name: Dark Senses
+description: While you are not wearing armor and not wielding a shield, you treat dim light and darkness as if they
+  were bright light until the end of the DT.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 3aa2cd2e-2664-47f0-aefd-1c8dfe8c0786
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 468be77f-4108-4de8-80b9-827fcb1a7b32
+    name: Dark Senses
+    description: While you are not wearing armor and not wielding a shield, you treat dim light and darkness as
+      if they were bright light until the end of the DT.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:af31c640-d42c-4918-88d5-bc2e39ac5a8b: true
+  domains:
+    CrowdexTrait:af31c640-d42c-4918-88d5-bc2e39ac5a8b: true

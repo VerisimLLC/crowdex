@@ -1,0 +1,138 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Camel
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    max_hitpoints: 15
+    cr: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 6 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Kick
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: f25aba1d-9d70-498b-8495-85be424aed5c
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: The camel can gain the benefits of a rest without eating or drinking for up to three days in a row, and can go three days without food and water before it begins to starve.
+      source: Trait
+      name: Sustained
+      modifiers: []
+      implementation: 1
+      guid: 4f29d84f-8798-4d6b-b9e4-8b4b43be74c3
+      domains:
+        CharacterFeature:4f29d84f-8798-4d6b-b9e4-8b4b43be74c3: true
+    walkingSpeed: 8
+    skillProficiencies: []
+    creatureSize: 1L
+    keywords:
+      Animal: true
+    monster_category: Animal
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    crowsSlots: 10
+    monster_type: Camel
+  tokenType: null
+  bestiaryId: dd9bf726-c177-4418-abce-7206432def01
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACpVU227bMAz9FcF7XN3FqdM4eesKDBh2QdEEey1ki7aJ2JIhyc3SYv8+UnaKLEtvfvCFJg+pw0M+Rnd3ftfBT9lCtIxao50HG52JqJW/72r0nUHtXbRMZmQrbLTk5+gWIinqmoIbjilqaWVBf76A9L0FinuMEr79k+X6yI1DFbjCYufRaPJY1yAKRqW7FpVELTyZctBQonfClEIKwvdii742vReEhLoSxgplUW/4vaSPvhPeUKwFEErunCAkijTbMyG1GtD/+b/HK41RwWUrqVDKTGgg0NNbhdoxqvPS3sM5V49t10AL2svhAAnZqh4VHSUtpwuVpWWczRdZnKrLPM4XkMZZnubpRQ7ztLgIfBuFJYINnN01vVzLvCG2Stk4+MMMmZZ4CL+PCVy+KcnS2x4I6ACcLYyth8asejoTalBckDO9Ldi6thJ9dDrwVKFb2TD/qw4IaJkxPVoTi1eFx3t6qqscG/T4nDyO/HacOoda3qOxbwy5MVuwt6ZpPo9xjCG9t6ElzlvQla/ZaMmJTFOVTMRHMWWT33eB8kRsmNLzguTRyipolaiMLg++T5HwRq6OhZNySdBRW9fSVsCTF3x5uOh8lbH4MLpGK6x0aL84IGrs5DcsNv+PVXDo2ydoOiH7oOsaueMT1z24GksfLSdMusWq9hqcGxSdV4VpiMtl9KEcryAULuJA+CeOTpMMcCs18XU4G+V0JnOZqHih5pM4XWR5nKWLWZzNckinqQQ1K0LnhvOth3WjjQ60b2C3NVaFVq2otRt4kvgPzveS4O1Qy0DAq6OHhdGh4B5jfnef3Aabxn1KzjtdBc0ESscCh49QeMG03MIwS18ZQiWLy1kmpzSl8zxOZ5M0luUC4kTO0mRS5sm8VO8Ytv0qHtWx42HQ2MphH9Oic6vGhAU+2Y9A3vth9J7m4NkFfbX3DzMoHfySTU8eUybleJROVCyrQZjvTjDZJ9gjPKMr1Or94PFT+SH+VbL3pkPBjSS/ILHCDst5hQ9Bad/DrLBubqwpsUDQxbgD37JA/gJsesn0qgcAAA==
+forkTime: 1781748676956
+description: Camel
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 4
+ctime: 1787361593476
+mtime: 1787361593476
+hidden: true
+id: dd9bf726-c177-4418-abce-7206432def01

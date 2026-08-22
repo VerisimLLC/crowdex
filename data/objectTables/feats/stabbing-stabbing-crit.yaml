@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 4e8744ea-61da-459b-b5e3-9beea8b30f2c
+name: Stabbing Crit
+description: You score a crit on stabbing weapon attacks when the dice without modifiers equal 18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- baeb652a-0bfb-4dfe-8848-81504e734840
+- 6b14287a-4762-4999-904c-e6dca81f124f
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 8600a205-769a-4a5c-b9f1-bb24514a834a
+    name: Stabbing Crit
+    description: You score a crit on stabbing weapon attacks when the dice without modifiers equal 18, 19, or 20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:4e8744ea-61da-459b-b5e3-9beea8b30f2c: true
+  domains:
+    CrowdexTrait:4e8744ea-61da-459b-b5e3-9beea8b30f2c: true

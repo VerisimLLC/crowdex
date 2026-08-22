@@ -1,0 +1,71 @@
+# Crows Playtest 2 -- Camel (The Ref Book)
+description: Camel
+id: 2a31569a-f711-5cc9-886b-113d3e700851
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Camel
+    keywords:
+      Animal: true
+    cr: 5
+    creatureSize: 1L
+    max_hitpoints: 15
+    damage_taken: 0
+    walkingSpeed: 8
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Sustained
+      description: The camel can gain the benefits of a rest without eating or drinking for up to three days in
+        a row. They can also go for three days without food and water before beginning to starve.
+      guid: ba8b32d9-9896-5f51-bafa-7e5c168d8f47
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Kick
+      guid: e26bae4e-64b1-5ba7-8dbd-2f6e11925e36
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 3 damage
+        - 6 damage
+      meleeRange: 1

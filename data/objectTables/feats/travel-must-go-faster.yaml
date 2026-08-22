@@ -1,0 +1,32 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7fc53ebb-723e-4d78-9eac-1ae500a6b581
+name: Must Go Faster
+description: When you are in the scout role and carrying a spyglass and encounter other creatures while traveling
+  (not resting), you and each creature in your party can take 3d6 P damage to avoid the encounter before it starts.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Travel
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- e3fe0840-e0fb-4d70-96c4-3998f4461bb6
+- 1e2f4ae2-6654-40c6-8f41-e1b1ae1ac34f
+- 121eaebe-5234-4f7e-a27c-9aba48d9258c
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 69be784d-220a-4a9e-a827-66556b52d77c
+    name: Must Go Faster
+    description: When you are in the scout role and carrying a spyglass and encounter other creatures while traveling
+      (not resting), you and each creature in your party can take 3d6 P damage to avoid the encounter before it
+      starts.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7fc53ebb-723e-4d78-9eac-1ae500a6b581: true
+  domains:
+    CrowdexTrait:7fc53ebb-723e-4d78-9eac-1ae500a6b581: true

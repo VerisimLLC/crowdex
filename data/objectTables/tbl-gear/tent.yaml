@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- Tent
+#
+# Playtest 2 change: description
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 3824b6aa-a241-42c6-b6f4-128696e558a3
+name: Tent
+category: Gear
+costInGold: 100
+description: Canvas tent that sleeps up to four humans. It blocks bad weather. It does not block the Miasma.
+domains:
+  item:3824b6aa-a241-42c6-b6f4-128696e558a3: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 06995586-46d2-499e-888a-33a3180d5727
+implementation: 1
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 4

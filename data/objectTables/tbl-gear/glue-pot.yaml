@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- new card: Glue Pot
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: 526af295-0dd3-41d2-848c-c4fc45964227
+name: Glue Pot
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 483e185d-3d8b-458f-9333-4348802a70fa
+costInGold: 125
+weight: 2
+stackLimit: 2
+slotsRequired: 1
+description: 'Glue for binding. Maneuver: spread over a 2 x 2 area of ground. A creature entering makes
+  a Strength RR; 11 or lower: grabbed by the glue; 12-16: speed halved for this turn; 17+: no effect.
+  Craft: Alchemy (1 use), 2 monster parts (any), 25.'
+implementation: 1
+domains:
+  item:526af295-0dd3-41d2-848c-c4fc45964227: true

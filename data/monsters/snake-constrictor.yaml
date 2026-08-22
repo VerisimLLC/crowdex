@@ -1,0 +1,149 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: "-MXKRxqZFqZ8i639xrqO"
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Snake, Constrictor
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    skillProficiencies: []
+    max_hitpoints: 15
+    cr: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 6 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: 52a1d819-c212-4a69-90f6-108607e01763
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: The snake has a +2 bonus to grab other creatures, and creatures take a -2 penalty on tests to escape its grab. While it has a creature grabbed, the snake can use a maneuver to deal 3 piercing damage to that creature. (Applied manually.)
+      source: Trait
+      name: Grabber
+      modifiers: []
+      implementation: 1
+      guid: 1b0a0f2b-e225-4edf-bc11-da4baaac88af
+      domains:
+        CharacterFeature:1b0a0f2b-e225-4edf-bc11-da4baaac88af: true
+    - __typeName: CharacterFeature
+      description: The snake is aware of the exact location of any human, blood creature, demon, or bird or mammal animal within 2 squares and suffers no penalties on attacks against, or tests to observe, them.
+      source: Trait
+      name: Heat Sense
+      modifiers: []
+      implementation: 1
+      guid: 8c9d87da-640e-4c34-9c2d-8acb07d6c043
+      domains:
+        CharacterFeature:8c9d87da-640e-4c34-9c2d-8acb07d6c043: true
+    walkingSpeed: 6
+    creatureSize: "2"
+    movementSpeeds:
+      climb: 6
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -3
+        id: mind
+    monster_category: Animal
+    keywords:
+      Animal: true
+    crowsSlots: 10
+    monster_type: Snake, Constrictor
+  tokenType: null
+  bestiaryId: 5e936f4c-e799-4d0a-ad8a-24f6dbd037b5
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACqVW247bNhD9FUJ9aRFrI8ny9W0ToJeHFsF60T4uRuRIIkyRKkmt4wT59w5p2Wu43sRtDBjyjOZ+Djn+nDw9+X2Pf0CHyTrpjHYebTJhidtKpT5YU0suUdPXJevPyZMa4BEqRcY1KIdfyFJqDR7vuZfP9BT3lVTSj/Z5dDpPcWG3D7kqbOFZGnujywezQ/tglHo3+oUY4L2Vgqydt6gb3walJSNSFSLP2BtWBBVVdsqTBEVBzykT0EGDQZ6SPD+Tr7V8pvN2uFS9TKbrFXaoPXhpdLIuQ0nYI/hHsA16N9qSmlN/jbHy02iabGRDYx0ssrNB6cNA3kkfSxPouJX96BENhu4UmjoMNtL1Cvah43ZA18raJ+ssDN3KpvUaHZnmQW64UTTLdfJDPX4iD0IRY1H59dY7VIgPoGle0aQZIhCzAnKxzFcpL/IiLWG+SldZPU/zbDnPFpjli/k0Info75EAJy9tdOxti/udsSJCtSFot2NCevV7yHeSrhRkD7UcBtAZIesj6FdR4kbHggeZht/ubeS+e5vf9bqJnIkjHQs8CLFwHsbygM4MluNvIYTIV/PZEqhdsajScpaVKdQrTHOYlXlWV/miFsntBOIExyz2EM9lPBSBGxq21Pr7oLWS+8MJ4C1YKgntzxiJ88ppen9h9m8iPbbIXEjBWnAM2JuCVUYPjnnDGgsVM75Fy7gd80wYaPEiMh9cgaUF61GD8ntmNPPofIxAqaBHJkkKwe7YX61UQR6zHePEtxWKCfOnejhoNrgQvAONwzNVQREFgmJT1hPIXOpmPLvhjW/BnwLesR/v+15JFMF7AKX2dz8lV47pGYfzKoOsLqoUi2KWlijqtOJ5ngooKwDgyyXUN5FMmA6kjq8vAVjflOQrdB9vhV/ivA6Xd2RkgNKC9K8QrvguakjCagcEk6kjQPiRPJkyPA4xaEHvWTvQqCesUsa8MGRCiBGjJ8xYVkkrwrODriMUQcvw2EnfSs0K5v4eIFAqEMwNdU0TZtqMvKIdE5hFNz/wLdk0YcI+hj2xzVQO7TNGEnV330B7yVdiuRCQzssM05JPy3TFC5EugVfZQsx5Vk6/G+2bknwb7V8pHNugdngz4Ncq3YHa0pnZ9Ig0gfnZXTNupH1YwBGVeMdYs3MbZcJ+ybOLa3o0+0rtcUlXgz/cTadN/SoP74/28V8COPwT1EAWRcDxctlfy9ccVuf/T3CM8Mrmk1r89+Dp9Bg9+n8TrFM28xyJG8GKE+RKdtUBtiv2x/O2kZ9CXfHvTwcfn1rpeyN1xHB2xfUfe4ytbRUKAAA=
+forkTime: 1781750015538
+description: Snake, Constrictor
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 26
+ctime: 1787361593263
+mtime: 1787361593263
+hidden: true
+id: 5e936f4c-e799-4d0a-ad8a-24f6dbd037b5

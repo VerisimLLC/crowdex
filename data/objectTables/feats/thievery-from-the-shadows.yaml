@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 3aa2cd2e-2664-47f0-aefd-1c8dfe8c0786
+name: From the Shadows
+description: When you make a weapon attack against a target you are hidden from using Agility, the attack gains
+  a +3 bonus instead the normal +2 bonus for being hidden.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 380376d1-03c9-4267-83ee-24f153b82bad
+- e3e79b75-cda8-4328-b987-c66e1899d0e3
+- df157c28-86b3-4ece-bf40-0c3cbf2225d8
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: cb187199-3774-4c3b-a050-c2ca74fa3f6e
+    name: From the Shadows
+    description: When you make a weapon attack against a target you are hidden from using Agility, the attack gains
+      a +3 bonus instead the normal +2 bonus for being hidden.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:3aa2cd2e-2664-47f0-aefd-1c8dfe8c0786: true
+  domains:
+    CrowdexTrait:3aa2cd2e-2664-47f0-aefd-1c8dfe8c0786: true

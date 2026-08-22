@@ -1,0 +1,176 @@
+# Crows Playtest 2 -- Undead C (The Ref Book)
+description: Undead C
+id: 5296b4d2-21b5-4e69-8760-723d3a47dd3b
+hidden: false
+parentFolder: 5c45174e-b4a8-4b89-8327-156b3f79a328
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Undead
+    monster_type: Undead C
+    keywords:
+      Undead: true
+    cr: 6
+    creatureSize: 1L
+    max_hitpoints: 30
+    damage_taken: 0
+    walkingSpeed: 6
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Common Names
+      description: Also called gray death, rotting breath.
+      guid: b96e9c8d-9f35-4c64-99b3-2e3207a81fd8
+      implementation: 0
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:b96e9c8d-9f35-4c64-99b3-2e3207a81fd8: true
+    - __typeName: CharacterFeature
+      name: Ceiling Climber
+      description: The undead can climb upside down on ceilings without needing to make a test. (The "(U)" in their
+        printed speed entry.)
+      guid: 95fab70a-485c-489b-af5d-2b0e9c68bbcc
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:95fab70a-485c-489b-af5d-2b0e9c68bbcc: true
+    - __typeName: CharacterFeature
+      name: Grabber
+      description: When the undead gets a tier 3 result with a Crush attack against a Medium or smaller creature,
+        the creature is grabbed. There is no limit to the number of creatures they can grab.
+      guid: e3679caf-9a81-45a7-99e9-0cf44b67864f
+      implementation: 3
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:e3679caf-9a81-45a7-99e9-0cf44b67864f: true
+      implementationDetails: Automated on the Crush ability's tier 3. The no-limit clause is a Ref call.
+    - __typeName: CharacterFeature
+      name: Big Bite
+      description: While they have a target grabbed, the undead's bite deals an additional 2 damage.
+      guid: fcd1b00b-7131-403d-91d6-f7d11e014767
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:fcd1b00b-7131-403d-91d6-f7d11e014767: true
+      implementationDetails: Conditional on the target being grabbed by this creature; add the 2 by hand.
+    - __typeName: CharacterFeature
+      name: Squeeze
+      description: As a maneuver, the undead deals 2 P damage to each creature they have grabbed.
+      guid: cc25a0b3-8f0c-465e-b0fc-5a8a4fa41365
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:cc25a0b3-8f0c-465e-b0fc-5a8a4fa41365: true
+    - __typeName: CharacterFeature
+      name: No Darkness Penalty
+      description: Dim light and darkness impose no penalties for the monster.
+      guid: b86e9033-74be-5767-80fa-a21a1c305a5b
+      implementation: 4
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: darkvision
+        value: 1000
+        name: No Darkness Penalty
+        description: Dim light and darkness impose no penalties for the monster.
+        guid: 07635a05-357a-55fe-83fc-ec2a1c510ff8
+        source: Trait
+        sourceguid: b86e9033-74be-5767-80fa-a21a1c305a5b
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Crush
+      guid: ea716993-98a5-448d-b691-0b58b91c48e0
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '2'
+      iconid: ui-icons/skills/1.png
+      description: Tier 3 grabs a Medium or smaller target.
+      implementation: 2
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 4 damage
+        - 6 damage; grabbed
+      meleeRange: 2
+      implementationDetails: 'Automated: the tier 3 result applies the grabbed condition.'
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: c467ccfc-73b0-4cd3-869b-19ea5c33f96a
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Deals an additional 2 damage to a target the undead has grabbed.
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 4 damage
+        - 6 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Squeeze
+      guid: f61a49aa-eea3-5bcf-9655-0dfac486c79e
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Deal 2 P damage to each creature grabbed by this undead. Apply it as piercing damage.
+      implementation: 1
+      keywords: {}
+      behaviors: []
+    resources: {}
+    equipment: {}
+    levelChoices: {}
+    skillProficiencies: {}
+    movementSpeeds:
+      climb: 6

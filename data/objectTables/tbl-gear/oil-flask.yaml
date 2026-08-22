@@ -1,0 +1,21 @@
+# Crows Playtest 2 -- Oil Flask
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: f3b04bec-1d0f-4fca-a886-0fc1622e84c4
+name: Oil Flask
+category: Gear
+costInGold: 5
+description: 'A pint of oil. Consume to refuel a lantern (restores its Usage Dice). Craft: Alchemy (1
+  use), 5 monster parts (any), 5.'
+domains:
+  item:f3b04bec-1d0f-4fca-a886-0fc1622e84c4: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 651d5a57-7e54-4a54-9148-02dee34648db
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+weight: 1

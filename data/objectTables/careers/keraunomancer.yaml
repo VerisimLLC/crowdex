@@ -1,0 +1,251 @@
+# Crows Playtest 2 -- background: Keraunomancer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: e6215bf7-5aa8-44b5-9d9d-0ce2122df141
+name: "Keraunomancer"
+description: "You learned how to cast elemental spells that create and harness lightning and thunder."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: fa07d756-37bf-43b4-b49b-2dc6ee38ba2a
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: bab93360-2bd0-4887-9844-5837bd6aa2c5
+      implementation: 3
+      source: "Keraunomancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: e0701cc4-717e-490a-a078-165d28e4b53f
+        source: "Keraunomancer Career Feature"
+        sourceguid: bab93360-2bd0-4887-9844-5837bd6aa2c5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 23b79054-e92a-4dc0-8b3f-d8ea03657726
+        source: "Keraunomancer Career Feature"
+        sourceguid: bab93360-2bd0-4887-9844-5837bd6aa2c5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: b78401c0-aa0e-423a-804f-7e1560f0f630
+        source: "Keraunomancer Career Feature"
+        sourceguid: bab93360-2bd0-4887-9844-5837bd6aa2c5
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 527da986-6bce-4e42-9b54-eea2bb5b7f4c
+      implementation: 3
+      source: "Keraunomancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: d7709b77-d2ca-4f72-b22f-5a04c5344625
+        source: "Keraunomancer Career Feature"
+        sourceguid: 527da986-6bce-4e42-9b54-eea2bb5b7f4c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 86d7126b-3ae6-43d1-af4d-74a84dd39b24
+        source: "Keraunomancer Career Feature"
+        sourceguid: 527da986-6bce-4e42-9b54-eea2bb5b7f4c
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: af1631e7-06d8-4d6f-8373-0f939d720ed5
+        source: "Keraunomancer Career Feature"
+        sourceguid: 527da986-6bce-4e42-9b54-eea2bb5b7f4c
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 84cb3f98-7df1-4441-af10-f8052c051f2e
+      implementation: 3
+      source: "Keraunomancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: d5da0c0c-b82d-4c6d-a4fa-553d85ffc7f6
+        source: "Keraunomancer Career Feature"
+        sourceguid: 84cb3f98-7df1-4441-af10-f8052c051f2e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: ff0dc5cb-529c-414c-b881-3896b54d19b5
+        source: "Keraunomancer Career Feature"
+        sourceguid: 84cb3f98-7df1-4441-af10-f8052c051f2e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 6e811dda-ff88-49e1-983f-dc9d2b16620c
+        source: "Keraunomancer Career Feature"
+        sourceguid: 84cb3f98-7df1-4441-af10-f8052c051f2e
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 969c9774-4632-408a-8b61-f36e8a9ec585
+      implementation: 3
+      source: "Keraunomancer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 0861dc7f-47e4-45c6-b439-a9f4e1655a16
+        source: "Keraunomancer Career Feature"
+        sourceguid: 969c9774-4632-408a-8b61-f36e8a9ec585
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 5f1f6945-8931-4108-a332-f6e4f9d09c4f
+        source: "Keraunomancer Career Feature"
+        sourceguid: 969c9774-4632-408a-8b61-f36e8a9ec585
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 8629891c-cfa8-4824-92b1-47fec48cf969
+        source: "Keraunomancer Career Feature"
+        sourceguid: 969c9774-4632-408a-8b61-f36e8a9ec585
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 848a0f14-c297-4ea4-a35e-9838c92b37b6
+    implementation: 3
+    source: "Keraunomancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: dc99f78c-427d-4c51-841b-35a26997e6a6
+      source: "Keraunomancer Career Feature"
+      sourceguid: 848a0f14-c297-4ea4-a35e-9838c92b37b6
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Bashing (1 use), Blacksmithing (1 use), Elemental (2 uses), Enchanting (1 use), Magic Lore (2 uses)."
+    guid: 3f799f71-7d96-40ab-bdcb-376d1ffca298
+    implementation: 3
+    source: "Keraunomancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 74a6c31d-4fb5-41d7-aa03-7684ada38ffc
+      num: 1
+      name: Expertises
+      description: "Bashing (1 use)"
+      guid: 11512172-71a6-42e2-b59b-74a900211a50
+      source: "Keraunomancer Career Feature"
+      sourceguid: 3f799f71-7d96-40ab-bdcb-376d1ffca298
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+      num: 1
+      name: Expertises
+      description: "Blacksmithing (1 use)"
+      guid: 2cbc89c9-df54-4489-8fa8-d4096162eda8
+      source: "Keraunomancer Career Feature"
+      sourceguid: 3f799f71-7d96-40ab-bdcb-376d1ffca298
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a680fc5-efe0-42a6-9479-1c378510b416
+      num: 2
+      name: Expertises
+      description: "Elemental (2 uses)"
+      guid: cbe21a72-d0a4-40df-ac54-3f4433ec2ee3
+      source: "Keraunomancer Career Feature"
+      sourceguid: 3f799f71-7d96-40ab-bdcb-376d1ffca298
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 1
+      name: Expertises
+      description: "Enchanting (1 use)"
+      guid: aa8c97c8-4b76-414a-94ee-4f2789c4c7cf
+      source: "Keraunomancer Career Feature"
+      sourceguid: 3f799f71-7d96-40ab-bdcb-376d1ffca298
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 2
+      name: Expertises
+      description: "Magic Lore (2 uses)"
+      guid: 608bf98c-0a37-4471-a40e-be4713e65140
+      source: "Keraunomancer Career Feature"
+      sourceguid: 3f799f71-7d96-40ab-bdcb-376d1ffca298
+  - __typeName: CharacterFeature
+    name: "Trait: Hurl the Storm"
+    description: "When you cast a ranged elemental spell, the spell's range increases a number of squares equal to your Mind."
+    guid: ec83b488-99db-4d42-8d63-536f4f8922db
+    implementation: 4
+    source: "Keraunomancer Career Feature"
+    crowdexTraitId: fda475ea-cacd-4823-b164-b2283b06a36e
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Torch, Mace, Net, Spark, Thunder. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 4843d8d9-7b1d-450f-842a-902fa55394b3
+    implementation: 2
+    source: "Keraunomancer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: b2f7f870-2ab7-4c4a-9efa-13faed25d730
+      source: "Keraunomancer Career Feature"
+      sourceguid: 4843d8d9-7b1d-450f-842a-902fa55394b3
+      equipment:
+      - itemid: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+        quantity: 1
+      - itemid: 9b8b70f4-4535-49b9-bc3a-936176fcef74
+        quantity: 1
+      - itemid: dee8d683-63f1-427f-aa1a-edfed797b8d8
+        quantity: 1
+      - itemid: e4dcc0ef-f622-43b2-a9aa-1d9d6200f75d
+        quantity: 1
+      - itemid: 5575b016-343d-4a87-b4f6-c3789d58f370
+        quantity: 1

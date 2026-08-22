@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7d06aea8-8308-4643-966e-3513a1a6f32d
+name: It Burns
+description: Acids and poisons you craft deal additional damage equal to twice your Mind. Bombs you craft deal additional
+  damage equal to your Mind.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: d43144ea-f1fb-4936-87fc-c5fdeb290b92
+    name: It Burns
+    description: Acids and poisons you craft deal additional damage equal to twice your Mind. Bombs you craft deal
+      additional damage equal to your Mind.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7d06aea8-8308-4643-966e-3513a1a6f32d: true
+  domains:
+    CrowdexTrait:7d06aea8-8308-4643-966e-3513a1a6f32d: true

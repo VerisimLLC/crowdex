@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Bucket
+_table: tbl_Gear
+__typeName: equipment
+id: c3f3178b-2918-488c-9c8b-501bcbe9eab0
+name: "Bucket"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 483e185d-3d8b-458f-9333-4348802a70fa
+costInGold: 2
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Can hold up to 3 gallons of liquid. Also good for hiding your face."
+implementation: 1
+domains:
+  item:c3f3178b-2918-488c-9c8b-501bcbe9eab0: true

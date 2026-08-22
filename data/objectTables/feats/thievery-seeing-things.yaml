@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: c343f9ed-16bb-4bce-9eb3-e7baa8b5a078
+name: Seeing Things
+description: When you get a tier 1 or 2 result a test made to hide from or sneak by another creature wile you are
+  not wearing armor, you can reroll the test but must use the new result.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- af31c640-d42c-4918-88d5-bc2e39ac5a8b
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 268e8b06-be90-42e6-8456-a9dab202822a
+    name: Seeing Things
+    description: When you get a tier 1 or 2 result a test made to hide from or sneak by another creature wile you
+      are not wearing armor, you can reroll the test but must use the new result.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c343f9ed-16bb-4bce-9eb3-e7baa8b5a078: true
+  domains:
+    CrowdexTrait:c343f9ed-16bb-4bce-9eb3-e7baa8b5a078: true

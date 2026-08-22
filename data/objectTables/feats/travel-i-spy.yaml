@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 25152ab8-c7b4-47f8-a26e-5494a96b0d85
+name: I Spy
+description: When you make a test related to the scout role while carrying a spyglass, you can roll the test twice
+  and choose either result.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Travel
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 23a3f00d-3dd3-423c-9984-c593588683c9
+    name: I Spy
+    description: When you make a test related to the scout role while carrying a spyglass, you can roll the test
+      twice and choose either result.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:25152ab8-c7b4-47f8-a26e-5494a96b0d85: true
+  domains:
+    CrowdexTrait:25152ab8-c7b4-47f8-a26e-5494a96b0d85: true

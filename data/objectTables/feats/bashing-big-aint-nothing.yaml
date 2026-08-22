@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 861ef7c3-735c-4d1b-90c6-8155a4deb7a3
+name: Big Ain't Nothing
+description: You can force move and knock prone creatures one size category larger than you and smaller with bashing
+  weapon attacks.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 709f7106-410b-46e0-ad1b-bdc90f3996e5
+- 56d4f413-ceef-4ac4-8b07-2dcfdf17c659
+- 902d2f24-067d-46b7-b1b0-e4ff7fc1832d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 33b90b98-0198-46e5-b9ac-ec2c64cf1f90
+    name: Big Ain't Nothing
+    description: You can force move and knock prone creatures one size category larger than you and smaller with
+      bashing weapon attacks.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:861ef7c3-735c-4d1b-90c6-8155a4deb7a3: true
+  domains:
+    CrowdexTrait:861ef7c3-735c-4d1b-90c6-8155a4deb7a3: true

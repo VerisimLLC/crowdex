@@ -1,0 +1,27 @@
+# Crows Playtest 2 -- Mace
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 9b8b70f4-4535-49b9-bc3a-936176fcef74
+name: Mace
+category: Gear
+costInGold: 12
+crowsAttackStat: S
+crowsMeleeRange: 1
+crowsQualities: Pummeling
+crowsTier2: 3 + S
+crowsTier3: 6 + S
+crowsWeaponType: Bashing
+description: 'Melee 1. Attack 2d10 + S; 12-16: 3 + S; 17+: 6 + S. Bashing, Pummeling. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+domains:
+  item:9b8b70f4-4535-49b9-bc3a-936176fcef74: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: 45df6218-0aa2-41d4-aedb-638c2c95a512
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 3

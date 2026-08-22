@@ -1,0 +1,136 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 83618357-c1e4-4e21-80fd-f9f9701084de
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1.245901
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Horse, Riding
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    monster_type: Horse, Riding
+    walkingSpeed: 10
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 15
+    cr: 5
+    skillProficiencies: []
+    characterFeatures: []
+    keywords:
+      Animal: true
+    levelChoices: []
+    creatureSize: 1L
+    damage_taken: 0
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 4890ad5f-a974-4275-ae46-2bcc880859e8
+    crowsSlots: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 6 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Kick
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 2c15eab8-5172-4f70-ad2e-5e04078521fb
+  tokenType: null
+  bestiaryId: 5fb3cc73-b824-46b1-930d-83c8a88d47e4
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 3
+  createdTimestamp: 1781736656708
+fork: H4sIAAAAAAAACp1U23LaMBD9FUZ9bN3Yjh0Mb2lmepleJgOZvjJre23vIEuuJENJpv9eSTY0YSBNy0PILmev52gf2Gpldh1+gxbZnLVSaIOKvZkwEgIMXheGNva7vM6JkyHUbP7AIvfnSeARbucy5NjAhqR6Ycit3KJaSM7fjXEuBxijqLRobRSK2jTOqSzIuuIyCievJ7Fz2c4OdZhzxPb7clJCCzU6+9LaV4/sFe/hDnJuO6mAa/z11GdUf+w6wKjtOLYoDBiSgs0T1xJ2COYOVI1Gj1jrLux8tVR0P0LZkmq71l7h5NGixLCQz1SsnVmiLhR1Y4QH9O0htZ3QYUh3HHZu4qZH3VBl2Dx0S1dUN0agttDI2XUhud3lnL2qxo+L166Jsano9OgKRI37enXvWYiLKEXIsyCNpnGQVNMwgDLGIMUwCadZGkdV7mkbhruzbNsoIYXf+Rp3W6lKz9PS8roeq9mfviLHP9aJbloHWAwtuYZbWVK1J/0kS4UUvueeAve/vtBr4lxfRG87UfsmCzf/ArXsVYGfHLaMZldpBna0cpoHSRomAVQzDCJIkyis8mhalV5uno1xvMFgLxfQFviaRL3sEG3RyNGGP3rqnKbOjTO+zNWoqJ17QIJa4K5uodCLakn3nrEvztnCz1VDppMknG6i1APZPPVyHYY+u72iAWX3g+r9kPks8DGnY0PPsMhxg/ymkfRM6eGNrgysUQya3s9uhn1/tCfF5l9QSSOR7kjkvRlyHi7F8cG52c90vcf7KwUavwPvLSJ2sjk+NiemgHp4uv9fYJ/hjNZJlP+ePDhk9/F/lePeRcLedXsKNvhByb5zO52zJJuFUKZVALNpEiTxNA0Ak6sgzosiy8IsnWE2KE9u9ZJLrzDHlX9kt0pWVBCKgs7zfNzKb+WTmMaLBgAA
+forkTime: 1781750475707
+description: Horse, Riding
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 18
+ctime: 1787361592024
+mtime: 1787361592024
+hidden: true
+id: 5fb3cc73-b824-46b1-930d-83c8a88d47e4

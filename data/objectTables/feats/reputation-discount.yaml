@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 55cb04dd-1ae0-46fc-84e0-ec0724f637cf
+name: Discount
+description: Choose a merchant in your village. You can purchase items in that merchant's shop for 5% cheaper. You
+  can change your choice of merchant once every cycle.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 1b8fbbcf-fdd7-4e2f-bf60-7c8e051dd8c6
+    name: Discount
+    description: Choose a merchant in your village. You can purchase items in that merchant's shop for 5% cheaper.
+      You can change your choice of merchant once every cycle.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:55cb04dd-1ae0-46fc-84e0-ec0724f637cf: true
+  domains:
+    CrowdexTrait:55cb04dd-1ae0-46fc-84e0-ec0724f637cf: true

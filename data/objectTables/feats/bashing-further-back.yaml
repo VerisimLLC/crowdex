@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 31fd07cd-a0fc-4e80-89df-a6be44cf61aa
+name: Further Back
+description: When you get a tier 3 result on an attack with a bashing and pummeling weapon, you push the target
+  1 additional square. This trait stacks with Push 'Em Back.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 709f7106-410b-46e0-ad1b-bdc90f3996e5
+- 56d4f413-ceef-4ac4-8b07-2dcfdf17c659
+- 902d2f24-067d-46b7-b1b0-e4ff7fc1832d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c82a2b1e-1c70-4572-bc89-21049fdec0e4
+    name: Further Back
+    description: When you get a tier 3 result on an attack with a bashing and pummeling weapon, you push the target
+      1 additional square. This trait stacks with Push 'Em Back.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:31fd07cd-a0fc-4e80-89df-a6be44cf61aa: true
+  domains:
+    CrowdexTrait:31fd07cd-a0fc-4e80-89df-a6be44cf61aa: true

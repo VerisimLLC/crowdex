@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Musical Instrument
+_table: tbl_Gear
+__typeName: equipment
+id: a3d37130-50cb-4733-b36f-087172237798
+name: "Musical Instrument"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1a6fd322-5262-4678-abe2-e66b659bb904
+costInGold: 100
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "A portable instrument such as a lute, lyre, mandolin, drum, or fife. Playing it requires both hand slots."
+implementation: 1
+domains:
+  item:a3d37130-50cb-4733-b36f-087172237798: true

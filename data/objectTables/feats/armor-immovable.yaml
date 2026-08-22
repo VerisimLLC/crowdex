@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 071228da-b192-4c41-964b-dfd705c42549
+name: Immovable
+description: Creatures of your size can't force move you or knock you prone with mundane attacks or the Knockback
+  maneuver while you wear heavy armor.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- d53c730f-1d50-406e-a2da-2e513e831a68
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f452aa49-af19-46e4-a7e1-e3394d96548d
+    name: Immovable
+    description: Creatures of your size can't force move you or knock you prone with mundane attacks or the Knockback
+      maneuver while you wear heavy armor.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:071228da-b192-4c41-964b-dfd705c42549: true
+  domains:
+    CrowdexTrait:071228da-b192-4c41-964b-dfd705c42549: true

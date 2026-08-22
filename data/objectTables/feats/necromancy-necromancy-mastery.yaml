@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 19e70c42-5dfd-4fe4-b08b-1bbfd611c991
+name: Necromancy Mastery
+description: Non-doom tier 1 results of rank 0 and 1 necromancy spells you cast don't add to the chaos count. Your
+  necromancy spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 3b2ef9e3-7f73-4ce1-ac12-447631b38e78
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0bb55783-bd83-4e6d-b002-70f06985d77c
+    name: Necromancy Mastery
+    description: Non-doom tier 1 results of rank 0 and 1 necromancy spells you cast don't add to the chaos count.
+      Your necromancy spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:19e70c42-5dfd-4fe4-b08b-1bbfd611c991: true
+  domains:
+    CrowdexTrait:19e70c42-5dfd-4fe4-b08b-1bbfd611c991: true

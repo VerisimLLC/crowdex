@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: e3e79b75-cda8-4328-b987-c66e1899d0e3
+name: Safe Cracking
+description: When you use lock picks on a test made to pick a lock, you can roll the test twice and choose either
+  result.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0e1f6151-de31-41ce-ae7a-2e325be18902
+    name: Safe Cracking
+    description: When you use lock picks on a test made to pick a lock, you can roll the test twice and choose either
+      result.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e3e79b75-cda8-4328-b987-c66e1899d0e3: true
+  domains:
+    CrowdexTrait:e3e79b75-cda8-4328-b987-c66e1899d0e3: true

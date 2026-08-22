@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 929bd5ba-b85c-48a3-9f47-87252bc369b5
+name: Aim
+description: You can use a maneuver to aim while you have a bow weapon equipped. If you make an attack with that
+  weapon before the end of this turn, the attack gains a +1 bonus.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- b2a925f0-a795-4836-a41d-c6f46ffdbaa4
+- 5a092c36-31cc-4ccf-8ad9-8371bd702508
+- e5005b00-abca-4430-b097-06bac66a9f34
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5e9c94d1-b908-467d-87a9-b8670c7d5a66
+    name: Aim
+    description: You can use a maneuver to aim while you have a bow weapon equipped. If you make an attack with
+      that weapon before the end of this turn, the attack gains a +1 bonus.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:929bd5ba-b85c-48a3-9f47-87252bc369b5: true
+  domains:
+    CrowdexTrait:929bd5ba-b85c-48a3-9f47-87252bc369b5: true

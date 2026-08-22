@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 153bcc75-1970-4c25-a324-31335861efa6
+name: Potion to Gas
+description: As an action, you can turn a potion you carry into a gas. The potion is immediately consumed and two
+  creatures of your choice within 1 square of you, including you, are affected as if they drank the potion.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 5768947d-6d81-4db5-be06-e09a7d19aba7
+- 2f72ae17-125d-44a8-8513-fb36f6ee35ab
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c38f1d55-84ef-45de-8508-6aba16281992
+    name: Potion to Gas
+    description: As an action, you can turn a potion you carry into a gas. The potion is immediately consumed and
+      two creatures of your choice within 1 square of you, including you, are affected as if they drank the potion.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:153bcc75-1970-4c25-a324-31335861efa6: true
+  domains:
+    CrowdexTrait:153bcc75-1970-4c25-a324-31335861efa6: true

@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9936bd40-a8aa-431b-b86a-f6438742438e
+name: Fast Feet
+description: When you wear a magic item in your feet slot, you gain a +1 bonus to Agility RRs.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 5e993536-9fe8-4f1e-8692-4316b2e72658
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 988ee584-5f69-4e5d-ab2f-d9d675cca513
+    name: Fast Feet
+    description: When you wear a magic item in your feet slot, you gain a +1 bonus to Agility RRs.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9936bd40-a8aa-431b-b86a-f6438742438e: true
+  domains:
+    CrowdexTrait:9936bd40-a8aa-431b-b86a-f6438742438e: true

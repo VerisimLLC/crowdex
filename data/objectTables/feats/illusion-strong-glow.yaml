@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 42d95dff-61dd-4a8a-a6e3-9597c0b83d7e
+name: Strong Glow
+description: The light granted by your Free Light trait becomes 5/5.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 2ab55ffd-f2eb-408a-9a1a-fd81da26e1e2
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 7da21526-84ea-45f7-b887-5a65dd9970bd
+    name: Strong Glow
+    description: The light granted by your Free Light trait becomes 5/5.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:42d95dff-61dd-4a8a-a6e3-9597c0b83d7e: true
+  domains:
+    CrowdexTrait:42d95dff-61dd-4a8a-a6e3-9597c0b83d7e: true

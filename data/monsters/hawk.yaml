@@ -1,0 +1,140 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: "-MPrKFwCtrjBKpzYO2Ns"
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Hawk
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    skillProficiencies: []
+    max_hitpoints: 5
+    cr: 1
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 2 damage
+        - 3 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Rake
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: a1ca2152-2cec-4a56-b181-6efa47a7517c
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: This creature can carry one Tiny object.
+      source: Trait
+      name: Carrier
+      modifiers: []
+      implementation: 1
+      guid: f9006721-eb39-49b5-8447-a1f97eebed4f
+      domains:
+        CharacterFeature:f9006721-eb39-49b5-8447-a1f97eebed4f: true
+    walkingSpeed: 2
+    creatureSize: 1S
+    movementSpeeds:
+      fly: 8
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: -1
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    monster_category: Animal
+    keywords:
+      Animal: true
+    crowsSlots: 0
+    monster_type: Hawk
+  tokenType: null
+  bestiaryId: 63015140-c418-4f12-9801-f4671668357c
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACp1UUW+bMBD+K4g9brQxhZDkras0bQ+bqiTaa3SYA7wYG9mmWVrtv882JIsy0qWLhILNd3ff3Xd3L+FmY/YtfoMGw0XYSKENqvBDEOot4/xRyZJRhsI+Oly8hBvewRpybsElcI2/LJIJAQbvqWFP9r+4zxlnZsATb3Qa4gy3d7FyrOGJSXWlyaPcoVpKzj8Ods4HGKNYYdFQHf0qi7E3cUEmwfuAuCtL7BgmdBexAwQFNFChO9/Z893JeSzjkzujuvOrP4VpWo4NCgOGSREuEkcJWwSzBlWh0QPWXlObXiUVex6g4YpVtqqdwuCkTqKvxxK2nlqBmirWDhYe0DVH16HPt2C65bB3Gdcd6pqVJlxMXM0Vq2ojUFsoceeKSm5LuQjflcPPt4EjMZAi46k3yBGXIGy9PKTqeh0IhZikcRRTpFEC6TTKyYxEUywhySBLSUa9cH1+a6u3tRJS+Ny2uN9JVXipVlbZ7RDQfvrq4h1PI4RUz6UvQCMLVh5EH1WJSuEJdyxy7/rWt76+JTetqHzP+JIOBPuDJ05dWZaoZacofnEuCjKfpjOIo6TI8ihJJ0kE5RwjAmlCJmVOsrIIr28gqvqKDmPpZ8JG+Qy7rfNCa1CWBKpP6Fvlwvg8nMH+bp11zXRAVf85oCDso9Q+sFoEaybsS/4DqbkJR5r6RPFyPplMs5hEmN/No2Sep9EsSbIISDnPEHMskvIqSQrZABP+8zn5xVVBXmmOYYYebIJs2HReP1cGBcy8QZ4d8C0T1apFtOnHJ0IN47x3y0uwBriXS8mdXnHphnNy1uID6hXefr/lnelV1kahqEx9Wez7A94vWND4HXhnEZETzMt19HEh4LBH3xzhGOBkE4+tDSaK/6AfH7x7+3+KdYwmn3zXerF8CUtuc5uNow+zsGLPfpGsfNvCz03NTCuZcBKmI6a/Ady/AP9PBwAA
+forkTime: 1781750015538
+description: Hawk
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 10
+ctime: 1787361592996
+mtime: 1787361592996
+hidden: true
+id: 63015140-c418-4f12-9801-f4671668357c

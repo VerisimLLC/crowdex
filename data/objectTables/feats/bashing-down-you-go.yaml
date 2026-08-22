@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 994c8034-cade-4c26-9bd5-51a893fecd8f
+name: Down You Go
+description: When you get a tier 3 result on a bashing weapon attack that results in the target being pushed, you
+  can knock the target prone instead of pushing them.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a65a0362-373e-4a51-a860-59df9634c8c6
+- f24237f8-3548-463d-8aa6-7a43e948081c
+- ea676c7c-d42b-44bb-b574-96c6e7f53d55
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 85282a5c-cd67-4288-9613-992a5e038818
+    name: Down You Go
+    description: When you get a tier 3 result on a bashing weapon attack that results in the target being pushed,
+      you can knock the target prone instead of pushing them.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:994c8034-cade-4c26-9bd5-51a893fecd8f: true
+  domains:
+    CrowdexTrait:994c8034-cade-4c26-9bd5-51a893fecd8f: true

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: dfb1b593-1298-4eea-b84a-9749c5f4af30
+name: Swift Block
+description: You can add your Agility to the Parry quality of any slashing weapon you wield.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 414b350d-7c36-4410-a8e2-8a38166bdd3a
+- 0b66a5b8-9edb-4cd3-897c-5f09b20faf79
+- cc10fd4a-f31e-43ce-a284-c0c3f2926c73
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 28f3a4b8-0e99-4b82-873a-e24d2539b63e
+    name: Swift Block
+    description: You can add your Agility to the Parry quality of any slashing weapon you wield.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:dfb1b593-1298-4eea-b84a-9749c5f4af30: true
+  domains:
+    CrowdexTrait:dfb1b593-1298-4eea-b84a-9749c5f4af30: true

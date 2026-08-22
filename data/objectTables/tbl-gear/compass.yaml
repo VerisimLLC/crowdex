@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Compass
+_table: tbl_Gear
+__typeName: equipment
+id: 8ddd4251-1086-4aea-b56a-7d596edc22d6
+name: "Compass"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 10
+weight: 0
+stackLimit: 3
+slotsRequired: 1
+description: "While carried, grants +1 on tests related to the guide travel role. A fine compass grants +2; a masterwork compass grants +3."
+implementation: 1
+domains:
+  item:8ddd4251-1086-4aea-b56a-7d596edc22d6: true

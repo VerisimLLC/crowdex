@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Whistle
+_table: tbl_Gear
+__typeName: equipment
+id: c4f52933-d24d-457d-b947-0efeafc96d98
+name: "Whistle"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 18a2c299-b567-4c1e-9ac9-00ab7543d3b9
+costInGold: 5
+weight: 0
+stackLimit: 5
+slotsRequired: 1
+description: "As a maneuver, create a loud noise that can be heard from 20 squares away."
+implementation: 1
+domains:
+  item:c4f52933-d24d-457d-b947-0efeafc96d98: true

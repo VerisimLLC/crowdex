@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 417ecc6e-1631-4367-bcf7-c3e22eb2df36
+name: Hurl in the Dark
+description: Ranged attacks you make with handaxes don't suffer a penalty for the target being in dim light or similar
+  concealment, and they only suffer a -2 penalty against target in darkness or similar concealment.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 55a44276-b9bb-4fa9-aca2-b8652a0e1a19
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: af6c6fe9-fc09-400d-8a8b-6270ec250d76
+    name: Hurl in the Dark
+    description: Ranged attacks you make with handaxes don't suffer a penalty for the target being in dim light
+      or similar concealment, and they only suffer a -2 penalty against target in darkness or similar concealment.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:417ecc6e-1631-4367-bcf7-c3e22eb2df36: true
+  domains:
+    CrowdexTrait:417ecc6e-1631-4367-bcf7-c3e22eb2df36: true

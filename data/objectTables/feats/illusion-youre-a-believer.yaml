@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 09bc81e9-75be-4bb0-91ba-c8b64c948b38
+name: You're a Believer
+description: When you cast an illusion spell that targets a creature, you can choose to take 1d6 P damage before
+  you roll to gain a +1 bonus on the casting against that creature.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- fa547938-b9ad-49be-a1f6-64582690c25e
+- 853fb1f5-4bfe-4c1f-a96c-402042266242
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c094562c-f969-451a-90b0-880d03f4e85e
+    name: You're a Believer
+    description: When you cast an illusion spell that targets a creature, you can choose to take 1d6 P damage before
+      you roll to gain a +1 bonus on the casting against that creature.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:09bc81e9-75be-4bb0-91ba-c8b64c948b38: true
+  domains:
+    CrowdexTrait:09bc81e9-75be-4bb0-91ba-c8b64c948b38: true

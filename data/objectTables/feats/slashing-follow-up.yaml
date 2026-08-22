@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 900a4920-9394-42b0-a035-93b3ebf50b96
+name: Follow Up
+description: When you push a target with the Knockback maneuver while wielding a slashing weapon, you can move into
+  any space they vacated without provoking opportunity attacks as part of the maneuver.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- dfb1b593-1298-4eea-b84a-9749c5f4af30
+- 25decbbd-ac05-4e95-8f20-58909edb0d97
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 05fea917-5ca4-4acf-9ddf-566d743f6edc
+    name: Follow Up
+    description: When you push a target with the Knockback maneuver while wielding a slashing weapon, you can move
+      into any space they vacated without provoking opportunity attacks as part of the maneuver.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:900a4920-9394-42b0-a035-93b3ebf50b96: true
+  domains:
+    CrowdexTrait:900a4920-9394-42b0-a035-93b3ebf50b96: true

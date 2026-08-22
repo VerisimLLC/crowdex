@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 34d8af3f-98e6-4615-8525-254484f11151
+name: Move Together
+description: When you use the Command maneuver, you can take the Move Speed maneuver as part of the same maneuver.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 418d150c-334e-498d-874a-0800263e95b2
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 6ce5635e-a0f7-4b45-85a1-37a76ca6aa48
+    name: Move Together
+    description: When you use the Command maneuver, you can take the Move Speed maneuver as part of the same maneuver.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:34d8af3f-98e6-4615-8525-254484f11151: true
+  domains:
+    CrowdexTrait:34d8af3f-98e6-4615-8525-254484f11151: true

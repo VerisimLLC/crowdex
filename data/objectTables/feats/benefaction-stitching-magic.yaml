@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 10638dfb-d963-4fba-a0eb-e8a007a433ae
+name: Stitching Magic
+description: When you cast a benefaction spell that makes the spell's target lose at least 1 wound, they lose 1
+  additional wound.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- e4b284a6-3247-4588-bbdb-4d8157f78ea6
+- 2d8f9e22-e81a-44da-8d07-564ba6ba3fcb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 1580ba93-095b-472b-990b-cb9d22cc2060
+    name: Stitching Magic
+    description: When you cast a benefaction spell that makes the spell's target lose at least 1 wound, they lose
+      1 additional wound.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:10638dfb-d963-4fba-a0eb-e8a007a433ae: true
+  domains:
+    CrowdexTrait:10638dfb-d963-4fba-a0eb-e8a007a433ae: true

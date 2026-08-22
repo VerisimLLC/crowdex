@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: a25cadbd-009e-4352-9373-6158339a9c42
+name: Water Shield
+description: When you cast an elemental spell, you can harness the magic to surround your body in a water ward and
+  gain AD equal to your Mind. The AD granted by this trait disappears at the end of a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c1c11216-9eb8-474a-8f64-659fd081efa8
+    name: Water Shield
+    description: When you cast an elemental spell, you can harness the magic to surround your body in a water ward
+      and gain AD equal to your Mind. The AD granted by this trait disappears at the end of a rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a25cadbd-009e-4352-9373-6158339a9c42: true
+  domains:
+    CrowdexTrait:a25cadbd-009e-4352-9373-6158339a9c42: true

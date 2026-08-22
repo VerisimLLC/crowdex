@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 0c3abf6a-d206-46b3-b19b-514ddcf593dc
+name: Above It All
+description: You gain a +2 bonus to tests made to climb, jump, swim, or do gymnastics while you are not wearing
+  armor.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 380376d1-03c9-4267-83ee-24f153b82bad
+- e3e79b75-cda8-4328-b987-c66e1899d0e3
+- df157c28-86b3-4ece-bf40-0c3cbf2225d8
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 9ea38657-ac31-4a88-be18-8150fadae2f6
+    name: Above It All
+    description: You gain a +2 bonus to tests made to climb, jump, swim, or do gymnastics while you are not wearing
+      armor.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:0c3abf6a-d206-46b3-b19b-514ddcf593dc: true
+  domains:
+    CrowdexTrait:0c3abf6a-d206-46b3-b19b-514ddcf593dc: true

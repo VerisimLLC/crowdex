@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 331a7fcd-0030-4200-aa47-37bcaac39283
+name: Stabbing Holster
+description: You gain an additional belt slot that can only hold stabbing weapons.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a95d38ee-25e1-4e80-9040-6716dd8d5d61
+- 7655be70-aba2-4d1e-943b-c4da86527b0d
+- 4e8744ea-61da-459b-b5e3-9beea8b30f2c
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f520f2cb-9173-4531-8b2c-8485c8861071
+    name: Stabbing Holster
+    description: You gain an additional belt slot that can only hold stabbing weapons.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:331a7fcd-0030-4200-aa47-37bcaac39283: true
+  domains:
+    CrowdexTrait:331a7fcd-0030-4200-aa47-37bcaac39283: true

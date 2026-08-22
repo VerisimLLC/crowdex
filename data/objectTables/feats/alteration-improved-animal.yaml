@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: a4a695a3-d2de-4ac4-8e77-ab999073d707
+name: Improved Animal
+description: When you cast an alteration spell that allows you to turn into an animal, you can turn into an animal
+  with power equal to what the spell says plus your Mind.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 8dc987f6-1fe0-4581-b3e0-6b64ba9d562b
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5dabb9f4-9dc0-4c9f-8613-8826b433458e
+    name: Improved Animal
+    description: When you cast an alteration spell that allows you to turn into an animal, you can turn into an
+      animal with power equal to what the spell says plus your Mind.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a4a695a3-d2de-4ac4-8e77-ab999073d707: true
+  domains:
+    CrowdexTrait:a4a695a3-d2de-4ac4-8e77-ab999073d707: true

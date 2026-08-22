@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: cdad76f2-4319-4bbb-952c-d14c5f71a7b8
+name: Drink Fully
+description: You can consume a healing potion as an action instead of a maneuver. If you do, you don't roll dice
+  to determine how much Stamina you regain. Instead, you gain the maximum amount the dice allow.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- bcb9cba8-28e3-454d-abae-997e19d6c869
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 339438a5-db98-40e5-8c6d-5eee48bce5ef
+    name: Drink Fully
+    description: You can consume a healing potion as an action instead of a maneuver. If you do, you don't roll
+      dice to determine how much Stamina you regain. Instead, you gain the maximum amount the dice allow.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:cdad76f2-4319-4bbb-952c-d14c5f71a7b8: true
+  domains:
+    CrowdexTrait:cdad76f2-4319-4bbb-952c-d14c5f71a7b8: true

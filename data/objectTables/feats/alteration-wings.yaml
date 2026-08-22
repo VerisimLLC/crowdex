@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 91290e7b-d019-4eee-974a-8474c20624f4
+name: Wings
+description: When you cast an alteration spell, you can harness the magic to grow wings that last until the end
+  of the DT. While you have these wings, you gain a flying speed equal to your speed.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a4a695a3-d2de-4ac4-8e77-ab999073d707
+- d8a53287-6f0d-42bd-9a4a-50b1b3084c65
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f9b388e3-dafa-4ac5-8841-93f8aacca574
+    name: Wings
+    description: When you cast an alteration spell, you can harness the magic to grow wings that last until the
+      end of the DT. While you have these wings, you gain a flying speed equal to your speed.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:91290e7b-d019-4eee-974a-8474c20624f4: true
+  domains:
+    CrowdexTrait:91290e7b-d019-4eee-974a-8474c20624f4: true

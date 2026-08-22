@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 59615356-b069-46d7-8b63-b1adde6a823d
+name: Weakness Diagram
+description: As a rest activity, you can use a journal, quill, and inkpot to sketch a monster you have seen before.
+  You and each ally who rests with you gains a +1 bonus to attacks against this creature until you finish another
+  rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 4358dfa4-b10d-4aa3-bc64-8bb8fd52d07c
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 2116bf31-ad8e-47a1-9aa0-d93613a9b720
+    name: Weakness Diagram
+    description: As a rest activity, you can use a journal, quill, and inkpot to sketch a monster you have seen
+      before. You and each ally who rests with you gains a +1 bonus to attacks against this creature until you finish
+      another rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:59615356-b069-46d7-8b63-b1adde6a823d: true
+  domains:
+    CrowdexTrait:59615356-b069-46d7-8b63-b1adde6a823d: true

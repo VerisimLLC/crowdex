@@ -1,0 +1,70 @@
+# Crows Playtest 2 -- Ox (The Ref Book)
+description: Ox
+id: f1ce2e16-8bbc-584b-9eba-12462f7c8b1c
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Ox
+    keywords:
+      Animal: true
+    cr: 8
+    creatureSize: 1L
+    max_hitpoints: 20
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 20
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: -1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 3
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Draft Animal
+      description: When hauling a vehicle, the ox has 10 open slots that can be used to carry equipment.
+      guid: b0c0aac5-c587-53f3-9f82-d2a51c4a9f3d
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Kick
+      guid: 8401c535-5723-5f31-9dff-acefcc73ab73
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ''
+        - 4 damage
+        - 8 damage
+      meleeRange: 1

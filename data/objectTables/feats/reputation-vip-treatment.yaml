@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7c63c07d-8290-4a7a-9fca-eba7b816be96
+name: VIP Treatment
+description: When a merchant affected by your Favorite Customer trait begins crafting an item for you, the item
+  starts with 10% of its crafting points.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 94df2407-3279-47be-816b-9ebe68433efd
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 95ed1846-829d-4515-a5a0-10ad28a3baf1
+    name: VIP Treatment
+    description: When a merchant affected by your Favorite Customer trait begins crafting an item for you, the item
+      starts with 10% of its crafting points.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7c63c07d-8290-4a7a-9fca-eba7b816be96: true
+  domains:
+    CrowdexTrait:7c63c07d-8290-4a7a-9fca-eba7b816be96: true

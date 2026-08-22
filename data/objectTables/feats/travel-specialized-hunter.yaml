@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 14ae32ab-04ff-4b13-92cd-9f0f6d6dec78
+name: Specialized Hunter
+description: When you are in the tracker role while carrying a compass, you can choose two tasks in the role and
+  make a test for both during a travel day.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Travel
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 7fc53ebb-723e-4d78-9eac-1ae500a6b581
+- 88b645f4-2276-484d-831e-d3ca39d28801
+- 513b0e5b-b0c5-4cdb-b02b-c4eb8fe96b40
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 42336b3b-cf8c-4d97-a3e3-cec0f94f0142
+    name: Specialized Hunter
+    description: When you are in the tracker role while carrying a compass, you can choose two tasks in the role
+      and make a test for both during a travel day.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:14ae32ab-04ff-4b13-92cd-9f0f6d6dec78: true
+  domains:
+    CrowdexTrait:14ae32ab-04ff-4b13-92cd-9f0f6d6dec78: true

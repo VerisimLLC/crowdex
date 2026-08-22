@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 919f6849-0b76-4a00-9958-c41f0c4de55f
+name: Lasting Light
+description: When you carry a mundane light source, its UD maximum increases by 1.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Leverage
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0dbd9c4a-76e3-4c24-a5a5-6485260623a6
+    name: Lasting Light
+    description: When you carry a mundane light source, its UD maximum increases by 1.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:919f6849-0b76-4a00-9958-c41f0c4de55f: true
+  domains:
+    CrowdexTrait:919f6849-0b76-4a00-9958-c41f0c4de55f: true

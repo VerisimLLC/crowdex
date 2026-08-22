@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Lore Book
+_table: tbl_Gear
+__typeName: equipment
+id: 71787968-39b5-48f2-be2e-b270bca85e07
+name: "Lore Book"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 6f93e59f-2e72-4856-9e96-c1fcf3909dc4
+costInGold: 50
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: "Relates to one expertise. Study it as a rest activity to gain 1 use of that expertise until your next rest. A fine book grants 2 uses; a masterwork book grants 3."
+implementation: 1
+domains:
+  item:71787968-39b5-48f2-be2e-b270bca85e07: true

@@ -1,0 +1,41 @@
+# Crows Playtest 2 -- Poison Vial
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 5fcaf7ed-a7a3-4772-b74d-5020ee8e3b77
+name: Poison Vial
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+  categorization: Ability
+  numTargets: '1'
+  guid: 44d392fc-d71b-41e7-ab3c-ba6b734581f4
+  behaviors: {}
+  implementation: 1
+  consumables:
+    5fcaf7ed-a7a3-4772-b74d-5020ee8e3b77: 1
+  name: Poison Vial
+  range: 1
+  description: 'Apply to a weapon or 1 piece of ammo. Next time it deals damage before the dungeon turn
+    ends, the creature makes a Strength RR: 11 or less twice Boned; 12-16 Boned; 17+ no effect. Apply
+    Boned manually.'
+  iconid: 334e5f9c-45df-4a7c-aed7-dd8823d56c73
+  targetType: self
+costInGold: 10
+description: 'Maneuver: apply to a weapon or 1 piece of ammo. The next time it deals damage to a creature
+  before the end of the dungeon turn, that creature makes a Strength Resistance Roll. 11 or less: twice
+  Boned; 12-16: Boned; 17+: no effect. (Apply Boned manually.) Craft: Alchemy (1 use), 1 monster part
+  (any), 5.'
+domains:
+  item:5fcaf7ed-a7a3-4772-b74d-5020ee8e3b77: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 334e5f9c-45df-4a7c-aed7-dd8823d56c73
+implementation: 1
+slotsRequired: 1
+stackLimit: 5
+type: Gear
+weight: 1

@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 06540bac-c159-4a63-858b-365eed0a100a
+name: Baleful Teleport
+description: When you teleport a target with a conjuration spell, you can choose to have the target take damage
+  equal to twice your Mind.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 0383b04c-b5d5-4cc8-a14a-ae0e85e29885
+- a21bc471-8174-454c-98d4-255df0886a50
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: af9b1684-fb6e-4cc4-8571-837d63bfe0e0
+    name: Baleful Teleport
+    description: When you teleport a target with a conjuration spell, you can choose to have the target take damage
+      equal to twice your Mind.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:06540bac-c159-4a63-858b-365eed0a100a: true
+  domains:
+    CrowdexTrait:06540bac-c159-4a63-858b-365eed0a100a: true

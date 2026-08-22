@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 5ede37e6-6aa0-40ad-b346-14f37d8cdb83
+name: Weapon Upgrade I
+description: When you craft a weapon, you can add the Brutal or Pummeling qualities to it if the weapon doesn't
+  already have those qualities.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 7a77fbb5-84c7-4247-be83-9fef2fe2d07d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 8fd59405-5dde-4f32-bcb1-ba6029b9ede4
+    name: Weapon Upgrade I
+    description: When you craft a weapon, you can add the Brutal or Pummeling qualities to it if the weapon doesn't
+      already have those qualities.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:5ede37e6-6aa0-40ad-b346-14f37d8cdb83: true
+  domains:
+    CrowdexTrait:5ede37e6-6aa0-40ad-b346-14f37d8cdb83: true

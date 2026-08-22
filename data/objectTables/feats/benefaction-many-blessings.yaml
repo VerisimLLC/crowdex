@@ -1,0 +1,32 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8ff5950e-597f-4ff0-aca1-887df8747de3
+name: Many Blessings
+description: When you cast a benefaction spell that makes the spell's target blessed, you can become blessed as
+  well. You can use this trait a number of times equal to your Mind, regaining all uses when you finish a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- c2b5fee0-79c3-49ff-9ab1-2f962857c47d
+- 2f664917-56ba-46c7-8793-594c645e068c
+- 8ed14fc9-de14-4522-8389-05bbbdd31cdb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 23b141c8-fc2d-4017-b85a-bd2225e83c71
+    name: Many Blessings
+    description: When you cast a benefaction spell that makes the spell's target blessed, you can become blessed
+      as well. You can use this trait a number of times equal to your Mind, regaining all uses when you finish a
+      rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8ff5950e-597f-4ff0-aca1-887df8747de3: true
+  domains:
+    CrowdexTrait:8ff5950e-597f-4ff0-aca1-887df8747de3: true

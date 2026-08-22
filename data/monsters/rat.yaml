@@ -1,0 +1,140 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: "-MSw-WxyoI05CtRCfy78"
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Rat
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    skillProficiencies: []
+    max_hitpoints: 2
+    cr: 0
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: f17233e5-61e2-4a4e-8877-bb62d3f4dff3
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: Dim light imposes no penalties for this creature.
+      source: Trait
+      name: No Dim Light Penalty
+      modifiers: []
+      implementation: 1
+      guid: 07c55991-2669-4109-8c9f-971648a183a5
+      domains:
+        CharacterFeature:07c55991-2669-4109-8c9f-971648a183a5: true
+    walkingSpeed: 4
+    creatureSize: 1T
+    movementSpeeds:
+      climb: 4
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: -5
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -3
+        id: mind
+    monster_category: Animal
+    keywords:
+      Animal: true
+    crowsSlots: 0
+    monster_type: Rat
+  tokenType: null
+  bestiaryId: d1ad79ed-4715-4063-85af-4df6a4edace7
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736656708
+fork: H4sIAAAAAAAACp1UXW+bMBT9K4g9bqwxgSTkrd00adJWVUm01+iCL2DF2Mg2zdJq/322IVmU0S5dpAhszv08597ncLs1hxbvocFwGTZSaIMq/BCEesc4f1CyZAVDYf86XD6HW97BBnJuwSVwjb8skgkBBm8Lwx7tk97mjDMz4Ik3Og9xgTu4WDnW8MikutLkQe5RrSTnd4Od8wHGKEYtGqqTX2Ux9iamZBK8D4i7somdwoTuIrZPElBooEJ3njqDs/NYxWd3RnWXV38a07QcGxQGDJMiXCYuJWwRzAZUhUYPWHtd2PIqqdjTAA3XrLJd7RQGZ30SfT/umPGpUdSFYu1g4QFdc3Id+nop0y2Hg6u47lDXrDThcuJ6rlhVG4HaQok7V4XktpXL8F05/LwMXBJDUmS89AY54gqE7ZeHVJ3noSTzeDrFNJoRjKMEEowWi/k8yvNZTKdlQsty6onr69tYvq2VkMLXtsPDXirqqVpbZndDQPvpu4t3Oo0kpPpc+gY0krLySPooS4UUPuGORe5d33jp6xvysRWV14xv6ZBgf/CJF64tK9SyUwV+dS4oyWbpAmy5dJ5HSTpJIigzjAikCZmUOZmXNLxeQIXquRrG0s+EjbICH7+oQdkcUH1Br5QXpufTBexv5XxmTcCdGgKrWKlRB0IGLQrgboyDUqrA1EwHheo9fAxHxH3G/GRepGmWkSiezbLIFp5FiyIro2xOZskCyGIK6VXUUNkAE/7zZRXLq4K8IpJhlu5l4Mr/5st/8DX7UetJtYCNAmbewNke+I6Jat0i0n7kj+wNM35wG02wBrgnUcm9XnPpJnZyofsB9UoRfunlnem510ahqEz9sgRuj3i/dUHjD+CdRUSpY9Rxd/LxQsBhub45AjkGOFvPY7uECfof6U+P3r39P8k6RZOPXsKeLN/CgrMm72kbwR8HYM2e/H7ZeBXDz23NTCuZcCTGI6a/AYTUi6FmBwAA
+forkTime: 1781750015538
+description: Rat
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 12
+ctime: 1787361593316
+mtime: 1787361593316
+hidden: true
+id: d1ad79ed-4715-4063-85af-4df6a4edace7

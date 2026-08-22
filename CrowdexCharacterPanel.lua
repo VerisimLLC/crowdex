@@ -1468,8 +1468,8 @@ local function CrowdexCharacteristicsRow(token)
     }
 end
 
---- Skills section. Collapsed by default. When expanded, shows a filter
---- dropdown above a flat scrollable list of "Name +N" rows.
+--- Expertises section. Collapsed by default. When expanded, shows a filter
+--- dropdown above a flat scrollable list with editable remaining uses.
 local function CrowdexExpertisesSection(token)
     local expanded = false
     local currentFilter = "all"
@@ -1499,11 +1499,15 @@ local function CrowdexExpertisesSection(token)
             local children = {}
             for _, exp in ipairs(expertises) do
                 if expertiseMatchesFilter(exp, currentFilter) then
-                    local remaining = exp.remaining or 0
+                    -- Capture a per-row value for the callbacks. In Lua 5.1 a
+                    -- generic-for variable is otherwise shared by closures.
+                    local expertise = exp
+                    local remaining = expertise.remaining or 0
+                    local maximum = expertise.max or 0
                     local spent = remaining <= 0
                     children[#children + 1] = gui.Panel{
                         width = "100%",
-                        height = "auto",
+                        height = 22,
                         flow = "horizontal",
                         valign = "center",
                         vmargin = 1,
@@ -1514,16 +1518,114 @@ local function CrowdexExpertisesSection(token)
                             halign = "left",
                             fontSize = 12,
                             color = cond(spent, "#777", "white"),
-                            text = exp.name or "(unnamed)",
+                            text = expertise.name or "(unnamed)",
                         },
-                        gui.Label{
-                            width = "auto",
-                            height = "auto",
+                        -- Fixed-width controls keep every expertise aligned.
+                        -- The input edits uses remaining; - spends one and +
+                        -- restores one without changing the expertise maximum.
+                        gui.Panel{
+                            width = 104,
+                            height = 22,
+                            flow = "horizontal",
                             halign = "right",
-                            fontSize = 12,
-                            bold = true,
-                            color = cond(spent, "#777", "#9bd97a"),
-                            text = string.format("%d/%d", remaining, exp.max or 0),
+                            valign = "center",
+
+                            gui.Button{
+                                width = 22,
+                                height = 20,
+                                fontSize = 12,
+                                text = "-",
+                                classes = {cond(remaining > 0 and not expertise.suppressed, nil, "disabled")},
+                                click = function()
+                                    if currentToken == nil or not currentToken.valid or expertise.suppressed then return end
+                                    currentToken:ModifyProperties{
+                                        description = "Spend " .. (expertise.name or "expertise") .. " use",
+                                        execute = function()
+                                            local info = CrowdexExpertise.FindById(expertise.id)
+                                            if info ~= nil and CrowdexExpertise.Available(currentToken.properties, expertise.id) > 0 then
+                                                currentToken.properties:ConsumeResource(expertise.id,
+                                                    info.resource:try_get("usageLimit", "long"), 1,
+                                                    "Manual expertise use")
+                                            end
+                                        end,
+                                    }
+                                end,
+                                linger = gui.Tooltip("Spend one use"),
+                            },
+                            gui.Input{
+                                width = 30,
+                                height = 20,
+                                fontSize = 11,
+                                textAlignment = "right",
+                                characterLimit = 2,
+                                text = tostring(remaining),
+                                change = function(input)
+                                    if currentToken == nil or not currentToken.valid or expertise.suppressed then
+                                        input.text = tostring(remaining)
+                                        return
+                                    end
+                                    local target = tonumber(input.text)
+                                    if target == nil then
+                                        input.text = tostring(remaining)
+                                        return
+                                    end
+                                    target = math.max(0, math.min(math.floor(target), maximum))
+                                    input.text = tostring(target)
+                                    currentToken:ModifyProperties{
+                                        description = "Set " .. (expertise.name or "expertise") .. " uses",
+                                        execute = function()
+                                            local info = CrowdexExpertise.FindById(expertise.id)
+                                            if info == nil then return end
+                                            local props = currentToken.properties
+                                            local liveMaximum = tonumber((props:GetResources() or {})[expertise.id]) or maximum
+                                            local used = props:GetResourceUsage(expertise.id,
+                                                info.resource:try_get("usageLimit", "long")) or 0
+                                            local current = math.max(0, liveMaximum - used)
+                                            local desired = math.max(0, math.min(target, liveMaximum))
+                                            local difference = desired - current
+                                            if difference > 0 then
+                                                props:RefreshResource(expertise.id,
+                                                    info.resource:try_get("usageLimit", "long"), difference,
+                                                    "Edit expertise uses")
+                                            elseif difference < 0 then
+                                                props:ConsumeResource(expertise.id,
+                                                    info.resource:try_get("usageLimit", "long"), -difference,
+                                                    "Edit expertise uses")
+                                            end
+                                        end,
+                                    }
+                                end,
+                                linger = gui.Tooltip("Set uses remaining"),
+                            },
+                            gui.Label{
+                                width = 24,
+                                height = "auto",
+                                fontSize = 11,
+                                color = cond(spent, "#777", "#9bd97a"),
+                                text = "/" .. tostring(maximum),
+                            },
+                            gui.Button{
+                                width = 22,
+                                height = 20,
+                                fontSize = 12,
+                                text = "+",
+                                classes = {cond(remaining < maximum and not expertise.suppressed, nil, "disabled")},
+                                click = function()
+                                    if currentToken == nil or not currentToken.valid or expertise.suppressed then return end
+                                    currentToken:ModifyProperties{
+                                        description = "Restore " .. (expertise.name or "expertise") .. " use",
+                                        execute = function()
+                                            local info = CrowdexExpertise.FindById(expertise.id)
+                                            if info ~= nil then
+                                                currentToken.properties:RefreshResource(expertise.id,
+                                                    info.resource:try_get("usageLimit", "long"), 1,
+                                                    "Refund expertise use")
+                                            end
+                                        end,
+                                    }
+                                end,
+                                linger = gui.Tooltip("Restore one spent use"),
+                            },
                         },
                     }
                 end
@@ -1606,7 +1708,8 @@ local function CrowdexExpertisesSection(token)
             for _, exp in ipairs(expertises) do
                 remaining = remaining + (exp.remaining or 0)
             end
-            element.text = string.format("EXPERTISES (%d uses left)", remaining)
+            element.text = string.format("EXPERTISES (%d %s left)", remaining,
+                cond(remaining == 1, "use", "uses"))
         end,
     }
 

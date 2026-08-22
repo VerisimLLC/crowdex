@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: e3d8ce04-baf2-47c7-bbf8-f3086094659b
+name: Portal Pocket
+description: You gain an additional belt slot that exists in an extradimensional space only you can access. If you
+  die, any items in that slot disappear into the void.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- f2dd6983-0341-4455-bd1e-d7d9dcec1e5b
+- 06540bac-c159-4a63-858b-365eed0a100a
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 39b71743-3d32-4230-8070-052fcd52be7c
+    name: Portal Pocket
+    description: You gain an additional belt slot that exists in an extradimensional space only you can access.
+      If you die, any items in that slot disappear into the void.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e3d8ce04-baf2-47c7-bbf8-f3086094659b: true
+  domains:
+    CrowdexTrait:e3d8ce04-baf2-47c7-bbf8-f3086094659b: true

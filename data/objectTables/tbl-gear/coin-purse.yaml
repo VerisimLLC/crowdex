@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Coin Purse
+_table: tbl_Gear
+__typeName: equipment
+id: e1af2dff-1753-45c1-a3cf-e06f15238d62
+name: "Coin Purse"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 1
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: "Holds up to 500 coins. A fine purse holds 750 coins; a masterwork purse holds 1,000 coins."
+implementation: 1
+domains:
+  item:e1af2dff-1753-45c1-a3cf-e06f15238d62: true

@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 0059c1a0-4414-4106-937d-5c6d6261d2bb
+name: Benefaction Mastery
+description: Non-doom tier 1 results of rank 0 and 1 benefaction spells you cast don't add to the chaos count. Your
+  benefaction spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- c2b5fee0-79c3-49ff-9ab1-2f962857c47d
+- 2f664917-56ba-46c7-8793-594c645e068c
+- 8ed14fc9-de14-4522-8389-05bbbdd31cdb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e08dee19-b92a-4412-9304-9814b18be841
+    name: Benefaction Mastery
+    description: Non-doom tier 1 results of rank 0 and 1 benefaction spells you cast don't add to the chaos count.
+      Your benefaction spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:0059c1a0-4414-4106-937d-5c6d6261d2bb: true
+  domains:
+    CrowdexTrait:0059c1a0-4414-4106-937d-5c6d6261d2bb: true

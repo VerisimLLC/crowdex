@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 51607f29-91b9-4c64-9c6d-2623d27e5aff
+name: Big Dreams
+description: When you cast an illusion with a size (such as Small or Medium) the illusion's size increases by 1.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- fa547938-b9ad-49be-a1f6-64582690c25e
+- 853fb1f5-4bfe-4c1f-a96c-402042266242
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 4b74f1b9-5cb2-44b3-8f77-eadf7fa67e8f
+    name: Big Dreams
+    description: When you cast an illusion with a size (such as Small or Medium) the illusion's size increases by
+      1.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:51607f29-91b9-4c64-9c6d-2623d27e5aff: true
+  domains:
+    CrowdexTrait:51607f29-91b9-4c64-9c6d-2623d27e5aff: true

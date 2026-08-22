@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- Miner's Pick
+#
+# Playtest 2 change: description, name
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: b1cb8195-2079-45af-b43a-16bbe9f5f364
+name: Miner's Pick
+category: Gear
+costInGold: 5
+description: A heavy pick for breaking rock and ore. A miner's staple; can serve as an improvised weapon.
+domains:
+  item:b1cb8195-2079-45af-b43a-16bbe9f5f364: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1e53e3d9-e678-4fd6-967c-37fa2856be3d
+implementation: 1
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 2

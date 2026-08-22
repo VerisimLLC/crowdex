@@ -1,0 +1,80 @@
+# Crows Playtest 2 -- Spider (The Ref Book)
+description: Spider
+id: 23a3ba22-db8b-5e06-baa4-db6f686c7e77
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Spider
+    keywords:
+      Animal: true
+    cr: 0
+    creatureSize: 1T
+    max_hitpoints: 2
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -4
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: -5
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Ceiling Climber
+      description: The spider can climb upside down along ceilings.
+      guid: f53fa0ea-050b-5abc-9bc3-d70f4d125d4b
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Vibration Sense
+      description: The spider knows the exact location of creatures within 2 squares and suffers no penalties on
+        attacks against or tests to observe them.
+      guid: bf3b8a9a-bcec-5c5e-bdfc-b57bde7f815a
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: 999083f6-7729-5f29-9406-7fcfe6f475c8
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 1 damage
+        - 2 damage
+      meleeRange: 1
+    movementSpeeds:
+      climb: 5

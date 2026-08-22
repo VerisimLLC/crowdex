@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 266c6eac-bf9d-4648-9403-41dc2cc4d9bb
+name: Mounted Speed
+description: While you ride a pet you own, their speed is increased by 1.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 3f63f66c-5e13-48ca-aa33-9c229fb455c7
+    name: Mounted Speed
+    description: While you ride a pet you own, their speed is increased by 1.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:266c6eac-bf9d-4648-9403-41dc2cc4d9bb: true
+  domains:
+    CrowdexTrait:266c6eac-bf9d-4648-9403-41dc2cc4d9bb: true

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: d4f5bc55-7a3d-4e0d-b299-e13aa4779d3b
+name: Flow Like Blood
+description: When you cast a necromancy spell, you have an amorphous body and gear until the end of the DT. While
+  in this state, you can fit through openings that are at least 1 inch square.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- d6ae0bd2-5083-4c08-86c8-99fcb8609f82
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 2b53676e-96ce-4565-b9ef-f2075be267c4
+    name: Flow Like Blood
+    description: When you cast a necromancy spell, you have an amorphous body and gear until the end of the DT.
+      While in this state, you can fit through openings that are at least 1 inch square.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d4f5bc55-7a3d-4e0d-b299-e13aa4779d3b: true
+  domains:
+    CrowdexTrait:d4f5bc55-7a3d-4e0d-b299-e13aa4779d3b: true

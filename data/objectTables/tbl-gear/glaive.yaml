@@ -1,0 +1,28 @@
+# Crows Playtest 2 -- Glaive
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: b447e51e-3331-452c-9aa7-70f490a6b63c
+name: Glaive
+category: Gear
+costInGold: 15
+crowsAD: 6
+crowsAttackStat: S
+crowsMeleeRange: 2
+crowsQualities: Disengage, Parry 6
+crowsTier2: 3 + S
+crowsTier3: 6 + S
+crowsWeaponType: Slashing
+description: 'Melee 2. Attack 2d10 + S; 12-16: 3 + S; 17+: 6 + S. Slashing, Disengage, Parry 6. Craft:
+  Blacksmithing (1 use), 1 iron bar, 10.'
+domains:
+  item:b447e51e-3331-452c-9aa7-70f490a6b63c: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: 63f7ffe2-4b7d-4299-bb4a-be761183bfea
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 5

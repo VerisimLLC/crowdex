@@ -1,0 +1,24 @@
+# Crows Playtest 2 -- Necklace of Teeth
+#
+# The card's text reads "while you wear this RING" -- a copy-paste from the
+# ring cards above it. Recorded as necklace, which is what the item is.
+#
+# Gear import REPLACES the whole record, so this file carries the entire item.
+_table: tbl_Gear
+__typeName: equipment
+id: b59a58a7-a525-4fa9-8cbc-46436ce6bbb1
+name: Necklace of Teeth
+category: Gear
+costInGold: 500
+crowsMagicSlot: Neck
+description: 'While you wear this necklace, your unarmed strikes deal an additional 1 damage. Slot: Neck.
+  Craft: Enchanting (2 uses), gem worth 100 gc, 100.'
+domains:
+  item:b59a58a7-a525-4fa9-8cbc-46436ce6bbb1: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: d9442270-3f02-42f0-9e4d-03a4e6302212
+implementation: 1
+slotsRequired: 1
+stackLimit: 3
+type: Gear
+weight: 0

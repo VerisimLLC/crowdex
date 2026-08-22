@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: c09dcf19-46e1-4cc7-8c70-18f74eb678f7
+name: Angelic Presence
+description: When you cast a necromancy spell, enemies who are within 2 squares of you take a -1 penalty to their
+  RRs until the end of the DT.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- d8140882-4a76-4176-8e1c-d1d98f560d4e
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 7eac52ac-9068-498a-8a07-4ce63caf4b2e
+    name: Angelic Presence
+    description: When you cast a necromancy spell, enemies who are within 2 squares of you take a -1 penalty to
+      their RRs until the end of the DT.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c09dcf19-46e1-4cc7-8c70-18f74eb678f7: true
+  domains:
+    CrowdexTrait:c09dcf19-46e1-4cc7-8c70-18f74eb678f7: true

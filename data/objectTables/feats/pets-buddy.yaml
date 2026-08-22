@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: daf35016-0bb9-4525-bd00-ad5e0cee1927
+name: Buddy
+description: As a rest activity, choose a number of pets you own equal to your Mind (minimum 1). You gain a +2 bonus
+  on Mind tests made to interact with those pets until you use the activity again.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 30a3b233-7e9f-4f00-8ebb-06bfae509d1e
+    name: Buddy
+    description: As a rest activity, choose a number of pets you own equal to your Mind (minimum 1). You gain a
+      +2 bonus on Mind tests made to interact with those pets until you use the activity again.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:daf35016-0bb9-4525-bd00-ad5e0cee1927: true
+  domains:
+    CrowdexTrait:daf35016-0bb9-4525-bd00-ad5e0cee1927: true

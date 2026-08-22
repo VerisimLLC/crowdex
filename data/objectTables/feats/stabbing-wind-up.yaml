@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 477aa03f-fe7d-41f9-a936-569bfd2fc5cf
+name: Wind Up
+description: While you are wielding a stabbing weapon, you can use a maneuver to prepare an attack. If you make
+  a melee attack with the stabbing weapon this turn, it deals additional damage equal to your Strength.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a95d38ee-25e1-4e80-9040-6716dd8d5d61
+- 7655be70-aba2-4d1e-943b-c4da86527b0d
+- 4e8744ea-61da-459b-b5e3-9beea8b30f2c
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f1be13ea-768c-4b87-8e29-153e68b8b5c0
+    name: Wind Up
+    description: While you are wielding a stabbing weapon, you can use a maneuver to prepare an attack. If you make
+      a melee attack with the stabbing weapon this turn, it deals additional damage equal to your Strength.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:477aa03f-fe7d-41f9-a936-569bfd2fc5cf: true
+  domains:
+    CrowdexTrait:477aa03f-fe7d-41f9-a936-569bfd2fc5cf: true

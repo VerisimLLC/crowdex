@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Cook's Utensils
+_table: tbl_Gear
+__typeName: equipment
+id: 499e1a9f-0508-4d79-a877-49e9871698eb
+name: "Cook's Utensils"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 483e185d-3d8b-458f-9333-4348802a70fa
+costInGold: 15
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Required for certain special rest activities in the Travel trait tree. Includes many small knives, forks, and similar implements."
+implementation: 1
+domains:
+  item:499e1a9f-0508-4d79-a877-49e9871698eb: true

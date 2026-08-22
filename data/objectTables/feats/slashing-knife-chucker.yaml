@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: fa5aab75-4ec6-4bf4-a0ff-301816350fc9
+name: Knife Chucker
+description: When you wield a knife, it's non-melee range increases by 2 squares.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- dfb1b593-1298-4eea-b84a-9749c5f4af30
+- 25decbbd-ac05-4e95-8f20-58909edb0d97
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: cc195196-b8ef-4cb9-9cbf-4eb46aadebff
+    name: Knife Chucker
+    description: When you wield a knife, it's non-melee range increases by 2 squares.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:fa5aab75-4ec6-4bf4-a0ff-301816350fc9: true
+  domains:
+    CrowdexTrait:fa5aab75-4ec6-4bf4-a0ff-301816350fc9: true

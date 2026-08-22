@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 30dad5e1-294e-400e-9e40-6e3149d6f8cf
+name: Hooves
+description: When you cast an alteration spell, you can harness the magic to change your feet into powerful hooves
+  until the end of the DT. While you have these hooves, your speed increase by your Mind.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 57b9ce49-b407-4ac6-b26e-d1a660ab4755
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 6a33bf1a-10f5-4a8e-b106-2e513af0f2c3
+    name: Hooves
+    description: When you cast an alteration spell, you can harness the magic to change your feet into powerful
+      hooves until the end of the DT. While you have these hooves, your speed increase by your Mind.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:30dad5e1-294e-400e-9e40-6e3149d6f8cf: true
+  domains:
+    CrowdexTrait:30dad5e1-294e-400e-9e40-6e3149d6f8cf: true

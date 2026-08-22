@@ -1,0 +1,131 @@
+# Crows Playtest 2 condition override. Import replaces the Draw Steel record.
+__typeName: CharacterCondition
+_table: charConditions
+id: da6867b1-01e3-4570-8d1b-1b94ea1ea343
+guid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+name: Prone
+implementation: 4
+description: >-
+  Your speed is halved. You take a bane on melee attacks and cannot flank. Melee attacks against
+  you gain an edge, while ranged attacks against you take a bane. You can stand as a maneuver if
+  your speed is at least 1.
+iconid: 7008efe0-3299-427f-a12a-d5f54253b77d
+powertable: true
+indefiniteDuration: true
+stackable: false
+trackCaster: false
+domains:
+  CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+display:
+  bgcolor: '#ffffffff'
+  hueshift: 0
+modifiers:
+- __typeName: CharacterModifier
+  guid: 707e56dd-902f-4c23-ad1e-5600596e992d
+  sourceguid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+  source: Condition
+  name: Prone
+  description: A prone creature's speed is halved.
+  behavior: attribute
+  attribute: movementMultiplier
+  operation: set
+  value: 0.5
+  domains:
+    CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+- __typeName: CharacterModifier
+  guid: c8f720ec-3f39-4ffb-b214-35d32ca7d256
+  sourceguid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+  source: Condition
+  name: Prone
+  description: A prone creature cannot grant flanking.
+  behavior: attribute
+  attribute: b3eda2a2-a0da-44c7-8a67-e34f4805ff96
+  value: 1
+  domains:
+    CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+- __typeName: CharacterModifier
+  guid: c4170d95-a2f5-40b7-997d-79c1ae70b2da
+  sourceguid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+  source: Condition
+  name: Prone
+  description: Melee attacks made while prone take a bane.
+  behavior: power
+  rollType: ability_power_roll
+  modtype: bane
+  activationCondition: true
+  keywords:
+    Melee: true
+  domains:
+    CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+- __typeName: CharacterModifier
+  guid: a4aa64d0-dcae-4acf-b83e-1d1fa6be1dae
+  sourceguid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+  source: Condition
+  name: Prone
+  description: Melee attacks against a prone creature gain an edge.
+  behavior: power
+  rollType: enemy_ability_power_roll
+  modtype: edge
+  activationCondition: true
+  keywords:
+    Melee: true
+  domains:
+    CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+- __typeName: CharacterModifier
+  guid: ae837798-e1ef-49c8-a25b-708bdaec5dd8
+  sourceguid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+  source: Condition
+  name: Prone
+  description: Ranged attacks against a prone creature take a bane.
+  behavior: power
+  rollType: enemy_ability_power_roll
+  modtype: bane
+  activationCondition: true
+  keywords:
+    Ranged: true
+  domains:
+    CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+- __typeName: CharacterModifier
+  guid: 49b74486-7771-4bf0-b8c8-97d5a0e32721
+  sourceguid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+  source: Condition
+  name: Stand Up
+  description: The Draw Steel Stand Up maneuver is replaced by the Crows maneuver below.
+  explanation: In Crows, you must have speed 1 or higher and stand only yourself.
+  behavior: suppressabilities
+  domains:
+    CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+- __typeName: CharacterModifier
+  guid: 23a89be5-ac10-4205-bac0-e668eaedfe20
+  sourceguid: 4bfcd63f-45fa-4f1d-968a-43834d91ccdd
+  source: Condition
+  name: Stand Up (Crows)
+  description: Stand up and end prone as a maneuver if your speed is at least 1.
+  behavior: activated
+  domains:
+    CharacterCondition:da6867b1-01e3-4570-8d1b-1b94ea1ea343: true
+  activatedAbility:
+    __typeName: ActivatedAbility
+    name: Stand Up (Crows)
+    guid: 8740fe73-17f6-4ec7-a6b8-362455c0c293
+    implementation: 4
+    description: You stand up, ending prone. You must have a speed of at least 1.
+    abilityType: none
+    actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+    targetType: self
+    selfTarget: true
+    targetFilter: Speed >= 1
+    numTargets: '1'
+    range: 1
+    repeatTargets: false
+    modifiers: []
+    persistence: []
+    strain: []
+    iconid: dba8a5c1-3594-4f61-acbb-64f5ae6c825e
+    behaviors:
+    - __typeName: ActivatedAbilityPurgeEffectsBehavior
+      chatMessage: Stood up!
+      conditions:
+      - da6867b1-01e3-4570-8d1b-1b94ea1ea343
+      mode: conditions
+      purgeType: all

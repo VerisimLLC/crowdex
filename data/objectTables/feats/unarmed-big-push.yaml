@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: ae54a8ba-a447-45e6-a60a-e4525f281add
+name: Big Push
+description: While you have at least 1 hand slot free, you can target creatures 1 size larger than you or smaller
+  with the Knockback maneuver.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 0328b406-b61f-4770-b996-3d58cb76db51
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 82f521df-1bf4-4672-935f-ff752290f50f
+    name: Big Push
+    description: While you have at least 1 hand slot free, you can target creatures 1 size larger than you or smaller
+      with the Knockback maneuver.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:ae54a8ba-a447-45e6-a60a-e4525f281add: true
+  domains:
+    CrowdexTrait:ae54a8ba-a447-45e6-a60a-e4525f281add: true

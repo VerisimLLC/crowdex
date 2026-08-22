@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- Crafting Material, Log
+#
+# Was "Crafting Material, Small". Playtest 2 replaced the size ladder with named kinds;
+# the id is reused so anything already carrying one still resolves.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: 911d825b-6749-47be-9e2f-4d14605bbdd3
+name: Crafting Material, Log
+category: Gear
+costInGold: 0
+description: A wood log used in crafting. The Ref determines the nature of the crafting material.
+domains:
+  item:911d825b-6749-47be-9e2f-4d14605bbdd3: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: f51bf505-d9c4-4398-8924-6c2b19aafb4c
+implementation: 1
+slotsRequired: 1
+stackLimit: 1
+type: Gear
+weight: 1

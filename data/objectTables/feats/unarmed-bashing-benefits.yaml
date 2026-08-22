@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7f0529cb-3147-4abc-a637-8ff52351fde4
+name: Bashing Benefits
+description: Any improvised weapon you wield counts as a bashing weapon and has the Pummeling quality.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 86a93751-bef6-4ba2-b60c-3538e587552f
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 76e75374-b854-4f1a-af74-4de1d89d8e5b
+    name: Bashing Benefits
+    description: Any improvised weapon you wield counts as a bashing weapon and has the Pummeling quality.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7f0529cb-3147-4abc-a637-8ff52351fde4: true
+  domains:
+    CrowdexTrait:7f0529cb-3147-4abc-a637-8ff52351fde4: true

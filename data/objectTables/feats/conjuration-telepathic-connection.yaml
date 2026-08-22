@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 24c2ff86-514a-423a-9aaa-ecfe33ee82de
+name: Telepathic Connection
+description: When you summon a creature with a conjuration spell, you can telepathically communicate with them and
+  use their senses as your own (while still using yours) over any distance until the spell ends.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- ce3e1fb7-940e-4d01-83b0-b36660dd7c30
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: bed76499-c9d7-49c5-a9fa-79d685a97f64
+    name: Telepathic Connection
+    description: When you summon a creature with a conjuration spell, you can telepathically communicate with them
+      and use their senses as your own (while still using yours) over any distance until the spell ends.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:24c2ff86-514a-423a-9aaa-ecfe33ee82de: true
+  domains:
+    CrowdexTrait:24c2ff86-514a-423a-9aaa-ecfe33ee82de: true

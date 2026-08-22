@@ -322,6 +322,7 @@ local REST_ACTIVITY_OPTIONS = {
     { id = "harvest", text = "Harvest" },
     { id = "identify", text = "Identify Item" },
     { id = "prepare", text = "Prepare for Task" },
+    { id = "readlore", text = "Read Lore Book" },
     { id = "repair", text = "Repair Armor" },
     { id = REST_SECLUDE, text = "Seclude Camp" },
     { id = REST_TEND, text = "Tend Wounds" },
@@ -632,6 +633,45 @@ local function SetTendTarget(tokenid, targetid)
     doc:CompleteChange("Set tend wounds target", {undoable = false})
 end
 
+local function GetCraftingRollState(tokenid)
+    local rolls = GetRestDoc().data.craftingRolls
+    if type(rolls) ~= "table" then return { used = 0, bonus = 0 } end
+    local state = rolls[tokenid]
+    if type(state) ~= "table" then return { used = 0, bonus = 0 } end
+    return { used = state.used or 0, bonus = state.bonus or 0 }
+end
+
+local function RecordCraftingRoll(tokenid, crit)
+    local doc = GetRestDoc()
+    doc:BeginChange()
+    if type(doc.data.craftingRolls) ~= "table" then doc.data.craftingRolls = {} end
+    local state = doc.data.craftingRolls[tokenid] or { used = 0, bonus = 0 }
+    state.used = (state.used or 0) + 1
+    if crit then state.bonus = (state.bonus or 0) + 1 end
+    doc.data.craftingRolls[tokenid] = state
+    doc:CompleteChange("Record crafting roll", {undoable = false})
+end
+
+local function GetLoreBookChoice(tokenid)
+    local choices = GetRestDoc().data.loreBooks
+    if type(choices) ~= "table" or type(choices[tokenid]) ~= "table" then return nil end
+    return choices[tokenid]
+end
+
+local function SetLoreBookChoice(tokenid, expertiseId, uses)
+    local doc = GetRestDoc()
+    doc:BeginChange()
+    if type(doc.data.loreBooks) ~= "table" then doc.data.loreBooks = {} end
+    local expertise = CrowdexExpertise.FindById(expertiseId)
+    uses = math.max(1, math.min(3, math.floor(tonumber(uses) or 1)))
+    if expertise == nil then
+        doc.data.loreBooks[tokenid] = nil
+    else
+        doc.data.loreBooks[tokenid] = { expertiseId = expertise.id, uses = uses }
+    end
+    doc:CompleteChange("Choose lore book", {undoable = false})
+end
+
 -- Clear every crow's activity. Called once a rest is finished so the next rest
 -- starts from a blank slate rather than silently repeating the last one.
 local function ClearRestActivities()
@@ -639,6 +679,8 @@ local function ClearRestActivities()
     doc:BeginChange()
     doc.data.activities = {}
     doc.data.tendTargets = {}
+    doc.data.craftingRolls = {}
+    doc.data.loreBooks = {}
     doc:CompleteChange("Clear rest activities", {undoable = false})
 end
 
@@ -902,6 +944,64 @@ local function MiasmaEffectRows(props)
     return rows
 end
 
+local function ShowMiasmaExpertiseChoice(tok)
+    if tok == nil or not tok.valid or tok.properties == nil then return end
+    local children = {
+        gui.Label{
+            classes = {"dialogTitle"},
+            text = "Choose a Miasma Expertise",
+        },
+        gui.Label{
+            width = "100%",
+            height = "auto",
+            wrap = true,
+            color = "#cccccc",
+            text = "Choose an expertise you do not have. You keep it until you leave the Miasma.",
+            bmargin = 8,
+        },
+    }
+    local owned = tok.properties:GetResources() or {}
+    for _, expertise in ipairs(CrowdexExpertise.Catalog()) do
+        if (owned[expertise.id] or 0) <= 0 then
+            children[#children + 1] = gui.Button{
+                width = 220,
+                height = 24,
+                text = expertise.name,
+                click = function()
+                    tok:ModifyProperties{
+                        description = "Gain Miasma expertise",
+                        execute = function()
+                            CrowdexExpertise.SetTemporaryGrant(tok.properties, "miasma:7-8",
+                                { [expertise.id] = 1 }, "miasma")
+                        end,
+                    }
+                    gui.CloseModal()
+                end,
+                linger = gui.Tooltip{
+                    text = expertise.description,
+                    maxWidth = 420,
+                },
+            }
+        end
+    end
+    gui.ShowModal(gui.Panel{
+        width = 560,
+        height = "auto",
+        maxHeight = 700,
+        classes = {"framedPanel"},
+        gui.Panel{
+            width = "100%",
+            height = "auto",
+            maxHeight = 660,
+            flow = "vertical",
+            vscroll = true,
+            pad = 12,
+            borderBox = true,
+            children = children,
+        },
+    })
+end
+
 -- Set cruelty, clamped at zero. Losing the last level also ends the 11-12
 -- effect, whose first half explicitly runs only "when you no longer have
 -- cruelty" -- and its second half lasts as long as its first.
@@ -959,6 +1059,7 @@ local function RollMiasmaEffect(tok)
                 -- The terminal row wipes everything else on its way in.
                 props.crowdex_miasmaEffects = { [MIASMA_TERMINAL] = true }
                 props.crowdex_cruelty = 0
+                CrowdexExpertise.RemoveTemporaryGrant(props, "miasma:7-8")
             else
                 local held = props:try_get("crowdex_miasmaEffects", {}) or {}
                 held[result.row.key] = true
@@ -1072,7 +1173,7 @@ local function FinishRest()
     local restId = dmhub.GenerateGuid()
 
     local summary = { crows = 0, wounds = 0, dice = 0, tended = 0, miasma = 0,
-                      expertises = 0, cleansed = 0, chaos = 0 }
+                      expertises = 0, loreBooks = 0, cleansed = 0, chaos = 0 }
 
     for _, tok in ipairs(crows) do
         if tok ~= nil and tok.valid and tok.properties ~= nil then
@@ -1119,6 +1220,23 @@ local function FinishRest()
                             summary.expertises = summary.expertises + 1
                         end
 
+                        -- Advancement earned since the previous rest becomes
+                        -- claimable now. This also expires lore-book and other
+                        -- temporary expertise grants whose duration is one rest.
+                        CrowdexAdvancement.OnRest(props)
+
+                        -- A lore book studied during this rest starts after the
+                        -- old rest-duration grant expires, so it lasts through
+                        -- play and ends at the character's next finished rest.
+                        if GetRestActivity(tok.id) == "readlore" then
+                            local lore = GetLoreBookChoice(tok.id)
+                            if lore ~= nil and CrowdexExpertise.FindById(lore.expertiseId) ~= nil then
+                                CrowdexExpertise.SetTemporaryGrant(props, "lorebook:rest",
+                                    { [lore.expertiseId] = lore.uses }, "rest")
+                                summary.loreBooks = summary.loreBooks + 1
+                            end
+                        end
+
                         -- "You lose all levels of cruelty when you finish a rest in
                         -- a location that has no Miasma." The effects go with it:
                         -- five of the seven rows run only "until you are out of the
@@ -1134,6 +1252,7 @@ local function FinishRest()
                             else
                                 props.crowdex_miasmaEffects = {}
                             end
+                            CrowdexExpertise.RemoveTemporaryGrant(props, "miasma:7-8")
                         end
                     end,
                 }
@@ -1957,6 +2076,423 @@ local function CreateWildernessBlock()
     return block
 end
 
+local function BaseCraftingRolls(props, craftInfo)
+    local result = 1
+    if CrowdexTraits ~= nil and CrowdexTraits.Has ~= nil then
+        local traitByExpertise = {
+            Alchemy = "Midnight Oil",
+            Blacksmithing = "Double Duty",
+            Enchanting = "Twice Enchanted",
+        }
+        local traitName = traitByExpertise[craftInfo.expertiseName]
+        if traitName ~= nil and CrowdexTraits.Has(props, traitName) then return 2 end
+    end
+
+    -- Compatibility fallback for characters using an older background record
+    -- without a crowdexTraitId.
+    local builder = CrowdexBuilderUI
+    if builder == nil then return result end
+    local background = builder.GetBackground(props)
+    if background == nil then return result end
+    local _, features = builder.BackgroundParts(background)
+    for _, feature in ipairs(features or {}) do
+        local text = string.lower((feature.name or "") .. " " .. (feature.description or ""))
+        if string.find(text, "make two crafting rolls", 1, true)
+                and string.find(text, string.lower(craftInfo.expertiseName), 1, true) then
+            return 2
+        end
+    end
+    return result
+end
+
+local function ShowLoreBookDialog(readerToken)
+    if readerToken == nil or not readerToken.valid or readerToken.properties == nil then return end
+    local catalog = CrowdexExpertise.Catalog()
+    if #catalog == 0 then return end
+
+    local expertiseOptions = {}
+    for _, expertise in ipairs(catalog) do
+        expertiseOptions[#expertiseOptions + 1] = {
+            id = expertise.id,
+            text = string.format("%s (%s)", expertise.name, expertise.category),
+        }
+    end
+
+    local saved = GetLoreBookChoice(readerToken.id)
+    local expertiseId = saved and saved.expertiseId or catalog[1].id
+    local uses = saved and saved.uses or 1
+    local dialogPanel
+
+    dialogPanel = gui.Panel{
+        width = 560,
+        height = "auto",
+        classes = {"framedPanel"},
+        gui.Panel{
+            width = "100%",
+            height = "auto",
+            flow = "vertical",
+            pad = 12,
+            borderBox = true,
+            gui.Label{
+                classes = {"dialogTitle"},
+                text = "Read Lore Book",
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                wrap = true,
+                color = "#cccccc",
+                text = "Choose the expertise printed on the book and its quality. The Ref confirms that the reader has the book. The granted uses last until the next rest.",
+                bmargin = 8,
+            },
+            gui.Panel{
+                width = "100%",
+                height = 26,
+                flow = "horizontal",
+                gui.Label{ width = 100, height = "auto", text = "Expertise:" },
+                gui.Dropdown{
+                    width = 330,
+                    height = 24,
+                    options = expertiseOptions,
+                    idChosen = expertiseId,
+                    change = function(element) expertiseId = element.idChosen end,
+                },
+            },
+            gui.Panel{
+                width = "100%",
+                height = 26,
+                flow = "horizontal",
+                tmargin = 4,
+                gui.Label{ width = 100, height = "auto", text = "Quality:" },
+                gui.Dropdown{
+                    width = 220,
+                    height = 24,
+                    idChosen = tostring(uses),
+                    options = {
+                        { id = "1", text = "Standard (1 use)" },
+                        { id = "2", text = "Fine (2 uses)" },
+                        { id = "3", text = "Masterwork (3 uses)" },
+                    },
+                    change = function(element) uses = tonumber(element.idChosen) or 1 end,
+                },
+            },
+            gui.Panel{
+                width = "100%",
+                height = "auto",
+                flow = "horizontal",
+                tmargin = 10,
+                gui.Button{
+                    width = 110,
+                    text = "Cancel",
+                    click = function() gui.CloseModal() end,
+                },
+                gui.Button{
+                    width = 150,
+                    lmargin = 8,
+                    text = "Save Choice",
+                    click = function()
+                        SetLoreBookChoice(readerToken.id, expertiseId, uses)
+                        gui.CloseModal()
+                    end,
+                },
+            },
+        },
+    }
+    gui.ShowModal(dialogPanel)
+end
+
+local function ShowCraftingDialog(crafterToken)
+    if crafterToken == nil or not crafterToken.valid or crafterToken.properties == nil then return end
+    local catalog = CrowdexCrafting.Catalog()
+    if #catalog == 0 then
+        gui.ModalMessage{
+            title = "Craft Equipment",
+            message = "No craftable Crows items are currently imported.",
+        }
+        return
+    end
+
+    local byId = {}
+    local itemOptions = {}
+    for _, craftInfo in ipairs(catalog) do
+        byId[craftInfo.itemId] = craftInfo
+        itemOptions[#itemOptions + 1] = { id = craftInfo.itemId, text = craftInfo.item.name }
+    end
+
+    local ownerOptions = {}
+    for _, tok in ipairs(CrowTokens()) do
+        ownerOptions[#ownerOptions + 1] = { id = tok.id, text = tok.name or "Crow" }
+    end
+
+    local selectedItemId = catalog[1].itemId
+    local ownerId = crafterToken.id
+    local expertiseIds = {}
+    local otherBonus = 0
+    local resultText = ""
+    local contentPanel
+
+    local function SelectedExpertiseList()
+        local result = {}
+        for id, selected in pairs(expertiseIds) do
+            if selected then result[#result + 1] = id end
+        end
+        table.sort(result)
+        return result
+    end
+
+    local function RefreshDialog()
+        local craftInfo = byId[selectedItemId]
+        local ownerToken = dmhub.GetCharacterById(ownerId)
+        local owner = ownerToken and ownerToken.properties or crafterToken.properties
+        local selected = SelectedExpertiseList()
+        local hasPrerequisite = CrowdexExpertise.CanCraft(crafterToken.properties,
+            craftInfo.expertiseId, craftInfo.requiredUses)
+        local state = GetCraftingRollState(crafterToken.id)
+        local baseRolls = BaseCraftingRolls(crafterToken.properties, craftInfo)
+        local rollsLeft = math.max(0, baseRolls + (state.bonus or 0) - (state.used or 0))
+        local progress = CrowdexCrafting.Progress(owner, selectedItemId)
+
+        local children = {
+            gui.Label{
+                classes = {"dialogTitle"},
+                text = "Craft Equipment",
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                wrap = true,
+                color = "#cccccc",
+                text = "A crafting roll is 2d10 + Mind. Each selected expertise adds +4; select at most two. Put double-edge, double-bane, camp, tool, and other adjustments in Other Bonus. Materials and tools are confirmed by the Ref.",
+            },
+            gui.Panel{
+                width = "100%",
+                height = 26,
+                flow = "horizontal",
+                tmargin = 8,
+                gui.Label{ width = 110, height = "auto", text = "Item:" },
+                gui.Dropdown{
+                    width = 300,
+                    height = 24,
+                    options = itemOptions,
+                    idChosen = selectedItemId,
+                    change = function(element)
+                        selectedItemId = element.idChosen
+                        expertiseIds = {}
+                        resultText = ""
+                        RefreshDialog()
+                    end,
+                },
+            },
+            gui.Panel{
+                width = "100%",
+                height = 26,
+                flow = "horizontal",
+                gui.Label{ width = 110, height = "auto", text = "Project owner:" },
+                gui.Dropdown{
+                    width = 300,
+                    height = 24,
+                    options = ownerOptions,
+                    idChosen = ownerId,
+                    change = function(element)
+                        ownerId = element.idChosen
+                        resultText = ""
+                        RefreshDialog()
+                    end,
+                },
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                wrap = true,
+                color = cond(hasPrerequisite, "#aaffaa", "#ff8888"),
+                text = string.format("Prerequisite: %s (%d uses) - %s",
+                    craftInfo.expertiseName, craftInfo.requiredUses,
+                    cond(hasPrerequisite, "met", "not met")),
+                tmargin = 6,
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                wrap = true,
+                color = "#999999",
+                text = craftInfo.clause,
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                bold = true,
+                color = "#e8d59a",
+                text = string.format("Project progress: %d/%d points. Crafting rolls available: %d.",
+                    progress, craftInfo.goal, rollsLeft),
+                tmargin = 6,
+            },
+            gui.Panel{
+                width = "100%",
+                height = 26,
+                flow = "horizontal",
+                tmargin = 4,
+                gui.Label{ width = 110, height = "auto", text = "Other Bonus:" },
+                gui.Input{
+                    width = 70,
+                    height = 22,
+                    text = tostring(otherBonus),
+                    characterLimit = 4,
+                    change = function(element)
+                        otherBonus = math.floor(tonumber(element.text) or 0)
+                        element.text = tostring(otherBonus)
+                    end,
+                },
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                bold = true,
+                color = "#cccccc",
+                text = string.format("Spend expertises (%d/2 selected):", #selected),
+                tmargin = 6,
+            },
+        }
+
+        for _, expertise in ipairs(crafterToken.properties:CrowdexExpertises()) do
+            if expertise.category == "General" and expertise.remaining > 0 then
+                local selectedNow = expertiseIds[expertise.id] == true
+                children[#children + 1] = gui.Button{
+                    width = 220,
+                    height = 22,
+                    halign = "left",
+                    fontSize = 11,
+                    text = string.format("%s%s (%d left)", cond(selectedNow, "[x] ", "[ ] "),
+                        expertise.name, expertise.remaining),
+                    classes = {cond(selectedNow or #selected < 2, nil, "collapsed")},
+                    click = function()
+                        expertiseIds[expertise.id] = not selectedNow
+                        RefreshDialog()
+                    end,
+                }
+            end
+        end
+
+        children[#children + 1] = gui.Label{
+            width = "100%",
+            height = "auto",
+            wrap = true,
+            color = "#aaccff",
+            text = resultText,
+            tmargin = 8,
+        }
+        children[#children + 1] = gui.Panel{
+            width = "100%",
+            height = "auto",
+            flow = "horizontal",
+            tmargin = 8,
+            gui.Button{
+                width = 110,
+                text = "Close",
+                click = function() gui.CloseModal() end,
+            },
+            gui.Button{
+                width = 160,
+                lmargin = 8,
+                text = "Make Crafting Roll",
+                classes = {cond(hasPrerequisite and rollsLeft > 0, nil, "collapsed")},
+                click = function()
+                    local expertiseSelection = SelectedExpertiseList()
+                    local natural = dmhub.RollInstant("2d10")
+                    local rollResult, errorText = CrowdexCrafting.CalculateRoll(
+                        crafterToken.properties, natural, otherBonus, expertiseSelection)
+                    if rollResult == nil then
+                        resultText = errorText or "Unable to make the crafting roll."
+                        RefreshDialog()
+                        return
+                    end
+
+                    local craftingPoints = rollResult.total
+                    local expertTrait = nil
+                    if craftInfo.expertiseName == "Blacksmithing" and CrowdexTraits ~= nil
+                            and CrowdexTraits.Has ~= nil then
+                        if craftInfo.item:try_get("crowsWeaponType") ~= nil
+                                and CrowdexTraits.Has(crafterToken.properties, "Weapon Expert") then
+                            craftingPoints = craftingPoints * 2
+                            expertTrait = "Weapon Expert"
+                        elseif tonumber(craftInfo.item:try_get("crowsAD", 0)) > 0
+                                and CrowdexTraits.Has(crafterToken.properties, "Armor Expert") then
+                            craftingPoints = craftingPoints * 2
+                            expertTrait = "Armor Expert"
+                        end
+                    end
+
+                    local completed = 0
+                    local remaining = progress
+                    local spent = false
+                    local ownerTok = dmhub.GetCharacterById(ownerId) or crafterToken
+                    local function SpendExpertise()
+                        spent = CrowdexExpertise.SpendCraftingSelection(
+                            crafterToken.properties, expertiseSelection)
+                    end
+                    local function ApplyProject()
+                        completed, remaining = CrowdexCrafting.ApplyProgress(
+                            ownerTok.properties, craftInfo, craftingPoints)
+                    end
+
+                    if ownerTok.id == crafterToken.id then
+                        crafterToken:ModifyProperties{
+                            description = "Craft " .. craftInfo.item.name,
+                            execute = function()
+                                SpendExpertise()
+                                if spent then ApplyProject() end
+                            end,
+                        }
+                    else
+                        crafterToken:ModifyProperties{
+                            description = "Spend crafting expertise",
+                            execute = SpendExpertise,
+                        }
+                        if spent then
+                            ownerTok:ModifyProperties{
+                                description = "Craft " .. craftInfo.item.name,
+                                execute = ApplyProject,
+                            }
+                        end
+                    end
+
+                    if not spent then
+                        resultText = "The selected expertise uses were no longer available. No progress was recorded."
+                    else
+                        RecordCraftingRoll(crafterToken.id, rollResult.crit)
+                        resultText = string.format("Natural %d; %d crafting points%s%s. %d/%d points remain%s%s",
+                            rollResult.natural, craftingPoints,
+                            cond(expertTrait ~= nil, " (doubled by " .. expertTrait .. ")", ""),
+                            cond(rollResult.doom, " (doom: no progress)", ""),
+                            remaining, craftInfo.goal,
+                            cond(completed > 0, string.format("; completed %d %s", completed, craftInfo.item.name), ""),
+                            cond(rollResult.crit, "; crit grants another crafting roll", ""))
+                    end
+                    RefreshDialog()
+                end,
+            },
+        }
+        contentPanel.children = children
+    end
+
+    contentPanel = gui.Panel{
+        width = "100%",
+        height = "auto",
+        maxHeight = 720,
+        flow = "vertical",
+        vscroll = true,
+        pad = 12,
+        borderBox = true,
+    }
+    gui.ShowModal(gui.Panel{
+        width = 620,
+        height = "auto",
+        maxHeight = 780,
+        classes = {"framedPanel"},
+        contentPanel,
+    })
+    RefreshDialog()
+end
+
 local function CreateRestBlock()
     local block
     local crowListPanel
@@ -1990,6 +2526,8 @@ local function CreateRestBlock()
         local nameLabel
         local activityDropdown
         local tendDropdown
+        local craftButton
+        local loreButton
 
         nameLabel = gui.Label{
             classes = {"sizeXs"},
@@ -2027,6 +2565,30 @@ local function CreateRestBlock()
             end,
         }
 
+        craftButton = gui.Button{
+            classes = {"sizeXs", "collapsed"},
+            text = "Craft...",
+            width = 84,
+            height = 24,
+            hmargin = 4,
+            click = function()
+                local tok = dmhub.GetCharacterById(tokenid)
+                ShowCraftingDialog(tok)
+            end,
+        }
+
+        loreButton = gui.Button{
+            classes = {"sizeXs", "collapsed"},
+            text = "Choose...",
+            width = 84,
+            height = 24,
+            hmargin = 4,
+            click = function()
+                local tok = dmhub.GetCharacterById(tokenid)
+                ShowLoreBookDialog(tok)
+            end,
+        }
+
         return gui.Panel{
             flow = "horizontal",
             width = "100%",
@@ -2036,6 +2598,8 @@ local function CreateRestBlock()
             nameLabel,
             activityDropdown,
             tendDropdown,
+            craftButton,
+            loreButton,
 
             refreshRow = function(element)
                 local tok = dmhub.GetCharacterById(tokenid)
@@ -2054,6 +2618,8 @@ local function CreateRestBlock()
 
                 local tending = activity == REST_TEND
                 tendDropdown:SetClass("collapsed", not tending)
+                craftButton:SetClass("collapsed", activity ~= "craft")
+                loreButton:SetClass("collapsed", activity ~= "readlore")
                 if tending then
                     -- Rebuild the candidate list each refresh: wound counts move
                     -- as the party takes damage, so who is a legal target moves
@@ -2112,6 +2678,10 @@ local function CreateRestBlock()
             end
             if s.expertises > 0 then
                 parts[#parts + 1] = "expertises restored"
+            end
+            if s.loreBooks > 0 then
+                parts[#parts + 1] = string.format("%d lore-book expertise%s gained",
+                    s.loreBooks, s.loreBooks == 1 and "" or "s")
             end
             if s.miasma > 0 then
                 parts[#parts + 1] = string.format(
@@ -2187,6 +2757,9 @@ local function CreateRestBlock()
                                               outcome.rerolls == 1 and "" or "s")
                             or "",
                         outcome.row.first, outcome.row.second)
+                    if outcome.row.key == "7-8" then
+                        ShowMiasmaExpertiseChoice(tok)
+                    end
                 end
                 miasmaResultLabel:SetClass("collapsed", false)
                 block:FireEvent("refreshRest")

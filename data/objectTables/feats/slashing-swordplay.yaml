@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: cc10fd4a-f31e-43ce-a284-c0c3f2926c73
+name: Swordplay
+description: You can add your Strength to the Parry quality of any slashing weapon you wield.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: b779c498-de42-419c-aaad-81f6031f4482
+    name: Swordplay
+    description: You can add your Strength to the Parry quality of any slashing weapon you wield.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:cc10fd4a-f31e-43ce-a284-c0c3f2926c73: true
+  domains:
+    CrowdexTrait:cc10fd4a-f31e-43ce-a284-c0c3f2926c73: true

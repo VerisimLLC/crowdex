@@ -1,0 +1,237 @@
+# Crows Playtest 2 -- background: Village Watch
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: cf6c3637-f6d6-4329-b4b6-b4b190e6521b
+name: "Village Watch"
+description: "You were a member of an organized law enforcement body that kept a settlement safe."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 50f41476-bd43-4971-8b40-8f248e25eccc
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 44683341-9245-433e-a1b7-a86daacf05c7
+      implementation: 3
+      source: "Village Watch Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 5db0ef83-7de8-4748-8805-f06e78bd7c79
+        source: "Village Watch Career Feature"
+        sourceguid: 44683341-9245-433e-a1b7-a86daacf05c7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 6ff37117-7001-4d61-a357-01ea42cc420f
+        source: "Village Watch Career Feature"
+        sourceguid: 44683341-9245-433e-a1b7-a86daacf05c7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 65a46ffe-dac4-4edd-a5e9-2dc6dbaa5721
+        source: "Village Watch Career Feature"
+        sourceguid: 44683341-9245-433e-a1b7-a86daacf05c7
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: 771fbae2-db82-426c-9548-e9b495f450d5
+      implementation: 3
+      source: "Village Watch Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 1d4fdd50-2177-46bf-a70f-dc422a6259af
+        source: "Village Watch Career Feature"
+        sourceguid: 771fbae2-db82-426c-9548-e9b495f450d5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 76dfe281-1ee8-4d87-bad6-a94e6626bdd2
+        source: "Village Watch Career Feature"
+        sourceguid: 771fbae2-db82-426c-9548-e9b495f450d5
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: c82223c6-9ed6-4717-af43-b058d3288a5b
+        source: "Village Watch Career Feature"
+        sourceguid: 771fbae2-db82-426c-9548-e9b495f450d5
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 0688b9b9-f838-4ca4-b497-20fa9aa95d4a
+      implementation: 3
+      source: "Village Watch Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 38dc5da9-0963-413f-aee9-f7bc68b54e10
+        source: "Village Watch Career Feature"
+        sourceguid: 0688b9b9-f838-4ca4-b497-20fa9aa95d4a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 869bc2f6-b383-4afd-a1b2-2338e8acb423
+        source: "Village Watch Career Feature"
+        sourceguid: 0688b9b9-f838-4ca4-b497-20fa9aa95d4a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 41352b28-554c-4df8-9483-1fb5daa5002b
+        source: "Village Watch Career Feature"
+        sourceguid: 0688b9b9-f838-4ca4-b497-20fa9aa95d4a
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: d4bdda25-e99d-480f-9970-c5b889527f8b
+      implementation: 3
+      source: "Village Watch Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: eeef5103-82c2-4cd9-9b73-6ef8f9332b31
+        source: "Village Watch Career Feature"
+        sourceguid: d4bdda25-e99d-480f-9970-c5b889527f8b
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 18597ed1-a805-4d2d-b752-e03636639fc9
+        source: "Village Watch Career Feature"
+        sourceguid: d4bdda25-e99d-480f-9970-c5b889527f8b
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: fb7bb088-13a2-4e2a-ae2b-6d357d324d34
+        source: "Village Watch Career Feature"
+        sourceguid: d4bdda25-e99d-480f-9970-c5b889527f8b
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 9."
+    guid: 653397ca-a48e-4ea3-9cf4-000bda0e7f5d
+    implementation: 3
+    source: "Village Watch Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 9
+      name: Stamina
+      guid: bedbd9e4-182d-436c-ab89-152e6630a95d
+      source: "Village Watch Career Feature"
+      sourceguid: 653397ca-a48e-4ea3-9cf4-000bda0e7f5d
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Athletics (1 use), Search (1 use), Stabbing (1 use)."
+    guid: 991b6d0f-c85f-4972-b91e-f9c840e91d13
+    implementation: 3
+    source: "Village Watch Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+      num: 1
+      name: Expertises
+      description: "Athletics (1 use)"
+      guid: bf549dd3-b734-44b9-9631-c933ec6009f8
+      source: "Village Watch Career Feature"
+      sourceguid: 991b6d0f-c85f-4972-b91e-f9c840e91d13
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      num: 1
+      name: Expertises
+      description: "Search (1 use)"
+      guid: b50a46cb-b7da-4a47-b9a9-a35c2e9e7ec7
+      source: "Village Watch Career Feature"
+      sourceguid: 991b6d0f-c85f-4972-b91e-f9c840e91d13
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 015fe62d-4d71-4028-a5bd-821eee14c002
+      num: 1
+      name: Expertises
+      description: "Stabbing (1 use)"
+      guid: 5d6327a1-9215-45de-add7-8fa064df61c8
+      source: "Village Watch Career Feature"
+      sourceguid: 991b6d0f-c85f-4972-b91e-f9c840e91d13
+  - __typeName: CharacterFeature
+    name: "Trait: Stand Strong"
+    description: "While you wear armor, you gain a +1 bonus on Strength RRs."
+    guid: 4ab00f96-8026-4b4c-b3fc-f97525a43bc0
+    implementation: 1
+    source: "Village Watch Career Feature"
+    crowdexTraitId: 6882c24c-dcac-41a5-b389-904c60b41dfe
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Torch, Oil Flask, Lantern, Chain, Whistle, Light Armor, Pike. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 0dd77249-6400-46b1-be7c-d5709992b911
+    implementation: 2
+    source: "Village Watch Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: a547da68-8b16-4ed4-81b0-be8dc5b50ce7
+      source: "Village Watch Career Feature"
+      sourceguid: 0dd77249-6400-46b1-be7c-d5709992b911
+      equipment:
+      - itemid: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+        quantity: 1
+      - itemid: f3b04bec-1d0f-4fca-a886-0fc1622e84c4
+        quantity: 1
+      - itemid: 5f129128-eb81-4f01-b73d-cb417c5f85b6
+        quantity: 1
+      - itemid: e18b827c-aceb-4bc1-a664-2e5e81f3a78b
+        quantity: 1
+      - itemid: c4f52933-d24d-457d-b947-0efeafc96d98
+        quantity: 1
+      - itemid: 3b5f4e41-2428-4e6a-9f2d-ebad493545fa
+        quantity: 1
+      - itemid: 33da296f-8ab0-40c6-bfc9-1243e40d0911
+        quantity: 1

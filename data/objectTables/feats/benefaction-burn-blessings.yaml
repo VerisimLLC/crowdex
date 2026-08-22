@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: fe3cd8e2-b74f-4d79-bcbf-8500b0546f09
+name: Burn Blessings
+description: When you cast a benefaction spell on a blessed target, you can remove the blessed condition from them.
+  The target regains 1d6 Stamina or removes 1 wound for each level removed (your choice).
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- e70b0c34-78ab-4f5c-a3d8-38e71be636ef
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 713c7ee2-2b6a-4c86-8ca3-0c0cc55f9424
+    name: Burn Blessings
+    description: When you cast a benefaction spell on a blessed target, you can remove the blessed condition from
+      them. The target regains 1d6 Stamina or removes 1 wound for each level removed (your choice).
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:fe3cd8e2-b74f-4d79-bcbf-8500b0546f09: true
+  domains:
+    CrowdexTrait:fe3cd8e2-b74f-4d79-bcbf-8500b0546f09: true

@@ -1,0 +1,227 @@
+# Crows Playtest 2 -- background: Knight
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: 2bfbd6c6-409c-4135-aa08-4a3236d9dc52
+name: "Knight"
+description: "You were a knight in the service of a noble or a hedge knight in service to no one other than yourself."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: c465afb8-df93-4ffa-9f08-440a4302ad1f
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 0f5cc0db-94c0-4a3c-96e4-ef76e794e8b1
+      implementation: 3
+      source: "Knight Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: fee901d5-b236-4e4c-b855-d6608e52fec9
+        source: "Knight Career Feature"
+        sourceguid: 0f5cc0db-94c0-4a3c-96e4-ef76e794e8b1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 205ddadd-2596-474d-94d3-bbfb259a18a5
+        source: "Knight Career Feature"
+        sourceguid: 0f5cc0db-94c0-4a3c-96e4-ef76e794e8b1
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 4119505e-e0c2-4093-833d-ebbc729a418d
+        source: "Knight Career Feature"
+        sourceguid: 0f5cc0db-94c0-4a3c-96e4-ef76e794e8b1
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: f96f381f-bdff-4985-98c3-dd05adb2e0b0
+      implementation: 3
+      source: "Knight Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 8a8523db-29f9-47a5-abfa-b47a478d0ff5
+        source: "Knight Career Feature"
+        sourceguid: f96f381f-bdff-4985-98c3-dd05adb2e0b0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: b490011b-81f8-4683-963b-4c1008287465
+        source: "Knight Career Feature"
+        sourceguid: f96f381f-bdff-4985-98c3-dd05adb2e0b0
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 9a1d32c4-f8d2-4fc6-b6e8-ec743e8880dc
+        source: "Knight Career Feature"
+        sourceguid: f96f381f-bdff-4985-98c3-dd05adb2e0b0
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 7395735c-8eff-46f2-9074-fed54ae83017
+      implementation: 3
+      source: "Knight Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 4eb6fbfe-ba42-42bd-af03-6a1b2106dc10
+        source: "Knight Career Feature"
+        sourceguid: 7395735c-8eff-46f2-9074-fed54ae83017
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 85176224-fa35-4649-8b8b-cb46abb5f232
+        source: "Knight Career Feature"
+        sourceguid: 7395735c-8eff-46f2-9074-fed54ae83017
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 74959d42-5fd6-47e1-9347-02df19b41edd
+        source: "Knight Career Feature"
+        sourceguid: 7395735c-8eff-46f2-9074-fed54ae83017
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 65ce036f-8820-409a-b9a4-991d1d118807
+      implementation: 3
+      source: "Knight Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: ff89d13c-af3d-41a4-a29b-53ce9bb19922
+        source: "Knight Career Feature"
+        sourceguid: 65ce036f-8820-409a-b9a4-991d1d118807
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 9641b769-8301-4ed8-9392-b562d8ee6cc1
+        source: "Knight Career Feature"
+        sourceguid: 65ce036f-8820-409a-b9a4-991d1d118807
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 0039fd44-2361-49bd-b506-39a9a41cdc6b
+        source: "Knight Career Feature"
+        sourceguid: 65ce036f-8820-409a-b9a4-991d1d118807
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 9."
+    guid: 2fe943de-8ab6-473f-9b6a-eb707c9dee9e
+    implementation: 3
+    source: "Knight Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 9
+      name: Stamina
+      guid: 51cf45d0-9eb1-42d9-bb66-372ad92498e6
+      source: "Knight Career Feature"
+      sourceguid: 2fe943de-8ab6-473f-9b6a-eb707c9dee9e
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Handle Pet (1 use), Historical Lore (1 use), Slashing (1 use)."
+    guid: 7188db75-65d3-49ec-a7d8-a2fd393ccd1f
+    implementation: 3
+    source: "Knight Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      num: 1
+      name: Expertises
+      description: "Handle Pet (1 use)"
+      guid: 4fbbe3da-47bc-4b9e-bf43-cb0349323456
+      source: "Knight Career Feature"
+      sourceguid: 7188db75-65d3-49ec-a7d8-a2fd393ccd1f
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      num: 1
+      name: Expertises
+      description: "Historical Lore (1 use)"
+      guid: 4d2fe4d3-866e-417e-9bfc-b54951a2f6bc
+      source: "Knight Career Feature"
+      sourceguid: 7188db75-65d3-49ec-a7d8-a2fd393ccd1f
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4e7a4dca-510b-4059-b69f-499845a1ae9b
+      num: 1
+      name: Expertises
+      description: "Slashing (1 use)"
+      guid: 6f99cf59-ce7b-4812-8a9b-1a76096d6fd8
+      source: "Knight Career Feature"
+      sourceguid: 7188db75-65d3-49ec-a7d8-a2fd393ccd1f
+  - __typeName: CharacterFeature
+    name: "Trait: Swordplay"
+    description: "You can add your Strength to the Parry quality of any slashing weapon you wield."
+    guid: 687b2fee-f65b-43f5-8173-6f91f72b2c85
+    implementation: 1
+    source: "Knight Career Feature"
+    crowdexTraitId: cc10fd4a-f31e-43ce-a284-c0c3f2926c73
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Lantern, Animal Feed x6. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 483d36e2-e3e1-4969-8fde-95640dca5150
+    implementation: 2
+    source: "Knight Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 5c733701-7fa7-43d1-b32b-8351923a7d5b
+      source: "Knight Career Feature"
+      sourceguid: 483d36e2-e3e1-4969-8fde-95640dca5150
+      equipment:
+      - itemid: 5f129128-eb81-4f01-b73d-cb417c5f85b6
+        quantity: 1
+      - itemid: 20815e97-82f3-4161-8671-52eb66b2a2bc
+        quantity: 6

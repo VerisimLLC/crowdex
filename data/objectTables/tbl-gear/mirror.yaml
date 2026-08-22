@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Mirror
+_table: tbl_Gear
+__typeName: equipment
+id: 4d37ae81-9fb3-4fbb-8f48-209cf55f08ce
+name: "Mirror"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 100
+weight: 0
+stackLimit: 2
+slotsRequired: 1
+description: "A hand mirror useful for looking around corners and at your own mug."
+implementation: 1
+domains:
+  item:4d37ae81-9fb3-4fbb-8f48-209cf55f08ce: true

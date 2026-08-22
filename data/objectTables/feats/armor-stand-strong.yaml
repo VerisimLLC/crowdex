@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 6882c24c-dcac-41a5-b389-904c60b41dfe
+name: Stand Strong
+description: While you wear armor, you gain a +1 bonus on Strength RRs.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 16c31ca4-7c98-4994-876d-83cd1fc0c185
+    name: Stand Strong
+    description: While you wear armor, you gain a +1 bonus on Strength RRs.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:6882c24c-dcac-41a5-b389-904c60b41dfe: true
+  domains:
+    CrowdexTrait:6882c24c-dcac-41a5-b389-904c60b41dfe: true

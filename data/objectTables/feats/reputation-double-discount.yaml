@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 51a89230-6180-432a-bd08-07acc345efd7
+name: Double Discount
+description: Your Discount trait can apply to two merchants of your choice. You can change one or both once every
+  cycle.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 78885543-8f17-47c2-9bf4-9c29d36ff814
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 21d01766-1947-495d-b6e0-5a5ae89a6e3f
+    name: Double Discount
+    description: Your Discount trait can apply to two merchants of your choice. You can change one or both once
+      every cycle.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:51a89230-6180-432a-bd08-07acc345efd7: true
+  domains:
+    CrowdexTrait:51a89230-6180-432a-bd08-07acc345efd7: true

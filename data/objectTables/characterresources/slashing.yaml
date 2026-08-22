@@ -1,0 +1,20 @@
+# Crows Playtest 2 -- expertise: Slashing (Weapon Expertise)
+#
+# The Rules, p.8: "After you make a test, you can use an applicable expertise to
+# improve the test's result by one tier (to a maximum of tier 3). You can only
+# apply one expertise and one use per test." Uses come from your background and
+# from advancement; you regain them all when you finish a rest, unless you
+# rested in the Miasma.
+#
+# Modelled as a CharacterResource with usageLimit "long" -- the refresh type the
+# Finish Rest action drives. Backgrounds grant uses with a `behavior: resource`
+# modifier carrying resourceType + num.
+#
+# Use: Attack with slashing weapons
+_table: characterResources
+__typeName: CharacterResource
+id: 4e7a4dca-510b-4059-b69f-499845a1ae9b
+name: Slashing
+grouping: Weapon Expertise
+usageLimit: long
+description: Attack with slashing weapons

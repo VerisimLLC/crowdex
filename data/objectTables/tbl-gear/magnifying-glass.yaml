@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Magnifying Glass
+_table: tbl_Gear
+__typeName: equipment
+id: 21d36084-f8b0-45c7-b492-b06becea0782
+name: "Magnifying Glass"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 100
+weight: 0
+stackLimit: 2
+slotsRequired: 1
+description: "Used to inspect minute visual details of nearby creatures and objects."
+implementation: 1
+domains:
+  item:21d36084-f8b0-45c7-b492-b06becea0782: true

@@ -1,0 +1,105 @@
+# Crows Playtest 2 -- Blacksmith (The Ref Book)
+description: Blacksmith
+id: bc976eb8-b043-4ac4-92e2-dfd3082aeeeb
+hidden: false
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Blacksmith
+    keywords:
+      Human: true
+    cr: 3
+    creatureSize: 1M
+    max_hitpoints: 5
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Blacksmithing (3 uses), Bashing (1 use).'
+      guid: 6ec5f28e-5ffc-410f-938f-f4fc39685352
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+        num: 3
+        name: Expertises
+        description: Blacksmithing (3 uses)
+        guid: 53301204-62d2-4d79-ab5c-1493da703df9
+        source: Trait
+        sourceguid: 6ec5f28e-5ffc-410f-938f-f4fc39685352
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 74a6c31d-4fb5-41d7-aa03-7684ada38ffc
+        num: 1
+        name: Expertises
+        description: Bashing (1 use)
+        guid: a3c88683-a23f-46f0-a737-48ddcb5ebc0b
+        source: Trait
+        sourceguid: 6ec5f28e-5ffc-410f-938f-f4fc39685352
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Blacksmith''s tools, hammer.'
+      guid: 9c9986ea-2adc-40be-9668-b3df7836abbb
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Pummeling
+      description: On a tier 3 Hammer attack against a Medium or smaller target, push the target 1 square. On a
+        crit, the target is knocked prone.
+      guid: b610316b-f83f-5e29-ba71-f497c91634d0
+      implementation: 2
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Hammer
+      guid: 8365a1cc-8d0f-4495-87b2-54596d657145
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: 'Thrown: Melee 1 or Ranged 5.'
+      implementation: 2
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 3 damage
+        - 5 damage; push 1
+      meleeRange: 1

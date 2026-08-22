@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: a6f43698-1eb3-42ed-9f3e-e770e7124d6d
+name: Hands for Tools
+description: You don't need tools to make crafting rolls for alchemy, blacksmithing, or enchanting items.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 4cf29597-ec23-447f-9e4e-fef9e7fad44f
+    name: Hands for Tools
+    description: You don't need tools to make crafting rolls for alchemy, blacksmithing, or enchanting items.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a6f43698-1eb3-42ed-9f3e-e770e7124d6d: true
+  domains:
+    CrowdexTrait:a6f43698-1eb3-42ed-9f3e-e770e7124d6d: true

@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 107b1c62-de95-4597-8dde-9374e6611502
+name: Piledriver
+description: When you knock a creature prone with a bashing weapon attack, you deal additional damage to them equal
+  to your Strength.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Bashing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 709f7106-410b-46e0-ad1b-bdc90f3996e5
+- 56d4f413-ceef-4ac4-8b07-2dcfdf17c659
+- 902d2f24-067d-46b7-b1b0-e4ff7fc1832d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 14815cff-f24d-4e8a-ace7-d7c1603bf502
+    name: Piledriver
+    description: When you knock a creature prone with a bashing weapon attack, you deal additional damage to them
+      equal to your Strength.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:107b1c62-de95-4597-8dde-9374e6611502: true
+  domains:
+    CrowdexTrait:107b1c62-de95-4597-8dde-9374e6611502: true

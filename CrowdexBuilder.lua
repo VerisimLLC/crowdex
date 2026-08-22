@@ -579,7 +579,9 @@ local function CreateBackgroundCard()
                 if #unclaimed > 0 then
                     local names = {}
                     for _,e in ipairs(unclaimed) do
-                        if e.quantity > 1 then
+                        if e.quantityLabel ~= nil then
+                            names[#names+1] = string.format("%s %s", e.item.name, e.quantityLabel)
+                        elseif e.quantity > 1 then
                             names[#names+1] = string.format("%s x%d", e.item.name, e.quantity)
                         else
                             names[#names+1] = e.item.name

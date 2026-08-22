@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7655be70-aba2-4d1e-943b-c4da86527b0d
+name: Nope
+description: When you hit with an opportunity attack made with a stabbing weapon, the target's speed is reduced
+  to 0 until the end of the current combat turn.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- baeb652a-0bfb-4dfe-8848-81504e734840
+- 6b14287a-4762-4999-904c-e6dca81f124f
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: d9d9d224-f452-4e28-adcd-eb7033ddba0a
+    name: Nope
+    description: When you hit with an opportunity attack made with a stabbing weapon, the target's speed is reduced
+      to 0 until the end of the current combat turn.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7655be70-aba2-4d1e-943b-c4da86527b0d: true
+  domains:
+    CrowdexTrait:7655be70-aba2-4d1e-943b-c4da86527b0d: true

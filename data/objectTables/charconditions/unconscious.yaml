@@ -1,0 +1,136 @@
+# Crows Playtest 2 condition override. Import replaces the Draw Steel record.
+__typeName: CharacterCondition
+_table: charConditions
+id: bfe300f4-83f9-4303-9abb-951974025e88
+guid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+name: Unconscious
+implementation: 3
+description: >-
+  You are asleep, prone, and have speed 0. You cannot take actions, maneuvers, or reactions.
+  Agility and Strength tests are automatically doom results. Mind tests to notice your surroundings
+  have a double bane. Attacks against you always achieve tier 3. Taking any damage or being within
+  10 squares of a loud noise wakes you and ends this condition.
+iconid: da2b1d44-4859-4ddf-9588-d0e953eb5527
+powertable: true
+indefiniteDuration: true
+stackable: false
+domains:
+  CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+display:
+  bgcolor: '#b6ffffee'
+  hueshift: 0
+modifiers:
+- __typeName: CharacterModifier
+  guid: a79d94bc-0100-4385-aac2-b9847325189a
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious
+  description: An unconscious creature's speed is 0.
+  behavior: attribute
+  attribute: speed
+  operation: set
+  value: 0
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: da380ea3-fb35-4df2-a240-4a57c9f1e713
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious
+  description: An unconscious creature is also prone.
+  explanation: You are prone because you are unconscious.
+  behavior: bestowcondition
+  conditionid: da6867b1-01e3-4570-8d1b-1b94ea1ea343
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: 149827b7-a2d7-4de8-98b4-a229e28eb084
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious
+  description: An unconscious creature cannot take actions, maneuvers, or reactions.
+  explanation: You cannot use abilities that cost an action, maneuver, or reaction while unconscious.
+  behavior: suppressabilities
+  abilityFilter: Ability.Action = 'None'
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: 20d123a8-8c17-44cc-8778-aa4ec7255368
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious
+  description: An unconscious creature cannot use reactions.
+  behavior: attribute
+  attribute: c511278a-2bcc-48ef-8fec-e6a51bf6c422
+  value: 1
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: 042663a3-fdb0-4011-ab9a-c4872915208b
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious
+  description: Attacks against an unconscious creature always achieve tier 3.
+  behavior: power
+  rollType: enemy_ability_power_roll
+  modtype: tier3
+  activationCondition: true
+  matchAnyKeywords: true
+  keywords:
+    Attack: true
+    Strike: true
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: d860b724-d8b8-4762-a8d2-c11b9c260457
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious - Agility Doom
+  description: Agility tests made while unconscious automatically achieve a doom result.
+  behavior: power
+  rollType: test_power_roll
+  attribute: agility
+  modtype: tier1
+  activationCondition: true
+  keywords: {}
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: 1f5c9376-9443-4bd7-870d-b97b5a0f3455
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious - Strength Doom
+  description: Strength tests made while unconscious automatically achieve a doom result.
+  behavior: power
+  rollType: test_power_roll
+  attribute: strength
+  modtype: tier1
+  activationCondition: true
+  keywords: {}
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: ec080629-3430-4136-a58f-420679714ede
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious - Notice Surroundings
+  description: Check this modifier for a Mind test made to notice anything about your surroundings.
+  behavior: power
+  rollType: test_power_roll
+  attribute: mind
+  modtype: double_bane
+  activationCondition: false
+  keywords: {}
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true
+- __typeName: CharacterModifier
+  guid: d8251378-80c6-46e2-b02f-a6dbcbab8292
+  sourceguid: 7fc1cea3-8e63-4915-98ef-ea2f3902f55b
+  source: Condition
+  name: Unconscious
+  description: An unconscious creature cannot move.
+  behavior: movementtext
+  color: red
+  text: You cannot move while unconscious.
+  domains:
+    CharacterCondition:bfe300f4-83f9-4303-9abb-951974025e88: true

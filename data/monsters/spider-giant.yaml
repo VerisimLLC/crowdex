@@ -1,0 +1,159 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Spider, Giant
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    skillProficiencies: []
+    max_hitpoints: 30
+    cr: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 3
+        tiers:
+        - ""
+        - 5 damage; boned
+        - 9 damage; twice boned
+      implementation: 3
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: Highly Venomous.
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      implementationDetails: Damage auto-applies; Boned / twice Boned is applied manually.
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      guid: fc017c1f-890d-4289-a076-220cd4b022d7
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When the spider gets a tier 2 result with its bite, the target is Boned; on a tier 3 result, it is Boned twice. (Apply the Boned effect manually.)
+      source: Trait
+      name: Highly Venomous
+      modifiers: []
+      implementation: 1
+      guid: ff3f6ab0-1253-4e32-9c83-80935eec01df
+      domains:
+        CharacterFeature:ff3f6ab0-1253-4e32-9c83-80935eec01df: true
+    - __typeName: CharacterFeature
+      description: "As an action, the spider showers a 3-square area within 1 square with web. The web has 10 Stamina. Each creature in the area makes an Agility resistance roll: tier 1, the creature is grabbed by the web; tier 2, the creature's speed is halved until the end of its next turn; tier 3, no effect. (Applied manually.)"
+      source: Trait
+      name: Web
+      modifiers: []
+      implementation: 1
+      guid: 988304e4-f6ed-4640-98aa-ccd805561779
+      domains:
+        CharacterFeature:988304e4-f6ed-4640-98aa-ccd805561779: true
+    - __typeName: CharacterFeature
+      description: The spider is aware of the exact location of any creature within 2 squares and suffers no penalties on attacks against, or tests to observe, them.
+      source: Trait
+      name: Vibration Sense
+      modifiers: []
+      implementation: 1
+      guid: 0829de15-64c0-470f-be2d-a7fcf5503243
+      domains:
+        CharacterFeature:0829de15-64c0-470f-be2d-a7fcf5503243: true
+    walkingSpeed: 8
+    creatureSize: "2"
+    movementSpeeds:
+      climb: 8
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 3
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -4
+        id: mind
+    monster_category: Animal
+    keywords:
+      Animal: true
+    crowsSlots: 20
+    monster_type: Spider, Giant
+  tokenType: null
+  bestiaryId: ca86481d-ad4d-4e94-a1bc-6b2e7134cdd8
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACqWW23LbNhCGXwXDXrSdmjZPOvrKbnq6aCcTeZxLzxJckhiDgAqAVpRM370LkLJsRY6cRDMaictdLLD/hwU+RXd3brvGf6DDaBl1WlmHJjpjkb0XUr41uhZcoKKvjZafojvZww2UkpxrkBb/I0+hFDi84k480G91VQop3OifhqCnKQ78tj5XiS08CG1eGfJWb9C801Jej3F+DHDOiIq8rTOoGtd6oyEnMmVVmrBfWO5NNLPHPJE3ZPQ7YRV00OAlK7XCyptzMi8ezW4jOO5fHivDE5sz/aFpX61uLbFD5cAJraJl7qeJawR3A6ZBZ0dfMnNac6ON+Di6RivRUKl7g+xJ8dRQpGvh0D9WaLkR6zHiT9G0cstuUelO9/Y8BPTdYyqqgo8Rdi1h66vS9mhbUbtomXhhDMU7hZZcU//ccC2p3svoh3r8BFb8pMZJpsdLYUA1uMv3vAZv0IGQfjJvQrUZ9E7HsF5LguiSXfuis4tRguFJWDa8r1gHqgcpt2FpMJTlhtih4RT5BsnDakfj8ODNHUrEd8O8/KzvcbvRpgpwrAim+3H69Opv7/r4dGR5na5EvSPrqOxcq4BnL2L/316EDWYv0vO1avx0mj68r3mSznhax/NFUsVFNl/EkMymcZYlvCrKJMuqWVgq97V7h1b3huNfPrRKF9PJHLK4qGZlXEySIoZ6gXEKkyJN6jKd1Yf0folUTjqnSVhc6AphS3oK16JCc8b+EKBCIXkLhqaD5ncMdL6wjX89cPuc1vctKuZaZDakYJ5RBsxvWZYxGriXjm2Ea5mgFyURfxbcB009FQGPS6bVLiwfw84o5NFhYOmc/XRFEG3DEIMd6xq52zP18+e0DqzsxKrzegplEqfZJI8LzLN4wed5PE8W+QSRpKzCBjmJR6U7ECq8PizT8lVJvsDm2CAOWkHYt4EdendjQLgX0Mi+Qcgrko0kCIiePVXUtr53e1Hz2P7bA7Uy+kIQVSiWstEYRN5gec5uKJj+sBYsoy6+ctAJBefsN+At42aYARMDN2GsDu4x5L9qQjfwBAjrQFH78AfCciAjHSa2H8KyxkBZEgblwASlvRzhe+77o6X14NCHWpAP9K9XTsjghKpiug6EKvzgGAWocRjq9UqPkI30PWthp3BbzOd5UmAR11Ok3jAtkngxB4g5r+bJZDJNZ7PFd+P2qiSncXuP5asRy78BsZs9VP402HhqqOxBgQ8UyqTmoYLeCmq7F3pkLRtZ86hUzPakCoFJ+qxRgfQXmNBGnAN+Tz6NLxi1EW2YQ0viOs10adE8DE2oOz8hXjLPFhWmk3ha8CQuZkkdl5hVMcxqXk8mSZ4V+XeL96okp8W7FeVwnrMVKouvFvLYdDcg74VqVn7DRMv5k/NkvN9sfcNQogMZDhOjN3Yltb+dZMnBsTy6fWEB4RpY9m44hB7vgi/ydbXzD/dQsHgLssfhWvbZdfJYvqHHfH2CbJdgN8ILFwuhqq8fPC52o4f4k2LtrzEPgd4gVqggl6IrB9mO+O/21Ep89PPKAr/w4a4Vbq2F8hrmyZHQ/wH2K4ApdwwAAA==
+forkTime: 1781748676956
+description: Spider, Giant
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 30
+ctime: 1787361592302
+mtime: 1787361592302
+hidden: true
+id: ca86481d-ad4d-4e94-a1bc-6b2e7134cdd8

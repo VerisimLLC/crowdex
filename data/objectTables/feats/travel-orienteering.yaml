@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 87e39da8-346a-4136-a5c8-099f6697fe65
+name: Orienteering
+description: When you make a test related to the guide role while carrying a compass, you can roll the test twice
+  and choose either result.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Travel
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: b2238a90-37cd-4b3d-92a5-26b80f02d76c
+    name: Orienteering
+    description: When you make a test related to the guide role while carrying a compass, you can roll the test
+      twice and choose either result.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:87e39da8-346a-4136-a5c8-099f6697fe65: true
+  domains:
+    CrowdexTrait:87e39da8-346a-4136-a5c8-099f6697fe65: true

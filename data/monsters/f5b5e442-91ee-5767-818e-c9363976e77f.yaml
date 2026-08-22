@@ -1,0 +1,77 @@
+# Crows Playtest 2 -- Wolf (The Ref Book)
+description: Wolf
+id: f5b5e442-91ee-5767-818e-c9363976e77f
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Wolf
+    keywords:
+      Animal: true
+    cr: 3
+    creatureSize: 1M
+    max_hitpoints: 10
+    damage_taken: 0
+    walkingSpeed: 7
+    crowsSlots: 5
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Pack Hunter
+      description: The wolf gains a total +3 bonus to attacks instead of +2 for flanking with another wolf.
+      guid: 9a7ae469-bc1c-58fe-a501-5530ed9be59e
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: No Dim Light Penalty
+      description: Dim light imposes no penalties for the wolf.
+      guid: 0d747cb8-e0b8-587e-8c9a-4257e6f1b859
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: e7d5d776-711c-5c90-97ea-137ae08d3956
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 3 damage
+        - 4 damage
+      meleeRange: 1

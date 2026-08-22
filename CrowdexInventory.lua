@@ -53,9 +53,10 @@ local MAGIC_SLOT_ALIASES = {
 -- Every slot row is this wide, regardless of section.
 local SLOT_WIDTH = 280
 
--- Party and item index rows carry an extra button, so they get a little
--- more room, but stay capped rather than spanning the whole tab.
-local LIST_WIDTH = 380
+-- Party and item-index rows use the same visual span as the two slot columns
+-- (280 + 32 gap + 280), instead of leaving the right half of the inventory
+-- column empty.
+local LIST_WIDTH = 592
 
 -- ---------------------------------------------------------------------------
 -- Data helpers.
@@ -209,12 +210,17 @@ end
 -- Current UD is mutable per-instance state on the slot entry (slot.ud), exactly
 -- like armor's current AD (slot.ad). A nil slot.ud means "full" so freshly
 -- acquired items start at their maximum without any add-time initialization.
-local function UsageDiceForItem(itemid)
+local function UsageDiceForItem(itemid, props)
     local gearTable = dmhub.GetTable("tbl_Gear") or {}
     local item = itemid ~= nil and gearTable[itemid] or nil
     if item ~= nil then
         local n = tonumber(item:try_get("usageDice", 0))
         if n ~= nil and n > 0 then
+            local lightSource = item.name == "Candle" or item.name == "Lantern" or item.name == "Torch"
+            if lightSource and props ~= nil and CrowdexTraits ~= nil and CrowdexTraits.Has ~= nil
+                    and CrowdexTraits.Has(props, "Lasting Light") then
+                n = n + 1
+            end
             return math.floor(n)
         end
     end
@@ -255,9 +261,9 @@ local function UsageDiceRefuelItem(itemid)
 end
 
 -- Current UD remaining for a slot instance. nil slot.ud reads as a full pool.
-local function CurrentUsageDice(slot)
+local function CurrentUsageDice(slot, props)
     if slot == nil then return 0 end
-    local maxUD = UsageDiceForItem(slot.itemid)
+    local maxUD = UsageDiceForItem(slot.itemid, props)
     if maxUD <= 0 then return 0 end
     if slot.ud == nil then return maxUD end
     return math.max(0, math.min(math.floor(slot.ud), maxUD))
@@ -267,10 +273,10 @@ end
 -- item is inert: it stops being wielded on the token and can't be used (its
 -- spellbook casting / light / etc. is unavailable) until its UD are restored.
 -- Items without a UD pool are never depleted.
-local function IsUsageDiceDepleted(slot)
+local function IsUsageDiceDepleted(slot, props)
     if slot == nil then return false end
-    if UsageDiceForItem(slot.itemid) <= 0 then return false end
-    return CurrentUsageDice(slot) <= 0
+    if UsageDiceForItem(slot.itemid, props) <= 0 then return false end
+    return CurrentUsageDice(slot, props) <= 0
 end
 
 -- True if the crow carries at least one of the given gear itemid anywhere in
@@ -320,7 +326,7 @@ local function RollUsageDiceForSlot(row, env, kind, index)
     if token == nil or not token.valid or token.properties == nil then return end
     local slot = GetSlot(token.properties, kind, index)
     if slot == nil then return end
-    local cur = CurrentUsageDice(slot)
+    local cur = CurrentUsageDice(slot, token.properties)
     if cur <= 0 then return end
 
     local itemName = slot.name or "item"
@@ -332,9 +338,16 @@ local function RollUsageDiceForSlot(row, env, kind, index)
         complete = function(rollInfo)
             if mod.unloaded then return end
             local survivors = 0
+            local item = (dmhub.GetTable("tbl_Gear") or {})[slot.itemid]
+            local keywords = item ~= nil and item:try_get("keywords", {}) or {}
+            local mundane = item ~= nil and not item:try_get("crowsSpellbook", false)
+                and item:try_get("crowsMagicSlot") == nil and keywords.Magic ~= true
+            local moreForLess = cur == 1 and mundane and CrowdexTraits ~= nil
+                and CrowdexTraits.Has ~= nil and CrowdexTraits.Has(token.properties, "More for Less")
+            local lossThreshold = cond(moreForLess, 1, 2)
             for _, r in ipairs(rollInfo.rolls or {}) do
                 -- A die is lost on a 1 or 2; 3-6 stays in the pool.
-                if not r.dropped and (r.result or 0) > 2 then
+                if not r.dropped and (r.result or 0) > lossThreshold then
                     survivors = survivors + 1
                 end
             end
@@ -954,6 +967,18 @@ local function ArmorPieces(props)
     return result
 end
 
+-- Imported Crows human stat blocks carry a single printed Armor Defense pool
+-- as crowsAD instead of an inventory full of mutable armor pieces. Keep its
+-- current value on the spawned creature while leaving the compendium maximum
+-- untouched. Crow PCs continue to use their individual worn/held gear pools.
+local function NativeCrowsAD(props)
+    local max = tonumber(props:try_get("crowsAD", 0)) or 0
+    if max <= 0 then return 0, 0 end
+
+    local current = tonumber(props:try_get("crowsADCurrent", max)) or max
+    return math.max(0, math.min(current, max)), max
+end
+
 -- ---------------------------------------------------------------------------
 -- Token Armor Defense bar.
 --
@@ -965,6 +990,11 @@ end
 -- Stamina bar's own settings (DMHub Token UI/TokenUIConfig.lua).
 -- ---------------------------------------------------------------------------
 local function CrowsTotalAD(props)
+    if props.typeName ~= "character" then
+        local current, max = NativeCrowsAD(props)
+        if max > 0 then return current, max end
+    end
+
     local cur, max = 0, 0
     for _, piece in ipairs(ArmorPieces(props)) do
         if piece.active ~= false then
@@ -994,7 +1024,8 @@ TokenUI.RegisterStatusBar{
     end,
 
     Filter = function(props)
-        return props.typeName == "character"
+        local _, nativeMax = NativeCrowsAD(props)
+        return props.typeName == "character" or nativeMax > 0
     end,
 
     Calculate = function(props)
@@ -1502,9 +1533,9 @@ local function SlotRow(kind, index, label, env)
         if token == nil or token.properties == nil then return entries end
         local slot = GetSlot(token.properties, kind, index)
         if slot == nil then return entries end
-        local maxUD = UsageDiceForItem(slot.itemid)
+        local maxUD = UsageDiceForItem(slot.itemid, token.properties)
         if maxUD <= 0 then return entries end
-        local cur = CurrentUsageDice(slot)
+        local cur = CurrentUsageDice(slot, token.properties)
 
         if cur > 0 then
             entries[#entries + 1] = {
@@ -1577,9 +1608,9 @@ local function SlotRow(kind, index, label, env)
             if token == nil or token.properties == nil then return end
             local slot = GetSlot(token.properties, kind, index)
             if slot == nil then return end
-            local maxUD = UsageDiceForItem(slot.itemid)
+            local maxUD = UsageDiceForItem(slot.itemid, token.properties)
             if maxUD <= 0 then return end
-            local cur = CurrentUsageDice(slot)
+            local cur = CurrentUsageDice(slot, token.properties)
 
             local triggerText = ({
                 activate = "Rolled each time the item is used.",
@@ -1665,9 +1696,9 @@ local function SlotRow(kind, index, label, env)
             -- Usage Dice strip. UD items show their pool in place of a
             -- quantity (UD pools are per-instance, so the number column would
             -- be ambiguous), and grey the whole row out once the pool is spent.
-            local maxUD = UsageDiceForItem(slot.itemid)
+            local maxUD = UsageDiceForItem(slot.itemid, props)
             if maxUD > 0 then
-                local cur = CurrentUsageDice(slot)
+                local cur = CurrentUsageDice(slot, props)
                 usageDicePanel:SetClass("hidden", false)
                 if maxUD <= 6 then
                     local pips = {}
@@ -2545,7 +2576,7 @@ local function CreateIndexSection()
             bmargin = 4,
 
             gui.Input{
-                width = 300,
+                width = 480,
                 height = 24,
                 fontSize = 12,
                 placeholderText = "Search items...",
@@ -2617,7 +2648,7 @@ local function CreateCrowdexInventoryTab()
         height = "auto",
         flow = "vertical",
         valign = "top",
-        hpad = 16,
+        hpad = 12,
         vpad = 12,
         borderBox = true,
 
@@ -2822,13 +2853,11 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
     }
     panel.styles = existingStyles
 
-    local function GetSkillsByCategory(category)
-        local skillsTable = dmhub.GetTable(Skill.tableName) or {}
+    local function GetExpertisesByCategory(category)
         local opts = { { id = "", text = "(None)" } }
-        for _, sk in unhidden_pairs(skillsTable) do
-            if (sk.category or ""):lower() == category then
-                opts[#opts + 1] = { id = sk.name, text = sk.name }
-            end
+        local displayCategory = string.upper(string.sub(category, 1, 1)) .. string.sub(category, 2)
+        for _, expertise in ipairs(CrowdexExpertise.Catalog(displayCategory)) do
+            opts[#opts + 1] = { id = expertise.name, text = expertise.name }
         end
         table.sort(opts, function(a, b) return a.text < b.text end)
         return opts
@@ -3250,7 +3279,7 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
                 idChosen = document:try_get("crowsWeaponType", ""),
                 options = {},
                 create = function(element)
-                    element.options = GetSkillsByCategory("weapon")
+                    element.options = GetExpertisesByCategory("weapon")
                     element.idChosen = document:try_get("crowsWeaponType", "")
                 end,
                 change = function(element)
@@ -3263,7 +3292,7 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
             },
             gui.Label{
                 classes = {"crowsFormHint"},
-                text = "Weapon skill for attack tests.",
+                text = "Weapon expertise that can be spent after this attack roll.",
             },
         },
         WeaponNumberField("Melee Range:", "crowsMeleeRange",
@@ -3318,7 +3347,7 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
                 idChosen = document:try_get("crowsSpellDiscipline", ""),
                 options = {},
                 create = function(element)
-                    element.options = GetSkillsByCategory("spellcasting")
+                    element.options = GetExpertisesByCategory("spellcasting")
                     element.idChosen = document:try_get("crowsSpellDiscipline", "")
                 end,
                 change = function(element)
@@ -3331,7 +3360,7 @@ function DataTables.tbl_Gear.GenerateEditor(document, options)
             },
             gui.Label{
                 classes = {"crowsFormHint"},
-                text = "Spellcasting skill used for the casting test.",
+                text = "Spellcasting expertise that can be spent after this casting roll.",
             },
         },
 
@@ -3508,6 +3537,53 @@ CharSheet.DeregisterTab("CrowsInventory")
 --
 -- Other monsters and creature types keep the standard behavior.
 local g_baseTakeDamage = creature.TakeDamage
+local CROWS_UNCONSCIOUS_CONDITION_ID = "bfe300f4-83f9-4303-9abb-951974025e88"
+local CROWS_VULNERABLE_EFFECT_ID = "21336719-676b-4476-a6d8-f49b2a4a42b9"
+
+local function HasCrowsOngoingEffect(self, effectId)
+    for _, effect in ipairs(self:ActiveOngoingEffects()) do
+        if effect.ongoingEffectid == effectId then return true end
+    end
+    return false
+end
+
+-- Vulnerable adds 1d6 to every damage instance, including falls, hazards, and
+-- damage fully absorbed by armor. Combining it into the original amount keeps
+-- the bonus in the same armor/Stamina/wound waterfall and avoids a recursive
+-- second damage event.
+local function ApplyVulnerableDamage(self, amount)
+    if not HasCrowsOngoingEffect(self, CROWS_VULNERABLE_EFFECT_ID) then return amount end
+
+    if type(amount) == "string" then
+        amount = dmhub.RollInstant(amount)
+    end
+    if type(amount) ~= "number" or amount <= 0 then return amount end
+
+    local bonus = dmhub.RollInstant("1d6")
+    if self.FloatLabel ~= nil then
+        self:FloatLabel(string.format("Vulnerable +%d", bonus), "#ff8080")
+    end
+    return amount + bonus
+end
+
+-- Any positive damage wakes an unconscious creature before armor, temporary
+-- Stamina, or ordinary Stamina absorbs it. Resolve a string roll once here so
+-- waking cannot cause the damage expression to be rolled a second time later
+-- in the normal damage pipeline.
+local function WakeFromDamage(self, amount)
+    local unconscious = self:try_get("inflictedConditions", {})[CROWS_UNCONSCIOUS_CONDITION_ID]
+    if unconscious == nil then return amount end
+
+    if type(amount) == "string" then
+        amount = dmhub.RollInstant(amount)
+    end
+
+    if type(amount) == "number" and amount > 0 then
+        self:InflictCondition(CROWS_UNCONSCIOUS_CONDITION_ID, { purge = true, silent = true })
+    end
+
+    return amount
+end
 
 -- Apply Crows wound overflow to an animal. Stamina (and temporary stamina,
 -- inside the base call) absorbs first; whatever is left becomes wounds. Each
@@ -3516,6 +3592,34 @@ local g_baseTakeDamage = creature.TakeDamage
 -- every slot (CrowsBackpackCapacity) is wounded; wounds beyond that are dropped
 -- on the floor -- the animal is already dead at that point.
 local function AnimalTakeDamage(self, amount, note, info)
+    -- Human NPC stat blocks use the same crowsSlots wound model as animals,
+    -- but several also have a printed, mutable AD pool. Piercing damage skips
+    -- it, matching the ordinary item-backed armor path used by Crow PCs.
+    local piercing = info ~= nil and (info.piercing == true
+        or string.lower(tostring(info.damagetype or "")) == "piercing")
+    if not piercing then
+        local currentAD, maxAD = NativeCrowsAD(self)
+        if maxAD > 0 and currentAD > 0 then
+            local absorbed = math.min(currentAD, amount)
+            self.crowsADCurrent = currentAD - absorbed
+            amount = amount - absorbed
+
+            self:GetStatHistory("stamina"):Append{
+                note = string.format("Armor absorbed %d damage%s", absorbed,
+                    cond(self.crowsADCurrent <= 0, " and broke", "")),
+                set = self:CurrentHitpoints(),
+                disposition = "good",
+            }
+
+            if amount <= 0 then
+                if self.FloatLabel ~= nil then
+                    self:FloatLabel(string.format("Armor absorbed %d", absorbed), "#aaaaff")
+                end
+                return
+            end
+        end
+    end
+
     local buffer = math.max(0, self:CurrentHitpoints() or 0) + (self:TemporaryHitpoints() or 0)
     local wounds = math.max(0, amount - buffer)
     local staminaDamage = amount - wounds
@@ -3540,6 +3644,9 @@ local function AnimalTakeDamage(self, amount, note, info)
 end
 
 function creature.TakeDamage(self, amount, note, info)
+    amount = ApplyVulnerableDamage(self, amount)
+    amount = WakeFromDamage(self, amount)
+
     if self.typeName ~= "character" then
         -- An animal (crowsSlots present and > 0) takes wounds like a crow.
         -- A 0-slot animal has no wound capacity, so it falls through to the
@@ -3780,6 +3887,10 @@ end
 --   t2base/t3base (numbers), mode ("melee"/"ranged"), range (squares),
 --   qualities (display string), parrySpent (true = -1 damage penalty)
 local function BuildCrowsAttackAbility(c, args)
+    local function HasTrait(name)
+        return CrowdexTraits ~= nil and CrowdexTraits.Has ~= nil and CrowdexTraits.Has(c, name)
+    end
+
     local statValue, statName = CrowsStatForWeapon(c, args.statSpec)
     local penalty = cond(args.parrySpent, 1, 0)
     local t2 = math.max(0, (args.t2base or 0) + statValue - penalty)
@@ -3804,7 +3915,10 @@ local function BuildCrowsAttackAbility(c, args)
     if args.mode == "melee" then
         descLines[#descLines + 1] = "On a miss the target can counter. Doom (natural 2-3): tier 1 plus a major setback."
     else
-        descLines[#descLines + 1] = "Beyond normal range: -2 per square. Adjacent target: -1. On a miss ammunition is destroyed and an ally adjacent to the target may be hit (tier 2; tier 3 on a doom)."
+        local adjacentText = cond(args.weaponType == "Bow" and HasTrait("Point Blank"),
+            "Point Blank removes the adjacent-target penalty.", "Adjacent target: -1.")
+        descLines[#descLines + 1] = "Beyond normal range: -2 per square. " .. adjacentText
+            .. " On a miss ammunition is destroyed and an ally adjacent to the target may be hit (tier 2; tier 3 on a doom)."
     end
 
     local keywords = { Weapon = true, Attack = true }
@@ -3821,6 +3935,12 @@ local function BuildCrowsAttackAbility(c, args)
     local tier1 = ""
     if args.mode == "melee" then
         tier1 = "<color=#8b0000>Counter</color>"
+    end
+
+    local tier2 = string.format("%d damage", t2)
+    local tier3 = string.format("%d damage", t3)
+    if args.weaponType == "Bashing" and HasTrait("Push 'Em Back") then
+        tier3 = tier3 .. "; push 1"
     end
 
     local ability = ActivatedAbility.Create{
@@ -3844,12 +3964,14 @@ local function BuildCrowsAttackAbility(c, args)
                 roll = string.format("2d10 + %d", statValue),
                 tiers = {
                     tier1,
-                    string.format("%d damage", t2),
-                    string.format("%d damage", t3),
+                    tier2,
+                    tier3,
                 },
             },
         },
     }
+
+    ability.crowdexExpertiseId = CrowdexExpertise.IdByName(args.weaponType, "Weapon") or ""
 
     -- Transient hints the ranged-attack animation reads off the ability: which
     -- ammo item the projectile spawns/drops, and the tier-2 damage number used
@@ -3884,6 +4006,22 @@ function character:GetCrowsWeaponAttacks()
             local qualities = item:try_get("crowsQualities", "")
             local melee = item:try_get("crowsMeleeRange")
             local ranged = item:try_get("crowsRangedRange")
+            local itemName = string.lower(item.name or "")
+
+            if CrowdexTraits ~= nil and CrowdexTraits.Has ~= nil then
+                if CrowdexTraits.Has(self, "Finesse the Blade") and string.find(itemName, "sword", 1, true) then
+                    statSpec = "A or S"
+                end
+                if CrowdexTraits.Has(self, "Range Finder") and weaponType == "Bow" and ranged ~= nil then
+                    ranged = ranged + 2
+                end
+                if CrowdexTraits.Has(self, "Axe Hurler") and itemName == "handaxe" and ranged ~= nil then
+                    ranged = ranged + 2
+                end
+                if CrowdexTraits.Has(self, "Javelin") and itemName == "spear" then
+                    ranged = math.max(5, ranged or 0)
+                end
+            end
             -- Parry penalty: the wielded copy's AD pool is empty.
             local parrySpent = ArmorADForItem(slot.itemid) > 0 and (slot.ad or 0) <= 0
 
@@ -3925,16 +4063,19 @@ function character:GetCrowsWeaponAttacks()
         end
     end
 
-    -- Unarmed strike: always available.
+    -- Unarmed strike: always available. Pack a Punch replaces its tier damage
+    -- and gives the generated attack the Light quality.
+    local packAPunch = CrowdexTraits ~= nil and CrowdexTraits.Has ~= nil
+        and CrowdexTraits.Has(self, "Pack a Punch")
     result[#result + 1] = BuildCrowsAttackAbility(self, {
         name = "Unarmed Strike",
         weaponType = "Unarmed",
         statSpec = "A or S",
-        t2base = 1,
-        t3base = 2,
+        t2base = cond(packAPunch, 2, 1),
+        t3base = cond(packAPunch, 4, 2),
         mode = "melee",
         range = 1,
-        qualities = "",
+        qualities = cond(packAPunch, "Light", ""),
     })
 
     return result
@@ -3997,7 +4138,7 @@ function character:GetCrowsConsumableAbilities()
             local slot = GetSlot(self, kind, i)
             if slot ~= nil and not seen[slot.itemid] then
                 local item = gearTable[slot.itemid]
-                if item ~= nil and item:has_key("consumable") and not IsUsageDiceDepleted(slot) then
+                if item ~= nil and item:has_key("consumable") and not IsUsageDiceDepleted(slot, self) then
                     seen[slot.itemid] = true
 
                     local itemid = slot.itemid
@@ -4422,9 +4563,19 @@ end
 -- button press) is what lets a hit's damage land together with the dice-synced
 -- attack animation above.
 GameSystem.RollDialogDismissDelay = 1.25
-function GameSystem.RollDialogAutoProceed(options)
+function GameSystem.RollDialogAutoProceed(options, state)
     if options == nil then return false end
-    return options.type == "ability_power_roll"
+    if options.type ~= "ability_power_roll" then return false end
+
+    -- Keep the result open only when the finished roll has an eligible
+    -- expertise choice. Otherwise Crows retains its fast dice-synced resolve.
+    for _, entry in ipairs(state and state.afterRollModifiers or {}) do
+        local modifier = entry.modifier
+        if modifier ~= nil and CrowdexExpertise.IsExpertiseId(modifier:try_get("resourceCost")) then
+            return false
+        end
+    end
+    return true
 end
 
 -- Per-target post-roll hook (called from MCDMAbilityRollBehavior). On a missed

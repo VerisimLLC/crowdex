@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7eafb1bb-9ee3-42d2-8724-394ea3523097
+name: It's Real
+description: When you cast an illusion spell, you can choose one mundane object that is part of the illusion that
+  becomes real until the end of the DT.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 09bc81e9-75be-4bb0-91ba-c8b64c948b38
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 54fb2a05-2029-4123-bb13-580baaa64a16
+    name: It's Real
+    description: When you cast an illusion spell, you can choose one mundane object that is part of the illusion
+      that becomes real until the end of the DT.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7eafb1bb-9ee3-42d2-8724-394ea3523097: true
+  domains:
+    CrowdexTrait:7eafb1bb-9ee3-42d2-8724-394ea3523097: true

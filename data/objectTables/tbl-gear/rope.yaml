@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Rope
+_table: tbl_Gear
+__typeName: equipment
+id: 83ac7eea-cef9-4593-8a45-9ffcb5852d3d
+name: "Rope"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1094aa90-9cca-4f10-b4d6-5a2ab5457f95
+costInGold: 2
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Fifty feet of rope. If secured, no test is required to climb it. Fine and masterwork versions are longer, stronger, and lighter."
+implementation: 1
+domains:
+  item:83ac7eea-cef9-4593-8a45-9ffcb5852d3d: true

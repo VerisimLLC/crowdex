@@ -124,18 +124,35 @@ local function ClaimedMap(creature)
 end
 
 -- Gear every crow starts with regardless of background (Characters Booklet,
--- "Equipment Cards": a bedroll, an empty coin purse, a knife, a rope, and six
--- rations). Granted alongside the background's starting equipment and tracked
+-- "Equipment Cards": an empty coin purse, a knife, a rope, six rations, and
+-- 3d6 gc). Granted alongside the background's starting equipment and tracked
 -- under STANDARD_CLAIM_KEY in crowdex_claimedEquipment so it is never granted
 -- twice on the same character.
 local STANDARD_CLAIM_KEY = "crowdex:standard-equipment"
 local STANDARD_EQUIPMENT = {
-    { itemid = "2dccafc8-60da-4724-8a56-72fed0653ba2", quantity = 1 }, -- Bedroll
-    { itemid = "30ca817d-d782-4f78-8359-4d38afe9d7a0", quantity = 1 }, -- Coin Purse
+    { itemid = "e1af2dff-1753-45c1-a3cf-e06f15238d62", quantity = 1 }, -- Coin Purse
     { itemid = "10c54280-6bb9-42ea-b7ed-a191783a8cef", quantity = 1 }, -- Knife
-    { itemid = "fa1092d3-9d38-41e1-ac68-c4a018908c00", quantity = 1 }, -- Rope
-    { itemid = "223f5332-0bd0-420b-a6e9-6459d23b0b5a", quantity = 6 }, -- Ration
+    { itemid = "83ac7eea-cef9-4593-8a45-9ffcb5852d3d", quantity = 1 }, -- Rope
+    { itemid = "89d329ae-7de1-478f-94af-e3245b5dd529", quantity = 6 }, -- Ration
+    {
+        itemid = "7bcc2011-6a2a-42d6-93c7-37c702866017", -- Gold Coins
+        quantityRoll = "3d6",
+        quantityProperty = "crowdex_startingGold",
+    },
 }
+
+local function StandardEquipmentQuantity(creature, entry, rollIfNeeded)
+    if entry.quantityRoll == nil then
+        return math.max(1, math.floor(tonumber(entry.quantity) or 1))
+    end
+
+    local quantity = creature:try_get(entry.quantityProperty)
+    if quantity == nil and rollIfNeeded then
+        quantity = dmhub.RollInstant(entry.quantityRoll)
+        creature[entry.quantityProperty] = quantity
+    end
+    return math.max(1, math.floor(tonumber(quantity) or 1))
+end
 
 -- The standard equipment as a flat { item = tbl_Gear entry, quantity } list,
 -- or empty if this creature has already claimed it. Entries whose item no
@@ -149,7 +166,11 @@ local function StandardUnclaimedItems(creature)
     for _,e in ipairs(STANDARD_EQUIPMENT) do
         local item = gearTable[e.itemid]
         if item ~= nil then
-            result[#result+1] = { item = item, quantity = e.quantity }
+            result[#result+1] = {
+                item = item,
+                quantity = StandardEquipmentQuantity(creature, e, false),
+                quantityLabel = e.quantityRoll,
+            }
         end
     end
     return result
@@ -217,7 +238,10 @@ local function GrantModifiers(creature, mods)
         for _,e in ipairs(STANDARD_EQUIPMENT) do
             local item = gearTable[e.itemid]
             if item ~= nil then
-                items[#items+1] = { item = item, quantity = e.quantity }
+                items[#items+1] = {
+                    item = item,
+                    quantity = StandardEquipmentQuantity(creature, e, true),
+                }
             end
         end
         claimed[STANDARD_CLAIM_KEY] = true

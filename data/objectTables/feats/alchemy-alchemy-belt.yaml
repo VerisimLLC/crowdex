@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 687763f2-6a2b-4171-90c1-ed3459b4b02c
+name: Alchemy Belt
+description: You gain an additional belt slot that can only be used to hold alchemy items.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 153bcc75-1970-4c25-a324-31335861efa6
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: cd8bf66b-b88c-463e-80a7-608feed00b46
+    name: Alchemy Belt
+    description: You gain an additional belt slot that can only be used to hold alchemy items.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:687763f2-6a2b-4171-90c1-ed3459b4b02c: true
+  domains:
+    CrowdexTrait:687763f2-6a2b-4171-90c1-ed3459b4b02c: true

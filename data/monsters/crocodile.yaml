@@ -1,0 +1,157 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 34f660e5-1c10-4d86-9dd3-6400d7b1f30d
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Crocodile
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      swim: 6
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 4 damage
+        - 6 damage; grabbed
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: On a tier 3 result against a Medium or smaller target, the target is grabbed (Vise Grip).
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      implementationDetails: Grabbed auto-applies on tier 3; the 'Medium or smaller' restriction, the bite-lock, and the grab-crush maneuver are manual.
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      guid: 6df37acf-9f45-4773-a15c-5f2b4a2202c4
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      keywords:
+        Strike: true
+        Melee: true
+    walkingSpeed: 4
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 20
+    cr: 6
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When the crocodile gets a tier 3 result with its bite against a Medium or smaller target, the target is grabbed (auto-applied). While a target is grabbed this way the crocodile can't bite another target, and it can use a maneuver to deal 1d6 damage to the grabbed target. (The bite-lock and crush maneuver are manual.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:0c5b2dd1-466f-4a1a-8ce2-af1c463b4aaf: true
+      name: Vise Grip
+      guid: 0c5b2dd1-466f-4a1a-8ce2-af1c463b4aaf
+    - __typeName: CharacterFeature
+      description: Dim light and darkness impose no penalties for the crocodile.
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:c04c37b7-d15f-4ef9-aa61-ad0ae6aa69d2: true
+      name: No Darkness Penalty
+      guid: c04c37b7-d15f-4ef9-aa61-ad0ae6aa69d2
+    keywords:
+      Animal: true
+    levelChoices: []
+    damage_taken: 0
+    creatureSize: 1L
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -3
+        id: mind
+    initiativeGrouping: b2d4d7ba-03d6-4649-abd6-5806610746b0
+    crowsSlots: 10
+    monster_type: Crocodile
+  tokenType: null
+  bestiaryId: 82482fa8-617c-4c50-8f80-d019095276e1
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 3
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACrVWUW/bNhD+K4T2kBarUsmW5SZ9ShOsGLB2RRO0j8GJPEmEaVIjqXhusf++I2mnjhOn6Yr5xRJ1993xu7uP/JpdX/v1gO9hidlptjTaebTZC0aPN7hE7S8HROGy06+ZW8lldlrTt2s1whU0ily8HfGfaB49IxgBnVvDjZBkQd8ELKHDaw8L1NlpQSv41yiHgB5wd9BaUO4OHAePnbFrgjzTcgkq4HGL4EeLl/JLiFX+EfOFv6976Qcjtad0J0U0TPladGa0HN2hcLwHC5wC/paQo2EZrXfpOd8zi5tDx60cvDS0t+xzj5r5HhnfEsA69I4B8xItmzLCHpVnK+l7JulDIz0y6EDSfsnqHQo5LpmxzNFmFbl4sITwIoKmZyYd6yw0DQr2DEZvchgGJVE8P2af+xASHrD0Pb2sYL2XHQd95DdZaEPfvkUELSjFYMFGF0CXoHG8CRaGCQTFSlGzVNywFIBvo0WMY/bsihYDeq4MX0RIbkfXf8MCi+FlBHX8PPCpE9WfJIV8S8SGtW6UgtYKPmsmQpR5VddtXkEJ+SuOkxzaklf1tKkA2tS6QrZE98FyC7MMhIfP+yU9fVKQ2PYPD0LqNMr2yoL0IR25HFQcJUhNUj7sOPkP7XYhl0zJrveRWQF2odE5RhEN0acNG1CDotZzrKWeulP64x223xt2sXX+EF3WO7zzouLTeTPPRTkjSrA9yQHqMgdRANb0eCImP837k4L8H7w/lOgC1ytjk+xtdOeR0ApvUJ33Rj6iMFJrkrIz7uUN/YuzRioZ6vKw0OzZxWI02MONNPaJLh/MCu1Ho9SbjV/AAO9tLKnzFnXn+7BoyYiWJqIs2K8sVtJvq0hxsiw1Z1ZtZj28T+l9O/uvt1OfHWDziaTv16uKyj1Qf1xFNXEb26DX6ViQXzam2aXsdOwjtsPYprnfkPzcH50/9T1R/gkZvpWr52msxuVtzsRhCC7doGAdOO1HdL1sfToKGxvmN0xe6tCm40ZRtU6zX9rNL/i7sLvHG9mC7nAb7y6ZF+hBqpDM203GO+eGY0ZvmHgd93d0b/tHgSJqHR7AEgm3op4Oiq3454flPTZgqs5VuiVoo2NlEqGbxfQS9QQV4se0q3JvKi8pmwXeTuW7YPrYjH5XmyQ3Oo7GKPPw7F66hVTKvSyPB93tqGEt2ukceJuftNUsr+bzaQ7ljOezdkKHw2RSTHgVtxrJ+ri5evweXEV5Us9ewSSvxLzJq1lR0bFygnkJs6os2qact/tD9NjArEAtpO7iDS2NS5zvZvRJV26H/ODBcra1jwIDDj+BGsliEgjZ14kHsoIuDdsPByi3AbYIB6omtfhx8Hy6RY/+3yV0uyQ1STLNyw2+tWYciFqCoMtAqBbkxVTUdCmo6Fxq6Gn2qqjrsphXdVOkS6lZuUtlwsiXYbBj+3ywppVcouby8Nmwn8q/62PP9pULAAA=
+forkTime: 1781750340123
+description: Crocodile
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 7
+ctime: 1787361593156
+mtime: 1787361593156
+hidden: true
+id: 82482fa8-617c-4c50-8f80-d019095276e1

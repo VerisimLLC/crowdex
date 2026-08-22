@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 43832305-901f-4cab-b283-83ecd03bbaad
+name: Emergency Repairs
+description: You can quickly repair a piece of armor while you are not in combat, restoring 1d6 AD to it. You can't
+  use this trait again until you finish a rest. This trait stacks with Jury-Rig Repairs from the Armor tree.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 1ea61f8e-7f8c-48f5-a1bd-bcf5eb50f629
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e99eaf0b-7ead-4406-845c-90ace518523a
+    name: Emergency Repairs
+    description: You can quickly repair a piece of armor while you are not in combat, restoring 1d6 AD to it. You
+      can't use this trait again until you finish a rest. This trait stacks with Jury-Rig Repairs from the Armor
+      tree.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:43832305-901f-4cab-b283-83ecd03bbaad: true
+  domains:
+    CrowdexTrait:43832305-901f-4cab-b283-83ecd03bbaad: true

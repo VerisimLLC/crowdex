@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: cfac22e2-633a-4607-85af-3c568a78a93d
+name: Memorization
+description: As a rest activity, choose a lore book you have to study. You gain its expertise and are always wielding
+  it even when you don't have it until you use this rest activity again.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 96914cd2-2c4e-4e0a-96a0-131eafbbdb6d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ffd4e38c-8091-4152-a8c8-ad4ecee82b69
+    name: Memorization
+    description: As a rest activity, choose a lore book you have to study. You gain its expertise and are always
+      wielding it even when you don't have it until you use this rest activity again.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:cfac22e2-633a-4607-85af-3c568a78a93d: true
+  domains:
+    CrowdexTrait:cfac22e2-633a-4607-85af-3c568a78a93d: true

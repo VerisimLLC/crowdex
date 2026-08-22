@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 0b66a5b8-9edb-4cd3-897c-5f09b20faf79
+name: Quickstep
+description: When you use the Shift maneuver while wielding a slashing weapon, you can move 3 squares instead of
+  2.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a26021c2-c3aa-43d3-84e3-6f88d6e5c40a
+    name: Quickstep
+    description: When you use the Shift maneuver while wielding a slashing weapon, you can move 3 squares instead
+      of 2.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:0b66a5b8-9edb-4cd3-897c-5f09b20faf79: true
+  domains:
+    CrowdexTrait:0b66a5b8-9edb-4cd3-897c-5f09b20faf79: true

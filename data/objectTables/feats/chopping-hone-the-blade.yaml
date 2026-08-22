@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 474027a3-65f9-4ef0-84a6-153618c38e96
+name: Hone the Blade
+description: As a rest activity, you can sharpen the blade of up to two chopping weapons. These weapons gain a +1
+  damage bonus that lasts until you get a tier 1 result on an attack with the weapon or you finish a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5bee2f30-08dc-4546-8525-2384fbeb1322
+    name: Hone the Blade
+    description: As a rest activity, you can sharpen the blade of up to two chopping weapons. These weapons gain
+      a +1 damage bonus that lasts until you get a tier 1 result on an attack with the weapon or you finish a rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:474027a3-65f9-4ef0-84a6-153618c38e96: true
+  domains:
+    CrowdexTrait:474027a3-65f9-4ef0-84a6-153618c38e96: true

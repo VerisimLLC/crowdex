@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 2d8f9e22-e81a-44da-8d07-564ba6ba3fcb
+name: Some For Me
+description: When you cast a benefaction spell that restores Stamina for another creature or removes at least 1
+  of their wounds, you regain Stamina equal to your Mind plus the spell's rank.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 8ff5950e-597f-4ff0-aca1-887df8747de3
+- ccbc0198-4a2d-4d0a-ae11-342d2bac09fc
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c8bb3312-58f7-4201-ba7b-b2f4f58a6d73
+    name: Some For Me
+    description: When you cast a benefaction spell that restores Stamina for another creature or removes at least
+      1 of their wounds, you regain Stamina equal to your Mind plus the spell's rank.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:2d8f9e22-e81a-44da-8d07-564ba6ba3fcb: true
+  domains:
+    CrowdexTrait:2d8f9e22-e81a-44da-8d07-564ba6ba3fcb: true

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 90861651-8a42-401e-9726-a1fbdfb1cf97
+name: Pack a Big Punch
+description: While you have at least 1 hand slot free, your unarmed strikes deals additional damage equal to your
+  Agility or Strength.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 85c9bb13-64bb-4a54-a7bf-0bf5f69e0a79
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: bccb7def-20b5-449a-97ee-179bf3eccb62
+    name: Pack a Big Punch
+    description: While you have at least 1 hand slot free, your unarmed strikes deals additional damage equal to
+      your Agility or Strength.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:90861651-8a42-401e-9726-a1fbdfb1cf97: true
+  domains:
+    CrowdexTrait:90861651-8a42-401e-9726-a1fbdfb1cf97: true

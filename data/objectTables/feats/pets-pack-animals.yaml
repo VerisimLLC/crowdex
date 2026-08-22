@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 418d150c-334e-498d-874a-0800263e95b2
+name: Pack Animals
+description: The Stamina maximum of each pet affected by your Buddy trait is raised by 4 multiplied by the number
+  of pets affected by your Buddy trait.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- daf35016-0bb9-4525-bd00-ad5e0cee1927
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ff5a2953-d3e1-4e2b-ad43-2f7fe516feb4
+    name: Pack Animals
+    description: The Stamina maximum of each pet affected by your Buddy trait is raised by 4 multiplied by the number
+      of pets affected by your Buddy trait.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:418d150c-334e-498d-874a-0800263e95b2: true
+  domains:
+    CrowdexTrait:418d150c-334e-498d-874a-0800263e95b2: true

@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 3b2ef9e3-7f73-4ce1-ac12-447631b38e78
+name: Distant Necromancy
+description: When you cast a ranged necromancy spell, the spell's range increases a number of squares equal to your
+  Mind.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 848a3b0b-8e27-469d-825b-41e3e692049f
+    name: Distant Necromancy
+    description: When you cast a ranged necromancy spell, the spell's range increases a number of squares equal
+      to your Mind.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:3b2ef9e3-7f73-4ce1-ac12-447631b38e78: true
+  domains:
+    CrowdexTrait:3b2ef9e3-7f73-4ce1-ac12-447631b38e78: true

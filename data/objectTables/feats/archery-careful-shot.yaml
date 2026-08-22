@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 78b0766d-bff6-429e-9c8c-dadea8208400
+name: Careful Shot
+description: When you get a non-doom tier 1 result on an attack made with a bow, you don't hit an ally within 1
+  square of the target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 874514ac-9a20-4d3a-825a-6c9691fcc008
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 7af93d00-a813-4f5f-aa03-9526cca2d249
+    name: Careful Shot
+    description: When you get a non-doom tier 1 result on an attack made with a bow, you don't hit an ally within
+      1 square of the target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:78b0766d-bff6-429e-9c8c-dadea8208400: true
+  domains:
+    CrowdexTrait:78b0766d-bff6-429e-9c8c-dadea8208400: true

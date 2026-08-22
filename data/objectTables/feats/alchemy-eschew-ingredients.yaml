@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9e24343c-c873-459b-9f55-1242078a239e
+name: Eschew Ingredients
+description: You can ignore the material requirements for crafting an alchemy item if the item's crafting goal is
+  100 or lower.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 52bfa29a-339e-4710-adff-3b0897db77bf
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a260b7f3-e395-45f0-8e9a-ccdfd4c65854
+    name: Eschew Ingredients
+    description: You can ignore the material requirements for crafting an alchemy item if the item's crafting goal
+      is 100 or lower.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9e24343c-c873-459b-9f55-1242078a239e: true
+  domains:
+    CrowdexTrait:9e24343c-c873-459b-9f55-1242078a239e: true

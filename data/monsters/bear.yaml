@@ -1,0 +1,187 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -11
+    - 6
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 2b91674e-9a49-4704-96bc-693de088559a
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1.322404
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Bear
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      climb: 6
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 4 damage
+        - 6 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 42a93682-26c9-4624-b896-0267403574d0
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 2 damage
+        - 3 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Claws
+      description: Targets two creatures.
+      numTargets: "2"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: df9ffabc-d2bd-474f-9a04-7151753abd18
+    walkingSpeed: 6
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 20
+    cr: 6
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: While the bear has 15 or lower Stamina, its attacks deal an additional 2 damage. (Applied manually.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:4a138e47-ec35-41a6-b30d-dee5973c8a6f: true
+      name: Dangerous When Cornered
+      guid: 4a138e47-ec35-41a6-b30d-dee5973c8a6f
+    - __typeName: CharacterFeature
+      description: Dim light imposes no penalties for this creature.
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:e8f2b95c-4f92-4d43-96ab-25807928ffc6: true
+      name: No Dim Light Penalty
+      guid: e8f2b95c-4f92-4d43-96ab-25807928ffc6
+    keywords:
+      Animal: true
+    levelChoices: []
+    damage_taken: 0
+    creatureSize: 1L
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 5bd510e6-5f9b-40e7-b4a8-d717b6ab3aab
+    crowsSlots: 10
+    monster_type: Bear
+  tokenType: null
+  bestiaryId: 7d776a9e-9e82-432e-baff-026069df6951
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 3
+  createdTimestamp: 1781736656708
+fork: H4sIAAAAAAAACu1XW2/bNhT+K4T2smFlKsm6WH5LU2wY0BVBHKyPwZF4JBGmSI2k4rlF//tIyg48x0nTDcP6ML9YpM79fN8h9Sm6u7O7Ed/DgNEqGpQ0FnX0irjHexxQ2vWIyEy0+hQ1gg91tCrcyzsxwS3UwulYPeHnIB9UgzVn6Q1CMMNggA7vLGxQRqvY7eDvEx+9ZW/zyFALwvzFUgMWO6V3ztql5AMIb6/RCHbSuOYfvZvkXYgV/rjruR0Vl9aFmsZBcA5Vo1GTbtA85a7pQUPjHP40Ww6CSZA+Ls3ViVhIDk2j+Wi5crlFH3oukNgeSe2SJz0YkuREaSLUFjVZWxi4hFeEW0PAWmg2hjAEQUASYIx7M26VkrlmF+T7y3EUHBkZQE4gxO7iB+9VzgG9BdmhVpMhH3qU5EppiRqZl+gmzpxEBsliiVlJsVnkNEugoPUiZpQh5lW5aJZQtHOrGW856idLxNQAXIbXp2VYvchJQMl53MzdcdHeauDWh8OHUQTowVzY5Lxi+jda9JYPRPCut8Q5UQYNkYqM6MpuuVu0rlm254YcUHZxVO/3inj1d0H9OujsjoqNyzatq7yhWVulNGPZglYF1DTNl3FZpcu2bYp/XOwXOfk3in0u0A3utkrPs2FP0GdcC7xHcdUr/gwVuZSO85eN5ffun13WXHDfmPOMPJELzaixh3uu9AtVrj0zb5QQb/Z63objpg4tNVaj7GzvN7UTclspS2LyI0n9lj100fmJohmRUbZnr18v3Lo4Wp9L+YW1Pm1TFibb6GBxC7pDP/WCrJ9n89jkH/ei0Zp3MsCHHBVqD+o33J6hSRCYhgfTLkMvw80oYOcz7ic0PW/tPNFr7Tkh0ZgZP3XXKOFquYq+a/c/r298EM/DTPuZdvB3mGIpVItimdK0aCqaFWlG62VV0Dgtyixe5GXG4tC2Obnb+fyRSobEjkG6dn3d4ANIf0WB+BxkBy9wM4eUvIS6vFEyxDxx6p/Na7PhQpjXycUouxBk4/O/2Z9Jv3hZllRFvgRP57KmWR5nFNoKaQJ5lsRtnZRtGOo2dGOf3ryIzsf9eDJ+k1RJT6iy+LapciVgax5zZW+U2K16ODbMxSMGpf8hg1hbtS3UDWVpzWhWZi2twMGsTPKkzBdQs2T5P4O+hKstiA2XXbgPz1fLgP56svMB9UCBJ68llwf5QD8w+BuIyUmkPvFTFp2JCroZk1/tID44OFh4oltcsq83Th/CD/pfLOhhi0t3tjsw3+PP7hY7utI6E3nN8iTGguZt5VoZY0nrDJaUlUlZu5vOAqCePwPU1qyF8txKfHoBJtdatbzhKBv+9CXjNJQ/AYewSOYDDQAA
+forkTime: 1781750564287
+description: Bear
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 2
+ctime: 1787361592142
+mtime: 1787361592142
+hidden: true
+id: 7d776a9e-9e82-432e-baff-026069df6951

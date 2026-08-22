@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: a312ad6e-685f-4f32-96ec-6162694fcc33
+name: Prepare Your Gear
+description: As a rest activity, you can choose up to two pieces of gear you can touch that have UD. The number
+  of UD these items have is increased by 1 until you finish another rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 59615356-b069-46d7-8b63-b1adde6a823d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 9dab8e4a-d296-4d89-a58e-8d21cd7fe385
+    name: Prepare Your Gear
+    description: As a rest activity, you can choose up to two pieces of gear you can touch that have UD. The number
+      of UD these items have is increased by 1 until you finish another rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a312ad6e-685f-4f32-96ec-6162694fcc33: true
+  domains:
+    CrowdexTrait:a312ad6e-685f-4f32-96ec-6162694fcc33: true

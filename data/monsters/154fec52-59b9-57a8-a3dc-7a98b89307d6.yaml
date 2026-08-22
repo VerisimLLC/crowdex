@@ -1,0 +1,70 @@
+# Crows Playtest 2 -- Horse, Draft (The Ref Book)
+description: Horse, Draft
+id: 154fec52-59b9-57a8-a3dc-7a98b89307d6
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Horse, Draft
+    keywords:
+      Animal: true
+    cr: 5
+    creatureSize: 1L
+    max_hitpoints: 10
+    damage_taken: 0
+    walkingSpeed: 8
+    crowsSlots: 15
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Draft Animal
+      description: When hauling a vehicle, the horse has 5 open slots that can be used to carry equipment.
+      guid: 9b205f0f-c793-540a-b244-f41e3ea9b9b1
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Kick
+      guid: 06af0bd3-a74f-562b-83a2-27469065ec0a
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 3 damage
+        - 6 damage
+      meleeRange: 1

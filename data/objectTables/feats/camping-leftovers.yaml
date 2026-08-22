@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: f8fcbebc-74f9-4dd1-92ac-72a4415cb585
+name: Leftovers
+description: As a rest activity, you can use cook's utensils and rations to make a meal for you and each human with
+  you. You use half as many rations as there are humans. This meal counts as rations for the rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 3b62f200-1154-4751-8aad-b4f545020837
+- 33ee0eba-920c-4973-8df1-47bcdad122f2
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 17742de5-99bf-4939-a24b-f40e929e193f
+    name: Leftovers
+    description: As a rest activity, you can use cook's utensils and rations to make a meal for you and each human
+      with you. You use half as many rations as there are humans. This meal counts as rations for the rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f8fcbebc-74f9-4dd1-92ac-72a4415cb585: true
+  domains:
+    CrowdexTrait:f8fcbebc-74f9-4dd1-92ac-72a4415cb585: true

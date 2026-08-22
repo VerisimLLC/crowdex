@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Hearty Ration
+_table: tbl_Gear
+__typeName: equipment
+id: 9f3fd585-f435-4942-b474-5b67fd4bc314
+name: "Hearty Ration"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 746461c6-058c-4bf1-aa9a-b5c2f4b23783
+costInGold: 0
+weight: 0
+stackLimit: 6
+slotsRequired: 1
+description: "When consumed during a rest, remove 1 additional wound."
+implementation: 1
+domains:
+  item:9f3fd585-f435-4942-b474-5b67fd4bc314: true

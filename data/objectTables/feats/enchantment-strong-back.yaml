@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 5e993536-9fe8-4f1e-8692-4316b2e72658
+name: Strong Back
+description: When you wear a magic item in your waist slot, you gain a +1 bonus to Strength RRs.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- b57fcde8-8b2f-48ca-bb30-e7cec8a1d4ec
+- 7d53302b-f7e7-46a3-87aa-00ccce747133
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5d7ac604-40ec-44a1-b756-50293fb9e571
+    name: Strong Back
+    description: When you wear a magic item in your waist slot, you gain a +1 bonus to Strength RRs.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:5e993536-9fe8-4f1e-8692-4316b2e72658: true
+  domains:
+    CrowdexTrait:5e993536-9fe8-4f1e-8692-4316b2e72658: true

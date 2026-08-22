@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Alteration Stone
+_table: tbl_Gear
+__typeName: equipment
+id: d431f310-9c6f-4e1e-af47-c3a009d7e477
+name: "Alteration Stone"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 6f93e59f-2e72-4856-9e96-c1fcf3909dc4
+costInGold: 0
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: "Choose one benefit when the stone is made. The creature carrying it either does not need to eat or drink, does not need to breathe, or causes the stone to shed light 5/5."
+implementation: 1
+domains:
+  item:d431f310-9c6f-4e1e-af47-c3a009d7e477: true

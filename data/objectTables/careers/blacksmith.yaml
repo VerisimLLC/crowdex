@@ -1,0 +1,251 @@
+# Crows Playtest 2 -- background: Blacksmith
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: ccdf7ddf-9dbf-4c99-8807-9ca36742ff42
+name: "Blacksmith"
+description: "You forged and sold items made from metal."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 30a1bcb9-8965-481a-bdde-ce4db1950ff3
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: 89ee3baf-07c4-4b07-820b-b83820b7e5ad
+      implementation: 3
+      source: "Blacksmith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 985ee43a-5778-4e23-b5e6-395bfb60e2bc
+        source: "Blacksmith Career Feature"
+        sourceguid: 89ee3baf-07c4-4b07-820b-b83820b7e5ad
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 38725cd2-8ba0-4b23-9e3c-8ac3be8e7006
+        source: "Blacksmith Career Feature"
+        sourceguid: 89ee3baf-07c4-4b07-820b-b83820b7e5ad
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 53250978-0973-4ba0-88b0-d80ea168e9f8
+        source: "Blacksmith Career Feature"
+        sourceguid: 89ee3baf-07c4-4b07-820b-b83820b7e5ad
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: 46308822-5917-49d6-8b06-3254757f70e6
+      implementation: 3
+      source: "Blacksmith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 37ef084d-f3e9-41d2-b330-65186e01b4ed
+        source: "Blacksmith Career Feature"
+        sourceguid: 46308822-5917-49d6-8b06-3254757f70e6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 658be108-cc9a-49f5-aa45-6315e3adc40f
+        source: "Blacksmith Career Feature"
+        sourceguid: 46308822-5917-49d6-8b06-3254757f70e6
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: ba164358-625f-4899-8b06-9096df49f3b6
+        source: "Blacksmith Career Feature"
+        sourceguid: 46308822-5917-49d6-8b06-3254757f70e6
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: e5ff367d-576d-4181-81d4-45a04b3c760e
+      implementation: 3
+      source: "Blacksmith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: f8568b2a-aa70-4220-a3e9-074789cfd4d5
+        source: "Blacksmith Career Feature"
+        sourceguid: e5ff367d-576d-4181-81d4-45a04b3c760e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 006c17c7-d4a0-440d-a1ce-17a93a661c26
+        source: "Blacksmith Career Feature"
+        sourceguid: e5ff367d-576d-4181-81d4-45a04b3c760e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 6f90582a-6cd8-45cb-9b42-7be4a27aea0d
+        source: "Blacksmith Career Feature"
+        sourceguid: e5ff367d-576d-4181-81d4-45a04b3c760e
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: a73588d2-151f-4d67-8cb7-e5464c57c58e
+      implementation: 3
+      source: "Blacksmith Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: aeb54467-2a0e-408a-92a3-4f73c1d696c9
+        source: "Blacksmith Career Feature"
+        sourceguid: a73588d2-151f-4d67-8cb7-e5464c57c58e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 2b0b495f-eeeb-4b86-b70e-4bc3f2b41e30
+        source: "Blacksmith Career Feature"
+        sourceguid: a73588d2-151f-4d67-8cb7-e5464c57c58e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 761e88fa-0580-4af9-ab23-62e3f377a378
+        source: "Blacksmith Career Feature"
+        sourceguid: a73588d2-151f-4d67-8cb7-e5464c57c58e
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 0ef9ee05-dfd6-4210-a385-4fbe64c860aa
+    implementation: 3
+    source: "Blacksmith Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 4ed7dacd-a2e5-43f4-a107-e77ad2f0b58a
+      source: "Blacksmith Career Feature"
+      sourceguid: 0ef9ee05-dfd6-4210-a385-4fbe64c860aa
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Bashing (1 use), Blacksmithing (2 uses), Endurance (1 use), Lift (1 use), Thievery (1 use)."
+    guid: 1cc3171b-00bd-4bc9-9333-1fb5c4b376a0
+    implementation: 3
+    source: "Blacksmith Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 74a6c31d-4fb5-41d7-aa03-7684ada38ffc
+      num: 1
+      name: Expertises
+      description: "Bashing (1 use)"
+      guid: b719c655-3ec4-4c39-b8ad-65bc86a2bcbe
+      source: "Blacksmith Career Feature"
+      sourceguid: 1cc3171b-00bd-4bc9-9333-1fb5c4b376a0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+      num: 2
+      name: Expertises
+      description: "Blacksmithing (2 uses)"
+      guid: e0cf2093-d421-4932-9219-33e6e07f600a
+      source: "Blacksmith Career Feature"
+      sourceguid: 1cc3171b-00bd-4bc9-9333-1fb5c4b376a0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+      num: 1
+      name: Expertises
+      description: "Endurance (1 use)"
+      guid: 6ee80a9c-b86e-4bcf-ba97-5e048a065255
+      source: "Blacksmith Career Feature"
+      sourceguid: 1cc3171b-00bd-4bc9-9333-1fb5c4b376a0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+      num: 1
+      name: Expertises
+      description: "Lift (1 use)"
+      guid: 3dae3b68-d660-4226-9b91-bd41e8c21806
+      source: "Blacksmith Career Feature"
+      sourceguid: 1cc3171b-00bd-4bc9-9333-1fb5c4b376a0
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 1
+      name: Expertises
+      description: "Thievery (1 use)"
+      guid: 1267f6ca-b99f-4bbc-a221-adf1f4636bb3
+      source: "Blacksmith Career Feature"
+      sourceguid: 1cc3171b-00bd-4bc9-9333-1fb5c4b376a0
+  - __typeName: CharacterFeature
+    name: "Trait: Double Duty"
+    description: "When you work on crafting a blacksmithing item as part of the Craft Equipment rest activity, you can make two crafting rolls for the item or make a second crafting roll for a different blacksmithing item."
+    guid: de96c023-fb48-4145-996f-18464935fa77
+    implementation: 4
+    source: "Blacksmith Career Feature"
+    crowdexTraitId: 84b5fc16-3831-445b-9abd-2eca0b34defd
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Torch, Bear Trap, Blacksmith's Tools, Chain, Maul. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 43fe1710-29dc-44ee-8df3-5befccc4b77b
+    implementation: 2
+    source: "Blacksmith Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: d9b7c0e5-e00a-4503-b319-15005564eded
+      source: "Blacksmith Career Feature"
+      sourceguid: 43fe1710-29dc-44ee-8df3-5befccc4b77b
+      equipment:
+      - itemid: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+        quantity: 1
+      - itemid: aeeaf03c-cdbf-493c-b0e9-d45ebb0efd4d
+        quantity: 1
+      - itemid: dea4a76a-b8a7-4744-8a64-a20211e13171
+        quantity: 1
+      - itemid: e18b827c-aceb-4bc1-a664-2e5e81f3a78b
+        quantity: 1
+      - itemid: f6c2ba71-0a69-471b-9faa-ed91e0cb578f
+        quantity: 1

@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 3b62f200-1154-4751-8aad-b4f545020837
+name: Hearty Meals
+description: As a rest activity, you can turn a normal ration into something more if you have cook's utensils. The
+  ration becomes a hearty ration (which has an equipment card).
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 7230e961-43ba-4fc4-a89d-fe90b05de64f
+    name: Hearty Meals
+    description: As a rest activity, you can turn a normal ration into something more if you have cook's utensils.
+      The ration becomes a hearty ration (which has an equipment card).
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:3b62f200-1154-4751-8aad-b4f545020837: true
+  domains:
+    CrowdexTrait:3b62f200-1154-4751-8aad-b4f545020837: true

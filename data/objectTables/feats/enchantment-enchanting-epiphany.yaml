@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: b57fcde8-8b2f-48ca-bb30-e7cec8a1d4ec
+name: Enchanting Epiphany
+description: When you make a crafting roll for an enchanting item, you get a crit when the dice without modifiers
+  equal 18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 9a2d5c11-936d-4e98-b48f-971af7db920b
+- 3d6763a5-e043-4beb-a580-1b455c497751
+- a6f43698-1eb3-42ed-9f3e-e770e7124d6d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a5033484-1465-4979-bbe9-b8a8e0b39780
+    name: Enchanting Epiphany
+    description: When you make a crafting roll for an enchanting item, you get a crit when the dice without modifiers
+      equal 18, 19, or 20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b57fcde8-8b2f-48ca-bb30-e7cec8a1d4ec: true
+  domains:
+    CrowdexTrait:b57fcde8-8b2f-48ca-bb30-e7cec8a1d4ec: true

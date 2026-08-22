@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: b81e042f-8dc5-4a55-b784-0f6da40821f3
+name: Walls Can't Save You
+description: Attacks you make with bows don't suffer a penalty for the target having cover.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 929bd5ba-b85c-48a3-9f47-87252bc369b5
+- ad6ee170-7e3b-4a7e-b168-9d3af0b95c09
+- db3f6c68-8a08-41e0-b096-789ee29f99ec
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ced8588c-def2-4f13-934c-1c96affc15a5
+    name: Walls Can't Save You
+    description: Attacks you make with bows don't suffer a penalty for the target having cover.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b81e042f-8dc5-4a55-b784-0f6da40821f3: true
+  domains:
+    CrowdexTrait:b81e042f-8dc5-4a55-b784-0f6da40821f3: true

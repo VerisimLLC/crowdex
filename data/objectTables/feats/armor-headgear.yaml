@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 6f75db74-a6ae-4f4d-b581-ec6b6fab01d6
+name: Headgear
+description: While you wear armor or a magic item in your head slot, you gain a +1 bonus on Mind RRs.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 48c84fe3-d3c2-4819-8e10-294f93ff069b
+- 6882c24c-dcac-41a5-b389-904c60b41dfe
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f2228c66-7a69-4d9b-9e23-db4ce760a65c
+    name: Headgear
+    description: While you wear armor or a magic item in your head slot, you gain a +1 bonus on Mind RRs.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:6f75db74-a6ae-4f4d-b581-ec6b6fab01d6: true
+  domains:
+    CrowdexTrait:6f75db74-a6ae-4f4d-b581-ec6b6fab01d6: true

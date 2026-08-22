@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 4119ad4d-266c-47aa-8d5d-b6cc3ac50424
+name: You'll Suffer
+description: When you cast a necromancy spell that targets a creature, you can choose to take 1d6 P damage before
+  you roll to gain a +1 bonus on the casting against that creature.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 37e8dec5-ef7f-4861-bb6e-e6e1e11ed3af
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5c1b0709-cf56-46c7-8a10-ddbe72937354
+    name: You'll Suffer
+    description: When you cast a necromancy spell that targets a creature, you can choose to take 1d6 P damage before
+      you roll to gain a +1 bonus on the casting against that creature.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:4119ad4d-266c-47aa-8d5d-b6cc3ac50424: true
+  domains:
+    CrowdexTrait:4119ad4d-266c-47aa-8d5d-b6cc3ac50424: true

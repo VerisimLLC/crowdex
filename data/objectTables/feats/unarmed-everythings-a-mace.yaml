@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9422630c-8362-4d12-9714-728ee9be8da4
+name: Everything's a Mace
+description: When you use an improvised weapon, ask the Ref if it most resembles a hammer, mace, maul, or flail.
+  The improvised weapon uses the same stats except that it has no weapon qualities.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- d56ca1d2-90aa-4c8c-b818-a701993e5573
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 2182fca5-a907-4a85-bee7-6ccf8131270c
+    name: Everything's a Mace
+    description: When you use an improvised weapon, ask the Ref if it most resembles a hammer, mace, maul, or flail.
+      The improvised weapon uses the same stats except that it has no weapon qualities.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9422630c-8362-4d12-9714-728ee9be8da4: true
+  domains:
+    CrowdexTrait:9422630c-8362-4d12-9714-728ee9be8da4: true

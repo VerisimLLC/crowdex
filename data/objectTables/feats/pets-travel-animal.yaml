@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: d6a3166d-82ae-4525-9c05-82eb26ef11bd
+name: Travel Animal
+description: When you make a test related to the forager, guide, or scout travel role, you can have one pet you
+  own help you. The test gains a +1 bonus.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 90aafc89-ae53-4ade-8512-0a071ed8c0aa
+- 266c6eac-bf9d-4648-9403-41dc2cc4d9bb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 2abef066-e905-40f6-b684-0856ca3ae6fd
+    name: Travel Animal
+    description: When you make a test related to the forager, guide, or scout travel role, you can have one pet
+      you own help you. The test gains a +1 bonus.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:d6a3166d-82ae-4525-9c05-82eb26ef11bd: true
+  domains:
+    CrowdexTrait:d6a3166d-82ae-4525-9c05-82eb26ef11bd: true

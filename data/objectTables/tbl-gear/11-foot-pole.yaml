@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- 11-Foot Pole
+#
+# Playtest 2 change: description, name
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: aab94a9c-3e00-4b58-9526-cb85de5f584d
+name: 11-Foot Pole
+category: Gear
+costInGold: 5
+description: An 11-foot-long wooden pole. For poking. Also prodding!
+domains:
+  item:aab94a9c-3e00-4b58-9526-cb85de5f584d: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1a6fd322-5262-4678-abe2-e66b659bb904
+implementation: 1
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 2

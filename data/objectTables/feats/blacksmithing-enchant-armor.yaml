@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8e7c81ad-c919-4b67-b000-c8314b3b0dec
+name: Enchant Armor
+description: You can use your blacksmith's tools as enchanter's tools and your number of uses in the Blacksmithing
+  expertise in place of Enchantment when crafting magic armor.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 43832305-901f-4cab-b283-83ecd03bbaad
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 24695482-ba17-4948-ae16-c256172f7479
+    name: Enchant Armor
+    description: You can use your blacksmith's tools as enchanter's tools and your number of uses in the Blacksmithing
+      expertise in place of Enchantment when crafting magic armor.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8e7c81ad-c919-4b67-b000-c8314b3b0dec: true
+  domains:
+    CrowdexTrait:8e7c81ad-c919-4b67-b000-c8314b3b0dec: true

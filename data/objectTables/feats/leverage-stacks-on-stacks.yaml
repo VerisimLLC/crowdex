@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 517a9fc6-96ba-4902-ae0e-05c17d8db05f
+name: Stacks on Stacks
+description: When you carry an item with a stack limit greater than 1, its stack limit increases by 1.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 5ebb4681-6eaa-40d7-a814-1f7da08f1ce1
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 20bbd5b5-f0e7-44cf-804b-0d86dd29c372
+    name: Stacks on Stacks
+    description: When you carry an item with a stack limit greater than 1, its stack limit increases by 1.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:517a9fc6-96ba-4902-ae0e-05c17d8db05f: true
+  domains:
+    CrowdexTrait:517a9fc6-96ba-4902-ae0e-05c17d8db05f: true

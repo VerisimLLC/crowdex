@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 4f71cfa4-8f62-461a-aa90-c8ad25a7f17f
+name: Grappling Spear
+description: If you attach your spear to a rope, you can use it like a grappling hook.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- f2561c63-5e7b-4664-9eb7-c58869edb36f
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 8719737e-56f5-49b9-9e41-e34424aa72ef
+    name: Grappling Spear
+    description: If you attach your spear to a rope, you can use it like a grappling hook.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:4f71cfa4-8f62-461a-aa90-c8ad25a7f17f: true
+  domains:
+    CrowdexTrait:4f71cfa4-8f62-461a-aa90-c8ad25a7f17f: true

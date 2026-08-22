@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 82cf967b-4e62-4ffa-824d-e2d93858bb87
+name: More for Less
+description: When you roll a UD for a piece of mundane equipment that has only 1 die remaining at the start of rolling
+  the item's dice, then you can only lose the UD on a result of 1.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Leverage
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 72c0123c-bb87-4487-bf66-c4e2d4c789ba
+    name: More for Less
+    description: When you roll a UD for a piece of mundane equipment that has only 1 die remaining at the start
+      of rolling the item's dice, then you can only lose the UD on a result of 1.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:82cf967b-4e62-4ffa-824d-e2d93858bb87: true
+  domains:
+    CrowdexTrait:82cf967b-4e62-4ffa-824d-e2d93858bb87: true

@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Ball Bearings
+_table: tbl_Gear
+__typeName: equipment
+id: dc6d119f-d1ea-4538-a336-7774d77c0567
+name: "Ball Bearings"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 847185a3-2c47-4c94-a550-ac32cdcc68ee
+costInGold: 5
+weight: 1
+stackLimit: 2
+slotsRequired: 1
+description: "A bag of 1,000. As a maneuver, spread them over a 2 x 2 area. A creature entering the area makes an Agility resistance roll: tier 1 prone and 4 damage; tier 2 prone; tier 3 no effect."
+implementation: 1
+domains:
+  item:dc6d119f-d1ea-4538-a336-7774d77c0567: true

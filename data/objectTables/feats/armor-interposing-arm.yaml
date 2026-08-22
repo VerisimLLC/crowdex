@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 942fc051-76e4-4b32-a4c8-ef32d5ff667e
+name: Interposing Arm
+description: When you wield a shield with at least 1 AD and a creature makes a weapon attack against a creature
+  adjacent to you, you can use your reaction to cause the damage to apply your shield before the target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a6f61290-b7ff-4827-a42f-fba78b0a6e66
+    name: Interposing Arm
+    description: When you wield a shield with at least 1 AD and a creature makes a weapon attack against a creature
+      adjacent to you, you can use your reaction to cause the damage to apply your shield before the target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:942fc051-76e4-4b32-a4c8-ef32d5ff667e: true
+  domains:
+    CrowdexTrait:942fc051-76e4-4b32-a4c8-ef32d5ff667e: true

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: cb3f135a-0ecb-4511-9196-202f3d64c897
+name: You Are My Weapon
+description: When you force move a creature into another while you have at least 1 hand slot free, both creatures
+  take damage equal to the forced movement remaining when they collide.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 063ff29b-9b40-44f4-aab7-dc9492674313
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 10da1377-6b54-4607-8583-e7984e91147e
+    name: You Are My Weapon
+    description: When you force move a creature into another while you have at least 1 hand slot free, both creatures
+      take damage equal to the forced movement remaining when they collide.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:cb3f135a-0ecb-4511-9196-202f3d64c897: true
+  domains:
+    CrowdexTrait:cb3f135a-0ecb-4511-9196-202f3d64c897: true

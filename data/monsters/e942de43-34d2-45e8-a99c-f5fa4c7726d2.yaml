@@ -1,0 +1,113 @@
+# Crows Playtest 2 -- Warrior, Pike (Power 4) (The Ref Book)
+description: Warrior, Pike (Power 4)
+id: e942de43-34d2-45e8-a99c-f5fa4c7726d2
+hidden: false
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Warrior, Pike (Power 4)
+    keywords:
+      Human: true
+    cr: 4
+    creatureSize: 1M
+    max_hitpoints: 10
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Athletics (1 use), Lift (1 use), Stabbing (1 use).'
+      guid: ce155d50-f71d-43da-8451-347e23e19875
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+        num: 1
+        name: Expertises
+        description: Athletics (1 use)
+        guid: fb4f3ca0-01ae-405b-9865-cf03cd596aeb
+        source: Trait
+        sourceguid: ce155d50-f71d-43da-8451-347e23e19875
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+        num: 1
+        name: Expertises
+        description: Lift (1 use)
+        guid: e733ceea-bd11-40c5-b2dc-28ba0ad0ed6f
+        source: Trait
+        sourceguid: ce155d50-f71d-43da-8451-347e23e19875
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 015fe62d-4d71-4028-a5bd-821eee14c002
+        num: 1
+        name: Expertises
+        description: Stabbing (1 use)
+        guid: 23e54304-8397-4e66-b896-aba9c93df9bf
+        source: Trait
+        sourceguid: ce155d50-f71d-43da-8451-347e23e19875
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Light armor, pike.'
+      guid: 926b9298-6c69-4591-bdb4-15ae07c399af
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Brutal
+      description: Pike attacks crit when the dice total 18, 19, or 20 without modifiers. A pike crit deals 16 damage.
+      guid: 402a0bf7-a588-57a1-8c08-8a13588a421c
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Pike
+      guid: 4e118b14-7c7a-4ae4-8684-739e472a2fb0
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '2'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 4 damage
+        - 8 damage
+      meleeRange: 2
+    crowsAD: 5

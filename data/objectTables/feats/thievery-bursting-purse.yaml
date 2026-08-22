@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 99cd7cea-db13-4f84-8cda-03cffe505453
+name: Bursting Purse
+description: You can carry an additional 500 gc in a coin purse.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 2ccdb795-eb71-42a8-8a1b-5c11ab833db7
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 992cfb9a-f5f3-4629-bc66-24a5f26805bf
+    name: Bursting Purse
+    description: You can carry an additional 500 gc in a coin purse.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:99cd7cea-db13-4f84-8cda-03cffe505453: true
+  domains:
+    CrowdexTrait:99cd7cea-db13-4f84-8cda-03cffe505453: true

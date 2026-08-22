@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 1b4d74af-8b3b-46fe-a492-aa9a028870c0
+name: Bard
+description: Your Song of Rest feature allows allies to become blessed twice during the day instead of once.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- e0aafa99-2fbe-4bb6-8669-94bca40d9573
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 89de7eb5-5d10-4c6b-8287-6d3a1a1cc940
+    name: Bard
+    description: Your Song of Rest feature allows allies to become blessed twice during the day instead of once.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:1b4d74af-8b3b-46fe-a492-aa9a028870c0: true
+  domains:
+    CrowdexTrait:1b4d74af-8b3b-46fe-a492-aa9a028870c0: true

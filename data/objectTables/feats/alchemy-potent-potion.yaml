@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 81b7405b-6685-418b-b58d-b793f6efc188
+name: Potent Potion
+description: Healing potions you craft restore additional Stamina equal to your Mind or remove 1 additional wound
+  if the drinker is already at full Stamina.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 61d56abf-208a-40db-9d43-8bdb1b17a1d6
+    name: Potent Potion
+    description: Healing potions you craft restore additional Stamina equal to your Mind or remove 1 additional
+      wound if the drinker is already at full Stamina.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:81b7405b-6685-418b-b58d-b793f6efc188: true
+  domains:
+    CrowdexTrait:81b7405b-6685-418b-b58d-b793f6efc188: true

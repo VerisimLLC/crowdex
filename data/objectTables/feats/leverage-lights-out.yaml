@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8329e805-83ac-4296-a29d-af1b944a2fd6
+name: Lights Out
+description: If you damage another creature with a torch attack, you can choose to have the torch be extinguished
+  and destroyed in the attack. The damage is doubled.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 12cd5866-6fbe-4802-b57a-cd9a11790fe9
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: bb6c9219-cc12-48fa-90fa-3226c4b961bb
+    name: Lights Out
+    description: If you damage another creature with a torch attack, you can choose to have the torch be extinguished
+      and destroyed in the attack. The damage is doubled.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8329e805-83ac-4296-a29d-af1b944a2fd6: true
+  domains:
+    CrowdexTrait:8329e805-83ac-4296-a29d-af1b944a2fd6: true

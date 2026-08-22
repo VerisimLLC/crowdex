@@ -1,0 +1,80 @@
+# Crows Playtest 2 -- Snake, Venomous (The Ref Book)
+description: Snake, Venomous
+id: 0e7609b5-caa0-54ad-bc96-0d4a47b06ada
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Snake, Venomous
+    keywords:
+      Animal: true
+    cr: 1
+    creatureSize: 1T
+    max_hitpoints: 5
+    damage_taken: 0
+    walkingSpeed: 6
+    crowsSlots: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -3
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: -4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Venomous
+      description: On a tier 3 Bite, the target is weakened.
+      guid: cc430713-f062-5185-bb64-6d291bbf7842
+      implementation: 3
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Heat Sense
+      description: The snake knows the exact location of any human, blood creature, demon, bird, or mammal animal
+        within 2 squares and suffers no penalties on attacks against or tests to observe them.
+      guid: 50179c54-2ab2-5c0c-94cc-dba5bbe4573f
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: 12878ac4-674b-5c73-b961-5d963bf1d99f
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 1 damage
+        - 2 damage; weakened
+      meleeRange: 1
+    movementSpeeds:
+      climb: 6

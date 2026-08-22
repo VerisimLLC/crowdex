@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 3526cb24-510a-4e8e-99bd-4fca365ef6fd
+name: Chop 'Em Down
+description: When you roll on the Dismember table after scoring a crit with a chopping weapon, roll twice and choose
+  the result.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0fa77ceb-1ad7-4ffd-b087-c2425125b862
+    name: Chop 'Em Down
+    description: When you roll on the Dismember table after scoring a crit with a chopping weapon, roll twice and
+      choose the result.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:3526cb24-510a-4e8e-99bd-4fca365ef6fd: true
+  domains:
+    CrowdexTrait:3526cb24-510a-4e8e-99bd-4fca365ef6fd: true

@@ -1,0 +1,210 @@
+# Crows Playtest 2 -- Undead G (The Ref Book)
+description: Undead G
+id: ca991a1c-bdae-4d7f-8557-c025d37b9e65
+hidden: false
+parentFolder: 5c45174e-b4a8-4b89-8327-156b3f79a328
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Undead
+    monster_type: Undead G
+    keywords:
+      Undead: true
+    cr: 20
+    creatureSize: 1M
+    max_hitpoints: 100
+    damage_taken: 0
+    walkingSpeed: 6
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 5
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 5
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Common Names
+      description: Also called fallen knight, rusted one.
+      guid: 198d3df0-badc-40d1-941c-a2ee839ab59b
+      implementation: 0
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:198d3df0-badc-40d1-941c-a2ee839ab59b: true
+    - __typeName: CharacterFeature
+      name: Rust
+      description: When the undead deals damage to a creature wearing metal armor or wielding a sword or a shield
+        with Rustswords, each item has its AD reduced by 5 after the attack.
+      guid: 0ab5309e-cb0f-4ffb-8611-db43071bc396
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:0ab5309e-cb0f-4ffb-8611-db43071bc396: true
+      implementationDetails: Item AD is not adjusted automatically; edit the carried item.
+    - __typeName: CharacterFeature
+      name: Hurl Away
+      description: When the undead hits with Begone, they can vertically slide the target 3 squares on a tier 2
+        result, or 5 squares on a tier 3.
+      guid: 305270d6-c89f-4b07-b247-13c3f3ce108b
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:305270d6-c89f-4b07-b247-13c3f3ce108b: true
+      implementationDetails: Vertical forced movement is applied by hand.
+    - __typeName: CharacterFeature
+      name: Extra Action
+      description: This creature can take one additional action or maneuver on their combat turn.
+      guid: eb16eacb-7684-4959-8076-69a0e6668da6
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+        num: 1
+        name: Extra Action
+        description: One additional action each combat turn.
+        guid: dc2dd9ef-a4d8-5e36-a563-b3e44ae6d701
+        source: Trait
+        sourceguid: eb16eacb-7684-4959-8076-69a0e6668da6
+    - __typeName: CharacterFeature
+      name: Insect Breath (3/Day; only once per turn)
+      description: 'As an action, the undead breathes a plague of stinging insects in a 5 cube within 1 square of
+        them. Each enemy in the cube makes an Agility resistance roll: 11 or less 20 damage; 12-16 10 damage; 17+
+        no effect.'
+      guid: 704f137d-ceb9-4f7f-9604-66b1d46a7328
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:704f137d-ceb9-4f7f-9604-66b1d46a7328: true
+      implementationDetails: Resistance rolls are rolled by each target and adjudicated by the Ref.
+    - __typeName: CharacterFeature
+      name: Rise!
+      description: A human killed by this undead rises as an undead A 1d6 rounds after death.
+      guid: 4e59390c-22ea-4f79-a423-00956fd3210f
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:4e59390c-22ea-4f79-a423-00956fd3210f: true
+    - __typeName: CharacterFeature
+      name: Reactions (4)
+      description: This creature can use 4 reactions each round.
+      guid: f3797e10-6539-4eac-b7f6-0370541e0319
+      implementation: 4
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: b9bc06dd-80f1-4f33-bc55-25c114e3300c
+        num: 3
+        name: Reactions (4)
+        description: 3 additional reactions each round.
+        guid: 72c47187-a219-5bde-b74f-fbab8d5bd5a2
+        source: Trait
+        sourceguid: f3797e10-6539-4eac-b7f6-0370541e0319
+    - __typeName: CharacterFeature
+      name: No Darkness Penalty
+      description: Dim light and darkness impose no penalties for the monster.
+      guid: 2d5b0f3b-d3d9-53e7-bd8c-7b1caf381c53
+      implementation: 4
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: darkvision
+        value: 1000
+        name: No Darkness Penalty
+        description: Dim light and darkness impose no penalties for the monster.
+        guid: fb884e67-e23b-5c74-9a89-090f8fb375b7
+        source: Trait
+        sourceguid: 2d5b0f3b-d3d9-53e7-bd8c-7b1caf381c53
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Rustswords
+      guid: e1ba2f7c-6ec2-477b-ae38-64d7d588f574
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Damage rusts metal armour, swords and shields (see Rust).
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 5
+        tiers:
+        - ''
+        - 8 damage
+        - 16 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Begone
+      guid: ed335431-795b-4feb-9de9-416da9d12215
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '10'
+      iconid: ui-icons/skills/1.png
+      description: Vertically slides the target 3 squares on a tier 2 result, or 5 squares on a tier 3.
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 5
+        tiers:
+        - ''
+        - 8 damage
+        - 14 damage
+    - __typeName: ActivatedAbility
+      name: Insect Breath (3/Day; Once per Turn)
+      guid: aefd52bf-8249-5e4f-86c6-047e0b2b50b8
+      abilityType: none
+      categorization: Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: 'Create a 5 cube within 1 square. Each enemy makes an Agility RR: tier 1 20 damage; tier 2 10
+        damage; tier 3 no effect.'
+      implementation: 1
+      keywords: {}
+      behaviors: []
+    resources: {}
+    equipment: {}
+    levelChoices: {}
+    skillProficiencies: {}
+    movementSpeeds:
+      fly: 6

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 45b12d03-7c86-488f-bec5-5fcca83783b0
+name: Monster Expert
+description: When you are wielding a monster lore book and a monster is in your line of effect, you know the monster's
+  Stamina, power, and the names of their attacks and traits.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 6477f581-5968-4d28-ae3c-b38cf79b418f
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 01c99a93-d1d4-499f-8c9d-914eb0e9ae50
+    name: Monster Expert
+    description: When you are wielding a monster lore book and a monster is in your line of effect, you know the
+      monster's Stamina, power, and the names of their attacks and traits.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:45b12d03-7c86-488f-bec5-5fcca83783b0: true
+  domains:
+    CrowdexTrait:45b12d03-7c86-488f-bec5-5fcca83783b0: true

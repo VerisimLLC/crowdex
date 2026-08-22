@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 2f664917-56ba-46c7-8793-594c645e068c
+name: Enhanced Healing
+description: When you cast a benefaction spell that restores Stamina to a target, the target regains additional
+  Stamina equal to your Mind.
+tag: Crows Trait
+implementation: 2
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e46ffc81-6e89-44a9-bd4c-c765763901c9
+    name: Enhanced Healing
+    description: When you cast a benefaction spell that restores Stamina to a target, the target regains additional
+      Stamina equal to your Mind.
+    implementation: 2
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:2f664917-56ba-46c7-8793-594c645e068c: true
+  domains:
+    CrowdexTrait:2f664917-56ba-46c7-8793-594c645e068c: true

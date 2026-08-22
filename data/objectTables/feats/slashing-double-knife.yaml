@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: e41737f2-3f9c-4b23-9163-6a242ac19d9d
+name: Double Knife
+description: When you are wielding two knives, you can throw both as a ranged attack, dealing double damage to the
+  target on a hit.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- fa5aab75-4ec6-4bf4-a0ff-301816350fc9
+- 900a4920-9394-42b0-a035-93b3ebf50b96
+- 0d21d34e-ac1e-482c-8819-e80e642d4dc3
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f7274e0b-bac4-4b5a-afcd-d40944439c1b
+    name: Double Knife
+    description: When you are wielding two knives, you can throw both as a ranged attack, dealing double damage
+      to the target on a hit.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e41737f2-3f9c-4b23-9163-6a242ac19d9d: true
+  domains:
+    CrowdexTrait:e41737f2-3f9c-4b23-9163-6a242ac19d9d: true

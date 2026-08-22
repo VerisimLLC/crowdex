@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 13d0fcd3-92a7-4411-82d1-20a9149d67f0
+name: You In Particular
+description: When you use a bomb, choose one creature who must make the RR against its effects. That creature takes
+  -2 penalty to the RR against the bomb.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 5768947d-6d81-4db5-be06-e09a7d19aba7
+- 2f72ae17-125d-44a8-8513-fb36f6ee35ab
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 65025f34-9b15-436c-95be-ff1d7e234e76
+    name: You In Particular
+    description: When you use a bomb, choose one creature who must make the RR against its effects. That creature
+      takes -2 penalty to the RR against the bomb.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:13d0fcd3-92a7-4411-82d1-20a9149d67f0: true
+  domains:
+    CrowdexTrait:13d0fcd3-92a7-4411-82d1-20a9149d67f0: true

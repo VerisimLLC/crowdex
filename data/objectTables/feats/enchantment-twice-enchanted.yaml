@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 3d6763a5-e043-4beb-a580-1b455c497751
+name: Twice Enchanted
+description: When you work on crafting an enchanting item as part of the Craft Equipment rest activity, you can
+  make two crafting rolls for the item or make a second crafting roll for a different enchanting item.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 2b889f51-4bb0-4194-b72a-461e55d2e19b
+    name: Twice Enchanted
+    description: When you work on crafting an enchanting item as part of the Craft Equipment rest activity, you
+      can make two crafting rolls for the item or make a second crafting roll for a different enchanting item.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:3d6763a5-e043-4beb-a580-1b455c497751: true
+  domains:
+    CrowdexTrait:3d6763a5-e043-4beb-a580-1b455c497751: true

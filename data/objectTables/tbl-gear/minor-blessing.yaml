@@ -1,0 +1,36 @@
+# Crows Playtest 2 -- Minor Blessing Book R 0
+_table: tbl_Gear
+__typeName: equipment
+id: 27c91f9d-fa28-4a1b-b1e9-4cc2c72144db
+name: "Minor Blessing"
+type: Gear
+category: Gear
+equipmentCategory: b8e4d6a2-9f13-4c57-ae80-3d1f6b29c4e7
+iconid: 6f93e59f-2e72-4856-9e96-c1fcf3909dc4
+costInGold: 250
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: "Bless a number of creatures based on the casting. Usage Dice 1, rolled on activation; restored on a rest."
+implementation: 1
+domains:
+  item:27c91f9d-fa28-4a1b-b1e9-4cc2c72144db: true
+crowsSpellbook: true
+crowsSpellRank: 0
+crowsSpellDiscipline: Benefaction
+crowsCastingTime: Action
+crowsSpellRange: 3
+crowsSpellRangeText: "Ranged 3"
+crowsSpellTargetType: target
+crowsSpellNumTargets: 2
+crowsSpellTargetText: "A number of creatures based on the tier"
+crowsSpellDuration: "Instant"
+crowsSpellMelee: false
+crowsSpellRanged: true
+crowsSpellAttack: false
+crowsSpellTier1: "No targets are blessed."
+crowsSpellTier2: "1 target is blessed."
+crowsSpellTier3: "2 targets are blessed."
+usageDice: 1
+usageDiceTrigger: activate
+usageDiceRestore: rest

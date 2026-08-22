@@ -1,0 +1,138 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Goat
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    max_hitpoints: 8
+    cr: 2
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 2 damage
+        - 4 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Gore
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: 9841b0ac-7908-4ae9-bf33-e5a90aed7ef0
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: Dim light imposes no penalties for this creature.
+      source: Trait
+      name: No Dim Light Penalty
+      modifiers: []
+      implementation: 1
+      guid: 37379970-1fc5-438c-97c4-c1ec5fa0335f
+      domains:
+        CharacterFeature:37379970-1fc5-438c-97c4-c1ec5fa0335f: true
+    walkingSpeed: 5
+    skillProficiencies: []
+    creatureSize: 1M
+    keywords:
+      Animal: true
+    monster_category: Animal
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    crowsSlots: 2
+    monster_type: Goat
+  tokenType: null
+  bestiaryId: b9af1137-e856-4c44-bc11-e652da5b6de1
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736656708
+fork: H4sIAAAAAAAACpVVUW+bMBD+K4g9brSQkBHy1m1aNWmtqibaa3SYg1gxNrJNs7Taf5/PQJVlaZvmoSnH3ee7777PeQrXa7tv8RYaDBdho6SxqMNPQdjA7/WG21ZxaU24mLsQ0+FiQq/6LF/oiq4VWKpgG9DA3IvvCLbT6KqewoT+/HPG16M0Ki3RMM1by5V0Gd94Ewheb2zAm1YZNIFUQYsShOXuoVI6sBtuAqZ7hAuCcKkCG5QWepTExeqOlw5vmk2zPM/iKKnYLEqncxblGUsjliCbVRBPp7PKj6xKXnHUvvG16GAFhXAtVyAM/qE2VQNc+tfHUyzOOmRhdYcO6ACcIoQte3ZuVUDj//Tj3/mZ99SbUZ1mlLDSwD3dJzBO9bwDseWyXraIjosZMSUlWLxilj+47/Kq4IITsafXdZTnmylwAw9c6TNL7tQO9b0S4stQRxhgrfbbMVajrO2GgtoludCkTOLgY5BQyI4LceeEFJhQQlBCA7XXztQ9pwfPp0g4k6tjDaXUErZuwyvQNZIPfC6J3c1XK80fh9RwyWvplRAcEDUs9VqdkrlP6Jpn6NDPW3LTCtjTxJsOzYZXNlzERLomTUg0phd3UTMlHJeL8EM1fLxQqIkDD5wYvUGBeA/S8XVok3yeJkUMLMryeB6lgHlUVNNphDPIY8Aywyr2m+vnW/Xul0r62ba43yld+lUt3Wq3+Kz2GzrvNe3rvpeegDddyJmSvuGOR/S/uTRbLoS5TC5aWXvNeEqHBvsH3zgjWu6x99IPgiiT/PNsDpMoLbMiSmdxGkGVY5TALE3iqkiyqnyH2cabcVDHnswgeQPC349a7cxSKNr1ZHRA0dneec82ePG+vBrzvQXB4C8Q3bDC/5x0omGoe12++4B4PGBEeEFWXJbvB48mI7qvf5PrMXSot4HjVxQ2/lQs+aMX2o23CsnmTquKM46SDVfgOffHX1zPw2o3BwAA
+forkTime: 1781748676956
+description: Goat
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 19
+ctime: 1787361593422
+mtime: 1787361593422
+hidden: true
+id: b9af1137-e856-4c44-bc11-e652da5b6de1

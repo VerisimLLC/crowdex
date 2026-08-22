@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: a146648e-ab62-46d4-abd7-a1a10a977262
+name: Lingering Fire
+description: At the start of your combat turn, you can choose a creature you dealt damage to with an elemental spell
+  on your last turn (no action required). The creature takes damage equal to your Mind.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 48380d36-4870-43a9-9967-488da26e3e05
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: dd3a6ff8-310b-44a6-89c3-ee3d11ed618e
+    name: Lingering Fire
+    description: At the start of your combat turn, you can choose a creature you dealt damage to with an elemental
+      spell on your last turn (no action required). The creature takes damage equal to your Mind.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a146648e-ab62-46d4-abd7-a1a10a977262: true
+  domains:
+    CrowdexTrait:a146648e-ab62-46d4-abd7-a1a10a977262: true

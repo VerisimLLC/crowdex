@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: a6d6c418-b1da-474f-85bd-9247289e7b04
+name: Spreading Storm
+description: When you cast an elemental spell that creates an area of effect, you can increase all dimensions of
+  the area of effect by 1.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- c98a3d65-b86f-4399-a29a-e5d6b5bfe1c4
+- 1e1b8224-505f-499a-a46b-fb0e31498824
+- 3c0ec03b-ea83-4227-93a2-0777950df72a
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 7a91cf9e-431b-45fb-918c-d6d31fef1127
+    name: Spreading Storm
+    description: When you cast an elemental spell that creates an area of effect, you can increase all dimensions
+      of the area of effect by 1.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a6d6c418-b1da-474f-85bd-9247289e7b04: true
+  domains:
+    CrowdexTrait:a6d6c418-b1da-474f-85bd-9247289e7b04: true

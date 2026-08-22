@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: e6a64b7e-b831-4eb6-ba57-bc5e7f6bb3ff
+name: Water Cannon
+description: When a Huge or smaller creature takes damage from an elemental spell you cast, you can slide the creature
+  a number of squares equal to your Mind after the spell resolves.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- a25cadbd-009e-4352-9373-6158339a9c42
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a15f8618-67fe-416f-b679-acf2678c01d4
+    name: Water Cannon
+    description: When a Huge or smaller creature takes damage from an elemental spell you cast, you can slide the
+      creature a number of squares equal to your Mind after the spell resolves.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e6a64b7e-b831-4eb6-ba57-bc5e7f6bb3ff: true
+  domains:
+    CrowdexTrait:e6a64b7e-b831-4eb6-ba57-bc5e7f6bb3ff: true

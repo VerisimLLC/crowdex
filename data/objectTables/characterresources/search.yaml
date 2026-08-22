@@ -1,0 +1,20 @@
+# Crows Playtest 2 -- expertise: Search (General Expertise)
+#
+# The Rules, p.8: "After you make a test, you can use an applicable expertise to
+# improve the test's result by one tier (to a maximum of tier 3). You can only
+# apply one expertise and one use per test." Uses come from your background and
+# from advancement; you regain them all when you finish a rest, unless you
+# rested in the Miasma.
+#
+# Modelled as a CharacterResource with usageLimit "long" -- the refresh type the
+# Finish Rest action drives. Backgrounds grant uses with a `behavior: resource`
+# modifier carrying resourceType + num.
+#
+# Use: Search an environment for important details and items
+_table: characterResources
+__typeName: CharacterResource
+id: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+name: Search
+grouping: General Expertise
+usageLimit: long
+description: Search an environment for important details and items

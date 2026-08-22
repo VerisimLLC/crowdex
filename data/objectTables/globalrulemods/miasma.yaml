@@ -1,0 +1,88 @@
+# Crows Playtest 2 -- the Miasma global rule
+#
+# The imported rule was still Playtest 1 in two ways that mattered:
+#
+#   1. It fired "every 24 hours". Playtest 2 moves the test to the end of every
+#      rest a human spends in the Miasma. The tracker already fires the trigger
+#      from FinishRest; only this text lagged.
+#   2. It inflicted BONED on tiers 1 AND 2. Boned was retired in stage 2 and
+#      split into Weakened and Vulnerable, so the rule was handing out a
+#      condition that no longer exists. Playtest 2 replaces it outright: tier 1
+#      gives a level of cruelty and a roll on the Miasma Effects table, and
+#      tier 2 is simply no effect.
+#
+# Two further changes:
+#
+#   * The roll drops its automatic Endurance skill bonus. In Playtest 2 an
+#     expertise is a spendable use, not a passive bonus -- the same reason
+#     stage 4 stopped attack rolls adding a weapon skill. Endurance can still be
+#     spent on this test; it just is not free.
+#   * The roll subtracts Trigger Value, which the tracker fills with the crow's
+#     current cruelty: "For each level of cruelty you have, you take a -1
+#     penalty to RRs against the Miasma." Trigger Value is a registered
+#     GoblinScript symbol on custom triggers (TriggeredAbility.lua:662), so the
+#     penalty rides the trigger rather than needing a custom attribute.
+#
+# Emitted from the live record: import REPLACES the whole entry.
+_table: globalRuleMods
+__typeName: GlobalRuleMod
+id: c588e500-f7c3-42eb-9f11-121053a14dc1
+name: Miasma
+_migrated_apply: true
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+    - __typeName: CharacterFeature
+      name: Miasma Check
+      description: >-
+        At the end of every rest a human spends within the Miasma, they must make a
+        Miasma Check (2d10 + Mind, minus 1 per level of cruelty they have). Tier 1:
+        they gain a level of cruelty and roll on the Miasma Effects table. Tier 2:
+        no effect. Tier 3: they remove all levels of cruelty they have, or they
+        improve the result of one other human who rested with them by a tier.
+        Finishing a rest in the Miasma also restores no expertise uses.
+      guid: 746acaeb-568c-45c6-ba9d-a088ef8aaf29
+      implementation: 3
+      source: Miasma Global Rule Mod Feature
+      modifiers:
+        - __typeName: CharacterModifier
+          behavior: trigger
+          guid: 100c0994-e522-4579-8b5c-240ecb30942b
+          name: Miasma Check
+          description: Make a Miasma Check (2d10 + Mind, less your cruelty) against the Miasma.
+          source: Miasma Global Rule Mod Feature
+          sourceguid: 746acaeb-568c-45c6-ba9d-a088ef8aaf29
+          triggeredAbility:
+            __typeName: TriggeredAbility
+            name: Miasma Check
+            guid: 394d8c5d-9074-4fa9-aaa3-35c5fc3ad63d
+            description: Make a Miasma Check (2d10 + Mind, less your cruelty) against the Miasma.
+            trigger: custom
+            conditionFormula: Trigger Name = "Miasma Check"
+            targetType: self
+            numTargets: '1'
+            repeatTargets: false
+            abilityType: none
+            range: 1
+            iconid: ui-icons/skills/1.png
+            persistence: {}
+            modifiers: {}
+            strain: {}
+            display:
+              hueshift: 0
+              bgcolor: '#ffffffff'
+              brightness: 1
+              saturation: 1
+            behaviors:
+              - __typeName: ActivatedAbilityPowerRollBehavior
+                attrid: mind
+                roll: 2d10 + Mind - Trigger Value
+                tiers:
+                  - >-
+                    You gain a level of cruelty and roll 1d10 + your cruelty on the
+                    Miasma Effects table, gaining both of that row's effects.
+                  - No effect.
+                  - >-
+                    You remove all levels of cruelty you have, or you improve the test
+                    result of one other human who rested with you and made this test by
+                    a tier, having helped them resist the Miasma.

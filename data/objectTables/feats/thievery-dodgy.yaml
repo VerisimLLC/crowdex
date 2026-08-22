@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: f83a47c8-e17c-4779-936f-aecae089fb63
+name: Dodgy
+description: You gain a +2 bonus on Agility RRs while you are not wearing armor.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 0c3abf6a-d206-46b3-b19b-514ddcf593dc
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 10a9c1a6-3ed5-43f5-ae68-758504e0dc8f
+    name: Dodgy
+    description: You gain a +2 bonus on Agility RRs while you are not wearing armor.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f83a47c8-e17c-4779-936f-aecae089fb63: true
+  domains:
+    CrowdexTrait:f83a47c8-e17c-4779-936f-aecae089fb63: true

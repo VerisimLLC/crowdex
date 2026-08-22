@@ -1,0 +1,191 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: "-MRTJODkmL56LOH05x_O"
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Scorpion, Giant
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    skillProficiencies: []
+    max_hitpoints: 25
+    cr: 7
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 2 damage
+        - 4 damage; grabbed
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Pince
+      description: Targets two creatures. On a tier 3 result against a Medium or smaller target, the target is grabbed (Vise Grip).
+      numTargets: "2"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      implementationDetails: Grabbed auto-applies on tier 3; the 'Medium or smaller' gate, the two-target grab cap, and the 1d6 crush maneuver are manual.
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      guid: e1e06adf-acbb-430d-8290-c0c9d6a5e53c
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      keywords:
+        Strike: true
+        Melee: true
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 4 damage; boned
+        - 7 damage; twice boned
+      implementation: 3
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Sting
+      description: Highly Venomous.
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 2
+      implementationDetails: Damage auto-applies; Boned / twice Boned is applied manually (apply the Boned effect 1 or 2 times from the conditions panel).
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      guid: 7260a7e9-591f-4338-8003-339754632678
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "2"
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When the scorpion gets a tier 3 result with its pince against a Medium or smaller target, the target is grabbed (auto-applied). The scorpion can grab up to two creatures this way and can use a maneuver to deal 1d6 damage to all targets grabbed this way. (The two-target cap and crush maneuver are manual.)
+      source: Trait
+      name: Vise Grip
+      modifiers: []
+      implementation: 1
+      guid: e97bda75-39b3-4b0a-8239-13f0f7d518a7
+      domains:
+        CharacterFeature:e97bda75-39b3-4b0a-8239-13f0f7d518a7: true
+    - __typeName: CharacterFeature
+      description: When the scorpion gets a tier 2 result with its sting, the target is Boned; on a tier 3 result, it is Boned twice. (Apply the Boned effect manually.)
+      source: Trait
+      name: Highly Venomous
+      modifiers: []
+      implementation: 1
+      guid: 6b4a5310-1838-4c3e-9404-eeb111ccaa1e
+      domains:
+        CharacterFeature:6b4a5310-1838-4c3e-9404-eeb111ccaa1e: true
+    - __typeName: CharacterFeature
+      description: The scorpion is aware of the exact location of any creature within 2 squares and suffers no penalties on attacks against, or tests to observe, them.
+      source: Trait
+      name: Vibration Sense
+      modifiers: []
+      implementation: 1
+      guid: 123ff894-de47-44f1-8866-3756e0ffd491
+      domains:
+        CharacterFeature:123ff894-de47-44f1-8866-3756e0ffd491: true
+    walkingSpeed: 6
+    creatureSize: 1L
+    movementSpeeds:
+      climb: 6
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -4
+        id: mind
+    monster_category: Animal
+    keywords:
+      Animal: true
+    crowsSlots: 10
+    monster_type: Scorpion, Giant
+  tokenType: null
+  bestiaryId: 6da6ed76-11ce-4c14-b620-55b70001eca6
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACtVXbW/bNhD+K4T2oQ0WpXqzZSef0hXrBrRbUQfdx+AknmQiEqmRVFy32H/fkZKdxHYbrymGzUBg83gk7+655+7yObi+tusOf4MWg/OgVdJY1MEpC8yNaJp3WlWiFCjpzwTnn4PrpocrKBpSrqAx+BdpCinB4mVpxS1988tCNMKO+rE/dP+JHb21e6vAJdwKpY888k6tUL9XTfNyPOfuAGu14KRtrEZZ26UTalIiUcLjiP3IEiciy7bvBE6QOAXGoYUa3TqldTauL1itoSiQu41Dvt+TWd3viu5C1HYNtigtWKFkcJ4527BDsFega7Rm1CVxSY7WSotPo2qwEDXFt9fI7kVMDpF5J2TpjeZoSi268ch4KbMrxUqN/rQ5Y79LBsz5z1JGgr6xDGoQBDnJ3yIXfcuUZqaFpiEl6285ZXaJ428mzCYg7PkHYZC9pkdPzrxFfbv1JfCR5sJ0DaxdrJc9mqWobHAeObi1qJdWoiHV2K3rUjWE4nnwQzV+fAY6u8coxIdjrUHWLg5xsBfkV2hBNM6Y16PF0FsVQtc1lJtMyTESF96/Z3vuP2M1ITF6v1LhGAHnPiuhO2Ugud+M+ZSC3Jsla0Fif0uXAoFFix4aHxoYcLuijCZzpJIesuHCUTgsnLjFBvH94Jfz+gbXK6W5T9kFpfjN6D5tvXWq29WB8LSKi2qT7wfzslTSk6YXofttXnjamxfxWSdrZ07d+32MMZoCr0IoiyLM0oiHs2QehWVUzvkUJjhJS+9q6WL/Ho3qdYm/uqM8nk8nM0jCjOd0dBJlIVRzDGOYZHFUFXFe7dJrY3/y/6ged9WiIGz5pojkW7FdiRLvNr9jIUm/UyFZWDHg/bCQ/EJEbdbsA0rVqt7sEz3+l4mefI3or3y4H/D8gr10UWcvRgyGFZWxYZ+PNCUfnzvJ2jN6UMKqwtKy2NWEhIpFS1Wj0qr1KsQVLtzrhnXE+ubkaURP/jNEz5NpBDnOw8k8rojo6SycRVEapuk8n2TTNJnms+9P9EMml5QnuffNzySe0i5TS6U7evqUvRYgfSTLJWiyB/XPY6s7XAh+2lHbT/c/lig9vGZ8hPk2uts0V8IumaCNzrXfp/TQe6nKT87Y1f2nS5BDt+k7ZtXDXk730TUrWPsu5DR7asZw14HoAEdofHMaqpATkU2jFXc2bG46Y8+vHrY66nLD9V9sbif7bBwYvOka87zgkE/CdF6kYVZEQF0jnYdxWkVVzifxDPLgmPTlqnUxdtu7KJ4f9chXuDNWwO044yuSz2o3SWkQ9uju9NQMS/YyzLi6vJs+vj5duBFmJzNP6cxWYah4BOvl4cK2qXyPojgtMpikcRTGM6oGWZliOM+I3IhFHMdlCRDjk1E86pHHUdxpWEdjmX4Dlg/Y6lrKylFDVT7U+JEOs0aVPp5OCnK9JbAHWEgC3PzZgyO0I5rpCRltmFSsQwmNHQdVGk6gvDGbQnPqCoxF4wZ8xVRhUN8Og2p79giUcZJW1WyehRyzPMyyKg5ns+k0TPPJFKOq4tk8fjKURz1yDCGLYShgC5QGj4bykLkraG6ISIsOaQI7n97rKuOUtHaDohRUtX1D0WplFo1yI04c7fTmUe0rDvhhsujt0Ii2E+UXM+xyo++nWTD4AZp+nAr2htJD79XDOPftD2xu+MJ0IST/55eH2eZ2f/5RsO5mmVufvR4sH8GyEW0xwHZAf8Ophfjk/xV84xMYPl4vhe2UkA7EZHLg7N8L4J6o/BAAAA==
+forkTime: 1781750015538
+description: Scorpion, Giant
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 23
+ctime: 1787361592046
+mtime: 1787361592046
+hidden: true
+id: 6da6ed76-11ce-4c14-b620-55b70001eca6

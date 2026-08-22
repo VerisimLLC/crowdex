@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 5a092c36-31cc-4ccf-8ad9-8371bd702508
+name: Range Finder
+description: While you wield a bow weapon, it's range increases by 2 squares. This bonus stacks with Greater Range.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Archery
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f14337ce-b132-4094-b878-8c40d26b97cb
+    name: Range Finder
+    description: While you wield a bow weapon, it's range increases by 2 squares. This bonus stacks with Greater
+      Range.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:5a092c36-31cc-4ccf-8ad9-8371bd702508: true
+  domains:
+    CrowdexTrait:5a092c36-31cc-4ccf-8ad9-8371bd702508: true

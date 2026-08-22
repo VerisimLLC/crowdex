@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- String
+_table: tbl_Gear
+__typeName: equipment
+id: 280f8af4-be30-4e9a-af69-8d7bb2284a95
+name: "String"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1094aa90-9cca-4f10-b4d6-5a2ab5457f95
+costInGold: 1
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: "One thousand feet of string."
+implementation: 1
+domains:
+  item:280f8af4-be30-4e9a-af69-8d7bb2284a95: true

@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 2ab55ffd-f2eb-408a-9a1a-fd81da26e1e2
+name: Free Light
+description: When you cast an illusion spell, you can choose to have an object held or carried by your or a willing
+  ally glow with 0/5 light until the end of the DT.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 6cfae491-c93e-4a62-9907-c2634f52a6e2
+    name: Free Light
+    description: When you cast an illusion spell, you can choose to have an object held or carried by your or a
+      willing ally glow with 0/5 light until the end of the DT.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:2ab55ffd-f2eb-408a-9a1a-fd81da26e1e2: true
+  domains:
+    CrowdexTrait:2ab55ffd-f2eb-408a-9a1a-fd81da26e1e2: true

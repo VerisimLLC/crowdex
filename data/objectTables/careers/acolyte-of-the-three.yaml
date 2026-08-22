@@ -1,0 +1,375 @@
+# Crows Playtest 2 -- background: Acolyte of the Three
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: 27f41fc1-4434-4453-b406-19c3b31788ae
+name: "Acolyte of the Three"
+description: "You served the god of death, greed, and knowledge."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 9759a7ae-e95a-46ab-8391-5f400940a742
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind or Strength to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: c4d8e805-df5d-408a-8b2c-13ca50a45732
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: e94f82cd-7f56-4728-aee8-ee29083d4c46
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: c4d8e805-df5d-408a-8b2c-13ca50a45732
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ba00f04d-c944-47b8-b80a-fd25563d67df
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: c4d8e805-df5d-408a-8b2c-13ca50a45732
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: dd9ee247-28bc-4b8f-b619-86a55536ecac
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: c4d8e805-df5d-408a-8b2c-13ca50a45732
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: b220a313-b016-4008-bcba-08d230b53d2d
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 548ae9e4-4020-415c-bdfd-28c1a49a3411
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: b220a313-b016-4008-bcba-08d230b53d2d
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: cf1dac85-baad-4834-be3e-660c894fb464
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: b220a313-b016-4008-bcba-08d230b53d2d
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 9e57aabd-a2b7-4f65-8f34-822ed7ccb8a7
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: b220a313-b016-4008-bcba-08d230b53d2d
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 9965d3a2-8a19-4030-9195-da87432b1bf7
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 876aa2e0-2c39-4588-a367-adab4e3b86f1
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: 9965d3a2-8a19-4030-9195-da87432b1bf7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 9170bcfe-a97f-4ca6-913a-eadb65da416d
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: 9965d3a2-8a19-4030-9195-da87432b1bf7
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 483502b8-1c5a-42de-af0c-d02d43e1cfa6
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: 9965d3a2-8a19-4030-9195-da87432b1bf7
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: aae96145-7ae1-4cde-86be-0d7283ab0c19
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 97163ba6-b926-48af-84db-1eb06a6432cd
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: aae96145-7ae1-4cde-86be-0d7283ab0c19
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: f66511b1-6c0c-46da-8e59-318b6234cd18
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: aae96145-7ae1-4cde-86be-0d7283ab0c19
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 1f5664d6-721d-4a77-9cb2-820687818084
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: aae96145-7ae1-4cde-86be-0d7283ab0c19
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind 0, Strength +2"
+      description: "Agility +1, Mind 0, Strength +2."
+      guid: e2d32e04-a0fb-4535-850e-122cdc594d95
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: c62726dc-77cc-4198-b6a2-fa4476dbf6bd
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: e2d32e04-a0fb-4535-850e-122cdc594d95
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: 36e08a48-49b3-475e-914e-40b6f6abd3c9
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: e2d32e04-a0fb-4535-850e-122cdc594d95
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +1, Mind 0, Strength +2"
+        guid: ab5d4bfa-1bd8-4f04-87b7-947966ddee8f
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: e2d32e04-a0fb-4535-850e-122cdc594d95
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +1, Strength +2"
+      description: "Agility 0, Mind +1, Strength +2."
+      guid: b15cda6c-27c4-4799-a684-f25d84ff2d4f
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: e63fbe7b-a409-4999-aee3-97e3beeb2156
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: b15cda6c-27c4-4799-a684-f25d84ff2d4f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: 3b91c86c-cbc3-405d-8d8d-2f7905528512
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: b15cda6c-27c4-4799-a684-f25d84ff2d4f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility 0, Mind +1, Strength +2"
+        guid: b2273310-1e67-4385-9257-489bb1a57ba9
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: b15cda6c-27c4-4799-a684-f25d84ff2d4f
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: dfb78562-16cf-429f-b09f-323f02f6811f
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 853a9fa2-febc-401d-972e-28f515fd3d37
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: dfb78562-16cf-429f-b09f-323f02f6811f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: c03dc69d-f1d4-40cd-b766-08086d4008d5
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: dfb78562-16cf-429f-b09f-323f02f6811f
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 1761738b-ff54-4b66-9b41-666ad0664a61
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: dfb78562-16cf-429f-b09f-323f02f6811f
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 6ec05eb0-7fd0-42ab-83eb-f4ce4bba76ce
+      implementation: 3
+      source: "Acolyte of the Three Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 33e5fbd9-195c-4764-b23d-59e71dac18bd
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: 6ec05eb0-7fd0-42ab-83eb-f4ce4bba76ce
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 0cc902c8-4566-4dc3-b923-12e8800eb78f
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: 6ec05eb0-7fd0-42ab-83eb-f4ce4bba76ce
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: fbc8af58-c5fc-4d64-822d-1de5e63c01bf
+        source: "Acolyte of the Three Career Feature"
+        sourceguid: 6ec05eb0-7fd0-42ab-83eb-f4ce4bba76ce
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: be124d37-9fc7-4893-91af-e09ae911db50
+    implementation: 3
+    source: "Acolyte of the Three Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: ba0a07e0-b1dc-4e15-9bdb-ebd21a6abe7c
+      source: "Acolyte of the Three Career Feature"
+      sourceguid: be124d37-9fc7-4893-91af-e09ae911db50
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Chopping (1 use), Magic Lore (1 use), Monster Lore (1 use), Necromancy (2 uses), Religious Lore (1 use)."
+    guid: 20150e34-8917-4f55-a0da-8d1bb962905c
+    implementation: 3
+    source: "Acolyte of the Three Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 073fb617-cfc6-493c-9624-03a967f85ac6
+      num: 1
+      name: Expertises
+      description: "Chopping (1 use)"
+      guid: 17c840c0-2a13-464c-8d05-c43618f97b62
+      source: "Acolyte of the Three Career Feature"
+      sourceguid: 20150e34-8917-4f55-a0da-8d1bb962905c
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+      num: 1
+      name: Expertises
+      description: "Magic Lore (1 use)"
+      guid: 298c8fcc-c3c9-49b4-b69c-d26294d74145
+      source: "Acolyte of the Three Career Feature"
+      sourceguid: 20150e34-8917-4f55-a0da-8d1bb962905c
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+      num: 1
+      name: Expertises
+      description: "Monster Lore (1 use)"
+      guid: 75b29efc-0b5e-4349-8b10-6160cb1d0f12
+      source: "Acolyte of the Three Career Feature"
+      sourceguid: 20150e34-8917-4f55-a0da-8d1bb962905c
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9c077c0d-f42f-4e6e-b1aa-d4d0b3c4b27c
+      num: 2
+      name: Expertises
+      description: "Necromancy (2 uses)"
+      guid: 036886a1-c649-41da-a4b4-308f287a7d4a
+      source: "Acolyte of the Three Career Feature"
+      sourceguid: 20150e34-8917-4f55-a0da-8d1bb962905c
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+      num: 1
+      name: Expertises
+      description: "Religious Lore (1 use)"
+      guid: 906b0af2-4aec-46f9-81bd-305e813d7f51
+      source: "Acolyte of the Three Career Feature"
+      sourceguid: 20150e34-8917-4f55-a0da-8d1bb962905c
+  - __typeName: CharacterFeature
+    name: "Trait: Soul Absorption"
+    description: "When you cast a necromancy spell that kills a creature, you gain AD equal to your Mind. This AD disappears when you finish a rest."
+    guid: a5baf76d-0722-4868-9b09-e3395e2404da
+    implementation: 1
+    source: "Acolyte of the Three Career Feature"
+    crowdexTraitId: 73acdc75-0599-4d83-8470-3d91386768f6
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Torch, Monster Sense, Bone Capture, Minor Curse, Axe. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 5772b479-4e01-4d8d-9acf-a59b56d94412
+    implementation: 2
+    source: "Acolyte of the Three Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: 35cf9dcc-46bb-4417-9fd8-9a35a2c27064
+      source: "Acolyte of the Three Career Feature"
+      sourceguid: 5772b479-4e01-4d8d-9acf-a59b56d94412
+      equipment:
+      - itemid: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+        quantity: 1
+      - itemid: c7981e92-e2ad-4e33-8c4c-fca8ed59cbee
+        quantity: 1
+      - itemid: 97e2e42b-fd2c-43b9-aca4-40b42aeedbb9
+        quantity: 1
+      - itemid: 61511447-afeb-45aa-a1ca-984ba18c0f70
+        quantity: 1
+      - itemid: 39adaee1-0392-4fb1-b9df-16e708f25e74
+        quantity: 1

@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 57b9ce49-b407-4ac6-b26e-d1a660ab4755
+name: Grow Scales
+description: When you cast an alteration spell, you can harness the magic to grow temporary scales on your body
+  and gain AD equal to your Mind. The AD granted by this trait disappears at the end of a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 699cd2b1-2603-4b2e-ae3d-748758b18656
+    name: Grow Scales
+    description: When you cast an alteration spell, you can harness the magic to grow temporary scales on your body
+      and gain AD equal to your Mind. The AD granted by this trait disappears at the end of a rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:57b9ce49-b407-4ac6-b26e-d1a660ab4755: true
+  domains:
+    CrowdexTrait:57b9ce49-b407-4ac6-b26e-d1a660ab4755: true

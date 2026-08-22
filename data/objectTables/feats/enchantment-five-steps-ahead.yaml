@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 53db577d-8025-423a-a1ea-10d01497f722
+name: Five Steps Ahead
+description: When you start crafting a new enchanting item, the item automatically gains crafting points equal to
+  5d10 multiplied by your Mind.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 87551298-de26-4146-a8e6-f0b1cd0650b5
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f45af56c-3510-4b00-8fee-dd8fab81c41a
+    name: Five Steps Ahead
+    description: When you start crafting a new enchanting item, the item automatically gains crafting points equal
+      to 5d10 multiplied by your Mind.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:53db577d-8025-423a-a1ea-10d01497f722: true
+  domains:
+    CrowdexTrait:53db577d-8025-423a-a1ea-10d01497f722: true

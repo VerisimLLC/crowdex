@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 90ed2217-e60d-4739-9a40-8faf76c08ed7
+name: Song of Travel
+description: As a rest activity, you can play a song on an instrument. At the end of the rest, each ally who rested
+  with you gains a +2 bonus on tests related to their travel role. This bonus lasts until they finish a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 23ead383-0821-4bc1-bae6-cf8c1c97f685
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 216417d4-11e0-43a2-ac88-0e9a6d36b4d4
+    name: Song of Travel
+    description: As a rest activity, you can play a song on an instrument. At the end of the rest, each ally who
+      rested with you gains a +2 bonus on tests related to their travel role. This bonus lasts until they finish
+      a rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:90ed2217-e60d-4739-9a40-8faf76c08ed7: true
+  domains:
+    CrowdexTrait:90ed2217-e60d-4739-9a40-8faf76c08ed7: true

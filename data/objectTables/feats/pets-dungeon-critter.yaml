@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 99b28c4f-b84c-4172-b2e2-63a6efb907c3
+name: Dungeon Critter
+description: Squeezing doesn't halve the speed of or grant a bonus to attack the pets you own.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 90aafc89-ae53-4ade-8512-0a071ed8c0aa
+- 266c6eac-bf9d-4648-9403-41dc2cc4d9bb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f2936932-81c1-43d0-9874-9f3a9db9dfa7
+    name: Dungeon Critter
+    description: Squeezing doesn't halve the speed of or grant a bonus to attack the pets you own.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:99b28c4f-b84c-4172-b2e2-63a6efb907c3: true
+  domains:
+    CrowdexTrait:99b28c4f-b84c-4172-b2e2-63a6efb907c3: true

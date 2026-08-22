@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 4d13f814-48ce-49a5-b0a0-29489ecb2a47
+name: Scabbard
+description: You gain an additional belt slot that can only hold slashing weapons.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- fa5aab75-4ec6-4bf4-a0ff-301816350fc9
+- 900a4920-9394-42b0-a035-93b3ebf50b96
+- 0d21d34e-ac1e-482c-8819-e80e642d4dc3
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 504a8019-7517-4897-80b1-b0b14855a7f5
+    name: Scabbard
+    description: You gain an additional belt slot that can only hold slashing weapons.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:4d13f814-48ce-49a5-b0a0-29489ecb2a47: true
+  domains:
+    CrowdexTrait:4d13f814-48ce-49a5-b0a0-29489ecb2a47: true

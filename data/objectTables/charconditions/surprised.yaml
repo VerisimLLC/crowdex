@@ -1,0 +1,96 @@
+# Crows Playtest 2 condition override. Import replaces the Draw Steel record.
+__typeName: CharacterCondition
+_table: charConditions
+id: ff146aa3-9e91-4c33-b5d2-7f4ac2dc1355
+guid: d7a4f118-54a2-42e3-8759-8d6b01bfc220
+name: Surprised
+implementation: 4
+description: >-
+  You cannot take a turn during the first round of combat, and attacks against you gain a +1
+  bonus. You are no longer surprised after the first round.
+iconid: 87c16b08-7f2e-46b2-9647-f9b092d836a0
+powertable: true
+indefiniteDuration: true
+stackable: false
+domains:
+  CharacterCondition:ff146aa3-9e91-4c33-b5d2-7f4ac2dc1355: true
+display:
+  bgcolor: '#f45a50ff'
+  hueshift: 0
+modifiers:
+- __typeName: CharacterModifier
+  guid: d08b091d-411a-45ca-9070-90e5a54df812
+  sourceguid: d7a4f118-54a2-42e3-8759-8d6b01bfc220
+  source: Condition
+  name: Surprised
+  description: Attacks against a surprised creature gain a +1 bonus.
+  behavior: power
+  rollType: enemy_ability_power_roll
+  modtype: plusone
+  activationCondition: true
+  matchAnyKeywords: true
+  keywords:
+    Attack: true
+    Strike: true
+  domains:
+    CharacterCondition:ff146aa3-9e91-4c33-b5d2-7f4ac2dc1355: true
+- __typeName: CharacterModifier
+  guid: 70007794-960e-437c-b0d3-09677ced3c67
+  sourceguid: d7a4f118-54a2-42e3-8759-8d6b01bfc220
+  source: Condition
+  name: Surprised - Skip Turn
+  description: A surprised creature cannot take a turn in the first round.
+  behavior: trigger
+  domains:
+    CharacterCondition:ff146aa3-9e91-4c33-b5d2-7f4ac2dc1355: true
+  triggeredAbility:
+    __typeName: TriggeredAbility
+    name: Surprised - Skip Turn
+    guid: 98fdebe0-1030-430a-9528-2b96ad3fcde5
+    description: Skip this turn because the creature is surprised.
+    trigger: prestartturn
+    conditionFormula: Combat Round = 1
+    mandatory: true
+    silent: true
+    castImmediately: true
+    abilityType: none
+    targetType: self
+    numTargets: '1'
+    range: 1
+    repeatTargets: false
+    modifiers: []
+    persistence: []
+    strain: []
+    behaviors:
+    - __typeName: ActivatedAbilityInitiativeBehavior
+      mode: skip_turn
+- __typeName: CharacterModifier
+  guid: b335a7b4-c89c-4600-b111-ac5ee4bdef2b
+  sourceguid: d7a4f118-54a2-42e3-8759-8d6b01bfc220
+  source: Condition
+  name: Surprised - End
+  description: Surprised ends after the first round.
+  behavior: trigger
+  domains:
+    CharacterCondition:ff146aa3-9e91-4c33-b5d2-7f4ac2dc1355: true
+  triggeredAbility:
+    __typeName: TriggeredAbility
+    name: Surprised Ends
+    guid: 7d48a966-6411-46ba-a842-2f399589cd57
+    description: Surprised ends after the first round.
+    trigger: beginround
+    conditionFormula: Combat Round > 1
+    mandatory: true
+    silent: true
+    abilityType: none
+    targetType: self
+    numTargets: '1'
+    range: 1
+    repeatTargets: false
+    modifiers: []
+    persistence: []
+    strain: []
+    behaviors:
+    - __typeName: ActivatedAbilityPurgeEffectsBehavior
+      conditions:
+      - ff146aa3-9e91-4c33-b5d2-7f4ac2dc1355

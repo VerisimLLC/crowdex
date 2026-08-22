@@ -1,0 +1,104 @@
+# Crows Playtest 2 -- Crocodile (The Ref Book)
+description: Crocodile
+id: 46e1fa21-6e05-5526-a97e-aec155e13138
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Crocodile
+    keywords:
+      Animal: true
+    cr: 6
+    creatureSize: 1L
+    max_hitpoints: 20
+    damage_taken: 0
+    walkingSpeed: 4
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -3
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Vise Grip
+      description: On a tier 3 Bite against a Medium or smaller target, the target is grabbed. While grabbed this
+        way, the crocodile can't bite another target and can use a maneuver to deal 3 P damage to the target.
+      guid: c657b2fe-81da-5961-b559-8a5c031ff4bb
+      implementation: 2
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: No Darkness Penalty
+      description: Dim light and darkness impose no penalties for the crocodile.
+      guid: 72e636e2-d476-56a4-9907-8f4e1960420a
+      implementation: 4
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: darkvision
+        value: 1000
+        name: No Darkness Penalty
+        description: Dim light and darkness impose no penalties for the crocodile.
+        guid: eff0b2cd-df64-5e25-a5e3-12f66e4ba87b
+        source: Trait
+        sourceguid: 72e636e2-d476-56a4-9907-8f4e1960420a
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: df97c13a-af68-5b67-b0e3-74a0b17b347d
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 2
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 4 damage
+        - 6 damage; grabbed
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Vise Grip
+      guid: bcdfb605-783a-5d87-8e6a-1dfe164bb684
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Deal 3 P damage to the target grabbed by this crocodile's Bite. Apply it as piercing damage.
+      implementation: 1
+      keywords: {}
+      behaviors: []
+    movementSpeeds:
+      swim: 6

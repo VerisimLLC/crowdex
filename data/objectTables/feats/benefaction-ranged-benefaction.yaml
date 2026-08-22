@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: e4b284a6-3247-4588-bbdb-4d8157f78ea6
+name: Ranged Benefaction
+description: When you cast a benefaction spell with a range of Melee 1, you can change it to Ranged 5.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 0059c1a0-4414-4106-937d-5c6d6261d2bb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5a424fd6-8113-4f66-b155-3f7747cc79d9
+    name: Ranged Benefaction
+    description: When you cast a benefaction spell with a range of Melee 1, you can change it to Ranged 5.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e4b284a6-3247-4588-bbdb-4d8157f78ea6: true
+  domains:
+    CrowdexTrait:e4b284a6-3247-4588-bbdb-4d8157f78ea6: true

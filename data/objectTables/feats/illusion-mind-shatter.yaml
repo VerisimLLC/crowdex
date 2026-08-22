@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 853fb1f5-4bfe-4c1f-a96c-402042266242
+name: Mind Shatter
+description: When a creature makes one of your illusions created by an illusion spell you cast disappear by interacting
+  with it, they take 1d6 damage.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 8c36e08d-39f9-4f3a-85ed-aceec4cc2c04
+- fa6f412d-f6d4-434b-b2f5-bd4802ad29e0
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0714f88d-26cd-45fa-9d62-320bf3fb9ef0
+    name: Mind Shatter
+    description: When a creature makes one of your illusions created by an illusion spell you cast disappear by
+      interacting with it, they take 1d6 damage.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:853fb1f5-4bfe-4c1f-a96c-402042266242: true
+  domains:
+    CrowdexTrait:853fb1f5-4bfe-4c1f-a96c-402042266242: true

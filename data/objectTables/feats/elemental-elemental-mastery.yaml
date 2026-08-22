@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8247239b-8f13-49a8-aeda-4d35dee2c440
+name: Elemental Mastery
+description: Non-doom tier 1 results of rank 0 and 1 conjuration spells you cast don't add to the chaos count. Your
+  conjuration spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- fda475ea-cacd-4823-b164-b2283b06a36e
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 73411618-ec09-4ad9-89e6-397a1544f55d
+    name: Elemental Mastery
+    description: Non-doom tier 1 results of rank 0 and 1 conjuration spells you cast don't add to the chaos count.
+      Your conjuration spells of rank 2 and higher are treated as 2 ranks lower when they trigger a backlash.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8247239b-8f13-49a8-aeda-4d35dee2c440: true
+  domains:
+    CrowdexTrait:8247239b-8f13-49a8-aeda-4d35dee2c440: true

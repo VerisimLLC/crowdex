@@ -1,0 +1,121 @@
+# Crows Playtest 2 -- Blessed (rework of the Playtest 1 stacking version)
+#
+# The Rules, p.12 (Conditions):
+#   "While you are blessed, you gain an edge on all tests and attacks you make
+#    deal additional damage equal to the characteristic used to make the attack.
+#    You lose this condition at the end of a dungeon turn."
+#
+# WHAT CHANGED FROM PLAYTEST 1
+# Playtest 1 Blessed was a stacking level: +1 per level to all tests, +1 per
+# level to damage, cancelling 1-to-1 against Boned. Playtest 2 deletes Boned,
+# drops the levels, and restates the bonus as an edge plus characteristic damage.
+# So both modifiers are rewritten and stackable flips to false -- Playtest 2 adds
+# "You can't gain a second instance of a condition you already have."
+#
+# The id and guid are deliberately preserved so any crow already carrying the
+# condition, and anything referencing it, keeps working.
+#
+# CrowdexRules resolves the characteristic actually used by each attack while
+# the ability is still available to the roll pipeline. The Dungeon Turn custom
+# trigger below removes this condition automatically.
+_table: characterOngoingEffects
+__typeName: CharacterOngoingEffect
+id: 41064284-15aa-444b-ad97-01c6448483b0
+guid: fb533be8-3503-4874-8d61-06cc1519f819
+name: Blessed
+description: >-
+  While you are blessed, you gain an edge on all tests, and attacks you make
+  deal additional damage equal to the characteristic used to make the attack.
+  You lose this condition at the end of a dungeon turn.
+crowsCondition: true
+stackable: false
+statusEffect: true
+indefiniteDuration: true
+clearStacksWhenApplying: false
+implementation: 4
+iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
+display:
+  __typeName: DisplayInfo
+  bgcolor: "#ffe8a0ff"
+  hueshift: 0
+  brightness: 1
+  saturation: 1
+modifiers:
+  - __typeName: CharacterModifier
+    name: Blessed
+    guid: 85371b3a-c396-4cbe-b092-007e1736f93d
+    behavior: power
+    modtype: edge
+    rollType: test_power_roll
+    activationCondition: true
+    description: You gain an edge on all tests while blessed.
+    source: Condition
+    sourceguid: fb533be8-3503-4874-8d61-06cc1519f819
+  - __typeName: CharacterModifier
+    name: Blessed
+    guid: 0d112fe9-9c80-4052-b55d-378b47534321
+    behavior: power
+    modtype: edge
+    rollType: opposed_power_roll
+    activationCondition: true
+    description: You gain an edge on all opposed tests while blessed.
+    source: Condition
+    sourceguid: fb533be8-3503-4874-8d61-06cc1519f819
+  - __typeName: CharacterModifier
+    name: Blessed
+    guid: 61005dde-7c19-4127-a31e-d7c51e423931
+    behavior: power
+    modtype: edge
+    rollType: resistance_power_roll
+    activationCondition: true
+    description: You gain an edge on all resistance tests while blessed.
+    source: Condition
+    sourceguid: fb533be8-3503-4874-8d61-06cc1519f819
+  - __typeName: CharacterModifier
+    name: Blessed
+    guid: 9f028ef2-53d1-4c1d-9f69-32e175b3c59f
+    behavior: power
+    modtype: none
+    rollType: ability_power_roll
+    activationCondition: true
+    damageModifier: '0'
+    damageModifierType: none
+    crowdexDamageFromRollCharacteristic: true
+    matchAnyKeywords: true
+    keywords:
+      Attack: true
+      Strike: true
+    description: >-
+      Your attacks deal additional damage equal to the characteristic used to
+      make the attack.
+    source: Condition
+    sourceguid: fb533be8-3503-4874-8d61-06cc1519f819
+  - __typeName: CharacterModifier
+    name: Blessed - Dungeon Turn Expiry
+    guid: 50746675-c45c-458a-a34b-62687dd57c20
+    behavior: trigger
+    description: Blessed ends at the end of a dungeon turn.
+    source: Condition
+    sourceguid: fb533be8-3503-4874-8d61-06cc1519f819
+    triggeredAbility:
+      __typeName: TriggeredAbility
+      name: Blessed Ends
+      guid: 74169272-e9d3-4627-889f-0b436c172b35
+      trigger: custom
+      conditionFormula: Trigger Name = 'Dungeon Turn'
+      mandatory: true
+      silent: true
+      abilityType: none
+      targetType: self
+      numTargets: '1'
+      range: 1
+      repeatTargets: false
+      modifiers: []
+      persistence: []
+      strain: []
+      behaviors:
+      - __typeName: ActivatedAbilityPurgeEffectsBehavior
+        mode: effect
+        ongoingEffect: 41064284-15aa-444b-ad97-01c6448483b0
+        purgeType: all
+        conditions: []

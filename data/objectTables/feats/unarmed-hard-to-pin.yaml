@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 85c9bb13-64bb-4a54-a7bf-0bf5f69e0a79
+name: Hard to Pin
+description: While you have at least 1 hand slot free and use the Escape Grab maneuver, you can roll twice and choose
+  either result and if you get a tier 3 result, you can counter the grabber as part of your escape.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 9f7f6a65-8a01-41d3-a470-1759e41335cb
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 013aafbc-eed7-42fb-b1f3-839c1343aca7
+    name: Hard to Pin
+    description: While you have at least 1 hand slot free and use the Escape Grab maneuver, you can roll twice and
+      choose either result and if you get a tier 3 result, you can counter the grabber as part of your escape.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:85c9bb13-64bb-4a54-a7bf-0bf5f69e0a79: true
+  domains:
+    CrowdexTrait:85c9bb13-64bb-4a54-a7bf-0bf5f69e0a79: true

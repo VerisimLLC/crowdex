@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: f1c25902-5145-41f3-ba17-48a38c69c6aa
+name: Interceding Blade
+description: When you wield a slashing weapon and a creature makes a weapon attack against a creature adjacent to
+  you, you can use your reaction to cause the damage to apply your weapon before the target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 414b350d-7c36-4410-a8e2-8a38166bdd3a
+- 0b66a5b8-9edb-4cd3-897c-5f09b20faf79
+- cc10fd4a-f31e-43ce-a284-c0c3f2926c73
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 881f4c8c-e65e-47c1-abb4-2920128be624
+    name: Interceding Blade
+    description: When you wield a slashing weapon and a creature makes a weapon attack against a creature adjacent
+      to you, you can use your reaction to cause the damage to apply your weapon before the target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f1c25902-5145-41f3-ba17-48a38c69c6aa: true
+  domains:
+    CrowdexTrait:f1c25902-5145-41f3-ba17-48a38c69c6aa: true

@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Grappling Hook
+_table: tbl_Gear
+__typeName: equipment
+id: cf3d8c72-df80-4281-8b86-042b384af32d
+name: "Grappling Hook"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1094aa90-9cca-4f10-b4d6-5a2ab5457f95
+costInGold: 10
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Can be added to a rope to create an item occupying 2 slots. It makes hurling and securing the rope easier."
+implementation: 1
+domains:
+  item:cf3d8c72-df80-4281-8b86-042b384af32d: true

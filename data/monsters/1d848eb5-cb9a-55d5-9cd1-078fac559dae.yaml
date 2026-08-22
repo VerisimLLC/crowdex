@@ -1,0 +1,84 @@
+# Crows Playtest 2 -- Wolf, Dire (The Ref Book)
+description: Wolf, Dire
+id: 1d848eb5-cb9a-55d5-9cd1-078fac559dae
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Wolf, Dire
+    keywords:
+      Animal: true
+    cr: 5
+    creatureSize: 1L
+    max_hitpoints: 15
+    damage_taken: 0
+    walkingSpeed: 7
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Pull Down
+      description: On a tier 3 Bite against a Medium or smaller creature, the target is knocked prone.
+      guid: 59a4a1e3-9f49-505c-839f-076b90d710d8
+      implementation: 3
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Pack Hunter
+      description: The wolf gains a total +3 bonus to attacks instead of +2 for flanking with another wolf.
+      guid: e83b0b8f-213b-510e-b0d8-32d6367c03b1
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: No Dim Light Penalty
+      description: Dim light imposes no penalties for the wolf.
+      guid: f4fb462a-845e-5ab9-bcdb-2b41b1c4c74a
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Bite
+      guid: 2f7da1ec-6a56-5286-a2c4-8c65eb0e3b14
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 2
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 3 damage
+        - 6 damage; prone
+      meleeRange: 1

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 3c0ec03b-ea83-4227-93a2-0777950df72a
+name: Might of Waves
+description: When you force move a creature into an object with an elemental spell or the Water Cannon trait, the
+  creature takes additional damage equal to the forced movement remaining when they collide.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- e6a64b7e-b831-4eb6-ba57-bc5e7f6bb3ff
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: cb869e13-7ea6-4c66-b8e6-1157c9322377
+    name: Might of Waves
+    description: When you force move a creature into an object with an elemental spell or the Water Cannon trait,
+      the creature takes additional damage equal to the forced movement remaining when they collide.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:3c0ec03b-ea83-4227-93a2-0777950df72a: true
+  domains:
+    CrowdexTrait:3c0ec03b-ea83-4227-93a2-0777950df72a: true

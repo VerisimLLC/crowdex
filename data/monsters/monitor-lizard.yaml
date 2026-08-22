@@ -1,0 +1,148 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: a557ec7d-cbf5-4f65-b543-2909f47ffd42
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1.333334
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Monitor Lizard
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      swim: 4
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 5 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Bite
+      description: On a tier 3 result that damages Stamina or gives a wound, the target gains a laceration (Lacerate).
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      implementationDetails: Damage auto-applies; the laceration (1 piercing damage per laceration when the target takes a maneuver and an action) is manual -- no laceration effect exists in the compendium yet.
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      guid: 6db5caa0-d79a-46d1-bfba-a116018345eb
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      keywords:
+        Strike: true
+        Melee: true
+    walkingSpeed: 4
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 15
+    cr: 4
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When the lizard gets a tier 3 result with its bite and damages the target's Stamina or gives it a wound, the target gains a laceration until it regains Stamina. When that target takes a maneuver and an action on its turn, it takes 1 piercing damage for each laceration it has. (Applied manually.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:47b38958-a1e4-4497-9e5f-0a159f1c5b20: true
+      name: Lacerate
+      guid: 47b38958-a1e4-4497-9e5f-0a159f1c5b20
+    keywords:
+      Animal: true
+    levelChoices: []
+    damage_taken: 0
+    creatureSize: 1M
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -3
+        id: mind
+    initiativeGrouping: 7d5a3cda-a506-4676-9913-c53ae154591d
+    crowsSlots: 5
+    monster_type: Monitor Lizard
+  tokenType: null
+  bestiaryId: 8e4da10e-1274-48f5-9c55-d3a3323af6ae
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 2
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACpVWbW/bNhD+K4T2YQ0WpZYt2bH3KW2xYUCzFXGwfQxO0kk6hKI0krLrFvvvO5Jy4DpO6hoGbFF3zz339khfo4cHu+vxT2gxWkVtp4xFHV0K/rvBFpVd94iliVZfI7OlNlqlfO9BDnAPuWQXqwf8z5t7Tw/GQLedIttp8ZG+gC4dXgkt1Phg4RFVtJrwCf47UO9COPADyAqk+QazAIt1p3eMe6OoBenwCo1gB41r+uICJreeNHx+aMj2HSnLnJPMGwbSGk036ALNS+GKBjQUHPC3gOwNE299WKP3R2Y+OTSFpt5Sx7lF/zSohG1QSJ+9qNEaAcISajETDDxIK7ZkG0F8IyeLAlQpQoWM97Sg2etnI9YWWlIguJY1bfguWYbadoMqLw8sRQ2kXBAJBWpwRMSgLElnrzHcHbGuxEgQ7N7bdcV5t6Bw2DBNxweU4DwdEn8dU85WXTrAYJ6InjMqSNUjdVExS4SiOWTB5g2YK/Hmpu8lYeliDCDl7urCVU6Fon4MDr6Y9UAlH6WLfHa9zK5jSDCN03S5iJeYVfEEkmxZJUWWTydhUEuqmMiLfS271qXvbh/3bnVWED/kp8c+jBSzvddA1tGhtpd+cSBMQ3La8RTRR9xtOx2WbRz0V0JL3KB833T0ykiTUlzUG+7ihn/Lm5wk8Ri+MNlHdjuXTo4NbKjTZ7p86rao7zop341+DgOs1b6lUD/harbhk2mZTMQvYuqO7L6JHCZyB1P+nY2z5a5nfJ0dXJ/K+MxSH3cpCETPU3HvN8KMtk4WgvrwKo/rvaZa+ekRB3Ua5/gd2ROC8Jd6tv5++/Yb/2zJz9zwN/u1ubjyHIb2iT0X0dEg00vYuaI2A5qGKhu0N9dUN1ahMWFC87roJHdrFf1UjR/nb1yerw+yBlXjPt63Zf2AFkg6Mh+CPsBguxi8Dphfg0IeJPNcT3qu2IHFdq+rZ6nWhSAzio2IY6G6QyisKiyswM9kWNgowBZd26MqaWjFDq0vKYQO34enmuqU726IPx6GC69EKBHvQj2So31e8wo84tM+3zrT17b7u6pGBT9i3VINFLv/5q15JCnN2+SqV/WBjs7LPCsAJnG5WEKczsskzqscWPGS+SS5nqUZ5j5VX7W78Sn5h3Mtk+U8u4ZpnJaLPE6zSRpDtcQ4gSxNJlWeLKoyOn/ptiAfubv+jSKsnFeGfLBBkYzVqGrbvPzIvdnbe2kCg3+DHMZq+2SfIE6z2gvQDweY7gMcSNiprpEqfxw8nu3Rvf93C7o/In7HIp7nDf6uu6Hn0jLEosxgVpTc32wy53Yv5vFymcziIpsBJlmaLZMyvD91W7OWnRML95rkp+eT7ioqCFVBLz9Ujpn8DwzzWfFECgAA
+forkTime: 1781750493174
+description: Monitor Lizard
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 16
+ctime: 1787361592462
+mtime: 1787361592462
+hidden: true
+id: 8e4da10e-1274-48f5-9c55-d3a3323af6ae

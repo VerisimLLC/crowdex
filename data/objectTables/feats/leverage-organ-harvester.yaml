@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: bcb9cba8-28e3-454d-abae-997e19d6c869
+name: Organ Harvester
+description: When you harvest crafting materials from the corpse of a creature, there is a 25% chance you gain enough
+  of the component to craft two items.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 1057c943-3177-4fda-aed9-f6be6ea55984
+- 3f42face-9976-4f6d-aff1-e72437023541
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: caa7422e-4e54-4f90-8bcc-db8a4e6c3281
+    name: Organ Harvester
+    description: When you harvest crafting materials from the corpse of a creature, there is a 25% chance you gain
+      enough of the component to craft two items.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:bcb9cba8-28e3-454d-abae-997e19d6c869: true
+  domains:
+    CrowdexTrait:bcb9cba8-28e3-454d-abae-997e19d6c869: true

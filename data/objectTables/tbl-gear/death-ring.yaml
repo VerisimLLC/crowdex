@@ -1,0 +1,46 @@
+# Crows Playtest 2 -- Death Ring
+#
+# Freddard Wolverly's ring, found in the Floating Manor (area 12). The
+# Manor keys two doors to it, and wearing it alongside the life ring is the
+# book's own worked example of doubling up on one magic item slot.
+#
+# Gear import REPLACES the whole record, so this file carries the entire item.
+_table: tbl_Gear
+__typeName: equipment
+id: 56f3faae-e57d-4362-b7ac-7c9b630e5c59
+name: Death Ring
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  name: Death Ring
+  guid: 81e4613e-35c1-41ce-9241-896787c89a78
+  actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+  categorization: Ability
+  numTargets: '1'
+  range: 10
+  targetType: self
+  iconid: d9442270-3f02-42f0-9e4d-03a4e6302212
+  description: Choose an undead within 10 squares to make a Mind resistance roll. Adjudicate the roll
+    and apply the tier result, then roll the Usage Die.
+  implementation: 1
+  keywords:
+    Magic: true
+  behaviors: {}
+costInGold: 1000
+crowsMagicSlot: Finger
+description: 'Action: choose an undead within 10 squares of you to make a Mind resistance roll. 11 or
+  less: the undead teleports next to you and then can counter. 12-16: you control the undead for 1 combat
+  round. 17+: you control the undead until the end of the dungeon turn. Usage Dice 1, rolled on activation;
+  restored on a rest. Slot: Finger. Craft: Enchanting (2 uses), gem worth 200 gc, 200.'
+domains:
+  item:56f3faae-e57d-4362-b7ac-7c9b630e5c59: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: d9442270-3f02-42f0-9e4d-03a4e6302212
+implementation: 1
+slotsRequired: 1
+stackLimit: 10
+type: Gear
+usageDice: 1
+usageDiceRestore: rest
+usageDiceTrigger: activate
+weight: 0

@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 187fdc69-5f8f-42dd-9483-7687fd299dfe
+name: Pierce This
+description: When you take piercing damage you can turn it into regular damage (no action required). Once you use
+  this trait, you can't use it again until you finish a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 8c47c116-a8ec-4112-951a-3e0b3c1375c7
+- 071228da-b192-4c41-964b-dfd705c42549
+- 387c36f3-7eec-4c48-aa92-20f18f58850d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 3b741ccc-7797-4aae-a832-360d40cebdbc
+    name: Pierce This
+    description: When you take piercing damage you can turn it into regular damage (no action required). Once you
+      use this trait, you can't use it again until you finish a rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:187fdc69-5f8f-42dd-9483-7687fd299dfe: true
+  domains:
+    CrowdexTrait:187fdc69-5f8f-42dd-9483-7687fd299dfe: true

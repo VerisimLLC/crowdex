@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 585ea2e7-1fe9-4f86-85db-405b5a0cfe6d
+name: Lasting Alteration
+description: When you cast an alteration spell with a duration listed in UD, add an additional 1 UD to the duration.
+tag: Crows Trait
+implementation: 2
+crowdexTraitTree: Alteration
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5783ecc5-9964-48b2-9746-50ac8763de37
+    name: Lasting Alteration
+    description: When you cast an alteration spell with a duration listed in UD, add an additional 1 UD to the duration.
+    implementation: 2
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:585ea2e7-1fe9-4f86-85db-405b5a0cfe6d: true
+  domains:
+    CrowdexTrait:585ea2e7-1fe9-4f86-85db-405b5a0cfe6d: true

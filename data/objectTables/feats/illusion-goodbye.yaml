@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 694b4832-403f-4a35-8fd0-b896f1f74b7b
+name: Goodbye
+description: When you activate your Free Light trait, you can choose to become invisible until the end of your next
+  combat turn instead of creating light. This invisibility ends if you attack or cast a spell.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 42d95dff-61dd-4a8a-a6e3-9597c0b83d7e
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 56695fe6-b923-49e1-8607-d875894c1be4
+    name: Goodbye
+    description: When you activate your Free Light trait, you can choose to become invisible until the end of your
+      next combat turn instead of creating light. This invisibility ends if you attack or cast a spell.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:694b4832-403f-4a35-8fd0-b896f1f74b7b: true
+  domains:
+    CrowdexTrait:694b4832-403f-4a35-8fd0-b896f1f74b7b: true

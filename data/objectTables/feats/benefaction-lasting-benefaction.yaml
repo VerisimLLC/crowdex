@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: c2b5fee0-79c3-49ff-9ab1-2f962857c47d
+name: Lasting Benefaction
+description: When you cast an benefaction spell with a duration listed in UD, add an additional 1 UD to the duration.
+tag: Crows Trait
+implementation: 2
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f2be385b-a230-4ace-a2a2-5421b0d2401b
+    name: Lasting Benefaction
+    description: When you cast an benefaction spell with a duration listed in UD, add an additional 1 UD to the
+      duration.
+    implementation: 2
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c2b5fee0-79c3-49ff-9ab1-2f962857c47d: true
+  domains:
+    CrowdexTrait:c2b5fee0-79c3-49ff-9ab1-2f962857c47d: true

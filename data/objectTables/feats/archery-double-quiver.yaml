@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: b3a3d3fa-1daf-4a04-8f07-f031cb7f8645
+name: Double Quiver
+description: You can hold up to 40 arrows in one quiver and it takes up only 1 slot.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a26b04d3-347f-496e-9b3a-70b3d8e2ced3
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0050a8b4-3eb4-4642-bd3a-9bb59df77435
+    name: Double Quiver
+    description: You can hold up to 40 arrows in one quiver and it takes up only 1 slot.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b3a3d3fa-1daf-4a04-8f07-f031cb7f8645: true
+  domains:
+    CrowdexTrait:b3a3d3fa-1daf-4a04-8f07-f031cb7f8645: true

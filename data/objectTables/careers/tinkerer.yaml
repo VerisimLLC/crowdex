@@ -1,0 +1,262 @@
+# Crows Playtest 2 -- background: Tinkerer
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: 90020c05-9351-4d61-86ca-2cd0e7251198
+name: "Tinkerer"
+description: "You created magic and mechanical inventions."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: e1c69e92-7e2c-4711-bb1a-1af3ec56f604
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 4c555a55-b9d7-4558-8dcf-820d0cc9e41e
+      implementation: 3
+      source: "Tinkerer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 78d4b2b5-ebee-420f-a25f-506c8db41ec4
+        source: "Tinkerer Career Feature"
+        sourceguid: 4c555a55-b9d7-4558-8dcf-820d0cc9e41e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: aba47476-30f8-48a1-9a27-aef11e0a6ec2
+        source: "Tinkerer Career Feature"
+        sourceguid: 4c555a55-b9d7-4558-8dcf-820d0cc9e41e
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 1e2ab593-f193-4321-9476-a12bbf77db5a
+        source: "Tinkerer Career Feature"
+        sourceguid: 4c555a55-b9d7-4558-8dcf-820d0cc9e41e
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: fee9ff51-107d-4a17-bc6e-803a51a34b59
+      implementation: 3
+      source: "Tinkerer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 6f3eca1a-ba47-421c-8a49-758947d72a15
+        source: "Tinkerer Career Feature"
+        sourceguid: fee9ff51-107d-4a17-bc6e-803a51a34b59
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: e3578b95-1ab2-48d8-91e7-d1ac9e949ed0
+        source: "Tinkerer Career Feature"
+        sourceguid: fee9ff51-107d-4a17-bc6e-803a51a34b59
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 1f735799-183c-4564-9e30-97545ea43e6e
+        source: "Tinkerer Career Feature"
+        sourceguid: fee9ff51-107d-4a17-bc6e-803a51a34b59
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: c630b665-7a89-4c79-86a9-5c42a3757db9
+      implementation: 3
+      source: "Tinkerer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 4afd0d19-6176-40dc-80bc-d69bd4dbad1f
+        source: "Tinkerer Career Feature"
+        sourceguid: c630b665-7a89-4c79-86a9-5c42a3757db9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 73474538-50d0-4f82-a589-63c68e27ef51
+        source: "Tinkerer Career Feature"
+        sourceguid: c630b665-7a89-4c79-86a9-5c42a3757db9
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 959d7683-601c-4f5f-b13e-486403cf4ce5
+        source: "Tinkerer Career Feature"
+        sourceguid: c630b665-7a89-4c79-86a9-5c42a3757db9
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: e52fbf2a-a6b6-46c5-9315-61e41960ed48
+      implementation: 3
+      source: "Tinkerer Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: a4eb77be-2b04-4cdb-b9ba-762fd8122ca1
+        source: "Tinkerer Career Feature"
+        sourceguid: e52fbf2a-a6b6-46c5-9315-61e41960ed48
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 71e2bb37-8c9f-4cf2-bd9a-fff2a86d2f66
+        source: "Tinkerer Career Feature"
+        sourceguid: e52fbf2a-a6b6-46c5-9315-61e41960ed48
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 9ef0c1c5-96da-436a-a8b7-66e24e014a51
+        source: "Tinkerer Career Feature"
+        sourceguid: e52fbf2a-a6b6-46c5-9315-61e41960ed48
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 5."
+    guid: 239b0148-b5d2-4e17-ac10-47571b34f94d
+    implementation: 3
+    source: "Tinkerer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 5
+      name: Stamina
+      guid: ce23b7b9-543a-4e4b-ba5f-cb6088234a75
+      source: "Tinkerer Career Feature"
+      sourceguid: 239b0148-b5d2-4e17-ac10-47571b34f94d
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Alchemy (2 uses), Blacksmithing (2 uses), Chopping (1 use), Enchanting (1 use), Search (1 use), Thievery (2 uses)."
+    guid: c798165c-40c4-450f-86e4-e702add13205
+    implementation: 3
+    source: "Tinkerer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+      num: 2
+      name: Expertises
+      description: "Alchemy (2 uses)"
+      guid: 2181f318-bde8-432e-a092-235d262bbbf7
+      source: "Tinkerer Career Feature"
+      sourceguid: c798165c-40c4-450f-86e4-e702add13205
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+      num: 2
+      name: Expertises
+      description: "Blacksmithing (2 uses)"
+      guid: 6d694e92-e36d-408d-9188-e6b557a31a0a
+      source: "Tinkerer Career Feature"
+      sourceguid: c798165c-40c4-450f-86e4-e702add13205
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 073fb617-cfc6-493c-9624-03a967f85ac6
+      num: 1
+      name: Expertises
+      description: "Chopping (1 use)"
+      guid: 47972acf-8972-42fb-9a50-37c4101e3b44
+      source: "Tinkerer Career Feature"
+      sourceguid: c798165c-40c4-450f-86e4-e702add13205
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+      num: 1
+      name: Expertises
+      description: "Enchanting (1 use)"
+      guid: 0db1ab21-cea9-47cb-87dd-46fba4647194
+      source: "Tinkerer Career Feature"
+      sourceguid: c798165c-40c4-450f-86e4-e702add13205
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+      num: 1
+      name: Expertises
+      description: "Search (1 use)"
+      guid: 7c35693e-badc-4a9c-9901-5a883bab8443
+      source: "Tinkerer Career Feature"
+      sourceguid: c798165c-40c4-450f-86e4-e702add13205
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+      num: 2
+      name: Expertises
+      description: "Thievery (2 uses)"
+      guid: 363d508a-42b8-428f-b1c4-017d32f2b950
+      source: "Tinkerer Career Feature"
+      sourceguid: c798165c-40c4-450f-86e4-e702add13205
+  - __typeName: CharacterFeature
+    name: "Trait: Improvised Equipment"
+    description: "As a rest activity, you create an object that can be used as any mundane item. After using the object once to complete a task (per the Ref), it is destroyed. If the item has a duration, it's duration becomes 1 DT."
+    guid: 79b29cbd-183b-4973-8c8f-87f6e91a66a0
+    implementation: 1
+    source: "Tinkerer Career Feature"
+    crowdexTraitId: 9e2eaf64-33f9-48be-bbdb-918a88f8a9c4
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Torch, Alchemist's Tools, Blacksmith's Tools, Handaxe, Lockpick Set, Soap. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 5fe1ac1a-822d-42f5-ac9b-b474df9d5eb0
+    implementation: 2
+    source: "Tinkerer Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: a39964d5-666e-4326-8490-49455dcc86ff
+      source: "Tinkerer Career Feature"
+      sourceguid: 5fe1ac1a-822d-42f5-ac9b-b474df9d5eb0
+      equipment:
+      - itemid: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+        quantity: 1
+      - itemid: 25aac037-4ffd-4faa-82eb-6dc48fec60d7
+        quantity: 1
+      - itemid: dea4a76a-b8a7-4744-8a64-a20211e13171
+        quantity: 1
+      - itemid: 720e00a4-a3f6-40d9-b5b7-c51e3ea1994c
+        quantity: 1
+      - itemid: c40e7fdb-562b-4d19-b9f7-a03a9812b6fe
+        quantity: 1
+      - itemid: ea43901f-34df-4af9-b961-3ee67104bb52
+        quantity: 1

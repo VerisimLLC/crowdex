@@ -1,0 +1,25 @@
+# Crows Playtest 2 -- new card: Soap
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: ea43901f-34df-4af9-b961-3ee67104bb52
+name: Soap
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 483e185d-3d8b-458f-9333-4348802a70fa
+costInGold: 1
+weight: 0
+stackLimit: 3
+slotsRequired: 1
+description: 'A bar of soap. Clean yourself or a mess, leave messages, whittle shapes, or lubricate locks,
+  tools, or your wrists when bound in chains. UD 1 (useless; rolled on use). Craft: Alchemy (1 use), 1
+  monster part (any), 5.'
+implementation: 1
+domains:
+  item:ea43901f-34df-4af9-b961-3ee67104bb52: true
+usageDice: 1
+usageDiceTrigger: activate
+usageDiceRestore: useless

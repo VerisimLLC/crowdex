@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 82c8bddd-0a91-4156-ac7b-74da641a0d4d
+name: Hurl Shield
+description: You can make a ranged weapon attack with your shield. This attack is a Strength test that is ranged
+  5 and deals 3 + S damage on a tier 2 result and 6 + S damage on a tier 3 result.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Armor
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 942fc051-76e4-4b32-a4c8-ef32d5ff667e
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 15f4eb02-3875-4667-a60f-f07437b0941f
+    name: Hurl Shield
+    description: You can make a ranged weapon attack with your shield. This attack is a Strength test that is ranged
+      5 and deals 3 + S damage on a tier 2 result and 6 + S damage on a tier 3 result.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:82c8bddd-0a91-4156-ac7b-74da641a0d4d: true
+  domains:
+    CrowdexTrait:82c8bddd-0a91-4156-ac7b-74da641a0d4d: true

@@ -1,0 +1,32 @@
+_table: feats
+__typeName: CharacterFeat
+id: 88b645f4-2276-484d-831e-d3ca39d28801
+name: Camp Builder
+description: When you are in the support role and get a tier 3 result on the test to make camp while carrying blacksmith's
+  tools, you can ignore the normal benefits to create a camp that counts as resting outside of the Miasma.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Travel
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- e3fe0840-e0fb-4d70-96c4-3998f4461bb6
+- 1e2f4ae2-6654-40c6-8f41-e1b1ae1ac34f
+- 121eaebe-5234-4f7e-a27c-9aba48d9258c
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 05b51126-def8-4fd6-a314-6a295df96b60
+    name: Camp Builder
+    description: When you are in the support role and get a tier 3 result on the test to make camp while carrying
+      blacksmith's tools, you can ignore the normal benefits to create a camp that counts as resting outside of
+      the Miasma.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:88b645f4-2276-484d-831e-d3ca39d28801: true
+  domains:
+    CrowdexTrait:88b645f4-2276-484d-831e-d3ca39d28801: true

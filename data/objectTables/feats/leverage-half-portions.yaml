@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 5ebb4681-6eaa-40d7-a814-1f7da08f1ce1
+name: Half Portions
+description: You only need to eat half of a ration's worth of food during a rest to get the benefit of resting.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Leverage
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 1057c943-3177-4fda-aed9-f6be6ea55984
+- 3f42face-9976-4f6d-aff1-e72437023541
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f9ee30af-9e4f-405d-83ef-b21d3c5be5a1
+    name: Half Portions
+    description: You only need to eat half of a ration's worth of food during a rest to get the benefit of resting.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:5ebb4681-6eaa-40d7-a814-1f7da08f1ce1: true
+  domains:
+    CrowdexTrait:5ebb4681-6eaa-40d7-a814-1f7da08f1ce1: true

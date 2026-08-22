@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8c36e08d-39f9-4f3a-85ed-aceec4cc2c04
+name: Lasting Illusion
+description: When you cast an illusion spell with a duration listed in UD, add an additional 1 UD to the duration.
+tag: Crows Trait
+implementation: 2
+crowdexTraitTree: Illusion
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ad0bc128-f8d4-4c26-987b-be389491afc1
+    name: Lasting Illusion
+    description: When you cast an illusion spell with a duration listed in UD, add an additional 1 UD to the duration.
+    implementation: 2
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8c36e08d-39f9-4f3a-85ed-aceec4cc2c04: true
+  domains:
+    CrowdexTrait:8c36e08d-39f9-4f3a-85ed-aceec4cc2c04: true

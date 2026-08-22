@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Spyglass
+_table: tbl_Gear
+__typeName: equipment
+id: f209c9fd-c47a-4137-a887-3cf2355dcbc8
+name: "Spyglass"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 100
+weight: 0
+stackLimit: 2
+slotsRequired: 1
+description: "Makes things appear three times closer. A fine spyglass makes them appear six times closer; a masterwork spyglass makes them appear ten times closer."
+implementation: 1
+domains:
+  item:f209c9fd-c47a-4137-a887-3cf2355dcbc8: true

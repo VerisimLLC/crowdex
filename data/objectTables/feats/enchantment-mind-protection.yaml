@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7d53302b-f7e7-46a3-87aa-00ccce747133
+name: Mind Protection
+description: When you wear a magic item in your head slot, you gain a +1 bonus to Mind RRs.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 9a2d5c11-936d-4e98-b48f-971af7db920b
+- 3d6763a5-e043-4beb-a580-1b455c497751
+- a6f43698-1eb3-42ed-9f3e-e770e7124d6d
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 3ac9561e-38ae-458e-b257-2cf56693c5c7
+    name: Mind Protection
+    description: When you wear a magic item in your head slot, you gain a +1 bonus to Mind RRs.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7d53302b-f7e7-46a3-87aa-00ccce747133: true
+  domains:
+    CrowdexTrait:7d53302b-f7e7-46a3-87aa-00ccce747133: true

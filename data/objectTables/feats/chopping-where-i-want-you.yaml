@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 3738dd5a-6c54-4367-8093-ff4088ffcbf1
+name: Where I Want You
+description: When you get a tier 3 result on a melee chopping weapon attack against a target of your size or smaller,
+  you can slide the target 1 square after resolving all other effects of the attack.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 56df2251-c51b-4728-a478-fe661c98e39c
+- 474027a3-65f9-4ef0-84a6-153618c38e96
+- 3526cb24-510a-4e8e-99bd-4fca365ef6fd
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 80c06b34-d522-4a5c-b4aa-10e6f63837c8
+    name: Where I Want You
+    description: When you get a tier 3 result on a melee chopping weapon attack against a target of your size or
+      smaller, you can slide the target 1 square after resolving all other effects of the attack.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:3738dd5a-6c54-4367-8093-ff4088ffcbf1: true
+  domains:
+    CrowdexTrait:3738dd5a-6c54-4367-8093-ff4088ffcbf1: true

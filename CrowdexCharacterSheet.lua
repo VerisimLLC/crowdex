@@ -33,10 +33,13 @@ end
 
 local function GetTraits(props)
     if props == nil then return {} end
-    -- A crow's trait flows from its background: the background carries a
-    -- CharacterFeature whose name is prefixed "Trait:" (see the crows-background
-    -- imports). There is no stored crowdex_traits list. The "Trait:" prefix is
-    -- stripped for display since the section is already headed "Traits".
+    if CrowdexTraits ~= nil and CrowdexTraits.OwnedTraits ~= nil then
+        return CrowdexTraits.OwnedTraits(props)
+    end
+
+    -- Compatibility fallback while loading older data that predates the trait
+    -- catalog. The background's inline trait is display-only; current data
+    -- resolves it to the canonical Crows Trait record above.
     local B = CrowdexBuilderUI
     if B == nil then return {} end
     local bg = B.GetBackground(props)
@@ -78,7 +81,7 @@ local function SheetSectionHeading(text)
         bold = true,
         color = "#e8d59a",
         text = text,
-        tmargin = 12,
+        tmargin = 10,
         bmargin = 4,
     }
 end
@@ -116,8 +119,15 @@ local function ExpertiseRow(exp)
     local usesText = string.format("%d/%d", remaining, exp.max or 0)
     local spent = remaining <= 0
 
+    local tooltip = exp.description or ""
+    if exp.suppressed then
+        tooltip = tooltip .. "\nExpertises are currently suppressed."
+    else
+        tooltip = tooltip .. "\nAfter an applicable test, spend one use to improve the result by one tier (maximum tier 3; one expertise per test)."
+    end
+
     return gui.Panel{
-        width = "100%",
+        width = 320,
         height = "auto",
         flow = "horizontal",
         valign = "center",
@@ -131,16 +141,560 @@ local function ExpertiseRow(exp)
             text = exp.name or "",
             color = cond(spent, "#8a8a8a", "#dddddd"),
         },
-        gui.Label{
-            width = 44,
-            height = "auto",
-            fontSize = 12,
-            color = cond(spent, "#8a8a8a", "white"),
+        -- Keep the usage controls in a fixed-width cell. Conditional buttons
+        -- can collapse without moving this cell, so every count and Use button
+        -- lines up across the section.
+        gui.Panel{
+            width = 126,
+            height = 20,
+            flow = "horizontal",
             halign = "right",
-            textAlignment = "right",
-            text = usesText,
+            valign = "center",
+
+            gui.Label{
+                width = 36,
+                height = "auto",
+                fontSize = 12,
+                color = cond(spent, "#8a8a8a", "white"),
+                halign = "right",
+                textAlignment = "right",
+                text = usesText,
+            },
+            gui.Button{
+                text = "Use",
+                width = 40,
+                height = 20,
+                fontSize = 10,
+                lmargin = 4,
+                classes = {cond(remaining > 0 and not exp.suppressed, nil, "collapsed")},
+                click = function()
+                    if CrowdexBuilderUI == nil then return end
+                    CrowdexBuilderUI.ChangeHero(function(props)
+                        local info = CrowdexExpertise.FindById(exp.id)
+                        if info ~= nil and CrowdexExpertise.Available(props, exp.id) > 0 then
+                            props:ConsumeResource(exp.id, info.resource:try_get("usageLimit", "long"), 1,
+                                "Manual expertise use")
+                        end
+                    end)
+                end,
+            },
+            gui.Button{
+                text = "Undo",
+                width = 40,
+                height = 20,
+                fontSize = 10,
+                lmargin = 2,
+                classes = {cond((exp.used or 0) > 0, nil, "collapsed")},
+                click = function()
+                    if CrowdexBuilderUI == nil then return end
+                    CrowdexBuilderUI.ChangeHero(function(props)
+                        local info = CrowdexExpertise.FindById(exp.id)
+                        if info ~= nil then
+                            props:RefreshResource(exp.id, info.resource:try_get("usageLimit", "long"), 1,
+                                "Refund expertise use")
+                        end
+                    end)
+                end,
+            },
+        },
+        linger = gui.Tooltip{
+            text = tooltip,
+            maxWidth = 420,
         },
     }
+end
+
+local function ShowExpertiseAdvancementDialog(props, bonus)
+    if props == nil or bonus == nil then return end
+
+    local allocation = {}
+    local kind = "expertise"
+    local dialogPanel
+    local contentPanel
+
+    local function RequiredExpertise()
+        if kind == "expertise" then return 3 end
+        if kind == "mixed" then return 1 end
+        return 0
+    end
+
+    local function StaminaAward()
+        if kind == "stamina" then return 2 end
+        if kind == "mixed" then return 1 end
+        return 0
+    end
+
+    local function AllocatedTotal()
+        local result = 0
+        for _, quantity in pairs(allocation) do result = result + quantity end
+        return result
+    end
+
+    local function RefreshDialog()
+        local required = RequiredExpertise()
+        local allocated = AllocatedTotal()
+        local cap = CrowdexAdvancement.MaxExpertiseUses(CrowdexAdvancement.RestedXP(props))
+        local children = {
+            gui.Label{
+                classes = {"dialogTitle"},
+                text = string.format("Advancement at %d TXP", bonus.threshold),
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                wrap = true,
+                color = "#cccccc",
+                text = "Choose 3 expertise uses, +2 Stamina, or 1 expertise use and +1 Stamina. Expertise uses can create a new expertise, but cannot exceed the TXP cap.",
+            },
+            gui.Panel{
+                width = "100%",
+                height = "auto",
+                flow = "horizontal",
+                tmargin = 8,
+                gui.Label{
+                    width = 150,
+                    height = 24,
+                    valign = "center",
+                    text = "Advancement choice:",
+                },
+                gui.Dropdown{
+                    width = 260,
+                    height = 24,
+                    idChosen = kind,
+                    options = {
+                        { id = "expertise", text = "3 Expertise Uses" },
+                        { id = "stamina", text = "+2 Stamina" },
+                        { id = "mixed", text = "1 Expertise Use and +1 Stamina" },
+                    },
+                    change = function(element)
+                        kind = element.idChosen
+                        allocation = {}
+                        RefreshDialog()
+                    end,
+                },
+            },
+        }
+
+        if required > 0 then
+            children[#children + 1] = gui.Label{
+                width = "100%",
+                height = "auto",
+                bold = true,
+                color = cond(allocated == required, "#aaffaa", "#e8d59a"),
+                text = string.format("Allocate uses: %d/%d (maximum %d in one expertise)", allocated, required, cap),
+                tmargin = 8,
+                bmargin = 4,
+            }
+
+            for _, expertise in ipairs(CrowdexExpertise.Catalog()) do
+                local current = CrowdexAdvancement.PermanentExpertiseMaximum(props, expertise.id)
+                local added = allocation[expertise.id] or 0
+                children[#children + 1] = gui.Panel{
+                    width = "100%",
+                    height = 24,
+                    flow = "horizontal",
+                    valign = "center",
+                    gui.Label{
+                        width = "auto-grow",
+                        height = "auto",
+                        text = expertise.name,
+                        color = "#dddddd",
+                        linger = gui.Tooltip{
+                            text = expertise.description,
+                            maxWidth = 420,
+                        },
+                    },
+                    gui.Label{
+                        width = 70,
+                        height = "auto",
+                        textAlignment = "right",
+                        text = string.format("%d/%d", current + added, cap),
+                    },
+                    gui.Button{
+                        text = "-",
+                        width = 28,
+                        height = 20,
+                        fontSize = 14,
+                        classes = {cond(added > 0, nil, "collapsed")},
+                        click = function()
+                            allocation[expertise.id] = math.max(0, (allocation[expertise.id] or 0) - 1)
+                            RefreshDialog()
+                        end,
+                    },
+                    gui.Button{
+                        text = "+",
+                        width = 28,
+                        height = 20,
+                        fontSize = 14,
+                        lmargin = 2,
+                        classes = {cond(allocated < required and current + added < cap, nil, "collapsed")},
+                        click = function()
+                            allocation[expertise.id] = (allocation[expertise.id] or 0) + 1
+                            RefreshDialog()
+                        end,
+                    },
+                }
+            end
+        else
+            children[#children + 1] = gui.Label{
+                width = "100%",
+                height = "auto",
+                color = "#aaffaa",
+                text = "+2 maximum Stamina",
+                tmargin = 10,
+            }
+        end
+
+        local errorLabel = gui.Label{
+            width = "100%",
+            height = "auto",
+            color = "#ff8888",
+            wrap = true,
+            text = "",
+            tmargin = 6,
+        }
+        children[#children + 1] = errorLabel
+        children[#children + 1] = gui.Panel{
+            width = "100%",
+            height = "auto",
+            flow = "horizontal",
+            tmargin = 8,
+            gui.Button{
+                text = "Cancel",
+                width = 120,
+                click = function() gui.CloseModal() end,
+            },
+            gui.Button{
+                text = "Confirm",
+                width = 160,
+                lmargin = 8,
+                classes = {cond(allocated == required, nil, "collapsed")},
+                click = function()
+                    local success = false
+                    local errorText = nil
+                    CrowdexBuilderUI.ChangeHero(function(hero)
+                        success, errorText = CrowdexAdvancement.Claim(hero, bonus.index, {
+                            kind = kind,
+                            stamina = StaminaAward(),
+                            expertises = allocation,
+                        })
+                    end)
+                    if success then
+                        gui.CloseModal()
+                    else
+                        errorLabel.text = errorText or "Unable to claim this advancement."
+                    end
+                end,
+            },
+        }
+
+        contentPanel.children = children
+    end
+
+    contentPanel = gui.Panel{
+        width = "100%",
+        height = "auto",
+        maxHeight = 720,
+        flow = "vertical",
+        vscroll = true,
+        pad = 12,
+        borderBox = true,
+    }
+
+    dialogPanel = gui.Panel{
+        width = 620,
+        height = "auto",
+        maxHeight = 780,
+        classes = {"framedPanel"},
+        contentPanel,
+    }
+    RefreshDialog()
+    gui.ShowModal(dialogPanel)
+end
+
+local function ShowCharacteristicAdvancementDialog(props, bonus)
+    if props == nil or bonus == nil then return end
+
+    local allAtMaximum = props:AttributeMod("agility") >= 4
+        and props:AttributeMod("mind") >= 4
+        and props:AttributeMod("strength") >= 4
+    local errorLabel = gui.Label{
+        width = "100%",
+        height = "auto",
+        color = "#ff8888",
+        wrap = true,
+        text = "",
+        tmargin = 6,
+    }
+
+    local children = {
+        gui.Label{
+            classes = {"dialogTitle"},
+            text = string.format("Characteristic Advancement at %d TXP", bonus.threshold),
+        },
+        gui.Label{
+            width = "100%",
+            height = "auto",
+            wrap = true,
+            color = "#cccccc",
+            text = cond(allAtMaximum,
+                "All three characteristics are already 4. This advancement grants +2 maximum Stamina instead.",
+                "Increase one characteristic by 1, to a maximum of 4."),
+            bmargin = 8,
+        },
+    }
+
+    local choices = cond(allAtMaximum, {
+        { id = "stamina", label = "+2 Stamina", value = 0 },
+    }, {
+        { id = "mind", label = "Mind", value = props:AttributeMod("mind") },
+        { id = "agility", label = "Agility", value = props:AttributeMod("agility") },
+        { id = "strength", label = "Strength", value = props:AttributeMod("strength") },
+    })
+
+    for _, choice in ipairs(choices) do
+        local disabled = choice.id ~= "stamina" and choice.value >= 4
+        children[#children + 1] = gui.Panel{
+            width = "100%",
+            height = 30,
+            flow = "horizontal",
+            valign = "center",
+            gui.Label{
+                width = "auto-grow",
+                height = "auto",
+                text = cond(choice.id == "stamina", choice.label,
+                    string.format("%s  %s  %s", choice.label, ModifierStr(choice.value), ModifierStr(choice.value + 1))),
+                color = cond(disabled, "#777777", "#dddddd"),
+            },
+            gui.Button{
+                width = 120,
+                height = 24,
+                fontSize = 11,
+                text = cond(choice.id == "stamina", "Take +2 Stamina", "Increase"),
+                classes = {cond(disabled, "collapsed", nil)},
+                click = function()
+                    local success = false
+                    local errorText = nil
+                    CrowdexBuilderUI.ChangeHero(function(hero)
+                        success, errorText = CrowdexAdvancement.ClaimCharacteristic(hero, bonus.index, choice.id)
+                    end)
+                    if success then
+                        gui.CloseModal()
+                    else
+                        errorLabel.text = errorText or "Unable to claim this characteristic advancement."
+                    end
+                end,
+            },
+        }
+    end
+    children[#children + 1] = errorLabel
+    children[#children + 1] = gui.Button{
+        width = 120,
+        height = 24,
+        text = "Cancel",
+        tmargin = 8,
+        click = function() gui.CloseModal() end,
+    }
+
+    gui.ShowModal(gui.Panel{
+        width = 520,
+        height = "auto",
+        maxHeight = 620,
+        classes = {"framedPanel"},
+        gui.Panel{
+            width = "100%",
+            height = "auto",
+            flow = "vertical",
+            pad = 12,
+            borderBox = true,
+            children = children,
+        },
+    })
+end
+
+local function ShowTraitPurchaseDialog(props)
+    if props == nil or CrowdexTraits == nil then return end
+    local catalog = CrowdexTraits.Catalog()
+    if #catalog == 0 then return end
+
+    local treeOptions = {}
+    local seenTrees = {}
+    for _, trait in ipairs(catalog) do
+        if not seenTrees[trait.tree] then
+            seenTrees[trait.tree] = true
+            treeOptions[#treeOptions + 1] = { id = trait.tree, text = trait.tree }
+        end
+    end
+
+    local ownedTraits = CrowdexTraits.OwnedTraits(props)
+    local selectedTree = treeOptions[1].id
+    if #ownedTraits > 0 then selectedTree = ownedTraits[1].tree end
+    local contentPanel
+
+    local function PrerequisiteText(trait)
+        if trait.starting then return "Starting trait: always available to buy." end
+        local names = {}
+        for _, id in ipairs(trait.prerequisites) do
+            local prerequisite = CrowdexTraits.FindById(id)
+            if prerequisite ~= nil then names[#names + 1] = prerequisite.name end
+        end
+        if #names == 0 then return "No connected prerequisite is recorded." end
+        return "Requires any connected trait: " .. table.concat(names, ", ")
+    end
+
+    local function RefreshDialog()
+        local owned = CrowdexTraits.OwnedTraitIds(props)
+        local children = {
+            gui.Label{
+                classes = {"dialogTitle"},
+                text = "Buy Crows Traits",
+            },
+            gui.Label{
+                width = "100%",
+                height = "auto",
+                wrap = true,
+                color = "#cccccc",
+                text = string.format("Available after the last rest: %d XP. Starting traits can be bought freely; other traits require any trait connected to them in the tree.", CrowdexAdvancement.SpendableXP(props)),
+                bmargin = 8,
+            },
+            gui.Panel{
+                width = "100%",
+                height = 28,
+                flow = "horizontal",
+                valign = "center",
+                bmargin = 6,
+                gui.Label{
+                    width = 70,
+                    height = "auto",
+                    text = "Trait tree:",
+                    color = "#aaaaaa",
+                },
+                gui.Dropdown{
+                    width = 260,
+                    height = 24,
+                    idChosen = selectedTree,
+                    options = treeOptions,
+                    change = function(element)
+                        selectedTree = element.idChosen
+                        RefreshDialog()
+                    end,
+                },
+            },
+        }
+
+        for _, trait in ipairs(catalog) do
+            if trait.tree == selectedTree then
+                local canPurchase, reason = CrowdexTraits.CanPurchase(props, trait.id)
+                local isOwned = owned[trait.id] ~= nil
+                children[#children + 1] = gui.Panel{
+                    width = "100%",
+                    height = "auto",
+                    flow = "vertical",
+                    pad = 7,
+                    vmargin = 2,
+                    borderWidth = 1,
+                    borderColor = cond(isOwned, "#8f7c43", "#454545"),
+                    bgimage = "panels/square.png",
+                    bgcolor = "#17171bcc",
+                    borderBox = true,
+                    gui.Panel{
+                        width = "100%",
+                        height = 24,
+                        flow = "horizontal",
+                        valign = "center",
+                        gui.Label{
+                            width = "auto-grow",
+                            height = "auto",
+                            bold = true,
+                            fontSize = 13,
+                            color = cond(isOwned, "#e8d59a", "white"),
+                            text = trait.name,
+                        },
+                        gui.Label{
+                            width = 80,
+                            height = "auto",
+                            textAlignment = "right",
+                            color = "#aaaaaa",
+                            text = string.format("%d XP", trait.cost),
+                        },
+                        gui.Button{
+                            width = 64,
+                            height = 22,
+                            lmargin = 8,
+                            fontSize = 10,
+                            text = "Buy",
+                            classes = {cond(canPurchase, nil, "collapsed")},
+                            click = function()
+                                local success = false
+                                CrowdexBuilderUI.ChangeHero(function(hero)
+                                    success = CrowdexTraits.Purchase(hero, trait.id)
+                                end)
+                                if success then gui.CloseModal() end
+                            end,
+                        },
+                        gui.Label{
+                            width = 84,
+                            height = "auto",
+                            textAlignment = "right",
+                            bold = isOwned,
+                            color = cond(isOwned, "#e8d59a", "#888888"),
+                            text = cond(isOwned, owned[trait.id], "Locked"),
+                            classes = {cond(canPurchase, "collapsed", nil)},
+                            linger = gui.Tooltip{
+                                text = cond(isOwned, "This crow already owns this trait.", reason or "Unavailable."),
+                                maxWidth = 360,
+                            },
+                        },
+                    },
+                    gui.Label{
+                        width = "100%",
+                        height = "auto",
+                        wrap = true,
+                        fontSize = 11,
+                        color = "#cccccc",
+                        text = trait.description,
+                    },
+                    gui.Label{
+                        width = "100%",
+                        height = "auto",
+                        wrap = true,
+                        fontSize = 9,
+                        italics = true,
+                        color = "#888888",
+                        text = PrerequisiteText(trait),
+                        tmargin = 3,
+                    },
+                }
+            end
+        end
+
+        children[#children + 1] = gui.Button{
+            width = 120,
+            height = 24,
+            text = "Close",
+            tmargin = 8,
+            click = function() gui.CloseModal() end,
+        }
+        contentPanel.children = children
+    end
+
+    contentPanel = gui.Panel{
+        width = "100%",
+        height = "auto",
+        maxHeight = 730,
+        flow = "vertical",
+        vscroll = true,
+        pad = 12,
+        borderBox = true,
+    }
+    RefreshDialog()
+    gui.ShowModal(gui.Panel{
+        width = 660,
+        height = "auto",
+        maxHeight = 780,
+        classes = {"framedPanel"},
+        contentPanel,
+    })
 end
 
 -- ---------------------------------------------------------------------------
@@ -478,7 +1032,7 @@ local function CreateCharacteristicsSection()
         readoutBoxes[#readoutBoxes + 1] = CharReadoutBox(c.id, c.label)
     end
     local readoutPanel = gui.Panel{
-        width = "100%",
+        width = 252,
         height = "auto",
         flow = "horizontal",
         wrap = true,
@@ -487,7 +1041,7 @@ local function CreateCharacteristicsSection()
     }
 
     local charContent = gui.Panel{
-        width = 460,
+        width = 440,
         height = "auto",
         flow = "vertical",
         valign = "top",
@@ -526,6 +1080,7 @@ local function CreateCharacteristicsSection()
             end
 
             if choice == nil then
+                charContent.selfStyle.width = 440
                 placeholder:SetClass("collapsed", false)
                 descriptionLabel:SetClass("collapsed", true)
                 cardsPanel:SetClass("collapsed", true)
@@ -545,6 +1100,7 @@ local function CreateCharacteristicsSection()
 
             if selectedGuid ~= nil then
                 -- Selected: show the compact characteristic readout.
+                charContent.selfStyle.width = 252
                 descriptionLabel:SetClass("collapsed", true)
                 cardsPanel:SetClass("collapsed", true)
                 readoutPanel:SetClass("collapsed", false)
@@ -552,6 +1108,7 @@ local function CreateCharacteristicsSection()
             end
 
             -- Unselected: show the spread choice cards.
+            charContent.selfStyle.width = 440
             descriptionLabel.text = choice.description
             descriptionLabel:SetClass("collapsed", false)
             cardsPanel:SetClass("collapsed", false)
@@ -819,7 +1376,9 @@ local function CreateBackgroundSection()
             if #unclaimed > 0 then
                 local names = {}
                 for _, e in ipairs(unclaimed) do
-                    if e.quantity > 1 then
+                    if e.quantityLabel ~= nil then
+                        names[#names + 1] = string.format("%s %s", e.item.name, e.quantityLabel)
+                    elseif e.quantity > 1 then
                         names[#names + 1] = string.format("%s x%d", e.item.name, e.quantity)
                     else
                         names[#names + 1] = e.item.name
@@ -867,14 +1426,134 @@ local function CreateExpertisesSection()
 
             local children = {}
 
+            local totalXP = CrowdexAdvancement.TotalXP(props)
+            local spentXP = CrowdexAdvancement.SpentXP(props)
+            local restedXP = CrowdexAdvancement.RestedXP(props)
+            local unclaimed = CrowdexAdvancement.UnclaimedBonuses(props)
+            local unclaimedCharacteristics = CrowdexAdvancement.UnclaimedCharacteristicBonuses(props)
+
+            local function XPInput(label, value, field, helpText)
+                return gui.Panel{
+                    width = "auto",
+                    height = 24,
+                    flow = "horizontal",
+                    valign = "center",
+                    rmargin = 10,
+                    gui.Label{
+                        width = "auto",
+                        height = "auto",
+                        text = label,
+                        fontSize = 11,
+                        color = "#aaaaaa",
+                    },
+                    gui.Input{
+                        width = 70,
+                        height = 22,
+                        lmargin = 4,
+                        fontSize = 12,
+                        textAlignment = "right",
+                        characterLimit = 8,
+                        text = tostring(value),
+                        change = function(input)
+                            local n = math.max(0, math.floor(tonumber(input.text) or value))
+                            input.text = tostring(n)
+                            CrowdexBuilderUI.ChangeHero(function(hero)
+                                hero[field] = n
+                            end)
+                        end,
+                    },
+                    linger = gui.Tooltip{
+                        text = helpText,
+                        maxWidth = 360,
+                    },
+                }
+            end
+
+            local function XPReadout(label, value, helpText)
+                return gui.Label{
+                    width = "auto",
+                    height = 24,
+                    valign = "center",
+                    fontSize = 11,
+                    color = "#aaaaaa",
+                    text = string.format("%s: %d", label, value),
+                    rmargin = 12,
+                    linger = gui.Tooltip{
+                        text = helpText,
+                        maxWidth = 360,
+                    },
+                }
+            end
+
+            local advancementChildren = {
+                XPInput("TXP", totalXP, "crowdex_totalXP",
+                    "Total XP: all XP this crow has ever earned. TXP never decreases when XP is spent."),
+                XPReadout("Spent", spentXP,
+                    "XP spent on traits. This is calculated from the purchase ledger and cannot be edited directly."),
+                XPReadout("Rested", restedXP,
+                    "TXP recorded at the last completed rest. Advancement and trait purchases use this rested amount."),
+                XPReadout("Available", CrowdexAdvancement.SpendableXP(props),
+                    "Rested TXP minus XP spent on traits. XP earned since the last rest is not spendable yet."),
+            }
+            if #unclaimed > 0 then
+                local nextBonus = unclaimed[1]
+                advancementChildren[#advancementChildren + 1] = gui.Button{
+                    width = 170,
+                    height = 24,
+                    fontSize = 11,
+                    text = string.format("Claim %d TXP Bonus", nextBonus.threshold),
+                    click = function()
+                        ShowExpertiseAdvancementDialog(props, nextBonus)
+                    end,
+                }
+            end
+            if #unclaimedCharacteristics > 0 then
+                local nextBonus = unclaimedCharacteristics[1]
+                advancementChildren[#advancementChildren + 1] = gui.Button{
+                    width = 190,
+                    height = 24,
+                    fontSize = 11,
+                    text = string.format("Increase Characteristic (%d)", nextBonus.threshold),
+                    click = function()
+                        ShowCharacteristicAdvancementDialog(props, nextBonus)
+                    end,
+                }
+            end
+            if #unclaimed == 0 and #unclaimedCharacteristics == 0 and totalXP > restedXP then
+                advancementChildren[#advancementChildren + 1] = gui.Label{
+                    width = 170,
+                    height = "auto",
+                    fontSize = 10,
+                    italics = true,
+                    color = "#999999",
+                    textAlignment = "right",
+                    text = "Finish a rest to unlock earned bonuses.",
+                }
+            end
+
+            children[#children + 1] = gui.Panel{
+                width = "100%",
+                height = "auto",
+                flow = "horizontal",
+                wrap = true,
+                valign = "center",
+                bmargin = 5,
+                children = advancementChildren,
+            }
+
+            children[#children + 1] = gui.Label{
+                width = "100%",
+                height = "auto",
+                fontSize = 10,
+                color = "#888888",
+                wrap = true,
+                text = "After an applicable test, spend one use to improve the result by one tier (maximum tier 3; one expertise per test). A completed rest restores all uses.",
+                bmargin = 3,
+            }
+
             local function appendBucket(label, list)
                 if #list == 0 then return end
-                local remaining = 0
-                for _, exp in ipairs(list) do
-                    remaining = remaining + (exp.remaining or 0)
-                end
-                children[#children + 1] = SheetSubHeading(
-                    string.format("%s (%d uses left)", label, remaining))
+                children[#children + 1] = SheetSubHeading(label)
                 for _, exp in ipairs(list) do
                     children[#children + 1] = ExpertiseRow(exp)
                 end
@@ -889,7 +1568,7 @@ local function CreateExpertisesSection()
     }
 
     return gui.Panel{
-        width = "100%",
+        width = 500,
         height = "auto",
         flow = "vertical",
 
@@ -915,16 +1594,52 @@ local function CreateTraitsSection()
 
         refreshCharacterInfo = function(element, props)
             local list = GetTraits(props)
-            local children = {}
+            local children = {
+                gui.Panel{
+                    width = 500,
+                    height = 26,
+                    flow = "horizontal",
+                    valign = "center",
+                    bmargin = 3,
+                    gui.Label{
+                        width = "auto-grow",
+                        height = "auto",
+                        fontSize = 10,
+                        color = "#888888",
+                        text = string.format("%d owned  |  %d XP available after rest", #list, CrowdexAdvancement.SpendableXP(props)),
+                    },
+                    gui.Button{
+                        width = 100,
+                        height = 22,
+                        fontSize = 10,
+                        text = "Buy Traits",
+                        click = function() ShowTraitPurchaseDialog(props) end,
+                    },
+                },
+            }
             for _, t in ipairs(list) do
-                children[#children + 1] = gui.Label{
+                children[#children + 1] = gui.Panel{
                     width = "100%",
                     height = "auto",
-                    fontSize = 12,
-                    bold = true,
-                    color = "white",
-                    text = t.name or "Trait",
                     tmargin = 4,
+                    flow = "horizontal",
+                    valign = "center",
+                    gui.Label{
+                        width = "auto-grow",
+                        height = "auto",
+                        fontSize = 12,
+                        bold = true,
+                        color = "white",
+                        text = t.name or "Trait",
+                    },
+                    gui.Label{
+                        width = 190,
+                        height = "auto",
+                        fontSize = 9,
+                        color = "#888888",
+                        textAlignment = "right",
+                        text = string.format("%s tree  |  %s", t.tree or "Trait", t.grantedBy or "Owned"),
+                    },
                 }
                 if t.description ~= nil and t.description ~= "" then
                     children[#children + 1] = gui.Label{
@@ -942,7 +1657,7 @@ local function CreateTraitsSection()
     }
 
     return gui.Panel{
-        width = "100%",
+        width = 600,
         height = "auto",
         flow = "vertical",
 
@@ -961,10 +1676,54 @@ end
 -- ---------------------------------------------------------------------------
 
 local function CreateCrowdexSheetTab()
-    -- Left column takes all width except the fixed-width inventory on the
-    -- right (648) plus margins. A definite "100%-N" width (rather than content
-    -- sizing) means a 100%-width child can't blow the column out and shove the
-    -- inventory aside, while still leaving room for the wide d66 table.
+    -- The character area uses two deliberate content columns instead of one
+    -- enormous flexible column. At normal desktop widths identity/background
+    -- sit beside characteristics/expertises/traits; at narrower widths the
+    -- secondary column wraps below. Before a background is chosen, the primary
+    -- column temporarily expands for the 930px d66 table and the secondary
+    -- column naturally wraps.
+    local primaryColumn = gui.Panel{
+        width = 560,
+        height = "auto",
+        flow = "vertical",
+        valign = "top",
+        rmargin = 16,
+
+        CreateIdentitySection(),
+        CreateBackgroundSection(),
+
+        refreshCharacterInfo = function(element, props)
+            local bg = CrowdexBuilderUI.GetBackground(props)
+            element.selfStyle.width = cond(bg == nil, 930, 560)
+        end,
+    }
+
+    local secondaryColumn = gui.Panel{
+        width = 620,
+        height = "auto",
+        flow = "vertical",
+        valign = "top",
+
+        CreateCharacteristicsSection(),
+        CreateExpertisesSection(),
+        CreateTraitsSection(),
+    }
+
+    local detailsGrid = gui.Panel{
+        width = "100%",
+        height = "auto",
+        flow = "horizontal",
+        wrap = true,
+        halign = "left",
+        valign = "top",
+
+        primaryColumn,
+        secondaryColumn,
+    }
+
+    -- Character details take all width except the fixed-width inventory on the
+    -- right. A definite "100%-N" width prevents the d66 table or any 100%-width
+    -- child from pushing the inventory off screen.
     local leftColumn = gui.Panel{
         width = "100%-672",
         height = "100%",
@@ -976,11 +1735,7 @@ local function CreateCrowdexSheetTab()
         rmargin = 12,
         borderBox = true,
 
-        CreateIdentitySection(),
-        CreateCharacteristicsSection(),
-        CreateBackgroundSection(),
-        CreateExpertisesSection(),
-        CreateTraitsSection(),
+        detailsGrid,
     }
 
     -- The inventory interface fills the right column and scrolls internally.

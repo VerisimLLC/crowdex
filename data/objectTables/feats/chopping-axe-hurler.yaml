@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 56df2251-c51b-4728-a478-fe661c98e39c
+name: Axe Hurler
+description: While you wield a handaxe, it's non-melee range increases by 2 squares. This bonus stacks with Mighty
+  Arm.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Chopping
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 9c74ad42-3c1e-40f2-a8cc-8ff093a3db60
+    name: Axe Hurler
+    description: While you wield a handaxe, it's non-melee range increases by 2 squares. This bonus stacks with
+      Mighty Arm.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:56df2251-c51b-4728-a478-fe661c98e39c: true
+  domains:
+    CrowdexTrait:56df2251-c51b-4728-a478-fe661c98e39c: true

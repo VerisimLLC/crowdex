@@ -1,0 +1,135 @@
+# Crows Playtest 2 -- Scorpion, Giant (The Ref Book)
+description: Scorpion, Giant
+id: cb6b3e81-40b2-5270-bbee-4bcf51665d20
+hidden: false
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Animal
+    monster_type: Scorpion, Giant
+    keywords:
+      Animal: true
+    cr: 7
+    creatureSize: 1L
+    max_hitpoints: 25
+    damage_taken: 0
+    walkingSpeed: 6
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -4
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Ceiling Climber
+      description: The scorpion can climb upside down along ceilings.
+      guid: 6624fd1f-c13f-5649-9c53-19df41f36285
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Vise Grip
+      description: On a tier 3 Pince against a Medium or smaller target, the target is grabbed. The scorpion can
+        grab two targets and use a maneuver to deal 3 P damage to all targets grabbed this way.
+      guid: 7154ed0c-2df3-5754-83c3-1f60243aba9d
+      implementation: 2
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Highly Venomous
+      description: A tier 2 Sting weakens the target; a tier 3 Sting makes the target vulnerable and weakened.
+      guid: 31d46d3c-132a-5fee-9ee9-964a7580ae92
+      implementation: 3
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Vibration Sense
+      description: The scorpion knows the exact location of creatures within 2 squares and suffers no penalties
+        on attacks against or tests to observe them.
+      guid: 8c3cd8d2-0d85-5201-a982-ee4c1ed2c34c
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Pince
+      guid: 0e4e31cf-edb3-5797-a5e0-85673e9a0b66
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '2'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 2
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 2 damage
+        - 4 damage; grabbed
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Sting
+      guid: 3e269d4f-bda5-5581-852a-96e7bfd0c5de
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '2'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 4 damage; weakened
+        - 7 damage; vulnerable; weakened
+      meleeRange: 2
+    - __typeName: ActivatedAbility
+      name: Vise Grip
+      guid: 845ca6e5-c6c6-5c68-a0c5-f740611de137
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Deal 3 P damage to all targets grabbed by this scorpion's Pince. Apply it as piercing damage.
+      implementation: 1
+      keywords: {}
+      behaviors: []
+    movementSpeeds:
+      climb: 6

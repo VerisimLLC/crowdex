@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Blacksmith's Tools
+_table: tbl_Gear
+__typeName: equipment
+id: dea4a76a-b8a7-4744-8a64-a20211e13171
+name: "Blacksmith's Tools"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1a2310f0-03b6-4aae-b514-10ec95cc7571
+costInGold: 15
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Required to make crafting rolls for blacksmithing items. Fine tools grant +1 on Blacksmithing crafting rolls; masterwork tools grant +2."
+implementation: 1
+domains:
+  item:dea4a76a-b8a7-4744-8a64-a20211e13171: true

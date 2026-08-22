@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9f550f46-ff5b-4f4b-832e-3df837c051b1
+name: Pack a Punch
+description: For you, an empty hand slot is an unarmed strike that deals 2 + S or A dam on a tier 2 result and 4
+  + S or A dam on a tier 3 result. This unarmed strike has the Light weapon property.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 55495864-cee3-42ac-9ae4-5d5e064dd78c
+    name: Pack a Punch
+    description: For you, an empty hand slot is an unarmed strike that deals 2 + S or A dam on a tier 2 result and
+      4 + S or A dam on a tier 3 result. This unarmed strike has the Light weapon property.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9f550f46-ff5b-4f4b-832e-3df837c051b1: true
+  domains:
+    CrowdexTrait:9f550f46-ff5b-4f4b-832e-3df837c051b1: true

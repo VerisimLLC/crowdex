@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: cb6909b4-1093-4d8b-a101-a358093c8a60
+name: Blessed Summons
+description: When you summon a creature with a conjuration spell, they are blessed.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Conjuration
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 45fcc40f-374c-4cc6-83c0-55f7bb3262b6
+- fb82532c-30e5-4828-ba00-b887f3e47af1
+- 887881a6-ba40-489e-9297-82a8b68d84ec
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 5fa8a7ac-f1ad-456e-b5e8-18b3b532076f
+    name: Blessed Summons
+    description: When you summon a creature with a conjuration spell, they are blessed.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:cb6909b4-1093-4d8b-a101-a358093c8a60: true
+  domains:
+    CrowdexTrait:cb6909b4-1093-4d8b-a101-a358093c8a60: true

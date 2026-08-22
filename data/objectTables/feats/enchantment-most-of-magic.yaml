@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: a5cdadc4-8b47-45b3-9866-56589620ba8f
+name: Most of Magic
+description: When you finish a rest, you gain a magic charge for each magic item worn in a slot. You can spend a
+  charge after you make a test to give it a +1 bonus. Old charges disappear when you gain new ones.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- aab5d0f5-f2a2-44d5-b7a8-75c892f81e17
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 29075d2d-1bfd-4277-9795-693a7c591947
+    name: Most of Magic
+    description: When you finish a rest, you gain a magic charge for each magic item worn in a slot. You can spend
+      a charge after you make a test to give it a +1 bonus. Old charges disappear when you gain new ones.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:a5cdadc4-8b47-45b3-9866-56589620ba8f: true
+  domains:
+    CrowdexTrait:a5cdadc4-8b47-45b3-9866-56589620ba8f: true

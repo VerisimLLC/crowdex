@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9b927905-9532-464d-a49b-a2860ca4add7
+name: Split Shot
+description: When you make an attack with a bow, you can use twice as much ammunition and select two targets within
+  range for the attack.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- b81e042f-8dc5-4a55-b784-0f6da40821f3
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 9ef78566-5896-466a-827f-705ed60bc238
+    name: Split Shot
+    description: When you make an attack with a bow, you can use twice as much ammunition and select two targets
+      within range for the attack.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9b927905-9532-464d-a49b-a2860ca4add7: true
+  domains:
+    CrowdexTrait:9b927905-9532-464d-a49b-a2860ca4add7: true

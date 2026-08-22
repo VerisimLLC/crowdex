@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9f7f6a65-8a01-41d3-a470-1759e41335cb
+name: Wrestle Big
+description: While you have at least 1 hand slot free, you can target creatures 1 size larger than you or smaller
+  with the Grab maneuver.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 9f550f46-ff5b-4f4b-832e-3df837c051b1
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ea9eb82c-6fb7-4220-8a30-e137b30406ba
+    name: Wrestle Big
+    description: While you have at least 1 hand slot free, you can target creatures 1 size larger than you or smaller
+      with the Grab maneuver.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9f7f6a65-8a01-41d3-a470-1759e41335cb: true
+  domains:
+    CrowdexTrait:9f7f6a65-8a01-41d3-a470-1759e41335cb: true

@@ -1,0 +1,26 @@
+_table: feats
+__typeName: CharacterFeat
+id: f2561c63-5e7b-4664-9eb7-c58869edb36f
+name: Javelin
+description: You can make a ranged attack with a spear with a range of ranged 5.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 011f625c-af09-4754-bf2d-1e3b46fe4e6a
+    name: Javelin
+    description: You can make a ranged attack with a spear with a range of ranged 5.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f2561c63-5e7b-4664-9eb7-c58869edb36f: true
+  domains:
+    CrowdexTrait:f2561c63-5e7b-4664-9eb7-c58869edb36f: true

@@ -1,0 +1,145 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -9
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 83618357-c1e4-4e21-80fd-f9f9701084de
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1.245901
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Horse, War
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    monster_type: Horse, War
+    walkingSpeed: 8
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 20
+    cr: 6
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: If the horse moves at least 4 squares before its rider makes an attack on the same turn, the rider's attack deals an additional 2 damage. (Applied manually.)
+      implementation: 1
+      source: Trait
+      modifiers: []
+      domains:
+        CharacterFeature:df027308-a695-4f33-9dc3-9f6f4bead99d: true
+      name: Mounted Charge
+      guid: df027308-a695-4f33-9dc3-9f6f4bead99d
+    keywords:
+      Animal: true
+    levelChoices: []
+    creatureSize: 1L
+    damage_taken: 0
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 65a7e006-3562-40f4-840e-4ae477e013eb
+    crowsSlots: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 4 damage
+        - 6 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Kick
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 51bf2da1-c641-4e6a-8d85-08b922ded2bb
+  tokenType: null
+  bestiaryId: d1b9de3b-01b7-4223-9469-938d091315d2
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 3
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACpVV247bNhD9FUJ9SIuuNpIsy5e3bYC2QZsiWC+aR2MkjiTCFKmQlLdO0H/vkJKdjWtvNn6wPaMz9zOjz9F26w49/gUdRuuo08o6NNENi4RS4PCucmJPv/yuFFI4gTZaf45S//WV4Rnu4D2U2MJeaPNCk/f6Ec29lvKXyc77AOeM4IS2zqBqXOuVhkCkyniasJ9Z5lWU2SlO5BUZ/eaMQwcNenlGcvFE3soBHqCUlEkN0uK/X+ucGc5VJ5joeokdKgdOaBWtc58S9gjuAUyDzk5YUldUX6ON+DRBo41oqK2DQfakUWpsyB+i2nmRo62M6CeLABi6k2uq0GOE7SUcfMXtgLYVtYvWiW+6EU3rFFqCpl5uKi2pl+voh3r6eHvrk5iSSi+XbkA1eIzXDGEK87SsMw5pXBV5GudYQLzky3mcLMtVlnHkWVmGsY3FPdC0yUppFXq+w8OjNjzMaUNz3U3R6NE7lPhFupBN5wH3Y0o+4U5zUR+HfnFKlVYh50HE/r99bXdCSvs6ve1VE5KsfP33aPVgKnzrsTxdFfMlZHHOF2Wcz5M8hnqFcQrzPE3qMl3UPNAtTGMqbxSilxPoEeROqGbTI1LQJWnw4yB6T6lr1UyLuZ0IdfD7o0QH0oetDAZObcSnMLA/vbKDf7atcL0WytMmSwIwWheBrWPNV5tXtWCoPWh+HT1fWeE3Z7D/s/dtzVyLrKUrgKzTe7QMHJMI1rGc2Y8DkHNWYq1pJYSzjLYdDetg55GKwA6qHdMquLEUllEgdRPEgH1ljyCOlH4w4lz4+CBZNq38Lfvxru+lQE6+1QBSHm5/erJ77/Sg6BQxX9F4ICbG8zrJFrNkGUOxmsd5PZvFK17RV13UeYnAV6vAiG/ykesOhAqPz9u2flGQZ5ZjnCZl+2BABCae36grO34p0adbOnHsmdAS9yjftFo8w6ZxBFtHQ1XjlTrS2Y0b9Lunxw37AF9ufjm40eHp8F8l390RH146YPFvkAMhMt+H83fHhRKgGS/xdwdIjgGOHq6cLqH49zuPT+kH+2/O76gSirhPU9/jb0YPPd0Z/+abwwKTpIhn84KOW1Ln8TJPMM4B8wU9SWdYjpdEP9qN1P5ipL68cDPfG12LSqCqxPUhn6fyH5OsZ7taCAAA
+forkTime: 1781750473896
+description: Horse, War
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 22
+ctime: 1787361592516
+mtime: 1787361592516
+hidden: true
+id: d1b9de3b-01b7-4223-9469-938d091315d2

@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 596af598-7bdc-4c65-8d32-d92f175e59ac
+name: Cram
+description: When you read a lore book as a rest activity, you can read a second lore book as part of the same activity.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 29f0d034-94b0-488d-b5c9-76122dc4cdee
+    name: Cram
+    description: When you read a lore book as a rest activity, you can read a second lore book as part of the same
+      activity.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:596af598-7bdc-4c65-8d32-d92f175e59ac: true
+  domains:
+    CrowdexTrait:596af598-7bdc-4c65-8d32-d92f175e59ac: true

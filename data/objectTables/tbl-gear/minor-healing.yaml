@@ -1,0 +1,36 @@
+# Crows Playtest 2 -- Minor Healing Book R 0
+_table: tbl_Gear
+__typeName: equipment
+id: e054d4d5-dbbb-48ee-8a18-4f0b6f4de4c6
+name: "Minor Healing"
+type: Gear
+category: Gear
+equipmentCategory: b8e4d6a2-9f13-4c57-ae80-3d1f6b29c4e7
+iconid: 6f93e59f-2e72-4856-9e96-c1fcf3909dc4
+costInGold: 250
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: "The target regains Stamina based on the casting. Usage Dice 1, rolled on activation; restored on a rest."
+implementation: 1
+domains:
+  item:e054d4d5-dbbb-48ee-8a18-4f0b6f4de4c6: true
+crowsSpellbook: true
+crowsSpellRank: 0
+crowsSpellDiscipline: Benefaction
+crowsCastingTime: Maneuver
+crowsSpellRange: 1
+crowsSpellRangeText: "Melee 1"
+crowsSpellTargetType: target
+crowsSpellNumTargets: 1
+crowsSpellTargetText: "1 creature"
+crowsSpellDuration: "Instant"
+crowsSpellMelee: true
+crowsSpellRanged: false
+crowsSpellAttack: false
+crowsSpellTier1: "Target regains 1 + M Stamina."
+crowsSpellTier2: "Target regains 2 + M Stamina."
+crowsSpellTier3: "Target regains 4 + M Stamina."
+usageDice: 1
+usageDiceTrigger: activate
+usageDiceRestore: rest

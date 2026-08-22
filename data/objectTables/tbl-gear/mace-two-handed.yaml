@@ -1,0 +1,29 @@
+# Crows Playtest 2 -- Mace (Two-Handed)
+#
+# Craft prerequisite restated: a skill bonus is now a number of
+# expertise uses.
+#
+# Emitted from the live record: gear import REPLACES the whole entry, so a
+# partial file would silently drop every field it omits.
+_table: tbl_Gear
+__typeName: equipment
+id: 11b0d66e-dd6b-4a3f-9bb1-b62b7e49d730
+name: Mace (Two-Handed)
+category: Gear
+costInGold: 15
+crowsAttackStat: S
+crowsMeleeRange: 2
+crowsQualities: Pummeling
+crowsTier2: 3 + S
+crowsTier3: 6 + S
+crowsWeaponType: Bashing
+description: 'Melee 2. Attack 2d10 + S; 12-16: 3 + S; 17+: 6 + S. Bashing, Pummeling. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10. (The price table calls this weapon a Flail.)'
+domains:
+  item:11b0d66e-dd6b-4a3f-9bb1-b62b7e49d730: true
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: b4f854e2-d689-45ad-be6a-0343d7264ffa
+slotsRequired: 2
+stackLimit: 1
+type: Gear
+weight: 5

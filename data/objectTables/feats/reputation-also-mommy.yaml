@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: b2d76142-c4d9-439e-a3f5-ff6e4d42946c
+name: Also Mommy
+description: Your Call Daddy trait can apply to two merchants of your choice. You can change one or both once every
+  cycle.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 28b5b946-05e4-4632-8938-729ec5c83c61
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 01d030ca-9858-4ce0-a1aa-6613bf64549f
+    name: Also Mommy
+    description: Your Call Daddy trait can apply to two merchants of your choice. You can change one or both once
+      every cycle.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b2d76142-c4d9-439e-a3f5-ff6e4d42946c: true
+  domains:
+    CrowdexTrait:b2d76142-c4d9-439e-a3f5-ff6e4d42946c: true

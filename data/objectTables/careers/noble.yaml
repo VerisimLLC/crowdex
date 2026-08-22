@@ -1,0 +1,371 @@
+# Crows Playtest 2 -- background: Noble
+#
+# Rewritten for the August-September 2026 playtest. Three features change:
+#   Characteristics -- Playtest 2 sets one characteristic to 2 and lets the
+#     other two be a 1 and a 0, or a -1 and a 2, assigned either way round.
+#     Playtest 1 started everything at 0 and raised one to +1.
+#   Skills -> Expertises -- the proficiency grant becomes resource grants,
+#     because an expertise is a spendable pool of uses, not a flat bonus.
+#   Stamina -- taken from the Playtest 2 entry.
+#
+# The trait is carried through verbatim. Equipment matches the Playtest 2
+# profession inventory card and references local Crowdex tbl_Gear records.
+_table: careers
+__typeName: Background
+id: 67aaa2b4-3b59-48e4-bf70-7ca334453874
+name: "Noble"
+description: "You grew up in a family that had wealth and power."
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeatureChoice
+    name: Characteristics
+    guid: 7eca880c-08d2-485f-8cd6-74254901cb08
+    numChoices: 1
+    allowDuplicateChoices: false
+    description: "This background sets Agility or Mind to 2. Your other two characteristics are your choice of a 1 and a 0, or a -1 and a 2, assigned however you like."
+    options:
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +1, Strength 0"
+      description: "Agility +2, Mind +1, Strength 0."
+      guid: 589e2bd6-56bd-414a-b97e-e0b1b8176604
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: df1681cd-2c2d-41ff-aba1-2e214544f0e7
+        source: "Noble Career Feature"
+        sourceguid: 589e2bd6-56bd-414a-b97e-e0b1b8176604
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 1
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 44de7d62-c170-4ee1-ba90-f39ef46afbbc
+        source: "Noble Career Feature"
+        sourceguid: 589e2bd6-56bd-414a-b97e-e0b1b8176604
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +2, Mind +1, Strength 0"
+        guid: 63ee120a-e097-490d-a2d0-d2d9b6e54332
+        source: "Noble Career Feature"
+        sourceguid: 589e2bd6-56bd-414a-b97e-e0b1b8176604
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind 0, Strength +1"
+      description: "Agility +2, Mind 0, Strength +1."
+      guid: b14d0018-daac-419a-bc09-f298fc32926a
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: ae9baa16-d355-406d-8fc4-177c0b15a420
+        source: "Noble Career Feature"
+        sourceguid: b14d0018-daac-419a-bc09-f298fc32926a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 0
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 1c911244-a254-4013-8c77-c06d7b1d791f
+        source: "Noble Career Feature"
+        sourceguid: b14d0018-daac-419a-bc09-f298fc32926a
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility +2, Mind 0, Strength +1"
+        guid: 96a15faf-bd14-48c9-9ff7-b94763a5af25
+        source: "Noble Career Feature"
+        sourceguid: b14d0018-daac-419a-bc09-f298fc32926a
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 99229a7d-1ebe-42cf-9fb6-873a16988cb8
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: a1bf36f8-77dc-430e-aedc-e9afdf66461c
+        source: "Noble Career Feature"
+        sourceguid: 99229a7d-1ebe-42cf-9fb6-873a16988cb8
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 8542d02b-c61e-4c73-9c74-9287d996738b
+        source: "Noble Career Feature"
+        sourceguid: 99229a7d-1ebe-42cf-9fb6-873a16988cb8
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: cf568769-e591-4055-a0ff-6e7205c54378
+        source: "Noble Career Feature"
+        sourceguid: 99229a7d-1ebe-42cf-9fb6-873a16988cb8
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind -1, Strength +2"
+      description: "Agility +2, Mind -1, Strength +2."
+      guid: 7d8630f8-d578-496b-bb53-975e9c9c60bc
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: ad062258-ea3f-4ae0-88a7-68cf926dac67
+        source: "Noble Career Feature"
+        sourceguid: 7d8630f8-d578-496b-bb53-975e9c9c60bc
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: -1
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: 6a1e8efe-173a-4c57-9350-6d1b770ce37b
+        source: "Noble Career Feature"
+        sourceguid: 7d8630f8-d578-496b-bb53-975e9c9c60bc
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility +2, Mind -1, Strength +2"
+        guid: e2dc9f32-c83d-41f1-ad75-6fdad75abd1f
+        source: "Noble Career Feature"
+        sourceguid: 7d8630f8-d578-496b-bb53-975e9c9c60bc
+    - __typeName: CharacterFeature
+      name: "Agility +1, Mind +2, Strength 0"
+      description: "Agility +1, Mind +2, Strength 0."
+      guid: 8b7d6a79-fc15-4885-bcc2-c11b87f504d2
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 1
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: 8c05f8b2-eea9-4776-a0c6-ec46da5bf764
+        source: "Noble Career Feature"
+        sourceguid: 8b7d6a79-fc15-4885-bcc2-c11b87f504d2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: ad0e41e9-bba9-4a69-8926-0dfd3dbb9568
+        source: "Noble Career Feature"
+        sourceguid: 8b7d6a79-fc15-4885-bcc2-c11b87f504d2
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 0
+        name: "Agility +1, Mind +2, Strength 0"
+        guid: e1712382-5cf3-48c7-9675-ee93988ce63d
+        source: "Noble Career Feature"
+        sourceguid: 8b7d6a79-fc15-4885-bcc2-c11b87f504d2
+    - __typeName: CharacterFeature
+      name: "Agility 0, Mind +2, Strength +1"
+      description: "Agility 0, Mind +2, Strength +1."
+      guid: 68c0d680-d5d6-49a0-8b2c-67f2b1e2bd50
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 0
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: cbf858c9-4603-4739-80ac-83bb00276672
+        source: "Noble Career Feature"
+        sourceguid: 68c0d680-d5d6-49a0-8b2c-67f2b1e2bd50
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 70c7c421-068a-4d12-8bbf-3255df61e9ad
+        source: "Noble Career Feature"
+        sourceguid: 68c0d680-d5d6-49a0-8b2c-67f2b1e2bd50
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 1
+        name: "Agility 0, Mind +2, Strength +1"
+        guid: 0e14919b-20c5-4dad-a083-cfcc929888df
+        source: "Noble Career Feature"
+        sourceguid: 68c0d680-d5d6-49a0-8b2c-67f2b1e2bd50
+    - __typeName: CharacterFeature
+      name: "Agility +2, Mind +2, Strength -1"
+      description: "Agility +2, Mind +2, Strength -1."
+      guid: 4afae457-b77a-4693-bc9f-1521d1e92bec
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: b02c8365-ae33-46d8-8079-33a30f36c692
+        source: "Noble Career Feature"
+        sourceguid: 4afae457-b77a-4693-bc9f-1521d1e92bec
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: 790f98d4-5d66-4495-8bbb-a6c9c1ea2c0f
+        source: "Noble Career Feature"
+        sourceguid: 4afae457-b77a-4693-bc9f-1521d1e92bec
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: -1
+        name: "Agility +2, Mind +2, Strength -1"
+        guid: f3e02855-46bd-474b-8b34-6bfa69cef8a5
+        source: "Noble Career Feature"
+        sourceguid: 4afae457-b77a-4693-bc9f-1521d1e92bec
+    - __typeName: CharacterFeature
+      name: "Agility -1, Mind +2, Strength +2"
+      description: "Agility -1, Mind +2, Strength +2."
+      guid: 33d789f9-55d6-4324-805c-56023c474889
+      implementation: 3
+      source: "Noble Career Feature"
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: agility
+        value: -1
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 1b471df0-f203-4bb8-aabd-1748b9881ddc
+        source: "Noble Career Feature"
+        sourceguid: 33d789f9-55d6-4324-805c-56023c474889
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: mind
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: 9d813b1d-20d5-4c6c-bee7-f3e1d59acf3b
+        source: "Noble Career Feature"
+        sourceguid: 33d789f9-55d6-4324-805c-56023c474889
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: strength
+        value: 2
+        name: "Agility -1, Mind +2, Strength +2"
+        guid: e85f8cd9-9c30-44ca-8560-d3cf53cfe70e
+        source: "Noble Career Feature"
+        sourceguid: 33d789f9-55d6-4324-805c-56023c474889
+  - __typeName: CharacterFeature
+    name: Stamina
+    description: "Your Stamina score is 7."
+    guid: 15bf76fd-5def-4193-9aef-136147fe9070
+    implementation: 3
+    source: "Noble Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: attribute
+      attribute: hitpoints
+      value: 7
+      name: Stamina
+      guid: 7830dcdb-b684-45da-bdbc-9fd614f18b0e
+      source: "Noble Career Feature"
+      sourceguid: 15bf76fd-5def-4193-9aef-136147fe9070
+  - __typeName: CharacterFeature
+    name: Expertises
+    description: "You have Bow (1 use), Handle Pet (1 use), Historical Lore (2 uses), Religious Lore (1 use), Stealth (1 use)."
+    guid: 200cfd41-b2af-48a3-b90d-30b1de4798ed
+    implementation: 3
+    source: "Noble Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+      num: 1
+      name: Expertises
+      description: "Bow (1 use)"
+      guid: e26b147d-8d0d-4896-9461-9dd311f2bdc1
+      source: "Noble Career Feature"
+      sourceguid: 200cfd41-b2af-48a3-b90d-30b1de4798ed
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9bfefbbb-7146-4b37-8247-35c63b6a0243
+      num: 1
+      name: Expertises
+      description: "Handle Pet (1 use)"
+      guid: 03868029-18f3-4abf-9105-85a407125b28
+      source: "Noble Career Feature"
+      sourceguid: 200cfd41-b2af-48a3-b90d-30b1de4798ed
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+      num: 2
+      name: Expertises
+      description: "Historical Lore (2 uses)"
+      guid: 85865aa4-1933-4ff1-8539-0786b8468451
+      source: "Noble Career Feature"
+      sourceguid: 200cfd41-b2af-48a3-b90d-30b1de4798ed
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+      num: 1
+      name: Expertises
+      description: "Religious Lore (1 use)"
+      guid: 75cb82d2-696a-4fc7-8e74-9b5bc6d9d158
+      source: "Noble Career Feature"
+      sourceguid: 200cfd41-b2af-48a3-b90d-30b1de4798ed
+    - __typeName: CharacterModifier
+      behavior: resource
+      resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+      num: 1
+      name: Expertises
+      description: "Stealth (1 use)"
+      guid: d18c5f8a-b8db-40dc-9129-1dbc59fb72d5
+      source: "Noble Career Feature"
+      sourceguid: 200cfd41-b2af-48a3-b90d-30b1de4798ed
+  - __typeName: CharacterFeature
+    name: "Trait: Call Daddy"
+    description: "Choose a merchant in your village. When you need to roll for an item's availability from that merchant, the AO increases by 5%. You can change your choice of merchant once every cycle."
+    guid: fea4c372-6a31-4b2f-afcb-e71936a7f8f7
+    implementation: 1
+    source: "Noble Career Feature"
+    crowdexTraitId: 28b5b946-05e4-4632-8938-729ec5c83c61
+    modifiers: []
+  - __typeName: CharacterFeature
+    name: Equipment
+    description: "You start with: Lantern, Animal Feed x6, Lore Book. Like all crows, you also start with an empty coin purse, a knife, a rope, six rations, and 3d6 gc."
+    guid: 17368841-3924-41a7-bffe-40044fbc9239
+    implementation: 2
+    source: "Noble Career Feature"
+    modifiers:
+    - __typeName: CharacterModifier
+      behavior: startingequipment
+      name: Equipment
+      description: ""
+      guid: eb4817d7-6f8b-4d25-965f-1b91e8541660
+      source: "Noble Career Feature"
+      sourceguid: 17368841-3924-41a7-bffe-40044fbc9239
+      equipment:
+      - itemid: 5f129128-eb81-4f01-b73d-cb417c5f85b6
+        quantity: 1
+      - itemid: 20815e97-82f3-4161-8671-52eb66b2a2bc
+        quantity: 6
+      - itemid: 71787968-39b5-48f2-be2e-b270bca85e07
+        quantity: 1

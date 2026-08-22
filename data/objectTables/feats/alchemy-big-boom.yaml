@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 5768947d-6d81-4db5-be06-e09a7d19aba7
+name: Big Boom
+description: Bombs you craft have the size of the cube they effect increased by 1.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 7d06aea8-8308-4643-966e-3513a1a6f32d
+- 81b7405b-6685-418b-b58d-b793f6efc188
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: d12151a7-6aa2-493d-ad74-bf80d4a08d09
+    name: Big Boom
+    description: Bombs you craft have the size of the cube they effect increased by 1.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:5768947d-6d81-4db5-be06-e09a7d19aba7: true
+  domains:
+    CrowdexTrait:5768947d-6d81-4db5-be06-e09a7d19aba7: true

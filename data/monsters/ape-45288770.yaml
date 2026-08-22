@@ -1,0 +1,140 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -11
+    - 7
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      climb: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      description: ""
+      numTargets: "1"
+      meleeRange: 1
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 5 damage
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      targetType: target
+      keywords:
+        Strike: true
+        Melee: true
+      repeatTargets: false
+      iconid: ui-icons/skills/1.png
+      implementation: 4
+      categorization: Signature Ability
+      name: Punch
+      guid: 3aec820b-24a1-5765-a1df-8a940ccff907
+    walkingSpeed: 5
+    equipment: []
+    monster_category: Animal
+    creatureSize: 1M
+    inflictedConditions: []
+    max_hitpoints: 10
+    cr: 4
+    damage_taken: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When the ape has 0 Stamina, they deal an additional 2 damage with attacks.
+      name: Dangerous When Cornered
+      guid: 45d6232d-c85a-53af-b89e-c73c69fac357
+      modifiers: []
+      implementation: 1
+      source: Trait
+      domains:
+        CharacterFeature:45d6232d-c85a-53af-b89e-c73c69fac357: true
+    keywords:
+      Animal: true
+    levelChoices: []
+    skillProficiencies: []
+    resources: []
+    attributes:
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -1
+        id: mind
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+    initiativeGrouping: 2768807c-6937-4eef-96dd-6892c9e88c36
+    crowsSlots: 10
+    monster_type: Ape
+  tokenType: null
+  bestiaryId: 65343326-43ce-5ccd-b9ae-809ec9a83012
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 2
+  createdTimestamp: 1787362290395
+description: Ape
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787362325257
+hidden: false
+id: 65343326-43ce-5ccd-b9ae-809ec9a83012

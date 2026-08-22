@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 23ead383-0821-4bc1-bae6-cf8c1c97f685
+name: Song of Rest
+description: As a rest activity, you can play a song on an instrument. At the end of the rest, each ally who rested
+  with you is blessed.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Camping
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: a5333d2d-cff1-4cef-8851-9da6c7ab4993
+    name: Song of Rest
+    description: As a rest activity, you can play a song on an instrument. At the end of the rest, each ally who
+      rested with you is blessed.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:23ead383-0821-4bc1-bae6-cf8c1c97f685: true
+  domains:
+    CrowdexTrait:23ead383-0821-4bc1-bae6-cf8c1c97f685: true

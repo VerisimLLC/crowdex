@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 4eda4263-c37a-4a23-a66c-f90df0df9dba
+name: Into the Pack
+description: When you use the Move Speed maneuver, you can use the Pick Up Item maneuver too. You don't need to
+  have a free hand slot and can put the item in any free slot when you use the Pick Up Item maneuver.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Thievery
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 380376d1-03c9-4267-83ee-24f153b82bad
+- e3e79b75-cda8-4328-b987-c66e1899d0e3
+- df157c28-86b3-4ece-bf40-0c3cbf2225d8
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 440b56b7-0af4-4039-838d-597de2a15c90
+    name: Into the Pack
+    description: When you use the Move Speed maneuver, you can use the Pick Up Item maneuver too. You don't need
+      to have a free hand slot and can put the item in any free slot when you use the Pick Up Item maneuver.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:4eda4263-c37a-4a23-a66c-f90df0df9dba: true
+  domains:
+    CrowdexTrait:4eda4263-c37a-4a23-a66c-f90df0df9dba: true

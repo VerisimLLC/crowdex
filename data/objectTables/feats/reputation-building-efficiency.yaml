@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 25e6af64-8899-45a4-8999-034416f39323
+name: Building Efficiency
+description: The merchant affected by your Favorite Customer trait operates as if they were 1 level higher than
+  their actual level.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- f9fe5a06-969c-4c9c-aaee-ade52794cae5
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 16563812-da51-449a-abed-f4c857a70658
+    name: Building Efficiency
+    description: The merchant affected by your Favorite Customer trait operates as if they were 1 level higher than
+      their actual level.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:25e6af64-8899-45a4-8999-034416f39323: true
+  domains:
+    CrowdexTrait:25e6af64-8899-45a4-8999-034416f39323: true

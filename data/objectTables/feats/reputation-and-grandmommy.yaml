@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 75e00cb5-04e3-44e0-a6a1-4097e5a807b1
+name: And Grandmommy
+description: Your Call Daddy trait applies to three merchants of your choice. You can change up to three once every
+  cycle.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- f27676a3-bedc-4c47-a5cd-519cd2a64ada
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: c39646e3-43c6-4f01-ae31-8efabc61ea47
+    name: And Grandmommy
+    description: Your Call Daddy trait applies to three merchants of your choice. You can change up to three once
+      every cycle.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:75e00cb5-04e3-44e0-a6a1-4097e5a807b1: true
+  domains:
+    CrowdexTrait:75e00cb5-04e3-44e0-a6a1-4097e5a807b1: true

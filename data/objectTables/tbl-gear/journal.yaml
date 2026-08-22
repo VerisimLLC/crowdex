@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Journal
+_table: tbl_Gear
+__typeName: equipment
+id: 765ce1f5-338f-4308-839a-d3643b188f86
+name: "Journal"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 6f93e59f-2e72-4856-9e96-c1fcf3909dc4
+costInGold: 2
+weight: 0
+stackLimit: 1
+slotsRequired: 1
+description: "A bound journal with 200 blank pages."
+implementation: 1
+domains:
+  item:765ce1f5-338f-4308-839a-d3643b188f86: true

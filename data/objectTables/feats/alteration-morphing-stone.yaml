@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: b318ad46-7a5d-4f62-844c-d6f83cd83346
+name: Morphing Stone
+description: A creature who holds the stone can use a maneuver to change it into the shape of a mace, maul, flail,
+  or back to its original form. The stone gains the stats of its weapon form while retaining its own stats.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alteration
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- f7f6e4fb-7774-42ec-a881-6209f55f4d96
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 81568cef-8ba5-4318-87ea-da35072be005
+    name: Morphing Stone
+    description: A creature who holds the stone can use a maneuver to change it into the shape of a mace, maul,
+      flail, or back to its original form. The stone gains the stats of its weapon form while retaining its own
+      stats.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b318ad46-7a5d-4f62-844c-d6f83cd83346: true
+  domains:
+    CrowdexTrait:b318ad46-7a5d-4f62-844c-d6f83cd83346: true

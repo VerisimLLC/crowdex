@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: 874514ac-9a20-4d3a-825a-6c9691fcc008
+name: Shot in the Dark
+description: Attacks you make with bows don't suffer a penalty for the target being in dim light or similar concealment,
+  and they only suffer a -2 penalty against target in darkness or similar concealment.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 929bd5ba-b85c-48a3-9f47-87252bc369b5
+- ad6ee170-7e3b-4a7e-b168-9d3af0b95c09
+- db3f6c68-8a08-41e0-b096-789ee29f99ec
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 27cbc851-a834-4983-9977-928d304d5e52
+    name: Shot in the Dark
+    description: Attacks you make with bows don't suffer a penalty for the target being in dim light or similar
+      concealment, and they only suffer a -2 penalty against target in darkness or similar concealment.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:874514ac-9a20-4d3a-825a-6c9691fcc008: true
+  domains:
+    CrowdexTrait:874514ac-9a20-4d3a-825a-6c9691fcc008: true

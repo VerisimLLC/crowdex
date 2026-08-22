@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 52bfa29a-339e-4710-adff-3b0897db77bf
+name: Alchemy Epiphany
+description: When you make a crafting roll for an alchemy item, you get a crit when the dice without modifiers equal
+  18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Alchemy
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 95e7fe7a-3481-4b28-aa91-46bb941af3c4
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 10b5a4e1-e314-428c-8bbb-43175195ff47
+    name: Alchemy Epiphany
+    description: When you make a crafting roll for an alchemy item, you get a crit when the dice without modifiers
+      equal 18, 19, or 20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:52bfa29a-339e-4710-adff-3b0897db77bf: true
+  domains:
+    CrowdexTrait:52bfa29a-339e-4710-adff-3b0897db77bf: true

@@ -1,0 +1,44 @@
+# Crows Playtest 2 -- Minor Telekinesis Ring
+#
+# Playtest 2 gave this ring a magic item slot (the card reads "Slot Ring";
+# the rules call that slot Finger). Otherwise unchanged.
+#
+# Gear import REPLACES the whole record, so this file carries the entire item.
+_table: tbl_Gear
+__typeName: equipment
+id: bc73efb0-4dec-42b4-820f-2adbdc500562
+name: Minor Telekinesis Ring
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  name: Minor Telekinesis Ring
+  guid: fe7139db-9723-40ca-a0da-722b6607f4fe
+  actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+  categorization: Ability
+  numTargets: '1'
+  range: 10
+  targetType: self
+  iconid: 2e995833-9260-4fe7-9411-d1c69889d4a9
+  description: Pick an unattended Small or smaller object within 10 squares and vertically slide it up
+    to 10 squares. Roll the Usage Die after activating.
+  implementation: 1
+  keywords:
+    Magic: true
+  behaviors: {}
+costInGold: 1000
+crowsMagicSlot: Finger
+description: 'Action: pick an unattended Small or smaller object within 10 squares of you. You vertically
+  slide that object up to 10 squares. Usage Dice 1, rolled on activation; restored on a rest. Slot: Finger.
+  Craft: Enchanting (2 uses), gem worth 100 gc, 100.'
+domains:
+  item:bc73efb0-4dec-42b4-820f-2adbdc500562: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 2e995833-9260-4fe7-9411-d1c69889d4a9
+implementation: 1
+slotsRequired: 1
+stackLimit: 10
+type: Gear
+usageDice: 1
+usageDiceRestore: rest
+usageDiceTrigger: activate
+weight: 0

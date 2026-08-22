@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 29b1be06-9a87-41a3-86d3-4000a2b51251
+name: Telepathic Connection
+description: When you use your Goodbye trait, you can choose another creature within 5 squares of your to become
+  invisible instead of you.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Illusion
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 694b4832-403f-4a35-8fd0-b896f1f74b7b
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ed2dcdff-a45f-472b-b5d5-4caac1e9c353
+    name: Telepathic Connection
+    description: When you use your Goodbye trait, you can choose another creature within 5 squares of your to become
+      invisible instead of you.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:29b1be06-9a87-41a3-86d3-4000a2b51251: true
+  domains:
+    CrowdexTrait:29b1be06-9a87-41a3-86d3-4000a2b51251: true

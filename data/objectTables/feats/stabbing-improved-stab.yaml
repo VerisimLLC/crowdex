@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: b9bdb36f-5d81-4b6c-a63d-46fe1f514b8a
+name: Improved Stab
+description: You score a crit on stabbing weapon attacks when the dice without modifiers equal 17, 18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- a95d38ee-25e1-4e80-9040-6716dd8d5d61
+- 7655be70-aba2-4d1e-943b-c4da86527b0d
+- 4e8744ea-61da-459b-b5e3-9beea8b30f2c
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 7112e4fb-2fb0-43b5-a663-eb0a3dc27570
+    name: Improved Stab
+    description: You score a crit on stabbing weapon attacks when the dice without modifiers equal 17, 18, 19, or
+      20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:b9bdb36f-5d81-4b6c-a63d-46fe1f514b8a: true
+  domains:
+    CrowdexTrait:b9bdb36f-5d81-4b6c-a63d-46fe1f514b8a: true

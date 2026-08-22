@@ -1,0 +1,27 @@
+# Crows Playtest 2 -- new card: Flail
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: 460df625-026a-45c2-a4e1-d26fbe98cb7e
+name: Flail
+type: Gear
+category: Gear
+equipmentCategory: ab3f029a-b8f5-4cb3-8560-04d8daf3e04b
+iconid: 45df6218-0aa2-41d4-aedb-638c2c95a512
+costInGold: 15
+weight: 5
+stackLimit: 1
+slotsRequired: 2
+description: 'Melee 2. Attack 2d10 + S; 12-16: 3 + S; 17+: 6 + S. Bashing, Pummeling. Craft: Blacksmithing
+  (1 use), 1 iron bar, 10.'
+implementation: 1
+domains:
+  item:460df625-026a-45c2-a4e1-d26fbe98cb7e: true
+crowsWeaponType: Bashing
+crowsAttackStat: S
+crowsMeleeRange: 2
+crowsTier2: 3 + S
+crowsTier3: 6 + S
+crowsQualities: Pummeling

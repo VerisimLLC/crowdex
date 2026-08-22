@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: fce3be56-46e6-42bd-bd97-6417ae53775a
+name: Extra Tricks
+description: 'While you own a pet, they gain a two expertises from the following list: Athletics, Endurance, Lift,
+  Search, or Stealth. This trait stacks with Tricks.'
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- d6a3166d-82ae-4525-9c05-82eb26ef11bd
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: dab80d3f-05f3-489a-a214-248dbb1502fc
+    name: Extra Tricks
+    description: 'While you own a pet, they gain a two expertises from the following list: Athletics, Endurance,
+      Lift, Search, or Stealth. This trait stacks with Tricks.'
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:fce3be56-46e6-42bd-bd97-6417ae53775a: true
+  domains:
+    CrowdexTrait:fce3be56-46e6-42bd-bd97-6417ae53775a: true

@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 8ed14fc9-de14-4522-8389-05bbbdd31cdb
+name: First Responder
+description: When you have a benefaction spell that can restore Stamina to a creature equipped and a creature within
+  the spell's range take damage, you can use your reaction to cast the spell, targeting that creature.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 18628778-de29-4940-9c1d-545ae7a38db2
+    name: First Responder
+    description: When you have a benefaction spell that can restore Stamina to a creature equipped and a creature
+      within the spell's range take damage, you can use your reaction to cast the spell, targeting that creature.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:8ed14fc9-de14-4522-8389-05bbbdd31cdb: true
+  domains:
+    CrowdexTrait:8ed14fc9-de14-4522-8389-05bbbdd31cdb: true

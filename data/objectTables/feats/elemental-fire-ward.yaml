@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: c98a3d65-b86f-4399-a29a-e5d6b5bfe1c4
+name: Fire Ward
+description: When you cast an elemental spell, you gain a fire ward that lasts until the start of your next combat
+  turn. When a creature deals damage to you with a melee attack while the ward is active, they take 1d10 damage.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Elemental
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- a146648e-ab62-46d4-abd7-a1a10a977262
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 77920c3e-0e05-455b-a86b-8247db9d0d35
+    name: Fire Ward
+    description: When you cast an elemental spell, you gain a fire ward that lasts until the start of your next
+      combat turn. When a creature deals damage to you with a melee attack while the ward is active, they take 1d10
+      damage.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c98a3d65-b86f-4399-a29a-e5d6b5bfe1c4: true
+  domains:
+    CrowdexTrait:c98a3d65-b86f-4399-a29a-e5d6b5bfe1c4: true

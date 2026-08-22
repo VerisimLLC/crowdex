@@ -1,0 +1,129 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Mule
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    max_hitpoints: 10
+    cr: 4
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 5 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Kick
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      range: "1"
+      guid: 0cd4273a-aed0-427c-9bd7-898d1023bcee
+      abilityType: none
+      targetType: target
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      keywords:
+        Strike: true
+        Melee: true
+    characterFeatures: []
+    walkingSpeed: 7
+    skillProficiencies: []
+    creatureSize: 1L
+    keywords:
+      Animal: true
+    monster_category: Animal
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    crowsSlots: 10
+    monster_type: Mule
+  tokenType: null
+  bestiaryId: 2d310622-7384-461d-9219-862ea1d17b4c
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACpVU227bMAz9lUB73LzGTrI0fusGDBi2DkVT7DWgJdomIkuGJDdLi/37JPmCIEi31i82qcOLDnn8zHY7d2zxJzTIctZoZR0a9mHGGvi9q8m1mpSzLE/n3scNy5fhrIfFSB9120kMIbwGA9wffEVwnUEf9sx2soMHKDwiL0Fa/OOBB5B7UtW2RRQsX3sPKQUOb7ijR/8WNwVJctRnSGOa0zbPcMdQvMAaHkmbV4bc6QOaey3l5yEu5ADnDPmOmHUGVeXq4DQe5F2ZSOez97MsuHxnUx0WHJl/L2YCGqgiEwtvr07sSySc+Jzpzl0TjJpWYoPKgSOtev4Ntp7hBzAVhtlEbODf36/Shp4GKNtSpeIkZidEqZ6Q78T3wRRouaF2iIiArplS+xsGDNlWwjHcuO7Q1lQ6loeFKAxVtVNow4YEu+Jaei5z9q4cnhBvQxNDU+nlqzcoEe9Beb4ipOriIOZcLLP1AhJAMU/8J082hVgn15trP49sUXCMBEN/v4d+IZVW0bvH40EbEUe19aPdDwX90W2oN1kXGjJ9Lz0BjRZUjkO/OCWuVWy4oyR82yu7JyntVfqxVVXcmUjp0GBvxMZ5oOUere4Mx28hhUg3n1bXkCVLsS6S5Wq+TKDcYJLCapnOyyJdl4K9foFGsQ7bcQxiUNSAjJI1+mC3Uk8SjxIoOtdLb9LBuZy+jFK/GfFRg2DxF8jOI7JAyrmULnQMVb+Yby6QjgXGDC/sFSnx9uTJ1H6M/y/Zo+t04QaS/7Fi3PT/yS09xU37EbUS9ubO6JI4oeL08l/0PONfN00+vcwFAAA=
+forkTime: 1781748676956
+description: Mule
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 20
+ctime: 1787361592729
+mtime: 1787361592729
+hidden: true
+id: 2d310622-7384-461d-9219-862ea1d17b4c

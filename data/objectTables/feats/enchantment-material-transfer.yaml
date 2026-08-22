@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9a2d5c11-936d-4e98-b48f-971af7db920b
+name: Material Transfer
+description: As a rest activity, touch two armors or weapons that can be crafted from the same material but are
+  not, such as iron heavy armor and a steel sword. The materials used in each item are magically swapped.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Enchantment
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 569892e9-8531-46ba-953e-51c139e42f0f
+    name: Material Transfer
+    description: As a rest activity, touch two armors or weapons that can be crafted from the same material but
+      are not, such as iron heavy armor and a steel sword. The materials used in each item are magically swapped.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9a2d5c11-936d-4e98-b48f-971af7db920b: true
+  domains:
+    CrowdexTrait:9a2d5c11-936d-4e98-b48f-971af7db920b: true

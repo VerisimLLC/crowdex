@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: db3f6c68-8a08-41e0-b096-789ee29f99ec
+name: Scrap Arrows
+description: As a rest activity, you can turn sticks and scraps of nearby wood into arrows and gain 2d6 arrows when
+  you finish the rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Archery
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- b2a925f0-a795-4836-a41d-c6f46ffdbaa4
+- 5a092c36-31cc-4ccf-8ad9-8371bd702508
+- e5005b00-abca-4430-b097-06bac66a9f34
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 8e42d816-b541-4f0b-8658-0adb8ac63407
+    name: Scrap Arrows
+    description: As a rest activity, you can turn sticks and scraps of nearby wood into arrows and gain 2d6 arrows
+      when you finish the rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:db3f6c68-8a08-41e0-b096-789ee29f99ec: true
+  domains:
+    CrowdexTrait:db3f6c68-8a08-41e0-b096-789ee29f99ec: true

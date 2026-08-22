@@ -1,0 +1,43 @@
+# Crows Playtest 2 -- Life Ring
+#
+# Clara Wolverly's ring, found in the Floating Manor (area 11).
+#
+# Gear import REPLACES the whole record, so this file carries the entire item.
+_table: tbl_Gear
+__typeName: equipment
+id: c5281e7f-deed-4779-a8b6-435c7c29c586
+name: Life Ring
+category: Gear
+consumable:
+  __typeName: ActivatedAbility
+  name: Life Ring
+  guid: 6e61b180-4c92-427b-9275-7c4e4782b37f
+  actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+  categorization: Ability
+  numTargets: '1'
+  range: 0
+  targetType: self
+  iconid: d9442270-3f02-42f0-9e4d-03a4e6302212
+  description: Regain 1d6 Stamina, end a condition affecting you, or heal 1 wound. Roll the Usage Die
+    after activating.
+  implementation: 1
+  keywords:
+    Magic: true
+  behaviors: {}
+costInGold: 500
+crowsMagicSlot: Finger
+description: 'Maneuver: you regain 1d6 Stamina, end a condition affecting you, or heal 1 wound. Usage
+  Dice 1, rolled on activation; restored on a rest. Slot: Finger. Craft: Enchanting (2 uses), gem worth
+  100 gc, 100.'
+domains:
+  item:c5281e7f-deed-4779-a8b6-435c7c29c586: true
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: d9442270-3f02-42f0-9e4d-03a4e6302212
+implementation: 1
+slotsRequired: 1
+stackLimit: 10
+type: Gear
+usageDice: 1
+usageDiceRestore: rest
+usageDiceTrigger: activate
+weight: 0

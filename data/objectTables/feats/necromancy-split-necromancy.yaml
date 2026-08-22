@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9fdc526c-3cec-4890-ae14-34bbc51e8036
+name: Split Necromancy
+description: When you cast a necromancy spell that has a target of 1 creature, object, ally, enemy, or target, you
+  can target one additional qualifying target.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 8303fd07-762f-4903-bb58-955e1bb529e6
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 11c444f8-b508-45e3-9049-129e06fda89a
+    name: Split Necromancy
+    description: When you cast a necromancy spell that has a target of 1 creature, object, ally, enemy, or target,
+      you can target one additional qualifying target.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9fdc526c-3cec-4890-ae14-34bbc51e8036: true
+  domains:
+    CrowdexTrait:9fdc526c-3cec-4890-ae14-34bbc51e8036: true

@@ -1,0 +1,27 @@
+_table: feats
+__typeName: CharacterFeat
+id: 4d622104-fc69-487c-9b59-7cf044ae1b6c
+name: No Waste
+description: When you craft a blacksmithing item, you only use half the prerequisite materials required.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 46c3b6b9-5a01-4374-9aca-50a922f2f200
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f5bc1972-85b1-40b9-9745-6c6a03603be1
+    name: No Waste
+    description: When you craft a blacksmithing item, you only use half the prerequisite materials required.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:4d622104-fc69-487c-9b59-7cf044ae1b6c: true
+  domains:
+    CrowdexTrait:4d622104-fc69-487c-9b59-7cf044ae1b6c: true

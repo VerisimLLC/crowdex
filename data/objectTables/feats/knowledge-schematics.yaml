@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: f10c0d48-aac0-4981-8e94-b0fc7e1a288b
+name: Schematics
+description: You can sketch a room with a journal, quill, and inkpot. As a rest activity, you can study the sketch.
+  You gain a +2 bonus on tests made to interact with the room. It lasts until you finish a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 85ea349c-4620-403f-9dc3-0dbf676e977a
+    name: Schematics
+    description: You can sketch a room with a journal, quill, and inkpot. As a rest activity, you can study the
+      sketch. You gain a +2 bonus on tests made to interact with the room. It lasts until you finish a rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f10c0d48-aac0-4981-8e94-b0fc7e1a288b: true
+  domains:
+    CrowdexTrait:f10c0d48-aac0-4981-8e94-b0fc7e1a288b: true

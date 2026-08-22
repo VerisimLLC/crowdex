@@ -1,0 +1,31 @@
+_table: feats
+__typeName: CharacterFeat
+id: c20b36a4-90bc-4f08-9d82-f83f0ebed958
+name: Specific Research
+description: As a rest activity, you can read a lore book. Instead of gaining its normal benefits, you can ask the
+  Ref up to three questions about the book's subject, which the Ref answers honestly if the answer isn't secret.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 596af598-7bdc-4c65-8d32-d92f175e59ac
+- f10c0d48-aac0-4981-8e94-b0fc7e1a288b
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e9262a14-a791-4675-84a8-7c76557c2dc8
+    name: Specific Research
+    description: As a rest activity, you can read a lore book. Instead of gaining its normal benefits, you can ask
+      the Ref up to three questions about the book's subject, which the Ref answers honestly if the answer isn't
+      secret.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:c20b36a4-90bc-4f08-9d82-f83f0ebed958: true
+  domains:
+    CrowdexTrait:c20b36a4-90bc-4f08-9d82-f83f0ebed958: true

@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 12bea291-028f-4b05-8b68-4bb4a483cf52
+name: Smithing Epiphany
+description: When you make a crafting roll for an blacksmithing item, you get a crit when the dice without modifiers
+  equal 18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Blacksmithing
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 84b5fc16-3831-445b-9abd-2eca0b34defd
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 85647262-370e-49ed-8e20-7b412ae6b760
+    name: Smithing Epiphany
+    description: When you make a crafting roll for an blacksmithing item, you get a crit when the dice without modifiers
+      equal 18, 19, or 20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:12bea291-028f-4b05-8b68-4bb4a483cf52: true
+  domains:
+    CrowdexTrait:12bea291-028f-4b05-8b68-4bb4a483cf52: true

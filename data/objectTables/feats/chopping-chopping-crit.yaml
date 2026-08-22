@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7239bb94-7e94-4dda-bb9d-c53c35ffa4e3
+name: Chopping Crit
+description: You score a crit on chopping weapon attacks when the dice without modifiers equal 18, 19, or 20.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Chopping
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 3738dd5a-6c54-4367-8093-ff4088ffcbf1
+- 06030926-01b2-43ea-88e8-645e9f480cb0
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: ce20784e-6d8d-4966-af9c-a3906472ea08
+    name: Chopping Crit
+    description: You score a crit on chopping weapon attacks when the dice without modifiers equal 18, 19, or 20.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7239bb94-7e94-4dda-bb9d-c53c35ffa4e3: true
+  domains:
+    CrowdexTrait:7239bb94-7e94-4dda-bb9d-c53c35ffa4e3: true

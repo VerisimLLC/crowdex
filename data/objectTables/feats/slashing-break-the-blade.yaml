@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 0d21d34e-ac1e-482c-8819-e80e642d4dc3
+name: Break the Blade
+description: When an attack reduces a slashing weapon you wield to 0 AD and there is still damage left, you can
+  reduce the remaining damage to 0. If you do, the weapon is destroyed.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Slashing
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- f1c25902-5145-41f3-ba17-48a38c69c6aa
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 9a0610f4-5113-4128-b6ea-3dbbc8eed5fb
+    name: Break the Blade
+    description: When an attack reduces a slashing weapon you wield to 0 AD and there is still damage left, you
+      can reduce the remaining damage to 0. If you do, the weapon is destroyed.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:0d21d34e-ac1e-482c-8819-e80e642d4dc3: true
+  domains:
+    CrowdexTrait:0d21d34e-ac1e-482c-8819-e80e642d4dc3: true

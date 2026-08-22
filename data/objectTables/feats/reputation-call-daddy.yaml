@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 28b5b946-05e4-4632-8938-729ec5c83c61
+name: Call Daddy
+description: Choose a merchant in your village. When you need to roll for an item's availability from that merchant,
+  the AO increases by 5%. You can change your choice of merchant once every cycle.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: e0245c77-6073-44bd-b7d6-5ae0c821c1c1
+    name: Call Daddy
+    description: Choose a merchant in your village. When you need to roll for an item's availability from that merchant,
+      the AO increases by 5%. You can change your choice of merchant once every cycle.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:28b5b946-05e4-4632-8938-729ec5c83c61: true
+  domains:
+    CrowdexTrait:28b5b946-05e4-4632-8938-729ec5c83c61: true

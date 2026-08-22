@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: e70b0c34-78ab-4f5c-a3d8-38e71be636ef
+name: Blessed Benefaction
+description: When you cast a benefaction spell, you harness the magic to make a creature within 5 squares of you
+  blessed.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Benefaction
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 8ff5950e-597f-4ff0-aca1-887df8747de3
+- ccbc0198-4a2d-4d0a-ae11-342d2bac09fc
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 1a0c90a7-7a0c-4383-9fdd-25cc8226955f
+    name: Blessed Benefaction
+    description: When you cast a benefaction spell, you harness the magic to make a creature within 5 squares of
+      you blessed.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:e70b0c34-78ab-4f5c-a3d8-38e71be636ef: true
+  domains:
+    CrowdexTrait:e70b0c34-78ab-4f5c-a3d8-38e71be636ef: true

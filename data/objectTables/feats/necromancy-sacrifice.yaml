@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 9df67198-b360-4e13-8e22-368fb407e2bf
+name: Sacrifice
+description: When you cast a necromancy spell that deals damage to creature, you can choose to take 1d6 P damage
+  to deal additional damage with the spell equal to the damage you take.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Necromancy
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- 4119ad4d-266c-47aa-8d5d-b6cc3ac50424
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 30222e30-bbf5-49f8-8be7-144ad61b26a3
+    name: Sacrifice
+    description: When you cast a necromancy spell that deals damage to creature, you can choose to take 1d6 P damage
+      to deal additional damage with the spell equal to the damage you take.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:9df67198-b360-4e13-8e22-368fb407e2bf: true
+  domains:
+    CrowdexTrait:9df67198-b360-4e13-8e22-368fb407e2bf: true

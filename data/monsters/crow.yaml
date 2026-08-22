@@ -1,0 +1,147 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -10
+    - 8
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 31ba7973-e0f1-445c-ad2e-76c1b4b9266f
+    offtokenPortraitId: null
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 0
+    frameBrightness: 0
+    characterName: Crow
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      fly: 8
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
+      implementation: 4
+      repeatTargets: false
+      categorization: Signature Ability
+      name: Peck
+      description: ""
+      numTargets: "1"
+      display:
+        saturation: 1
+        brightness: 1
+        bgcolor: "#ffffffff"
+        hueshift: 0
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      keywords:
+        Strike: true
+        Melee: true
+      targetType: target
+      modifiers: []
+      iconid: ui-icons/skills/1.png
+      range: "1"
+      guid: 8ed4b1f7-5f22-4c95-8014-e22265b86c24
+    walkingSpeed: 2
+    equipment: []
+    monster_category: Animal
+    resources: []
+    max_hitpoints: 2
+    cr: 0
+    skillProficiencies: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: The crow can carry a single sheet of paper without penalty. When outside, a pet crow always knows the way back to its owner's village and returns there if its owner commands it.
+      source: Trait
+      name: Messenger
+      modifiers: []
+      domains:
+        CharacterFeature:39ad7587-ddfd-41d9-8d25-68c9cdcdcc8d: true
+      guid: 39ad7587-ddfd-41d9-8d25-68c9cdcdcc8d
+      implementation: 1
+    keywords:
+      Animal: true
+    levelChoices: []
+    damage_taken: 0
+    creatureSize: 1T
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: -4
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+    initiativeGrouping: 9d178b73-18d5-424a-a93f-3b6fb21901a3
+    crowsSlots: 0
+    monster_type: Crow
+  tokenType: null
+  bestiaryId: 48fbe770-b762-47e2-a871-1670c024e8ce
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 0
+  createdTimestamp: 1781736113195
+fork: H4sIAAAAAAAACp1V34/iNhD+V6z0oQ+97JEQIPC2XalVH65aLej6iCb2JLFw7NR2oNyp/3vHDmwphe1eQYhk8vmbX99MvibbrT/2+Ct0mKySzmjn0SYfGF3usUPt1z2icMnqa1KrY7Iq6dFWDbCBStEJbwf8M6LjwchFPE/WHAKJgA4a3HrYoU5WE7Lg74PsA29gvCCqQbl/MHHw2BhLLpNHLTtQgY9bBD9YXMsvwU22iZHCH9tW+t5I7SnQPOJGbxadGSxHd88bb8ECJ38/jcQRmEX0ZV2ermAxN3Tcyt5LQ6klmxYZp6wZB00/a48MmJO6Uchci+iZqVkPPVp2kL41g2c9alD++MB+a1Ezsjgp8AMd6wkduUAd4OjYTpuDY5480C2rgO+YN0x6x8xBo/3esb1UigrNQAtmkSLUEW+RyfpvIOOm6wjiyPQQUzAdSB1zvs5wNV2CWMzKRSpELdIiE8u0FPksnZd8yQV9eSnG/t9WRDNIep68iya2Xchaor3bKdn1KgoSxopnZNNjdz6hc6ibUbdjw0NHLEif3A7uloMdHg/GjlI/Ke6N9BTuUT21Rr4hLqk1ifiRe7mnf/FYSSW9vKexK9wxhF5hC3tp7DuPPJsD2hej1I+nc4EDvLexFdC88lrCkCUX2YT9wLJg8ufik5skGPIwYGyc4HA/DQcu7m9l/M5SX/eyiKPak/I2YBsMUxyxYUDHNSC/nKDJWjY6KpRd1OkkhGfku3+PZgQM3St1EvMV0vUKjiHjdkDXytqPO6Oysmm9Jk2NIqsabhSVcpV8V58+UWchiAst3kjdAony7O80DyWKosrqRTqr8zwt+HKWlpOsSDHP8/msKuc8L2LXxuQ24z7VRseaX2p0TW3d4atGP6FCfEuxXQC8jCFl75o4bnSMeZBpuHYf3Y72jPuYPfS6iUHykP/Lacn+ErAiW85nJVBqYlGlxWxSpFAvMc1gVmSTusoWdZx3H7txSm+8+YZZPYDa0W6N76Zx40eVV4Mfp8t5SwvBt/cX+eMZH8cMHH4GNRAiDVqMWb9y3A7rPE3f7CE7O7iYx1vtklr8j/DzM3s8/58VPZukps1Eat7jz9YMPdWWKJYiW5TVYppmpZilRV5ACstpnU6reV3l2XKSwXR8K9P7aa1MGK4wQVEmz9bUkkvUXN7fkNeR/AVG9aE/jwgAAA==
+forkTime: 1781750378031
+description: Crow
+parentFolder: 34c1f5d0-1592-4736-a007-05e3cb554eb0
+artist: null
+ord: 24
+ctime: 1787361592836
+mtime: 1787361592836
+hidden: true
+id: 48fbe770-b762-47e2-a871-1670c024e8ce

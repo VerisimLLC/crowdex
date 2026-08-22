@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 0328b406-b61f-4770-b996-3d58cb76db51
+name: Extra Push
+description: While you have at least 1 hand slot free and push a target with the Knockback maneuver, you can push
+  them 1 additional square.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0bf76259-9319-40d9-bc01-f0bd4c8c7998
+    name: Extra Push
+    description: While you have at least 1 hand slot free and push a target with the Knockback maneuver, you can
+      push them 1 additional square.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:0328b406-b61f-4770-b996-3d58cb76db51: true
+  domains:
+    CrowdexTrait:0328b406-b61f-4770-b996-3d58cb76db51: true

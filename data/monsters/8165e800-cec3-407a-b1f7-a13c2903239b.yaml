@@ -1,0 +1,152 @@
+# Crows Playtest 2 -- Undead A (The Ref Book)
+description: Undead A
+id: 8165e800-cec3-407a-b1f7-a13c2903239b
+hidden: false
+parentFolder: 5c45174e-b4a8-4b89-8327-156b3f79a328
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Undead
+    monster_type: Undead A
+    keywords:
+      Undead: true
+    cr: 2
+    creatureSize: 1M
+    max_hitpoints: 10
+    damage_taken: 0
+    walkingSpeed: 5
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -3
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Common Names
+      description: 'Common names: razorback, spined death.'
+      guid: b2b624c5-46ca-404a-9e24-777aaf6a93ad
+      implementation: 0
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Lacerate
+      description: When the undead gets a tier 3 result with their claws against a creature and damages their Stamina
+        or gives them a wound, the target gains a laceration until they regain Stamina. When the target takes a
+        maneuver and an action on their turn, they take 1 P damage for each laceration they have.
+      guid: 86c681ab-94e1-4124-9911-717424b2be11
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:86c681ab-94e1-4124-9911-717424b2be11: true
+      implementationDetails: 'Lacerations stack and are tracked by hand: the engine has no repeatable per-instance
+        damage effect.'
+    - __typeName: CharacterFeature
+      name: Leap
+      description: The undead can jump a distance equal to their speed as a maneuver.
+      guid: 5b6db6ef-7ca0-4c7e-a723-265aff441b01
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:5b6db6ef-7ca0-4c7e-a723-265aff441b01: true
+    - __typeName: CharacterFeature
+      name: No Darkness Penalty
+      description: Dim light and darkness impose no penalties for the monster.
+      guid: dd2c4aa8-7e81-5c73-9612-d3769ccd126d
+      implementation: 4
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: darkvision
+        value: 1000
+        name: No Darkness Penalty
+        description: Dim light and darkness impose no penalties for the monster.
+        guid: c6a8feb6-e814-5219-b8b4-cd5d3e76c83f
+        source: Trait
+        sourceguid: dd2c4aa8-7e81-5c73-9612-d3769ccd126d
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Claws
+      guid: a9eda16e-8b4a-43e2-8c1a-39c53b40c3cb
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Tier 3 inflicts a laceration (see Lacerate).
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 2 damage
+        - 4 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Spine
+      guid: 1bbbfff2-9346-451e-addb-53753592f3f5
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: ''
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ''
+        - 1 damage
+        - 3 damage
+    - __typeName: ActivatedAbility
+      name: Leap
+      guid: ab0a10fd-020b-50f2-9b3e-02a6b7e88788
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Jump a distance equal to speed.
+      implementation: 1
+      keywords: {}
+      behaviors: []
+    resources: {}
+    equipment: {}
+    levelChoices: {}
+    skillProficiencies: {}

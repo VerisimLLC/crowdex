@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: f6a83ab7-764e-40dd-957c-41d2c46d6131
+name: Bury the Point
+description: When you hit a creature with a melee stabbing weapon attack, you can deal twice as much damage as you
+  normally would, but the weapon becomes useless until you use a rest activity to fix it.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Stabbing
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 40e7d3ed-ada8-4f51-a368-9f6d0e9a9524
+    name: Bury the Point
+    description: When you hit a creature with a melee stabbing weapon attack, you can deal twice as much damage
+      as you normally would, but the weapon becomes useless until you use a rest activity to fix it.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f6a83ab7-764e-40dd-957c-41d2c46d6131: true
+  domains:
+    CrowdexTrait:f6a83ab7-764e-40dd-957c-41d2c46d6131: true

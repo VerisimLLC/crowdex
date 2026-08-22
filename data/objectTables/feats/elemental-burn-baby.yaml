@@ -1,0 +1,28 @@
+_table: feats
+__typeName: CharacterFeat
+id: 48380d36-4870-43a9-9967-488da26e3e05
+name: Burn Baby
+description: When you cast an elemental spell that deals damage to a target, the target takes additional damage
+  equal to your Mind.
+tag: Crows Trait
+implementation: 4
+crowdexTraitTree: Elemental
+crowdexTraitCost: 500
+crowdexTraitStarting: true
+crowdexTraitRank: 1
+crowdexTraitPrerequisites: []
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 21989681-0d62-437f-a94b-9c420b81de34
+    name: Burn Baby
+    description: When you cast an elemental spell that deals damage to a target, the target takes additional damage
+      equal to your Mind.
+    implementation: 4
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:48380d36-4870-43a9-9967-488da26e3e05: true
+  domains:
+    CrowdexTrait:48380d36-4870-43a9-9967-488da26e3e05: true

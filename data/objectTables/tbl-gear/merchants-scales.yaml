@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Merchant's Scales
+_table: tbl_Gear
+__typeName: equipment
+id: 5660690e-475d-4d70-b51a-b389f2d7e45a
+name: "Merchant's Scales"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 16259226-318b-4c50-9c8a-9e25b38e8b39
+costInGold: 50
+weight: 1
+stackLimit: 1
+slotsRequired: 1
+description: "Used to determine the weight of Tiny objects and Tiny creatures that sit still."
+implementation: 1
+domains:
+  item:5660690e-475d-4d70-b51a-b389f2d7e45a: true

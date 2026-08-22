@@ -1,0 +1,129 @@
+# Crows Playtest 2 -- Torchbearer (The Ref Book)
+description: Torchbearer
+id: 8445fade-68ab-467f-a6fb-a74b75c54b0f
+hidden: false
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Human
+    monster_type: Torchbearer
+    keywords:
+      Human: true
+    cr: 3
+    creatureSize: 1M
+    max_hitpoints: 5
+    damage_taken: 0
+    walkingSpeed: 5
+    crowsSlots: 10
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Expertises
+      description: 'Expertises: Search (1 use), Stealth (1 use).'
+      guid: df770a5b-5dc6-4534-bd32-ce8d3fbe6f44
+      implementation: 3
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 04fb82de-ebad-4e09-86da-6ffef28b95c0
+        num: 1
+        name: Expertises
+        description: Search (1 use)
+        guid: 7b309cea-ab98-48eb-be4d-8a165510e367
+        source: Trait
+        sourceguid: df770a5b-5dc6-4534-bd32-ce8d3fbe6f44
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        num: 1
+        name: Expertises
+        description: Stealth (1 use)
+        guid: 81192be3-1861-41a9-976f-eb6893fac354
+        source: Trait
+        sourceguid: df770a5b-5dc6-4534-bd32-ce8d3fbe6f44
+    - __typeName: CharacterFeature
+      name: Equipment
+      description: 'Carries: Knife, torches (6).'
+      guid: ad778f3e-f04b-4588-b99b-22647bbc3e67
+      implementation: 1
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Disengage
+      description: While wielding a knife, the torchbearer can shift 1 additional square with the Shift maneuver.
+      guid: 56a4002d-c091-50ca-af87-34d3707e1427
+      implementation: 2
+      source: Trait
+      modifiers: []
+    - __typeName: CharacterFeature
+      name: Lasting Light
+      description: While the torchbearer holds a torch, its UD maximum is 2.
+      guid: b7f1536d-2b96-53b9-bfd7-3f4030837c36
+      implementation: 1
+      source: Trait
+      modifiers: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Knife
+      guid: 71260390-943f-442c-832d-aa634871c4f9
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: 'Thrown: Melee 1 or Ranged 5.'
+      implementation: 4
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 1
+        tiers:
+        - ''
+        - 3 damage
+        - 5 damage
+      meleeRange: 1
+    - __typeName: ActivatedAbility
+      name: Disengage
+      guid: 91e0ce03-648f-52ac-ae68-45c6b5979be5
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Shift 2 squares while wielding the required weapon.
+      implementation: 2
+      keywords: {}
+      behaviors:
+      - __typeName: ActivatedAbilityDrawSteelCommandBehavior
+        rule: Shift 2
+    crowsAD: 2

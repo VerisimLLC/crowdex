@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Quill & Inkpot
+_table: tbl_Gear
+__typeName: equipment
+id: 6ef8fe41-150b-4bf2-9dbf-668efcf119c4
+name: "Quill & Inkpot"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 6f93e59f-2e72-4856-9e96-c1fcf3909dc4
+costInGold: 5
+weight: 0
+stackLimit: 5
+slotsRequired: 1
+description: "For writing things down."
+implementation: 1
+domains:
+  item:6ef8fe41-150b-4bf2-9dbf-668efcf119c4: true

@@ -1,0 +1,32 @@
+_table: feats
+__typeName: CharacterFeat
+id: 05cc2cc4-84da-448f-a7dd-0983da276b2a
+name: Quick Reference
+description: When you fail a Mind test to recall lore and have a lore book that relates to the lore, you can attempt
+  the test again. You can use this trait a number of times equal to your Mind, regaining all uses when you finish
+  a rest.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Knowledge
+crowdexTraitCost: 1000
+crowdexTraitStarting: false
+crowdexTraitRank: 2
+crowdexTraitPrerequisites:
+- 596af598-7bdc-4c65-8d32-d92f175e59ac
+- f10c0d48-aac0-4981-8e94-b0fc7e1a288b
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 0dcdd9be-9428-491c-a2a2-d8bab90a8a81
+    name: Quick Reference
+    description: When you fail a Mind test to recall lore and have a lore book that relates to the lore, you can
+      attempt the test again. You can use this trait a number of times equal to your Mind, regaining all uses when
+      you finish a rest.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:05cc2cc4-84da-448f-a7dd-0983da276b2a: true
+  domains:
+    CrowdexTrait:05cc2cc4-84da-448f-a7dd-0983da276b2a: true

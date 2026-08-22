@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: f9fe5a06-969c-4c9c-aaee-ade52794cae5
+name: Have it in the Back
+description: You can ask the merchant affected by your Favorite Customer trait to start crafting an item you don't
+  have the materials for. There's a 20% they have the materials and charge you 10% for the work.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Reputation
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 7c63c07d-8290-4a7a-9fca-eba7b816be96
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: f6e25dd6-41e4-4ae9-af48-a83fa60c45f1
+    name: Have it in the Back
+    description: You can ask the merchant affected by your Favorite Customer trait to start crafting an item you
+      don't have the materials for. There's a 20% they have the materials and charge you 10% for the work.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:f9fe5a06-969c-4c9c-aaee-ade52794cae5: true
+  domains:
+    CrowdexTrait:f9fe5a06-969c-4c9c-aaee-ade52794cae5: true

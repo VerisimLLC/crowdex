@@ -1,0 +1,29 @@
+_table: feats
+__typeName: CharacterFeat
+id: 86a93751-bef6-4ba2-b60c-3538e587552f
+name: Break Stuff
+description: When you hit with a melee attack with an improvised weapon, you can break the weapon and deal additional
+  damage equal to your Agility or Strength (your choice).
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Unarmed
+crowdexTraitCost: 1500
+crowdexTraitStarting: false
+crowdexTraitRank: 3
+crowdexTraitPrerequisites:
+- 9422630c-8362-4d12-9714-728ee9be8da4
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 76a51356-ef81-4ffe-8e23-b280fe3cecba
+    name: Break Stuff
+    description: When you hit with a melee attack with an improvised weapon, you can break the weapon and deal additional
+      damage equal to your Agility or Strength (your choice).
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:86a93751-bef6-4ba2-b60c-3538e587552f: true
+  domains:
+    CrowdexTrait:86a93751-bef6-4ba2-b60c-3538e587552f: true

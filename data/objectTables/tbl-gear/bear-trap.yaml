@@ -1,0 +1,22 @@
+# Crows Playtest 2 -- new card: Bear Trap
+#
+# Text, price, stack, usage dice and craft line taken from the printed card.
+# Icon reused from the closest existing item.
+_table: tbl_Gear
+__typeName: equipment
+id: aeeaf03c-cdbf-493c-b0e9-d45ebb0efd4d
+name: Bear Trap
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 1094aa90-9cca-4f10-b4d6-5a2ab5457f95
+costInGold: 250
+weight: 6
+stackLimit: 1
+slotsRequired: 1
+description: 'Maneuver: set this trap on the ground. When a creature steps on the set trap they take 1d6
+  dam, and if they are Large or smaller they are grabbed by the trap. It has 10 Stamina. Craft: Blacksmithing
+  (2 uses), 2 iron bars, 50.'
+implementation: 1
+domains:
+  item:aeeaf03c-cdbf-493c-b0e9-d45ebb0efd4d: true

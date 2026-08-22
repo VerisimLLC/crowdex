@@ -1,0 +1,17 @@
+# Crows Playtest 2 -- Ration
+_table: tbl_Gear
+__typeName: equipment
+id: 89d329ae-7de1-478f-94af-e3245b5dd529
+name: "Ration"
+type: Gear
+category: Gear
+equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+iconid: 746461c6-058c-4bf1-aa9a-b5c2f4b23783
+costInGold: 2
+weight: 0
+stackLimit: 6
+slotsRequired: 1
+description: "A day's worth of food. Consume it to avoid starvation and gain the benefits of a rest."
+implementation: 1
+domains:
+  item:89d329ae-7de1-478f-94af-e3245b5dd529: true

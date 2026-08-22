@@ -1,0 +1,28 @@
+# Crows Playtest 2 -- Hammer
+#
+# Craft line taken verbatim from the Playtest 2 card.
+#
+# Emitted from the live record: gear import REPLACES the whole entry.
+_table: tbl_Gear
+__typeName: equipment
+id: b225ffdb-c1b2-40cb-925d-cbcc35a080e9
+name: Hammer
+category: Gear
+costInGold: 10
+crowsAttackStat: A or S
+crowsMeleeRange: 1
+crowsQualities: Light, Pummeling
+crowsRangedRange: 5
+crowsTier2: 2 + A or S
+crowsTier3: 4 + A or S
+crowsWeaponType: Bashing
+description: 'Melee 1/Ranged 5. Attack 2d10 + A or S; 12-16: 2 + A or S; 17+: 4 + A or S. Bashing, Light,
+  Pummeling. Craft: Blacksmithing (1 use), 1 iron bar, 5.'
+domains:
+  item:b225ffdb-c1b2-40cb-925d-cbcc35a080e9: true
+equipmentCategory: 4ec7fd08-6477-4370-92eb-2f7c41277284
+iconid: 1a2310f0-03b6-4aae-b514-10ec95cc7571
+slotsRequired: 1
+stackLimit: 2
+type: Gear
+weight: 2

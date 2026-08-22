@@ -1,0 +1,30 @@
+_table: feats
+__typeName: CharacterFeat
+id: 7016b8a9-1179-4faa-9ef5-0efb6149bae2
+name: Share Food
+description: You can stack rations and animal feed in the same slot. You can eat animal feed and pets you car for
+  can eat rations.
+tag: Crows Trait
+implementation: 1
+crowdexTraitTree: Pets
+crowdexTraitCost: 2000
+crowdexTraitStarting: false
+crowdexTraitRank: 4
+crowdexTraitPrerequisites:
+- fce3be56-46e6-42bd-bd97-6417ae53775a
+- f7bd9531-bd33-45cb-939a-93f4f526dda4
+modifierInfo:
+  __typeName: ClassLevel
+  features:
+  - __typeName: CharacterFeature
+    guid: 024c45cf-9b10-4e3e-b3e0-d43806a714c3
+    name: Share Food
+    description: You can stack rations and animal feed in the same slot. You can eat animal feed and pets you car
+      for can eat rations.
+    implementation: 1
+    source: Crows Trait
+    modifiers: []
+    domains:
+      CrowdexTrait:7016b8a9-1179-4faa-9ef5-0efb6149bae2: true
+  domains:
+    CrowdexTrait:7016b8a9-1179-4faa-9ef5-0efb6149bae2: true

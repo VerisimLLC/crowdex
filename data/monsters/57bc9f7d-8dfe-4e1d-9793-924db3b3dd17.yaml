@@ -1,0 +1,179 @@
+# Crows Playtest 2 -- Undead F (The Ref Book)
+description: Undead F
+id: 57bc9f7d-8dfe-4e1d-9793-924db3b3dd17
+hidden: false
+parentFolder: 5c45174e-b4a8-4b89-8327-156b3f79a328
+info:
+  appearance:
+    portraitFrameId: b9643b8a-6719-4caa-95c0-7fa01e46e7d8
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+  properties:
+    __typeName: monster
+    monster_category: Undead
+    monster_type: Undead F
+    keywords:
+      Undead: true
+    cr: 15
+    creatureSize: 1L
+    max_hitpoints: 75
+    damage_taken: 0
+    walkingSpeed: 4
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: -2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      name: Common Names
+      description: Also called gore beast, rot pile, sludge.
+      guid: eca16527-4cdf-4331-9bfb-9dff78390f3a
+      implementation: 0
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:eca16527-4cdf-4331-9bfb-9dff78390f3a: true
+    - __typeName: CharacterFeature
+      name: Exploding Mote (2/Day)
+      description: 'As an action, the undead hurls a chunk of their flesh that explodes into gas in a 4 cube within
+        10 squares of them. Each non-undead creature in the area makes a Strength resistance roll: 11 or less 15
+        damage; 12-16 7 damage; 17+ no effect.'
+      guid: 4aaf0467-343e-4355-ba9c-87516cbdb7b9
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:4aaf0467-343e-4355-ba9c-87516cbdb7b9: true
+      implementationDetails: Resistance rolls are rolled by each target and adjudicated by the Ref.
+    - __typeName: CharacterFeature
+      name: Glorp Through (3/Day)
+      description: As a maneuver, the undead moves their speed without provoking opportunity attacks and while entering
+        other creatures' spaces at no speed penalty. Each creature whose space they enter takes 1d6 damage. If they
+        end this movement in another creature's space, the undead slides the creature into the nearest unoccupied
+        space of their choice.
+      guid: 98ee3510-4e8c-4539-9de8-11c5bb7cf120
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:98ee3510-4e8c-4539-9de8-11c5bb7cf120: true
+    - __typeName: CharacterFeature
+      name: Liquid Death
+      description: When the undead is reduced to 0 Stamina, their body explodes in a fountain of acidic gore. Each
+        creature within 2 squares of them takes 1d10 damage.
+      guid: 055585d8-b49d-4be3-af45-e0728e5cec0c
+      implementation: 1
+      source: Trait
+      modifiers: {}
+      domains:
+        CharacterFeature:055585d8-b49d-4be3-af45-e0728e5cec0c: true
+    - __typeName: CharacterFeature
+      name: Reactions (3)
+      description: This creature can use 3 reactions each round.
+      guid: c9f6be91-11d7-4726-b6ec-0b0ffb1c1219
+      implementation: 4
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: resource
+        resourceType: b9bc06dd-80f1-4f33-bc55-25c114e3300c
+        num: 2
+        name: Reactions (3)
+        description: 2 additional reactions each round.
+        guid: 67e21571-dbe2-5e39-995f-b6c456e06369
+        source: Trait
+        sourceguid: c9f6be91-11d7-4726-b6ec-0b0ffb1c1219
+    - __typeName: CharacterFeature
+      name: No Darkness Penalty
+      description: Dim light and darkness impose no penalties for the monster.
+      guid: 086cf38b-af26-5fbe-a853-6a56c46fc199
+      implementation: 4
+      source: Trait
+      modifiers:
+      - __typeName: CharacterModifier
+        behavior: attribute
+        attribute: darkvision
+        value: 1000
+        name: No Darkness Penalty
+        description: Dim light and darkness impose no penalties for the monster.
+        guid: ee4de480-b1bb-5cf4-94b9-f89765ddc05b
+        source: Trait
+        sourceguid: 086cf38b-af26-5fbe-a853-6a56c46fc199
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      name: Boneshard
+      guid: faf8d6aa-bc15-4661-b5ee-52ed765ccd93
+      abilityType: none
+      categorization: Signature Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: target
+      numTargets: '1'
+      repeatTargets: false
+      range: '5'
+      iconid: ui-icons/skills/1.png
+      description: Melee 2 or Ranged 5.
+      implementation: 4
+      keywords:
+        Strike: true
+        Melee: true
+        Ranged: true
+      modifiers: {}
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        roll: 2d10 + 4
+        tiers:
+        - ''
+        - 7 damage
+        - 12 damage
+      meleeRange: 2
+    - __typeName: ActivatedAbility
+      name: Exploding Mote (2/Day)
+      guid: ef181ce9-da0f-5a58-8260-1f276bdc1e39
+      abilityType: none
+      categorization: Ability
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '10'
+      iconid: ui-icons/skills/1.png
+      description: 'Create a 4 cube within 10 squares. Each non-undead creature makes a Strength RR: tier 1 15 damage;
+        tier 2 7 damage; tier 3 no effect.'
+      implementation: 1
+      keywords:
+        Ranged: true
+      behaviors: []
+    - __typeName: ActivatedAbility
+      name: Glorp Through (3/Day)
+      guid: 7c4c4d9f-be8e-5aff-aa43-2736f7614327
+      abilityType: none
+      categorization: Ability
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      targetType: self
+      numTargets: '1'
+      repeatTargets: false
+      range: '1'
+      iconid: ui-icons/skills/1.png
+      description: Move speed without provoking opportunity attacks and enter other creatures' spaces at no extra
+        cost. Each creature whose space is entered takes 1d6 damage; slide any creature occupying the ending space
+        to the nearest unoccupied space.
+      implementation: 1
+      keywords: {}
+      behaviors: []
+    resources: {}
+    equipment: {}
+    levelChoices: {}
+    skillProficiencies: {}
+    movementSpeeds:
+      climb: 4
