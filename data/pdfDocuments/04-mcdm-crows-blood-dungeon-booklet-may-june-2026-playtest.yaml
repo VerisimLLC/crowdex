@@ -1,0 +1,224 @@
+imageId: https://codexback.com/YqzXVSUEKYzYCNjnIDzaUA
+bookmarks:
+  000-bf1d6ebe-5756-4e9e-b9ca-d39ba43ca737:
+    page: 0
+    title: Travel
+    x: -105
+    y: 648
+  000-1062b892-b78a-4248-b4f0-d0df236915e9:
+    page: 0
+    title: Describing the Journey
+    parentGuid: 000-bf1d6ebe-5756-4e9e-b9ca-d39ba43ca737
+    x: -105
+    y: 459
+  000-30b33423-d7fb-4a4c-b5fc-ef85081dee8f:
+    page: 0
+    title: "POI: Tower Ruin"
+    parentGuid: 000-bf1d6ebe-5756-4e9e-b9ca-d39ba43ca737
+    x: -105
+    y: 647
+  000-27e46541-0bfb-4aa3-ada3-86e421cae617:
+    page: 0
+    title: Collapsed Tower
+    parentGuid: 000-30b33423-d7fb-4a4c-b5fc-ef85081dee8f
+    x: -105
+    y: 647
+  001-54b6393c-2b1e-4c01-a3c0-be2319aa6b3e:
+    page: 1
+    title: Well
+    parentGuid: 000-30b33423-d7fb-4a4c-b5fc-ef85081dee8f
+    x: -105
+    y: 734
+  001-088a93b8-3484-4bad-86eb-1817e8bf225c:
+    page: 1
+    title: Travel Encounters
+    parentGuid: 000-bf1d6ebe-5756-4e9e-b9ca-d39ba43ca737
+    x: -105
+    y: 734
+  001-105de0a8-20fc-4feb-a001-8264670f7b10:
+    page: 1
+    title: Traveling Alchemist
+    parentGuid: 001-088a93b8-3484-4bad-86eb-1817e8bf225c
+    x: -105
+    y: 514
+  002-6a5c37f6-49d7-462e-9bc6-a1886fd5b6aa:
+    page: 2
+    title: Library Approach
+    x: -105
+    y: 728
+  002-acbcb04d-906e-45a4-9af2-6e1a0955f897:
+    page: 2
+    title: Blood Lake
+    parentGuid: 002-6a5c37f6-49d7-462e-9bc6-a1886fd5b6aa
+    x: -105
+    y: 728
+  002-83ac3380-19d7-4137-885a-dfb4612bc106:
+    page: 2
+    title: Library Interior
+    x: -105
+    y: 508
+  002-0b5ac264-1353-44a3-ba42-ddcb8a616fe3:
+    page: 2
+    title: Shared Details
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 508
+  002-65e8a668-9859-476f-a472-7c08e7d0bfa8:
+    page: 2
+    title: Library Encounters
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 508
+  003-68f0d5fa-4a0e-41f4-b135-b0a8a828b6f2:
+    page: 3
+    title: 1. Entrance
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 784
+  003-98ca658c-e34f-4a1a-bf9b-f330e6d9c774:
+    page: 3
+    title: Cabinet
+    parentGuid: 003-68f0d5fa-4a0e-41f4-b135-b0a8a828b6f2
+    x: -105
+    y: 690
+  003-ce03316f-bbac-4912-808d-693e171a06b0:
+    page: 3
+    title: 2. Library Ground
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 648
+  003-5faf9403-8ec8-4cb6-acdc-5ec966d9c94e:
+    page: 3
+    title: Blood Creatures
+    parentGuid: 003-ce03316f-bbac-4912-808d-693e171a06b0
+    x: -105
+    y: 522
+  003-18e6018c-7fe2-4408-bd32-675a72289b75:
+    page: 3
+    title: Shelves
+    parentGuid: 003-ce03316f-bbac-4912-808d-693e171a06b0
+    x: -105
+    y: 522
+  003-ad9085b1-f2ed-4bc1-a901-9864bcfa6a36:
+    page: 3
+    title: 3. Library Balcony
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 522
+  003-6a4e2f1c-47aa-43c8-b67a-76e972fe4b6f:
+    page: 3
+    title: Blood Creatures
+    parentGuid: 003-ad9085b1-f2ed-4bc1-a901-9864bcfa6a36
+    x: -105
+    y: 742
+  003-71f36a18-a26a-4633-bc55-2993e0314c65:
+    page: 3
+    title: Shelves
+    parentGuid: 003-ad9085b1-f2ed-4bc1-a901-9864bcfa6a36
+    x: -105
+    y: 648
+  003-cce611e5-2df5-41ea-9417-147905946563:
+    page: 3
+    title: Locked Cabinet
+    parentGuid: 003-ad9085b1-f2ed-4bc1-a901-9864bcfa6a36
+    x: -105
+    y: 648
+  004-484df8d3-67c9-472a-8afd-8930a279dbe7:
+    page: 4
+    title: 4. Prison Crystal
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 767
+  004-b67da987-74f0-4182-9fee-7a9671289767:
+    page: 4
+    title: The Ring Collector
+    parentGuid: 004-484df8d3-67c9-472a-8afd-8930a279dbe7
+    x: -105
+    y: 453
+  005-512f22c7-3025-4c01-a6a1-6cb794c2d483:
+    page: 5
+    title: 5. Laboratory
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 641
+  005-7d1baeda-f72f-4aca-9c57-fe0516369a09:
+    page: 5
+    title: Blood Creature Ritual
+    parentGuid: 005-512f22c7-3025-4c01-a6a1-6cb794c2d483
+    x: -105
+    y: 641
+  005-22b93773-ecfe-4d97-9b5c-585dc471f970:
+    page: 5
+    title: Shelves
+    parentGuid: 005-512f22c7-3025-4c01-a6a1-6cb794c2d483
+    x: -105
+    y: 484
+  005-9a4a1388-e39e-409f-ade0-45375e1db323:
+    page: 5
+    title: 6. Private Quarters
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 672
+  005-7dce2514-1483-4670-87dc-b8769603af39:
+    page: 5
+    title: Difficult Terrain
+    parentGuid: 005-9a4a1388-e39e-409f-ade0-45375e1db323
+    x: -105
+    y: 578
+  005-edeba201-21be-4cad-9967-e813789647d7:
+    page: 5
+    title: Blood Puddle
+    parentGuid: 005-9a4a1388-e39e-409f-ade0-45375e1db323
+    x: -105
+    y: 578
+  005-482c30dd-01c1-478d-bda2-a09b805fb050:
+    page: 5
+    title: Alcove Treasure
+    parentGuid: 005-9a4a1388-e39e-409f-ade0-45375e1db323
+    x: -105
+    y: 389
+  006-beff7ee7-e27a-4263-8947-e004b2a53182:
+    page: 6
+    title: 7. Forbidden Books
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 729
+  006-7faf8b40-07e0-4d9e-a56b-52c8f5e0757f:
+    page: 6
+    title: Acid Pustules
+    parentGuid: 006-beff7ee7-e27a-4263-8947-e004b2a53182
+    x: -105
+    y: 520
+  006-88b02efb-a332-49a3-b071-3797bdcbcf26:
+    page: 6
+    title: Books
+    parentGuid: 006-beff7ee7-e27a-4263-8947-e004b2a53182
+    x: -105
+    y: 645
+  006-2c4eb20b-95b8-4391-a86c-3508007f86f2:
+    page: 6
+    title: 8. Museum
+    parentGuid: 002-83ac3380-19d7-4137-885a-dfb4612bc106
+    x: -105
+    y: 645
+  006-c196d002-8f70-42ae-8006-aad407fb074b:
+    page: 6
+    title: Blood Creatures
+    parentGuid: 006-2c4eb20b-95b8-4391-a86c-3508007f86f2
+    x: -105
+    y: 520
+  006-b3ad9e6e-d2f3-4f15-a82d-a21099ee50d1:
+    page: 6
+    title: Treasures
+    parentGuid: 006-2c4eb20b-95b8-4391-a86c-3508007f86f2
+    x: -105
+    y: 520
+ownerid: null
+description: 04 MCDM Crows Blood Dungeon Booklet May June 2026 Playtest
+parentFolder: null
+artist: null
+ord: 0
+ctime: 1787425882341
+mtime: 1787425907006
+hidden: true
+id: 00a1c721-b049-4c70-a4fc-872c93aec1e6

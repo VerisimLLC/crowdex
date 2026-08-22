@@ -20,6 +20,29 @@ local mod = dmhub.GetModLoading()
 --      side with unmoved entries; we just need to stop the per-turn side flip so
 --      the active side keeps acting while it still has creatures to move.
 
+-- Crows has three top-level play modes. Rebuild the registry rather than only
+-- renaming Combat so Draw Steel's Respite and Downtime entries do not leak into
+-- the Crows title-bar menu. This module is loaded only by Crows games, so the
+-- shared Draw Steel rules retain their original registry everywhere else.
+InitiativeQueue.GameModes = {}
+InitiativeQueue.GameModesById = {}
+
+InitiativeQueue.RegisterGameMode{
+    id = "exploration",
+    text = "Exploration",
+}
+
+InitiativeQueue.RegisterGameMode{
+    id = "combat",
+    hasinitiative = true,
+    text = "Combat",
+}
+
+InitiativeQueue.RegisterGameMode{
+    id = "rest",
+    text = "Rest",
+}
+
 -- 1. The active side keeps the turn until all of its creatures have moved.
 --    Draw Steel's NextTurn flips playersTurn after every single turn (alternating
 --    sides); Crows does not. We let the base method run (telemetry, SetTurnTaken,
@@ -64,4 +87,109 @@ function GameHud:NewRound()
     if showDrawSteelRerollBanner ~= nil then
         showDrawSteelRerollBanner()
     end
+end
+
+-- Leaving Rest mode is a phase change, not proof that the crows completed the
+-- required six uninterrupted hours. Ask the Director whether to apply the rest
+-- instead of silently mutating every crow. A zero-size monitor is attached to
+-- the initiative HUD so it follows the same synced /initiativeQueue document as
+-- the title-bar selector without requiring any Draw Steel core edits.
+local function CurrentGameMode()
+    local queue = dmhub.initiativeQueue
+    if queue == nil then return "exploration" end
+    return queue:try_get("gameMode", "exploration")
+end
+
+local function GameModeName(modeId)
+    local info = InitiativeQueue.GameModesById[modeId]
+    if info ~= nil then return info.text end
+    return modeId
+end
+
+-- InitiativeQueue.Create starts with a visible combat queue. That is correct
+-- for Combat, but the generic mode menu also calls it when a fresh game enters
+-- its first non-combat mode. Normalize that newly created queue immediately so
+-- Rest and Exploration display as modes rather than as an empty Round 1.
+local function HideNonCombatQueue(modeId)
+    local queue = dmhub.initiativeQueue
+    if dmhub.isDM and modeId ~= "combat" and queue ~= nil and not queue.hidden then
+        queue.hidden = true
+        dmhub:UploadInitiativeQueue()
+    end
+end
+
+local function ApplyCrowsRest()
+    local rest = rawget(_G, "CrowdexRest")
+    if rest == nil or rest.Finish == nil then
+        GameHud.instance:ModalMessage{
+            title = "Could Not Apply Rest",
+            message = "The Crows rest service is not available.",
+        }
+        return
+    end
+
+    local summary = rest.Finish()
+    local message = rest.SummaryText ~= nil
+        and rest.SummaryText(summary)
+        or "The rest was applied to the crows on this map."
+    GameHud.instance:ModalMessage{
+        title = "Rest Applied",
+        message = message,
+    }
+end
+
+local function PromptToApplyRest(destinationMode)
+    if not dmhub.isDM or GameHud.instance == nil then return end
+    GameHud.instance:ModalMessage{
+        title = "Apply Crows Rest?",
+        message = string.format(
+            "The game moved from Rest to %s. Apply the completed rest to every crow on the current map?",
+            GameModeName(destinationMode)),
+        options = {
+            {
+                text = "Apply Rest",
+                execute = ApplyCrowsRest,
+            },
+            {
+                text = "Do Not Apply",
+                execute = function() end,
+            },
+        },
+    }
+end
+
+local function CreateRestModeWatcher()
+    return gui.Panel{
+        id = "crowdexRestModeWatcher",
+        floating = true,
+        width = 0,
+        height = 0,
+        interactable = false,
+        monitorGame = "/initiativeQueue",
+        data = {
+            mode = CurrentGameMode(),
+        },
+
+        create = function(element)
+            element.data.mode = CurrentGameMode()
+            HideNonCombatQueue(element.data.mode)
+        end,
+
+        refreshGame = function(element)
+            local previousMode = element.data.mode
+            local currentMode = CurrentGameMode()
+            element.data.mode = currentMode
+            HideNonCombatQueue(currentMode)
+            if previousMode == "rest" and currentMode ~= "rest" then
+                PromptToApplyRest(currentMode)
+            end
+        end,
+    }
+end
+
+local g_baseCreateInitiativeBar = GameHud.CreateInitiativeBar
+function GameHud.CreateInitiativeBar(self, info)
+    local result = g_baseCreateInitiativeBar(self, info)
+    result:AddChild(CreateRestModeWatcher())
+    return result
 end

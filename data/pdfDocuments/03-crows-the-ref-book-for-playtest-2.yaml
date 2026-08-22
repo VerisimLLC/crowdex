@@ -1,0 +1,695 @@
+imageId: https://codexback.com/9BccCsFNmx4Zghr1ZDRGXg
+bookmarks:
+  000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae:
+    page: 0
+    title: Travel Encounters
+    x: -104
+    y: 648
+  000-e75dd444-5a54-458b-8f18-9931a3d09f9e:
+    page: 0
+    title: Any Monster
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 648
+  000-78e50224-8a2c-4841-90db-78f0d207f744:
+    page: 0
+    title: Bad Weather
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 459
+  000-dc3a35ea-1e23-4543-a9b4-3f32660267a4:
+    page: 0
+    title: Blizzard
+    parentGuid: 000-78e50224-8a2c-4841-90db-78f0d207f744
+    x: -104
+    y: 522
+  000-c81561da-dd63-4ce9-b5ac-280189c6704d:
+    page: 0
+    title: Cold Snap
+    parentGuid: 000-78e50224-8a2c-4841-90db-78f0d207f744
+    x: -104
+    y: 522
+  001-38b7f92d-010f-4027-90d0-88ad7a2c6928:
+    page: 1
+    title: Heat Wave
+    parentGuid: 000-78e50224-8a2c-4841-90db-78f0d207f744
+    x: -104
+    y: 861
+  001-bdcdbd89-e4c2-4328-a552-93cbf1ff3d38:
+    page: 1
+    title: Rain
+    parentGuid: 000-78e50224-8a2c-4841-90db-78f0d207f744
+    x: -104
+    y: 861
+  001-a36cfa60-c2d8-4f7a-94b9-6ccd3fe4d23f:
+    page: 1
+    title: Sandstorm
+    parentGuid: 000-78e50224-8a2c-4841-90db-78f0d207f744
+    x: -104
+    y: 579
+  001-40acbd48-3413-4bd8-a46c-5841a2ff25f8:
+    page: 1
+    title: Thunderstorm
+    parentGuid: 000-78e50224-8a2c-4841-90db-78f0d207f744
+    x: -104
+    y: 579
+  001-a2fd45b5-8699-4c97-b21d-3de6d98d33fc:
+    page: 1
+    title: Merchant
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 579
+  002-3b1ef638-7e31-4e80-8a1a-f5a68c8b63e9:
+    page: 2
+    title: Miasma-Touched
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 635
+  005-3ebce7a1-4e7f-46d0-a1a3-b9fc4cb2c55a:
+    page: 5
+    title: Monster from Nearby
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 647
+  005-9fa68699-d79f-40cb-9d64-5012cdcabf51:
+    page: 5
+    title: Strong Miasma
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 647
+  005-01228662-bbf6-4b3b-a091-acf9bfbe07bf:
+    page: 5
+    title: Traveler
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 647
+  005-b8cb36b6-8706-40e5-a94b-68614666d786:
+    page: 5
+    title: Traveler Reactions
+    parentGuid: 005-01228662-bbf6-4b3b-a091-acf9bfbe07bf
+    x: -104
+    y: 647
+  007-4c076886-345f-4b32-ac71-1d926f94b646:
+    page: 7
+    title: Wild Animal
+    parentGuid: 000-849e761f-7fb0-48c3-8a4e-9fd186dd17ae
+    x: -104
+    y: 602
+  011-7e584b36-9397-4701-87d5-063448654d61:
+    page: 11
+    title: Interesting Things
+    x: -104
+    y: 450
+  014-b650d911-2abe-4c91-8561-65ffeea388f6:
+    page: 14
+    title: Creature Stats
+    x: -104
+    y: 713
+  014-6b0d93a1-4eef-48c4-ba68-b136093ef8fe:
+    page: 14
+    title: Slots
+    parentGuid: 014-b650d911-2abe-4c91-8561-65ffeea388f6
+    x: -104
+    y: 713
+  014-ec25fcc8-c0ff-4513-aeff-451a1341471a:
+    page: 14
+    title: Power
+    parentGuid: 014-b650d911-2abe-4c91-8561-65ffeea388f6
+    x: -104
+    y: 648
+  014-6ad32db6-8b00-4579-a020-f3876fd0d423:
+    page: 14
+    title: Reactions
+    parentGuid: 014-b650d911-2abe-4c91-8561-65ffeea388f6
+    x: -104
+    y: 491
+  014-e6ae76f0-4fb8-4b88-955f-890766bca87f:
+    page: 14
+    title: X/Rest
+    parentGuid: 014-b650d911-2abe-4c91-8561-65ffeea388f6
+    x: -104
+    y: 491
+  014-b4f4912e-f02b-482f-9a3c-5bdbb7a23ba1:
+    page: 14
+    title: Attacks That Grab
+    parentGuid: 014-b650d911-2abe-4c91-8561-65ffeea388f6
+    x: -104
+    y: 491
+  015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1:
+    page: 15
+    title: Animals
+    x: -104
+    y: 736
+  015-f879bd0a-d4a7-4dc0-a48c-f88753016add:
+    page: 15
+    title: Potential Pets
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 641
+  015-99687db6-8733-4eaa-ae33-c0afc8224fe3:
+    page: 15
+    title: Wild Animals
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 641
+  015-bf4cfd4b-5b61-4b6b-9af1-19b7f36647b8:
+    page: 15
+    title: Ending the Fight
+    parentGuid: 015-99687db6-8733-4eaa-ae33-c0afc8224fe3
+    x: -104
+    y: 641
+  015-975e376f-aea7-435d-82a3-42e528269b10:
+    page: 15
+    title: Ape
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 641
+  015-eabd53a8-4f2d-486c-9f16-765a027159f3:
+    page: 15
+    title: Bear
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 641
+  015-38d152e3-ec18-4e76-bd3d-90df7cba06bb:
+    page: 15
+    title: Bear, Cave
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 641
+  016-7f6263fb-8235-4add-9913-63b51d745790:
+    page: 16
+    title: Camel
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 634
+  016-9454d820-7670-4d42-999c-ce1de94fc483:
+    page: 16
+    title: Cat
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 634
+  016-77657229-40bb-4c59-96b0-1941ff1a90d3:
+    page: 16
+    title: Cat, Big
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 634
+  016-f16d1015-24ff-4b8e-a7f8-0ad29c0062ea:
+    page: 16
+    title: Wildcat
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 634
+  016-4726dac0-5673-4fdf-8555-5a193ceb1dbb:
+    page: 16
+    title: Chicken
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 634
+  016-c8a22ea2-22f4-4cbe-a5c5-d89dd826a903:
+    page: 16
+    title: Crocodile
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 634
+  017-e10027fb-f930-43cd-b392-bce7727b33ff:
+    page: 17
+    title: Crow
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 628
+  017-a3598a64-78f2-46cf-a759-4aae9662a96e:
+    page: 17
+    title: Crow, Giant
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 628
+  017-c680eebc-5391-4363-8153-d6a1ec86158d:
+    page: 17
+    title: Deer
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 628
+  017-ea2ca6d2-3dd5-46d1-ae3d-6242fd82f6f2:
+    page: 17
+    title: Dog
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 628
+  017-4fe3eaf5-c8dc-4da0-ac6a-48d8d1f53c48:
+    page: 17
+    title: Donkey
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 628
+  017-e9c0f4b8-cfd9-4d7b-b569-7525a76894e4:
+    page: 17
+    title: Elephant
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 628
+  017-06777d57-5d5a-4222-8c1c-7902b68b632a:
+    page: 17
+    title: Goat
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 628
+  018-03962645-8dc1-4693-8aa6-ac165bf02254:
+    page: 18
+    title: Hawk
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  018-447b2dbd-72cb-446a-a11e-54ea50f232d5:
+    page: 18
+    title: Horse, Draft
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  018-4a86a79b-c26c-41e4-b4bb-83e91e2c08e6:
+    page: 18
+    title: Horse, Riding
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  018-8fa0e147-1c02-4f38-9de6-721322f4f374:
+    page: 18
+    title: Horse, War
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  018-1f45e2a0-d241-4f1f-823e-e31f9d650fa0:
+    page: 18
+    title: Monitor Lizard
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  018-ede85c47-d7c0-4850-ad1c-6f84c9eb4a12:
+    page: 18
+    title: Mule
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  018-be7f1fc6-65dc-4184-9df3-18c783cad63b:
+    page: 18
+    title: Ox
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  019-5eea5712-f596-489a-8e06-a72f36f4faa4:
+    page: 19
+    title: Scorpion, Giant
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  019-bece09d9-54e7-4e01-8cb8-d40c1588618d:
+    page: 19
+    title: Snake, Constrictor
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  019-970c875a-d70a-4fa9-b0ba-73784fba604c:
+    page: 19
+    title: Snake, Venomous
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  019-8587f3f7-5432-499a-af2f-c606f1d45bfc:
+    page: 19
+    title: Snake, Venomous Giant
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 626
+  020-3f9abb70-ab1c-466b-9825-31ed00d38644:
+    page: 20
+    title: Spider
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 682
+  020-e6a27e56-fa95-4201-b71e-cbab0707fae4:
+    page: 20
+    title: Spider, Giant
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 682
+  020-2c6a95be-43a1-4b2a-bbca-f8473a80d04b:
+    page: 20
+    title: Wolf
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 682
+  020-85ea6e76-db32-41a0-ab4a-46fd34b5361c:
+    page: 20
+    title: Wolf, Dire
+    parentGuid: 015-51eaf3e4-d0eb-4c17-8125-de4b01d045c1
+    x: -104
+    y: 682
+  021-1dbab755-a1ec-443c-b9a2-84bbd8539225:
+    page: 21
+    title: Humans
+    x: -104
+    y: 864
+  021-aa5ad948-66f6-4366-aa0e-0f142869d33e:
+    page: 21
+    title: Ending the Fight
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 613
+  021-ad33f3ab-59ba-43dc-97ac-f5636a3c9fa4:
+    page: 21
+    title: Alchemist
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 676
+  021-66ee6c0a-a54d-43bc-b028-9c8d25d0356c:
+    page: 21
+    title: Archer (Power 4)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 676
+  021-8610ef1e-8ee7-4f8c-a12b-4c2127a2dcfa:
+    page: 21
+    title: Archer (Power 7)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 362
+  022-d3314e20-6879-4ab6-800e-a3018ee395f0:
+    page: 22
+    title: Archer (Power 10)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 701
+  022-4cb9ccfc-f843-4a5d-a582-20a08c6d2dcb:
+    page: 22
+    title: Blacksmith
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 701
+  022-f169ed27-63f8-428f-a038-50e11e26e780:
+    page: 22
+    title: Commoner
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 544
+  022-fb5ecbc6-c32a-4e5c-845c-57ffd2827c85:
+    page: 22
+    title: Conjurer
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 638
+  022-f751c336-8366-4ee8-96e3-64274a4baa30:
+    page: 22
+    title: Cultist
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 638
+  022-dd83b2a8-8e0c-4ebb-a842-42b9a50898fb:
+    page: 22
+    title: Elementalist
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 638
+  023-e3bb3ee9-7431-40e0-ad6b-a07852a9e7eb:
+    page: 23
+    title: Enchanter
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 663
+  023-c62e195b-2bc4-4073-ac4b-88fd04f3b858:
+    page: 23
+    title: Guide
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 663
+  023-0ceae3cc-bc59-4c7e-a460-197d70ba43fd:
+    page: 23
+    title: Illusionist
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 506
+  023-a5021b92-2f12-4183-a2f6-7c0d120bbe79:
+    page: 23
+    title: Priest
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 694
+  023-34c14c71-2850-49fa-8739-7b9955cbce1b:
+    page: 23
+    title: Sage (Power 3)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 694
+  024-963b31ea-7aaa-45b9-9f6c-1f7191debe3e:
+    page: 24
+    title: Sage (Power 6)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 657
+  024-b4b1a152-a109-44e9-84a2-09ee1429a1ad:
+    page: 24
+    title: Thief (Power 3)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 657
+  024-1c8f2feb-3b3f-4684-a2a9-c2780deca2d2:
+    page: 24
+    title: Thief (Power 6)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 657
+  024-c02a3837-c0fb-4b51-baca-41b55f2e8013:
+    page: 24
+    title: Thief (Power 9)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 657
+  025-6fe235ed-efdc-4d2a-87f2-bf3fdc4db0fc:
+    page: 25
+    title: Torchbearer
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 681
+  025-615c8402-c7dd-491c-9ef1-8d566d6e1924:
+    page: 25
+    title: Transmuter
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 681
+  025-475ce85c-73de-4389-9d8b-c49bd2598de5:
+    page: 25
+    title: Trapper
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 681
+  025-7d045259-0de0-405a-ac37-a1c4315cd153:
+    page: 25
+    title: Warrior, Pike (Power 4)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 681
+  026-6bd11b7d-5691-423f-aec2-ebfca7872b56:
+    page: 26
+    title: Warrior, Pike (Power 7)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 801
+  026-fdd982d3-9fc8-415f-9a61-ad2d20772468:
+    page: 26
+    title: Warrior, Pike (Power 10)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 581
+  026-ca91b7f9-5af8-4f3d-9775-8d56fae8ba76:
+    page: 26
+    title: Warrior, Sword (Power 4)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 706
+  026-85da2547-f998-486f-9a90-67c57eb4c555:
+    page: 26
+    title: Warrior, Sword (Power 7)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 706
+  027-abd833ab-265d-410e-8d93-53f62dac317f:
+    page: 27
+    title: Warrior, Sword (Power 10)
+    parentGuid: 021-1dbab755-a1ec-443c-b9a2-84bbd8539225
+    x: -104
+    y: 731
+  029-2f1a6dab-4599-4379-ae14-295e0ed9ea36:
+    page: 29
+    title: Monsters
+    x: -104
+    y: 718
+  029-67b61d4e-2af4-4d58-a819-c457484dfa40:
+    page: 29
+    title: Monster Names
+    parentGuid: 029-2f1a6dab-4599-4379-ae14-295e0ed9ea36
+    x: -104
+    y: 718
+  029-1743acf1-6c22-451b-ac86-fedcfd5733b7:
+    page: 29
+    title: No Darkness Penalty
+    parentGuid: 029-2f1a6dab-4599-4379-ae14-295e0ed9ea36
+    x: -104
+    y: 648
+  029-32cf0036-4c1f-4ebd-8728-2075e8ac60ea:
+    page: 29
+    title: Hates And Likes
+    parentGuid: 029-2f1a6dab-4599-4379-ae14-295e0ed9ea36
+    x: -104
+    y: 648
+  029-d92d8643-7f81-4f08-90be-a64524541669:
+    page: 29
+    title: Likes
+    parentGuid: 029-32cf0036-4c1f-4ebd-8728-2075e8ac60ea
+    x: -104
+    y: 648
+  029-d23f5328-3699-43e0-84f7-6e685a1e5bce:
+    page: 29
+    title: Hates
+    parentGuid: 029-32cf0036-4c1f-4ebd-8728-2075e8ac60ea
+    x: -104
+    y: 648
+  030-eb286d6c-88db-43ae-a0db-b38fbf628f93:
+    page: 30
+    title: Suspicious Circumstances
+    parentGuid: 029-32cf0036-4c1f-4ebd-8728-2075e8ac60ea
+    x: -104
+    y: 799
+  030-8a6beb40-2935-4abc-a72c-655d74963372:
+    page: 30
+    title: Ending the Fight
+    parentGuid: 029-32cf0036-4c1f-4ebd-8728-2075e8ac60ea
+    x: -104
+    y: 673
+  031-cb60d723-8813-41e4-ada8-d1a598632b9e:
+    page: 31
+    title: Blood Creatures
+    parentGuid: 029-2f1a6dab-4599-4379-ae14-295e0ed9ea36
+    x: -104
+    y: 635
+  031-f4bc65a7-f686-4b2f-a734-4e57086254b9:
+    page: 31
+    title: Likes
+    parentGuid: 031-cb60d723-8813-41e4-ada8-d1a598632b9e
+    x: -104
+    y: 635
+  031-f38253c1-755f-4ff2-814b-affcb429133e:
+    page: 31
+    title: Hates
+    parentGuid: 031-cb60d723-8813-41e4-ada8-d1a598632b9e
+    x: -104
+    y: 635
+  031-aae1acfd-6bbf-4bac-8010-4c1bb5da11ff:
+    page: 31
+    title: Blood Creature Encounters
+    parentGuid: 031-cb60d723-8813-41e4-ada8-d1a598632b9e
+    x: -104
+    y: 635
+  031-a82e8f4a-07ee-4ce7-a5d4-443ca4e157e4:
+    page: 31
+    title: Blood Creature A
+    parentGuid: 031-cb60d723-8813-41e4-ada8-d1a598632b9e
+    x: -104
+    y: 635
+  031-709454cf-81ef-44f1-80fb-4907baaf806a:
+    page: 31
+    title: Blood Creature B
+    parentGuid: 031-cb60d723-8813-41e4-ada8-d1a598632b9e
+    x: -104
+    y: 635
+  032-d6f87a64-837a-482b-ba9f-9147e784d6c2:
+    page: 32
+    title: Blood Creature C
+    parentGuid: 031-cb60d723-8813-41e4-ada8-d1a598632b9e
+    x: -104
+    y: 628
+  032-4751149b-efe2-4a24-a5e0-55071ca247e2:
+    page: 32
+    title: Ring Collector
+    parentGuid: 029-2f1a6dab-4599-4379-ae14-295e0ed9ea36
+    x: -104
+    y: 628
+  033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962:
+    page: 33
+    title: Undead
+    parentGuid: 029-2f1a6dab-4599-4379-ae14-295e0ed9ea36
+    x: -104
+    y: 810
+  033-245ab15a-92e3-45e9-b4c1-6098761183c8:
+    page: 33
+    title: Likes
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 653
+  033-ca860726-6fb1-47a5-8708-be9ee2388b93:
+    page: 33
+    title: Hates
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 648
+  033-a3bc7fe2-53be-42a6-b8a1-662862ddcf8f:
+    page: 33
+    title: Undead Encounters
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 648
+  033-565cc10e-5e96-49d8-9d48-8e7bc11b50f7:
+    page: 33
+    title: Undead A
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 648
+  034-7892842f-1a2c-496f-b56e-602a97e610e6:
+    page: 34
+    title: Undead B
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 673
+  034-8acf398f-6a91-4fca-962b-4060d29143c6:
+    page: 34
+    title: Undead C
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 673
+  035-e29e49f7-b848-415c-9388-620d61f8cbb9:
+    page: 35
+    title: Undead D
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 729
+  035-244fd82e-3fc9-4d0f-a07f-c9639f13902e:
+    page: 35
+    title: Undead E
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 729
+  036-c5a09f40-624b-4369-a4f7-4324a68dcc05:
+    page: 36
+    title: Undead F
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 723
+  036-5aff7286-b4e3-4440-b852-7c988b55b7b3:
+    page: 36
+    title: Undead G
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 723
+  037-d7e312d0-0b0a-4404-9ccf-8df4f85014d0:
+    page: 37
+    title: Undead H
+    parentGuid: 033-a190c8e9-4e5d-4d6f-a1e8-67d9535e4962
+    x: -104
+    y: 747
+ownerid: null
+description: 03 Crows The Ref Book for Playtest 2
+parentFolder: null
+artist: null
+ord: 0
+ctime: 1787425946527
+mtime: 1787425946527
+hidden: false
+id: 68c4f99f-f3d8-4c08-97c2-60652fe4a176

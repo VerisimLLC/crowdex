@@ -1,0 +1,126 @@
+imageId: https://codexback.com/GXIDaOQ4Fx5rZiY1rFPEqA
+bookmarks:
+  000-7699c0c9-a9d7-4b16-8206-b841d26e8f88:
+    page: 0
+    title: Monsters
+    x: -105
+    y: 648
+  000-730b3f4d-d587-471c-8f17-4d80a6ebf59a:
+    page: 0
+    title: Monster Names
+    parentGuid: 000-7699c0c9-a9d7-4b16-8206-b841d26e8f88
+    x: -105
+    y: 522
+  000-1e1138f7-bc8b-4441-8cd0-fb5181ba2ef9:
+    page: 0
+    title: Creature Stats
+    x: -105
+    y: 648
+  000-fdd0c105-aded-4240-9182-f7079436564d:
+    page: 0
+    title: Slots
+    parentGuid: 000-1e1138f7-bc8b-4441-8cd0-fb5181ba2ef9
+    x: -105
+    y: 648
+  000-d415f614-5b0a-4192-93ce-62e8579a46da:
+    page: 0
+    title: Power
+    parentGuid: 000-1e1138f7-bc8b-4441-8cd0-fb5181ba2ef9
+    x: -105
+    y: 648
+  000-4aed31f1-56b3-43ae-ae16-d86051ae14aa:
+    page: 0
+    title: Darkness No Penalty
+    parentGuid: 000-1e1138f7-bc8b-4441-8cd0-fb5181ba2ef9
+    x: -105
+    y: 522
+  000-79be062b-c529-4f6c-9b40-ce470683e3db:
+    page: 0
+    title: X/Rest
+    parentGuid: 000-1e1138f7-bc8b-4441-8cd0-fb5181ba2ef9
+    x: -105
+    y: 522
+  001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80:
+    page: 1
+    title: Animals
+    x: -105
+    y: 673
+  001-3ab07259-46f9-42bf-abbb-fbfb84e63a6f:
+    page: 1
+    title: Bear
+    parentGuid: 001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80
+    x: -105
+    y: 673
+  001-966ed105-11e3-4b62-8430-a6b6eee7e604:
+    page: 1
+    title: Cat
+    parentGuid: 001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80
+    x: -105
+    y: 673
+  001-e2227a92-64ad-460d-927f-fbb35da44ca1:
+    page: 1
+    title: Dog
+    parentGuid: 001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80
+    x: -105
+    y: 491
+  001-d424d9d7-1f86-4068-9f9c-3baed821e277:
+    page: 1
+    title: Goat
+    parentGuid: 001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80
+    x: -105
+    y: 711
+  001-f5596072-3f96-471f-8310-c715bc746305:
+    page: 1
+    title: Horse
+    parentGuid: 001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80
+    x: -105
+    y: 711
+  001-ebcfb3f0-f4aa-4ad2-8ddf-8029d8606445:
+    page: 1
+    title: Rat
+    parentGuid: 001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80
+    x: -105
+    y: 711
+  001-32155a68-d9a6-4773-8c87-ebf893cd9798:
+    page: 1
+    title: Wolf
+    parentGuid: 001-ccbf0987-e45e-4f7a-bf0f-daf4348eba80
+    x: -105
+    y: 397
+  002-bf6f19a2-48f4-4984-a63e-1edd776b38ae:
+    page: 2
+    title: Blood Creatures
+    x: -105
+    y: 704
+  002-63e1595e-9a18-432c-ab0c-36a3e77b4a22:
+    page: 2
+    title: Blood Creature A
+    parentGuid: 002-bf6f19a2-48f4-4984-a63e-1edd776b38ae
+    x: -105
+    y: 704
+  002-e5797501-472b-453c-bd8b-66f00b83e842:
+    page: 2
+    title: Blood Creature B
+    parentGuid: 002-bf6f19a2-48f4-4984-a63e-1edd776b38ae
+    x: -105
+    y: 648
+  002-99b0f48e-352e-4d2c-bb9f-70a7590af019:
+    page: 2
+    title: Blood Creature C
+    parentGuid: 002-bf6f19a2-48f4-4984-a63e-1edd776b38ae
+    x: -105
+    y: 648
+  003-7c765624-794b-45de-a46b-ebf2c2bea253:
+    page: 3
+    title: Ring Collector
+    x: -105
+    y: 767
+ownerid: null
+description: 03 MCDM Crows Monsters Booklet May June 2026 Playtest
+parentFolder: null
+artist: null
+ord: 0
+ctime: 1787425876270
+mtime: 1787425905858
+hidden: true
+id: 684a923a-0c7e-48e2-bab5-34b837428549

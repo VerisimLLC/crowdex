@@ -531,6 +531,97 @@ local function ShowTraitPurchaseDialog(props)
     if #ownedTraits > 0 then selectedTree = ownedTraits[1].tree end
     local contentPanel
 
+    -- ShowModal reparents this subtree at the global modal layer, so it cannot
+    -- inherit the character sheet's style cascade. Keep the custom rules small
+    -- and merge them with the shared theme so framedPanel, buttons, dropdowns,
+    -- visibility classes, fonts, and scheme tokens all resolve correctly.
+    local dialogStyles = {
+        {
+            selectors = {"buyTraitsTitle"},
+            width = "100%",
+            halign = "left",
+            textAlignment = "left",
+            tmargin = 0,
+            bmargin = 6,
+            fontSize = 26,
+        },
+        {
+            selectors = {"buyTraitsBalanceLabel"},
+            color = "@fgMuted",
+            fontSize = 12,
+        },
+        {
+            selectors = {"buyTraitsBalance"},
+            color = "@fgStrong",
+            fontSize = 16,
+            bold = true,
+        },
+        {
+            selectors = {"buyTraitsHelp"},
+            color = "@fgMuted",
+            fontSize = 12,
+        },
+        {
+            selectors = {"buyTraitsFieldLabel"},
+            color = "@fgMuted",
+            fontSize = 12,
+            bold = true,
+        },
+        {
+            selectors = {"buyTraitsDivider"},
+            bgimage = true,
+            bgcolor = "@border",
+            opacity = 0.35,
+        },
+        {
+            selectors = {"buyTraitsCard"},
+            bgimage = true,
+            bgcolor = "@bgAlt",
+            borderWidth = 1,
+            borderColor = "@border",
+        },
+        {
+            selectors = {"buyTraitsCard", "owned"},
+            borderColor = "@accent",
+        },
+        {
+            selectors = {"buyTraitsName"},
+            color = "@fg",
+            fontSize = 15,
+            bold = true,
+        },
+        {
+            selectors = {"buyTraitsName", "owned"},
+            color = "@fgStrong",
+        },
+        {
+            selectors = {"buyTraitsCost"},
+            color = "@fgMuted",
+            fontSize = 12,
+        },
+        {
+            selectors = {"buyTraitsStatus"},
+            color = "@fgMuted",
+            fontSize = 12,
+            bold = true,
+        },
+        {
+            selectors = {"buyTraitsStatus", "owned"},
+            color = "@fgStrong",
+        },
+        {
+            selectors = {"buyTraitsDescription"},
+            color = "@fg",
+            fontSize = 12,
+        },
+        {
+            selectors = {"buyTraitsPrerequisite"},
+            color = "@fgMuted",
+            fontSize = 10,
+            italics = true,
+        },
+    }
+
     local function PrerequisiteText(trait)
         if trait.starting then return "Starting trait: always available to buy." end
         local names = {}
@@ -544,34 +635,59 @@ local function ShowTraitPurchaseDialog(props)
 
     local function RefreshDialog()
         local owned = CrowdexTraits.OwnedTraitIds(props)
-        local children = {
+        local spendableXP = CrowdexAdvancement.SpendableXP(props)
+
+        local headerPanel = gui.Panel{
+            width = "100%",
+            height = "auto",
+            flow = "vertical",
+
             gui.Label{
-                classes = {"dialogTitle"},
+                classes = {"modalTitle", "buyTraitsTitle"},
                 text = "Buy Crows Traits",
-            },
-            gui.Label{
-                width = "100%",
-                height = "auto",
-                wrap = true,
-                color = "#cccccc",
-                text = string.format("Available after the last rest: %d XP. Starting traits can be bought freely; other traits require any trait connected to them in the tree.", CrowdexAdvancement.SpendableXP(props)),
-                bmargin = 8,
             },
             gui.Panel{
                 width = "100%",
-                height = 28,
+                height = 24,
                 flow = "horizontal",
                 valign = "center",
-                bmargin = 6,
                 gui.Label{
-                    width = 70,
+                    classes = {"buyTraitsBalanceLabel"},
+                    width = "auto-grow",
+                    height = "auto",
+                    text = "Available after the last completed rest",
+                },
+                gui.Label{
+                    classes = {"buyTraitsBalance", "number"},
+                    width = 110,
+                    height = "auto",
+                    textAlignment = "right",
+                    text = string.format("%d XP", spendableXP),
+                },
+            },
+            gui.Label{
+                classes = {"buyTraitsHelp"},
+                width = "100%",
+                height = "auto",
+                wrap = true,
+                text = "Starting traits can be bought freely. Other traits require any connected trait in the same tree.",
+                bmargin = 10,
+            },
+            gui.Panel{
+                width = "100%",
+                height = 32,
+                flow = "horizontal",
+                valign = "center",
+                gui.Label{
+                    classes = {"buyTraitsFieldLabel"},
+                    width = 82,
                     height = "auto",
                     text = "Trait tree:",
-                    color = "#aaaaaa",
                 },
                 gui.Dropdown{
-                    width = 260,
-                    height = 24,
+                    width = 300,
+                    height = 30,
+                    fontSize = 13,
                     idChosen = selectedTree,
                     options = treeOptions,
                     change = function(element)
@@ -580,50 +696,51 @@ local function ShowTraitPurchaseDialog(props)
                     end,
                 },
             },
+            gui.Panel{
+                classes = {"buyTraitsDivider"},
+                width = "100%",
+                height = 1,
+                tmargin = 8,
+                bmargin = 10,
+            },
         }
 
+        local traitCards = {}
         for _, trait in ipairs(catalog) do
             if trait.tree == selectedTree then
                 local canPurchase, reason = CrowdexTraits.CanPurchase(props, trait.id)
                 local isOwned = owned[trait.id] ~= nil
-                children[#children + 1] = gui.Panel{
+                traitCards[#traitCards + 1] = gui.Panel{
+                    classes = {"buyTraitsCard", cond(isOwned, "owned", nil)},
                     width = "100%",
                     height = "auto",
                     flow = "vertical",
-                    pad = 7,
-                    vmargin = 2,
-                    borderWidth = 1,
-                    borderColor = cond(isOwned, "#8f7c43", "#454545"),
-                    bgimage = "panels/square.png",
-                    bgcolor = "#17171bcc",
+                    pad = 12,
+                    bmargin = 6,
                     borderBox = true,
                     gui.Panel{
                         width = "100%",
-                        height = 24,
+                        height = 30,
                         flow = "horizontal",
                         valign = "center",
                         gui.Label{
+                            classes = {"buyTraitsName", cond(isOwned, "owned", nil)},
                             width = "auto-grow",
                             height = "auto",
-                            bold = true,
-                            fontSize = 13,
-                            color = cond(isOwned, "#e8d59a", "white"),
                             text = trait.name,
                         },
                         gui.Label{
-                            width = 80,
+                            classes = {"buyTraitsCost", "number"},
+                            width = 72,
                             height = "auto",
                             textAlignment = "right",
-                            color = "#aaaaaa",
                             text = string.format("%d XP", trait.cost),
                         },
                         gui.Button{
-                            width = 64,
-                            height = 22,
-                            lmargin = 8,
-                            fontSize = 10,
+                            classes = {"sizeS", cond(canPurchase, nil, "collapsed")},
+                            width = 90,
+                            lmargin = 12,
                             text = "Buy",
-                            classes = {cond(canPurchase, nil, "collapsed")},
                             click = function()
                                 local success = false
                                 CrowdexBuilderUI.ChangeHero(function(hero)
@@ -633,13 +750,12 @@ local function ShowTraitPurchaseDialog(props)
                             end,
                         },
                         gui.Label{
-                            width = 84,
+                            classes = {"buyTraitsStatus", cond(isOwned, "owned", nil), cond(canPurchase, "collapsed", nil)},
+                            width = 90,
                             height = "auto",
+                            lmargin = 12,
                             textAlignment = "right",
-                            bold = isOwned,
-                            color = cond(isOwned, "#e8d59a", "#888888"),
                             text = cond(isOwned, owned[trait.id], "Locked"),
-                            classes = {cond(canPurchase, "collapsed", nil)},
                             linger = gui.Tooltip{
                                 text = cond(isOwned, "This crow already owns this trait.", reason or "Unavailable."),
                                 maxWidth = 360,
@@ -647,52 +763,73 @@ local function ShowTraitPurchaseDialog(props)
                         },
                     },
                     gui.Label{
+                        classes = {"buyTraitsDescription"},
                         width = "100%",
                         height = "auto",
                         wrap = true,
-                        fontSize = 11,
-                        color = "#cccccc",
                         text = trait.description,
+                        bmargin = 4,
                     },
                     gui.Label{
+                        classes = {"buyTraitsPrerequisite"},
                         width = "100%",
                         height = "auto",
                         wrap = true,
-                        fontSize = 9,
-                        italics = true,
-                        color = "#888888",
                         text = PrerequisiteText(trait),
-                        tmargin = 3,
                     },
                 }
             end
         end
 
-        children[#children + 1] = gui.Button{
-            width = 120,
-            height = 24,
-            text = "Close",
-            tmargin = 8,
-            click = function() gui.CloseModal() end,
+        local listPanel = gui.Panel{
+            width = "100%",
+            height = "100%-190",
+            flow = "vertical",
+            vscroll = true,
+            rpad = 8,
+            borderBox = true,
+            children = traitCards,
         }
-        contentPanel.children = children
+
+        local footerPanel = gui.Panel{
+            width = "100%",
+            height = 46,
+            flow = "horizontal",
+            halign = "right",
+            valign = "bottom",
+            tmargin = 10,
+            gui.Button{
+                classes = {"sizeM"},
+                width = 120,
+                text = "Close",
+                escapeActivates = true,
+                escapePriority = EscapePriority.EXIT_MODAL_DIALOG,
+                click = function() gui.CloseModal() end,
+            },
+        }
+
+        contentPanel.children = {headerPanel, listPanel, footerPanel}
     end
 
     contentPanel = gui.Panel{
         width = "100%",
-        height = "auto",
-        maxHeight = 730,
+        height = "100%",
         flow = "vertical",
-        vscroll = true,
-        pad = 12,
-        borderBox = true,
     }
     RefreshDialog()
     gui.ShowModal(gui.Panel{
-        width = 660,
-        height = "auto",
-        maxHeight = 780,
-        classes = {"framedPanel"},
+        styles = ThemeEngine.MergeStyles(dialogStyles),
+        classes = {"framedPanel", "buyTraitsDialog"},
+        width = 760,
+        maxWidth = "92%",
+        height = 780,
+        maxHeight = "90%",
+        halign = "center",
+        valign = "center",
+        floating = true,
+        flow = "vertical",
+        pad = 20,
+        borderBox = true,
         contentPanel,
     })
 end

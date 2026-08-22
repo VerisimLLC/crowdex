@@ -1,253 +1,247 @@
-# Crows Playtest 2 condition override. Import replaces the Draw Steel record.
 __typeName: CharacterCondition
-_table: charConditions
-id: 70504ebe-3899-41d3-9f60-74b52ce35e39
-guid: 0d3d80cd-b807-48e6-b360-b2f680239143
-name: Grabbed
-implementation: 3
-description: >-
-  Your speed is 0, you cannot flank, and attacks against you gain an edge. You move with your
-  grabber. A grab ends if the grabber lets go, dies, becomes prone or unconscious, or moves
-  beyond the grabbing effect's range. You can use the Escape Grab maneuver to break free.
-iconid: 7d3776a2-66de-4459-bb86-bd3ef8e1f756
-powertable: true
-indefiniteDuration: true
-stackable: false
 trackCaster: true
-casterCanDrag: true
-casterCanClick: true
-maxInstancesFormula: '1'
-sustainFormula: '(not Grabber.Dead) and (not (Grabber.Conditions has "Prone")) and (not (Grabber.Conditions has "Unconscious")) where Grabber = ConditionCaster("Grabbed")'
-domains:
-  CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
-display:
-  bgcolor: '#f45a50ff'
-  hueshift: 0
-casterClickAbility:
-  __typeName: ActivatedAbility
-  name: Let Go
-  guid: 5ae956db-8449-4588-b08c-af534a45123a
-  description: End the grab willingly.
-  abilityType: none
-  targetType: self
-  numTargets: '1'
-  range: 1
-  repeatTargets: false
-  modifiers: []
-  persistence: []
-  strain: []
-  iconid: ui-icons/skills/1.png
-  behaviors:
-  - __typeName: ActivatedAbilityPurgeEffectsBehavior
-    conditions:
-    - 70504ebe-3899-41d3-9f60-74b52ce35e39
 modifiers:
 - __typeName: CharacterModifier
   guid: 55ab4504-b57b-432d-bc7b-70ed3c96fc2a
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Grabbed
-  description: Your speed is 0 while grabbed.
-  behavior: attribute
-  attribute: speed
-  operation: set
-  value: 0
   domains:
     CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  name: Grabbed
+  source: Condition
+  behavior: attribute
+  description: Your speed is 0 while grabbed.
+  value: 0
+  attribute: speed
+  operation: set
 - __typeName: CharacterModifier
   guid: 190d6c39-3b21-4cc1-bc23-af6e26ef71d2
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Grabbed
-  description: A grabbed creature cannot grant flanking.
-  behavior: attribute
-  attribute: b3eda2a2-a0da-44c7-8a67-e34f4805ff96
-  value: 1
   domains:
     CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  name: Grabbed
+  source: Condition
+  behavior: attribute
+  description: A grabbed creature cannot grant flanking.
+  value: 1
+  attribute: b3eda2a2-a0da-44c7-8a67-e34f4805ff96
 - __typeName: CharacterModifier
   guid: 5b1dfa28-c703-4bda-88e2-592eb42bcb4e
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Grabbed
-  description: Attacks against a grabbed creature gain an edge.
-  behavior: power
-  rollType: enemy_ability_power_roll
-  modtype: edge
-  activationCondition: true
   matchAnyKeywords: true
+  name: Grabbed
+  source: Condition
+  behavior: power
+  description: Attacks against a grabbed creature gain an edge.
+  rollType: enemy_ability_power_roll
+  activationCondition: true
+  domains:
+    CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
   keywords:
     Attack: true
     Strike: true
-  domains:
-    CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  modtype: edge
 - __typeName: CharacterModifier
   guid: b686e5f5-afec-45dc-b2c4-04f962b889df
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Grabbed
-  description: Your speed is 0 while grabbed.
-  behavior: movementtext
-  color: red
-  text: You cannot move while grabbed.
   domains:
     CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  name: Grabbed
+  source: Condition
+  behavior: movementtext
+  description: Your speed is 0 while grabbed.
+  color: red
+  text: You cannot move while grabbed.
 - __typeName: CharacterModifier
   guid: 6e0ee897-509d-49b1-878a-11c599ba1ca6
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Grabbed - Forced Out of Range
   description: The grab ends if the grabbed creature is moved beyond the grabber's grab range.
-  behavior: trigger
   domains:
     CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  name: Grabbed - Forced Out of Range
   triggeredAbility:
     __typeName: TriggeredAbility
-    name: Grab Ends Out of Range
     guid: a0ff2ec8-53aa-4679-9aa2-4cd15c514fab
-    trigger: forcemove
-    conditionFormula: Self.Distance(ConditionCaster("Grabbed")) > ConditionCaster("Grabbed").Grab Range
+    modifiers: []
     mandatory: true
-    silent: true
-    abilityType: none
-    targetType: self
-    numTargets: '1'
+    name: Grab Ends Out of Range
+    numTargets: "1"
     range: 1
     repeatTargets: false
-    modifiers: []
     persistence: []
     strain: []
     behaviors:
     - __typeName: ActivatedAbilityPurgeEffectsBehavior
-      chatMessage: Grab ended out of range.
       conditions:
       - 70504ebe-3899-41d3-9f60-74b52ce35e39
+      chatMessage: Grab ended out of range.
+    targetType: self
+    silent: true
+    trigger: forcemove
+    conditionFormula: Self.Distance(ConditionCaster("Grabbed")) > ConditionCaster("Grabbed").Grab Range
+    abilityType: none
+  behavior: trigger
+  source: Condition
 - __typeName: CharacterModifier
   guid: 57f33cac-0cea-4633-8b29-9344576f481b
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Grabbed - Teleported Out of Range
   description: The grab ends if the grabbed creature teleports beyond the grabber's grab range.
-  behavior: trigger
   domains:
     CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  name: Grabbed - Teleported Out of Range
   triggeredAbility:
     __typeName: TriggeredAbility
-    name: Grab Ends on Teleport
     guid: 7ccf3bce-4470-46cc-a12f-3887624f5bb0
-    trigger: teleport
-    conditionFormula: ''
+    modifiers: []
     mandatory: true
-    silent: true
-    abilityType: none
-    targetType: self
-    numTargets: '1'
+    name: Grab Ends on Teleport
+    numTargets: "1"
     range: 1
     repeatTargets: false
-    modifiers: []
     persistence: []
     strain: []
     behaviors:
     - __typeName: ActivatedAbilityPurgeEffectsBehavior
-      chatMessage: Grab ended by teleporting.
       conditions:
       - 70504ebe-3899-41d3-9f60-74b52ce35e39
+      chatMessage: Grab ended by teleporting.
+    targetType: self
+    silent: true
+    trigger: teleport
+    conditionFormula: ""
+    abilityType: none
+  behavior: trigger
+  source: Condition
 - __typeName: CharacterModifier
   guid: 06d98aec-d13e-43a9-9428-b82ce2b02b38
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Grabber Teleported
   description: The grab ends if the grabber teleports.
-  behavior: trigger
   domains:
     CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  name: Grabber Teleported
   triggeredAbility:
     __typeName: TriggeredAbility
-    name: Grab Ends When Grabber Teleports
     guid: 89069545-62c6-411c-8b59-18cab5a5d0a2
-    trigger: teleport
-    subject: other
-    conditionFormula: ConditionCaster("Grabbed") = Subject
+    modifiers: []
     mandatory: true
-    silent: true
-    abilityType: none
-    targetType: self
-    numTargets: '1'
+    numTargets: "1"
+    name: Grab Ends When Grabber Teleports
+    persistence: []
     range: 1
     repeatTargets: false
-    modifiers: []
-    persistence: []
     strain: []
+    silent: true
     behaviors:
     - __typeName: ActivatedAbilityPurgeEffectsBehavior
-      chatMessage: Grab ended because the grabber teleported.
       conditions:
       - 70504ebe-3899-41d3-9f60-74b52ce35e39
+      chatMessage: Grab ended because the grabber teleported.
+    targetType: self
+    subject: other
+    conditionFormula: ConditionCaster("Grabbed") = Subject
+    trigger: teleport
+    abilityType: none
+  behavior: trigger
+  source: Condition
 - __typeName: CharacterModifier
   guid: 9049a9d8-9d86-4b29-8df8-a578dbf87940
   sourceguid: 0d3d80cd-b807-48e6-b360-b2f680239143
-  source: Condition
-  name: Escape Grab
   description: Use a maneuver to make an Agility or Strength test and escape the grab.
-  behavior: activated
   domains:
     CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+  name: Escape Grab
   activatedAbility:
     __typeName: ActivatedAbility
-    name: Escape Grab
-    guid: 8dc1f916-e7d0-4fd2-a991-d9ad02e60fd8
-    implementation: 3
-    description: >-
-      Make an Agility or Strength test. On tier 1, the grabber can counter. On tier 2, you can
-      escape, but the grabber can counter if you do. On tier 3, you escape and can move 1 square
-      without provoking opportunity attacks.
-    abilityType: none
-    actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
-    targetType: self
-    numTargets: '1'
-    range: 1
-    repeatTargets: false
     modifiers: []
-    persistence: []
-    strain: []
-    iconid: 56729dfc-0cf4-4b75-99db-61ae8ac81d71
-    multipleModes: true
-    modeList:
-    - text: Stay Grabbed
-      rules: On a tier 2 result, choose not to escape so the grabber cannot counter.
-    - text: Escape
-      rules: On a tier 2 result, escape and allow the grabber to counter.
     behaviors:
     - __typeName: ActivatedAbilityPowerRollBehavior
-      roll: 2d10 + Agility or Strength
-      attrid: agility
       tiers:
       - The grabber can counter.
       - You remain grabbed and the grabber cannot counter.
       - You are no longer grabbed and can move 1 square without provoking opportunity attacks.
+      roll: 2d10 + Agility or Strength
+      attrid: agility
       modesSelected:
       - 1
     - __typeName: ActivatedAbilityPowerRollBehavior
-      roll: 2d10 + Agility or Strength
-      attrid: agility
       tiers:
       - The grabber can counter.
       - You are no longer grabbed, and the grabber can counter.
       - You are no longer grabbed and can move 1 square without provoking opportunity attacks.
+      roll: 2d10 + Agility or Strength
+      attrid: agility
       modesSelected:
       - 2
     - __typeName: ActivatedAbilityPurgeEffectsBehavior
-      conditions:
-      - 70504ebe-3899-41d3-9f60-74b52ce35e39
       tiersSelected:
       - 3
+      conditions:
+      - 70504ebe-3899-41d3-9f60-74b52ce35e39
       modesSelected:
       - 1
     - __typeName: ActivatedAbilityPurgeEffectsBehavior
-      conditions:
-      - 70504ebe-3899-41d3-9f60-74b52ce35e39
       tiersSelected:
       - 2
       - 3
+      conditions:
+      - 70504ebe-3899-41d3-9f60-74b52ce35e39
       modesSelected:
       - 2
+    name: Escape Grab
+    multipleModes: true
+    range: 1
+    targetType: self
+    iconid: 56729dfc-0cf4-4b75-99db-61ae8ac81d71
+    strain: []
+    guid: 8dc1f916-e7d0-4fd2-a991-d9ad02e60fd8
+    implementation: 3
+    repeatTargets: false
+    modeList:
+    - rules: On a tier 2 result, choose not to escape so the grabber cannot counter.
+      text: Stay Grabbed
+    - rules: On a tier 2 result, escape and allow the grabber to counter.
+      text: Escape
+    description: Make an Agility or Strength test. On tier 1, the grabber can counter. On tier 2, you can escape, but the grabber can counter if you do. On tier 3, you escape and can move 1 square without provoking opportunity attacks.
+    actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+    numTargets: "1"
+    persistence: []
+    abilityType: none
+  behavior: activated
+  source: Condition
+name: Grabbed
+powertable: true
+id: 70504ebe-3899-41d3-9f60-74b52ce35e39
+sustainFormula: (not Grabber.Dead) and (not (Grabber.Conditions has "Prone")) and (not (Grabber.Conditions has "Unconscious")) where Grabber = ConditionCaster("Grabbed")
+casterClickAbility:
+  __typeName: ActivatedAbility
+  guid: 5ae956db-8449-4588-b08c-af534a45123a
+  modifiers: []
+  behaviors:
+  - __typeName: ActivatedAbilityPurgeEffectsBehavior
+    conditions:
+    - 70504ebe-3899-41d3-9f60-74b52ce35e39
+  name: Let Go
+  range: 1
+  repeatTargets: false
+  abilityType: none
+  description: End the grab willingly.
+  targetType: self
+  iconid: ui-icons/skills/1.png
+  strain: []
+  persistence: []
+  numTargets: "1"
+casterCanClick: true
+guid: 0d3d80cd-b807-48e6-b360-b2f680239143
+display:
+  bgcolor: "#f45a50ff"
+  hueshift: 0
+domains:
+  CharacterCondition:70504ebe-3899-41d3-9f60-74b52ce35e39: true
+implementation: 3
+mtime: 1787422939684
+maxInstancesFormula: "1"
+iconid: b97ea207-70b7-4c5e-982f-a5fba3314e65
+stackable: false
+casterCanDrag: true
+indefiniteDuration: true
+description: Your speed is 0, you cannot flank, and attacks against you gain an edge. You move with your grabber. A grab ends if the grabber lets go, dies, becomes prone or unconscious, or moves beyond the grabbing effect's range. You can use the Escape Grab maneuver to break free.
+_table: charConditions

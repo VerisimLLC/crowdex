@@ -1,0 +1,573 @@
+imageId: https://codexback.com/JGW5LqA7cIUr19tMPAC9mA
+bookmarks:
+  000-359f59b9-3657-4937-b5e1-94a956b1a6d8:
+    page: 0
+    title: Awarding Treasures
+    x: -104
+    y: 648
+  000-b0f619dc-087a-4451-bbb3-9982e8dd4389:
+    page: 0
+    title: Guide Not Handcuffs
+    x: -104
+    y: 648
+  000-6c764bf0-a410-4fb4-83b5-9a80f53d878e:
+    page: 0
+    title: Dungeon Hooks
+    x: -104
+    y: 648
+  000-4e4a8d2f-8321-4ef6-b62b-f095e4e65df8:
+    page: 0
+    title: "Village: Gadwick"
+    x: -104
+    y: 648
+  001-8295099c-14ea-4afd-9d97-beddf765fb7c:
+    page: 1
+    title: "POI: Ruined Tower"
+    x: -104
+    y: 861
+  001-b2eddff4-f313-4391-9d39-604d5efcbd6f:
+    page: 1
+    title: Collapsed Tower
+    parentGuid: 001-8295099c-14ea-4afd-9d97-beddf765fb7c
+    x: -104
+    y: 861
+  001-c96ed742-ac50-41e1-8ef1-39e7b9af00b5:
+    page: 1
+    title: Well
+    parentGuid: 001-8295099c-14ea-4afd-9d97-beddf765fb7c
+    x: -104
+    y: 491
+  002-7a6c7c38-8168-4d17-8970-21b8e42f250a:
+    page: 2
+    title: "POI: Ruined Windmill"
+    x: -104
+    y: 799
+  002-cbcfa1af-d718-4da2-ac2e-bcb45812f42e:
+    page: 2
+    title: Mill First Floor
+    parentGuid: 002-7a6c7c38-8168-4d17-8970-21b8e42f250a
+    x: -104
+    y: 799
+  002-ac95d985-38da-44f6-ab24-5489d2bb1db3:
+    page: 2
+    title: Floor Rubble
+    parentGuid: 002-cbcfa1af-d718-4da2-ac2e-bcb45812f42e
+    x: -104
+    y: 648
+  002-525e8a2d-5957-4cec-9c9a-596762375e15:
+    page: 2
+    title: Cellar
+    parentGuid: 002-7a6c7c38-8168-4d17-8970-21b8e42f250a
+    x: -104
+    y: 554
+  002-e10711a7-7ab8-460c-9bc9-44c9a2478ec9:
+    page: 2
+    title: Among the Bones
+    parentGuid: 002-525e8a2d-5957-4cec-9c9a-596762375e15
+    x: -104
+    y: 711
+  002-41aada3c-fb27-4281-a75b-6d2d0b29d32c:
+    page: 2
+    title: Second Floor
+    parentGuid: 002-7a6c7c38-8168-4d17-8970-21b8e42f250a
+    x: -104
+    y: 648
+  002-0634494d-9d14-47ed-9558-29f51f8037a2:
+    page: 2
+    title: Collapsing Floor
+    parentGuid: 002-41aada3c-fb27-4281-a75b-6d2d0b29d32c
+    x: -104
+    y: 648
+  002-b3a397c8-c7ae-4d38-aa09-85d7bbee2f5c:
+    page: 2
+    title: The Shaft
+    parentGuid: 002-41aada3c-fb27-4281-a75b-6d2d0b29d32c
+    x: -104
+    y: 648
+  003-f8552300-f7e8-4d4b-b2a2-0817461ba57b:
+    page: 3
+    title: "Dungeon: Blood Library"
+    x: -104
+    y: 799
+  003-49ab8a7b-6fdb-4e34-9ea8-c39c018c296a:
+    page: 3
+    title: Library Arrival
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 799
+  003-b890d667-61b7-4612-b7ad-ed7fdfef8516:
+    page: 3
+    title: Blood Lake
+    parentGuid: 003-49ab8a7b-6fdb-4e34-9ea8-c39c018c296a
+    x: -104
+    y: 648
+  003-757d7386-a7f4-47c2-9339-4b09239fec1a:
+    page: 3
+    title: Entering the Library
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 648
+  003-4abeaeeb-93ce-4b28-a71c-de4844d32918:
+    page: 3
+    title: Shared Details
+    parentGuid: 003-757d7386-a7f4-47c2-9339-4b09239fec1a
+    x: -104
+    y: 585
+  003-27b0264f-bd48-4839-a2c8-6545d7673ffe:
+    page: 3
+    title: Library Encounters
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 648
+  004-a34caaaf-a1ce-4171-9be7-09b8ce7b167b:
+    page: 4
+    title: 1. Entrance
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 641
+  004-38e0bf8d-6c26-4343-a4e8-53ccb9eab5cf:
+    page: 4
+    title: Cabinet
+    parentGuid: 004-a34caaaf-a1ce-4171-9be7-09b8ce7b167b
+    x: -104
+    y: 641
+  004-9f6b304a-7af3-419f-964d-ea71d550321f:
+    page: 4
+    title: 2. Library Ground
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 641
+  004-509e95cf-980a-473f-8263-70ad17a671f9:
+    page: 4
+    title: Shelves
+    parentGuid: 004-9f6b304a-7af3-419f-964d-ea71d550321f
+    x: -104
+    y: 641
+  004-0a802ba7-d1b7-43db-b17d-1101d8ef2406:
+    page: 4
+    title: Blood Creatures
+    parentGuid: 004-9f6b304a-7af3-419f-964d-ea71d550321f
+    x: -104
+    y: 641
+  004-74e17b22-3aed-4ccb-8ce9-fbc0bba85cd4:
+    page: 4
+    title: 3. Library Balcony
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 641
+  004-df3dc07c-90e7-41ab-ad47-39c6bc75e50a:
+    page: 4
+    title: Blood Creatures
+    parentGuid: 004-74e17b22-3aed-4ccb-8ce9-fbc0bba85cd4
+    x: -104
+    y: 641
+  004-66fb0280-7c44-4f60-a2d8-b2aced5137f0:
+    page: 4
+    title: Shelves
+    parentGuid: 004-74e17b22-3aed-4ccb-8ce9-fbc0bba85cd4
+    x: -104
+    y: 641
+  004-dc6162ea-22bf-454b-a7cc-04e1052bec14:
+    page: 4
+    title: Locked Cabinet
+    parentGuid: 004-74e17b22-3aed-4ccb-8ce9-fbc0bba85cd4
+    x: -104
+    y: 641
+  005-3977cfa8-de94-42c0-97da-0442b1ec2baa:
+    page: 5
+    title: 4. Prison Crystal
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 886
+  005-13f74c30-f8d0-48ba-8d61-4bb1280f933a:
+    page: 5
+    title: The Ring Collector
+    parentGuid: 005-3977cfa8-de94-42c0-97da-0442b1ec2baa
+    x: -104
+    y: 571
+  006-dd257539-b44f-4ea9-b1e4-fe2c63ff76b6:
+    page: 6
+    title: 5. Laboratory
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 704
+  006-3e2f2234-62eb-4edd-87e6-1b36ead4cd09:
+    page: 6
+    title: Blood Creature Ritual
+    parentGuid: 006-dd257539-b44f-4ea9-b1e4-fe2c63ff76b6
+    x: -104
+    y: 704
+  006-9aa94676-24ed-4752-a378-ae0c2c56f6bc:
+    page: 6
+    title: Shelves and Tables
+    parentGuid: 006-dd257539-b44f-4ea9-b1e4-fe2c63ff76b6
+    x: -104
+    y: 585
+  006-adc28285-b023-4cb5-802d-b6d55666d6a3:
+    page: 6
+    title: 6. Private Quarters
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 679
+  006-3cf49bb5-4f31-4d52-b4b2-43a8acc7f746:
+    page: 6
+    title: Difficult Terrain
+    parentGuid: 006-adc28285-b023-4cb5-802d-b6d55666d6a3
+    x: -104
+    y: 679
+  006-88178c8a-60f3-46ad-ad75-d29afb8edba1:
+    page: 6
+    title: Blood Puddle
+    parentGuid: 006-adc28285-b023-4cb5-802d-b6d55666d6a3
+    x: -104
+    y: 648
+  006-cb37152f-c0eb-4b78-8498-46043922389d:
+    page: 6
+    title: Alcove Treasure
+    parentGuid: 006-adc28285-b023-4cb5-802d-b6d55666d6a3
+    x: -104
+    y: 491
+  007-cc47be0e-81c3-41a6-a781-1797f0f77782:
+    page: 7
+    title: 7. Forbidden Books
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 704
+  007-e4de201a-6166-458f-a5d1-870ce2148e1a:
+    page: 7
+    title: Acid Pustules
+    parentGuid: 007-cc47be0e-81c3-41a6-a781-1797f0f77782
+    x: -104
+    y: 547
+  007-b3a1f7da-a01c-4806-83dd-de00a5c494e0:
+    page: 7
+    title: Books
+    parentGuid: 007-cc47be0e-81c3-41a6-a781-1797f0f77782
+    x: -104
+    y: 547
+  007-b0305589-39a4-41c9-b735-d732e58f32a2:
+    page: 7
+    title: 8. Museum
+    parentGuid: 003-f8552300-f7e8-4d4b-b2a2-0817461ba57b
+    x: -104
+    y: 547
+  007-2dc3aa39-c9e0-4586-a86d-aeae3078edb4:
+    page: 7
+    title: Treasures
+    parentGuid: 007-b0305589-39a4-41c9-b735-d732e58f32a2
+    x: -104
+    y: 547
+  007-fe253958-7927-4d49-8eb6-a754baff7488:
+    page: 7
+    title: Blood Creatures
+    parentGuid: 007-b0305589-39a4-41c9-b735-d732e58f32a2
+    x: -104
+    y: 547
+  009-1a52fcd9-9841-4038-beac-a42690051b14:
+    page: 9
+    title: "Dungeon: Floating Manor"
+    x: -104
+    y: 785
+  009-763af5c9-9f3f-48d9-973a-5372952693d1:
+    page: 9
+    title: Manor Approach
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 660
+  009-e4d23e2d-9eb1-4e02-9154-bc87c71f957a:
+    page: 9
+    title: Getting to the Manor
+    parentGuid: 009-763af5c9-9f3f-48d9-973a-5372952693d1
+    x: -104
+    y: 648
+  009-431b3c76-1cc0-4cc6-a869-a4c091828dee:
+    page: 9
+    title: Outside the Manor
+    parentGuid: 009-763af5c9-9f3f-48d9-973a-5372952693d1
+    x: -104
+    y: 648
+  010-36180738-ccd7-4fc2-a1df-dd97740a163c:
+    page: 10
+    title: Entering the Manor
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 799
+  010-5a588c00-c7be-459b-a56c-43a5c8d434e4:
+    page: 10
+    title: Shared Details
+    parentGuid: 010-36180738-ccd7-4fc2-a1df-dd97740a163c
+    x: -104
+    y: 799
+  010-97bf3c9a-db1e-4b9d-9f01-f06282d02bce:
+    page: 10
+    title: Manor Encounters
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 648
+  011-9de38657-578c-4127-9db3-14b3ca71a387:
+    page: 11
+    title: 1. Grand Hall
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 673
+  011-9b9bf70d-a069-4954-b9a2-456066faf71a:
+    page: 11
+    title: Tapestries
+    parentGuid: 011-9de38657-578c-4127-9db3-14b3ca71a387
+    x: -104
+    y: 673
+  011-38a70670-4bd9-4e99-9ec7-b34d3a89a1c5:
+    page: 11
+    title: Locked Door
+    parentGuid: 011-9de38657-578c-4127-9db3-14b3ca71a387
+    x: -104
+    y: 554
+  011-91e37c2b-7a56-40d2-83ac-f9f63580cafe:
+    page: 11
+    title: 2. Dining Hall
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 711
+  011-4f4bba40-5a11-47db-8dcc-779d33798351:
+    page: 11
+    title: Skeleton
+    parentGuid: 011-91e37c2b-7a56-40d2-83ac-f9f63580cafe
+    x: -104
+    y: 711
+  011-8868cee8-b8e5-45e3-823b-a510074618ef:
+    page: 11
+    title: Roast
+    parentGuid: 011-91e37c2b-7a56-40d2-83ac-f9f63580cafe
+    x: -104
+    y: 648
+  012-b22bba38-051d-4f0a-ae57-67e4804267a6:
+    page: 12
+    title: 3. Kitchen
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 673
+  012-ab893913-d3f7-4fef-93b6-a881576d19fd:
+    page: 12
+    title: Undead
+    parentGuid: 012-b22bba38-051d-4f0a-ae57-67e4804267a6
+    x: -104
+    y: 673
+  012-8baa9c32-e05b-499a-ab3d-889d61e8fc1f:
+    page: 12
+    title: Lisbeth
+    parentGuid: 012-b22bba38-051d-4f0a-ae57-67e4804267a6
+    x: -104
+    y: 648
+  012-5358c10b-b21c-4a65-b185-d6d6809dc70f:
+    page: 12
+    title: Chest
+    parentGuid: 012-b22bba38-051d-4f0a-ae57-67e4804267a6
+    x: -104
+    y: 554
+  013-c0d0688a-98c9-499b-987e-5631b64d606d:
+    page: 13
+    title: Stairs
+    parentGuid: 012-b22bba38-051d-4f0a-ae57-67e4804267a6
+    x: -104
+    y: 799
+  013-48746305-cbed-44d8-b895-577426cc753d:
+    page: 13
+    title: 4. Study
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 799
+  013-0d9d0aab-aaa5-43ff-a7a8-14467681fe82:
+    page: 13
+    title: Chained Book
+    parentGuid: 013-48746305-cbed-44d8-b895-577426cc753d
+    x: -104
+    y: 641
+  013-88176011-8bc5-453a-a569-888f377315d1:
+    page: 13
+    title: Undead
+    parentGuid: 013-48746305-cbed-44d8-b895-577426cc753d
+    x: -104
+    y: 673
+  013-03c2ae86-fc8e-4743-8f3b-429fd6fb9cca:
+    page: 13
+    title: 5. Armory
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 673
+  013-3d80a6f6-450c-4afc-806c-0d46b0386a0b:
+    page: 13
+    title: Good Stuff
+    parentGuid: 013-03c2ae86-fc8e-4743-8f3b-429fd6fb9cca
+    x: -104
+    y: 673
+  014-12442ec3-633d-4ee7-a0ef-85b85c75cb8f:
+    page: 14
+    title: 6. Sky Pillar
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 641
+  014-469cb636-966a-49d5-a280-9991e8b043bc:
+    page: 14
+    title: Exposing the Pillar
+    parentGuid: 014-12442ec3-633d-4ee7-a0ef-85b85c75cb8f
+    x: -104
+    y: 641
+  014-db6c3204-d644-4ac9-9efa-f1e51ff8fb9e:
+    page: 14
+    title: Using the Pillar
+    parentGuid: 014-12442ec3-633d-4ee7-a0ef-85b85c75cb8f
+    x: -104
+    y: 641
+  014-d4d1b288-5fce-4945-93a0-7033dc23878f:
+    page: 14
+    title: 7. Servant’s Dining Hall
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 641
+  014-fc21b14b-3e60-443d-bb6a-cad72bacce0e:
+    page: 14
+    title: Undead
+    parentGuid: 014-d4d1b288-5fce-4945-93a0-7033dc23878f
+    x: -104
+    y: 641
+  014-001d1e6a-be4d-4d90-8ab9-d0a700d868b1:
+    page: 14
+    title: Platters
+    parentGuid: 014-d4d1b288-5fce-4945-93a0-7033dc23878f
+    x: -104
+    y: 641
+  014-77c0b53a-7143-43d1-b3e7-e12b83040b1e:
+    page: 14
+    title: Stairs
+    parentGuid: 014-d4d1b288-5fce-4945-93a0-7033dc23878f
+    x: -104
+    y: 641
+  015-63a2976a-2ac5-4c61-9789-8299f2e5ed54:
+    page: 15
+    title: 8. Servant’s Quarters
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 697
+  015-7ceb4c83-997d-4b64-a116-8fa2161fa51a:
+    page: 15
+    title: Chests
+    parentGuid: 015-63a2976a-2ac5-4c61-9789-8299f2e5ed54
+    x: -104
+    y: 697
+  015-fa5d89d7-189c-40ed-8087-23bab08945d8:
+    page: 15
+    title: 9. Guest Room
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 522
+  015-d808e6da-3b15-498d-98ea-bf76e725efde:
+    page: 15
+    title: Bed Undead
+    parentGuid: 015-fa5d89d7-189c-40ed-8087-23bab08945d8
+    x: -104
+    y: 522
+  015-ad5bb277-6aab-45b9-b04f-19e57b5cc22d:
+    page: 15
+    title: Trapdoor
+    parentGuid: 015-fa5d89d7-189c-40ed-8087-23bab08945d8
+    x: -104
+    y: 774
+  015-8be0f22e-4380-4796-af18-4662ac988838:
+    page: 15
+    title: 10. Acob’s Room
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 774
+  015-eb1289d6-2465-449a-af61-36d3112d0bfd:
+    page: 15
+    title: Wardrobe
+    parentGuid: 015-8be0f22e-4380-4796-af18-4662ac988838
+    x: -104
+    y: 774
+  016-63edef43-61cb-41bd-a301-d38fc6a5837c:
+    page: 16
+    title: 11. Tilly’s Room
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 736
+  016-160f11b6-0348-49bd-84b1-6f60e60fdf80:
+    page: 16
+    title: Journal
+    parentGuid: 016-63edef43-61cb-41bd-a301-d38fc6a5837c
+    x: -104
+    y: 736
+  016-9d3adff2-2d90-4790-86d7-92aab2847ddc:
+    page: 16
+    title: Stone Box
+    parentGuid: 016-63edef43-61cb-41bd-a301-d38fc6a5837c
+    x: -104
+    y: 648
+  016-8ca7ba35-bb37-4798-bf15-94d07bfca104:
+    page: 16
+    title: 12. Master Bedroom
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 648
+  016-40017f99-6a8a-43b1-90ac-34b4b61b90ea:
+    page: 16
+    title: Sigil
+    parentGuid: 016-8ca7ba35-bb37-4798-bf15-94d07bfca104
+    x: -104
+    y: 648
+  017-b02dcb02-6e27-4c2b-b7bd-7d6ada458e33:
+    page: 17
+    title: 13. Graveyard
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 767
+  017-9d5b0866-91dc-41fd-bb98-f115aee80cf0:
+    page: 17
+    title: Open Graves
+    parentGuid: 017-b02dcb02-6e27-4c2b-b7bd-7d6ada458e33
+    x: -104
+    y: 767
+  017-8b6cca17-6b05-402b-a33c-c64102dfe32a:
+    page: 17
+    title: Stairs
+    parentGuid: 017-b02dcb02-6e27-4c2b-b7bd-7d6ada458e33
+    x: -104
+    y: 648
+  017-28e9db91-636a-428e-93ec-8bc5e148ba96:
+    page: 17
+    title: 14. Outhouse
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 648
+  017-7d1f27b5-2793-4207-9ef9-e74f6507b89c:
+    page: 17
+    title: Hole
+    parentGuid: 017-28e9db91-636a-428e-93ec-8bc5e148ba96
+    x: -104
+    y: 648
+  018-5102184a-8fdc-41b0-b46f-41254c73bdd9:
+    page: 18
+    title: 15. Crypt
+    parentGuid: 009-1a52fcd9-9841-4038-beac-a42690051b14
+    x: -104
+    y: 641
+  018-89f57a05-8267-4ab0-9bcb-889980407565:
+    page: 18
+    title: Undead
+    parentGuid: 018-5102184a-8fdc-41b0-b46f-41254c73bdd9
+    x: -104
+    y: 641
+  018-c2d89a24-88a5-42d5-ab8d-2b862269c9ec:
+    page: 18
+    title: Chests
+    parentGuid: 018-5102184a-8fdc-41b0-b46f-41254c73bdd9
+    x: -104
+    y: 641
+ownerid: null
+description: 04 Crows Dungeons Book for Playtest 2
+parentFolder: null
+artist: null
+ord: 0
+ctime: 1787425952996
+mtime: 1787425952996
+hidden: false
+id: c09f374f-b822-48cc-968a-21bb0999f9e9

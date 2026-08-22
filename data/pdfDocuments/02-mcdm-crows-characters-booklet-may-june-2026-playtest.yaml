@@ -1,0 +1,743 @@
+imageId: https://codexback.com/raL5SJMeQwKHMFw_bLqruA
+bookmarks:
+  000-f9fd0acd-01b3-40ad-9ed4-5d3b4ba1b0f8:
+    page: 0
+    title: It’s a Living
+    x: -105
+    y: 648
+  000-922175a9-7dc9-4279-8413-c36e0838441a:
+    page: 0
+    title: Crow Creation
+    x: -105
+    y: 648
+  000-a11e92ca-5e8f-4b35-9ad8-dfa93f46a59f:
+    page: 0
+    title: 1. Roll For Background
+    parentGuid: 000-922175a9-7dc9-4279-8413-c36e0838441a
+    x: -105
+    y: 648
+  000-07e4b24a-03ad-4995-85ef-23da974509ba:
+    page: 0
+    title: 2. Record Statistics
+    parentGuid: 000-922175a9-7dc9-4279-8413-c36e0838441a
+    x: -105
+    y: 648
+  000-b457e981-906a-4b8c-85a7-1d1216b48feb:
+    page: 0
+    title: Characteristic Adjustments
+    parentGuid: 000-07e4b24a-03ad-4995-85ef-23da974509ba
+    x: -105
+    y: 648
+  000-6ac25849-35cf-488e-acd8-62607b43225c:
+    page: 0
+    title: Name and Feature
+    parentGuid: 000-07e4b24a-03ad-4995-85ef-23da974509ba
+    x: -105
+    y: 459
+  000-af16b533-8645-48c6-bd0b-869135bf8cac:
+    page: 0
+    title: 3. Equipment Cards
+    parentGuid: 000-922175a9-7dc9-4279-8413-c36e0838441a
+    x: -105
+    y: 459
+  000-ce2f7f01-c9c9-481d-8746-d284a31aee31:
+    page: 0
+    title: 4. Make a Village
+    parentGuid: 000-922175a9-7dc9-4279-8413-c36e0838441a
+    x: -105
+    y: 459
+  001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c:
+    page: 1
+    title: Backgrounds
+    parentGuid: 000-922175a9-7dc9-4279-8413-c36e0838441a
+    x: -105
+    y: 736
+  001-2bedb429-dd2c-49b5-93a8-7cc3026dfd30:
+    page: 1
+    title: Acolyte of the Gardner
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 736
+  001-1681ae5b-df52-418f-9b23-283111b6fa8f:
+    page: 1
+    title: Acolyte of the Healer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 648
+  001-4d45c962-7afd-40c6-b3cf-5defd9f0ef0d:
+    page: 1
+    title: Acolyte of the Smith
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 648
+  001-49536dbf-36d6-431d-b575-ec9969a868b7:
+    page: 1
+    title: Acolyte of the Three
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 459
+  001-769bfcd0-83d6-421b-84b5-5e6eccdf404b:
+    page: 1
+    title: Acolyte of the Warrior
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 711
+  001-95e3a1cc-bf07-4a0c-a7b9-d528dd41d5b1:
+    page: 1
+    title: Alchemist
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 711
+  001-65ab7472-51f2-4ce9-bae1-fd61b25dac1d:
+    page: 1
+    title: Apprentice Mage
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 711
+  001-8b10f48f-c04a-4f41-b3d9-d6cb608aa64d:
+    page: 1
+    title: Archer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 459
+  002-1bacb32a-f670-4872-8c47-9cf8a5178c50:
+    page: 2
+    title: Assassin
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 704
+  002-9197018e-abed-4635-8d21-8b428009f736:
+    page: 2
+    title: Beggar
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 704
+  002-07c19714-21e4-4560-b8d7-28be043ffc1c:
+    page: 2
+    title: Blacksmith
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 579
+  002-70d14cc4-be18-4ecd-9228-92a69379c576:
+    page: 2
+    title: Bodyguard
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 579
+  002-64568e6c-1285-4be8-944b-5e2b53cdee68:
+    page: 2
+    title: Cartographer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 704
+  002-bb1612ae-0e2e-4929-b8b0-99122a8e5fb2:
+    page: 2
+    title: Conjurer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 579
+  002-5e78ad60-c503-48df-8191-64f5cc06d608:
+    page: 2
+    title: Cook
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 579
+  002-e09114c6-2182-4bf5-9bb0-ed7940f5f7d2:
+    page: 2
+    title: Duelist
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 422
+  003-e138cd8b-f1c1-4b8d-80da-96516a00c6d5:
+    page: 3
+    title: Entertainer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 698
+  003-96309e03-76d3-4ef7-a0b3-a5054fd8ddf7:
+    page: 3
+    title: Executioner
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 698
+  003-f69e9a22-2346-49eb-84ca-b7a953905a95:
+    page: 3
+    title: Farmer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 541
+  003-d216c695-5675-4350-8767-e2be698c9cd5:
+    page: 3
+    title: Gladiator
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 541
+  003-2ce9fc79-a221-49d9-9904-c27665219999:
+    page: 3
+    title: Hunter
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 761
+  003-6cd51a67-748c-4ec1-8547-3bbbee6fe9cd:
+    page: 3
+    title: Hydromancer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 635
+  003-ee2aee98-8d01-496a-87b9-5371f4e239f5:
+    page: 3
+    title: Illusionist
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 572
+  003-df3e413b-f17b-4b7e-8ea8-6f88c65e4ab6:
+    page: 3
+    title: Keraunomancer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 384
+  004-b527078b-0c64-41dd-a2ba-fef310c884ee:
+    page: 4
+    title: Knight
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 691
+  004-bd4e594e-2e4e-45f7-81da-21cf5283a309:
+    page: 4
+    title: Merchant
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 691
+  004-f80b8395-0cff-4c93-ba6b-f754d5bd0755:
+    page: 4
+    title: Miner
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 471
+  004-0ac4d456-02f7-4c9b-bd99-decab372e19b:
+    page: 4
+    title: Noble
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 471
+  004-87a29f0c-b8cd-4e49-a96b-924fd7bdde7b:
+    page: 4
+    title: Pugilist
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 723
+  004-4ed1338b-81ec-4a1a-9097-486850bb0984:
+    page: 4
+    title: Pyromancer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 723
+  004-08ef6c93-bf9d-4176-8218-59f264570831:
+    page: 4
+    title: Sage
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 723
+  004-5fe42e44-43fa-4beb-a7a8-a1e6fd7afb4b:
+    page: 4
+    title: Soldier
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 503
+  005-4397e32c-1473-4594-bf81-204286c5e5e9:
+    page: 5
+    title: Thief
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 810
+  005-34b86797-3753-4b1e-a413-8e04deed08fe:
+    page: 5
+    title: Tinkerer
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 810
+  005-67cd96cf-a0ac-494e-8bbf-45121155f9b6:
+    page: 5
+    title: Transmuter
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 590
+  005-24597245-22ba-4ff4-89df-3390e481e483:
+    page: 5
+    title: Village Watch
+    parentGuid: 001-b34ce0ce-2f32-45ca-82d4-a4858854bc1c
+    x: -105
+    y: 590
+  005-0e1e7419-ab4d-4783-9b0f-43b314a0dc23:
+    page: 5
+    title: Advancement
+    x: -105
+    y: 747
+  006-d3a5e2d8-e2f7-4849-b73a-a61bd1647b19:
+    page: 6
+    title: New PC After Death
+    parentGuid: 005-0e1e7419-ab4d-4783-9b0f-43b314a0dc23
+    x: -105
+    y: 804
+  006-b2d1847e-af90-4d07-96ba-f3715f80ab2d:
+    page: 6
+    title: Traits
+    x: -105
+    y: 490
+  006-d383d141-9446-4e6d-8efa-73bd5a2c486d:
+    page: 6
+    title: Buying Traits
+    parentGuid: 006-b2d1847e-af90-4d07-96ba-f3715f80ab2d
+    x: -105
+    y: 490
+  006-fc409d88-a887-449b-a256-b6b036ec9b36:
+    page: 6
+    title: Minimum Modifier
+    parentGuid: 006-b2d1847e-af90-4d07-96ba-f3715f80ab2d
+    x: -105
+    y: 742
+  006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37:
+    page: 6
+    title: Trait Trees
+    parentGuid: 006-b2d1847e-af90-4d07-96ba-f3715f80ab2d
+    x: -105
+    y: 616
+  007-f5bb761f-968b-445d-a6f0-e4466fd219a1:
+    page: 7
+    title: Alchemy
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 735
+  008-5ac68e55-3b04-40c9-9ba0-5f308f45c235:
+    page: 8
+    title: Alteration
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 861
+  009-e0e538f8-9098-43e6-a92a-e97e331de1b9:
+    page: 9
+    title: Archery
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 792
+  010-f64594a1-cd01-4ade-aa9e-d95544f48bac:
+    page: 10
+    title: Armor
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 817
+  011-3da3d70c-1ec7-40c7-856a-ded258f79268:
+    page: 11
+    title: Bashing
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 873
+  012-038503c1-4993-4309-ae7a-b6cf25b6c8f2:
+    page: 12
+    title: Benefaction
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 804
+  013-18d14e57-47a4-4d06-b7b1-54db00bbd3a6:
+    page: 13
+    title: Blackmsithing
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 766
+  014-cfc9e00f-545a-43d9-a7ea-efcf0a629cf8:
+    page: 14
+    title: Camping
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 791
+  014-a38d5973-c409-452a-a8ac-937ad4c5f6b8:
+    page: 14
+    title: Chopping
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 351
+  016-bfb1c02a-42c9-4329-95d8-d8c2920a98ee:
+    page: 16
+    title: Conjuration
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 840
+  017-1eb3206b-f622-40ac-a0bc-5262a6632ab1:
+    page: 17
+    title: Elemental
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 802
+  018-3dda84f4-6800-43b5-9e75-78984e597831:
+    page: 18
+    title: Enchantment
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 765
+  019-9e24ac5f-6881-4305-908a-34a49cc97d13:
+    page: 19
+    title: Illusion
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 758
+  020-c34c79cb-4a9a-41d9-bc67-08c0ec15f4ba:
+    page: 20
+    title: Knowledge
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 846
+  021-1088f47f-9bf9-45c0-915f-0713af430f5d:
+    page: 21
+    title: Leverage
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 839
+  022-1272792a-a621-4456-be4d-b173641e1c6f:
+    page: 22
+    title: Necromancy
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 864
+  023-f05480ad-68aa-4879-99fd-4836d52b6ed6:
+    page: 23
+    title: Pets
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 889
+  024-81cb9804-a63a-4061-b761-20fdd1643f6d:
+    page: 24
+    title: Reputation
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 882
+  025-d6c1bb75-f7d3-407e-8cdc-5bdee011a90b:
+    page: 25
+    title: Slashing
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 844
+  026-f9acce0d-eab8-48b9-ab5d-11a32d28f401:
+    page: 26
+    title: Stabbing
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 712
+  027-d9ec454a-1b9e-4ed7-a7d4-cd6d269c4074:
+    page: 27
+    title: Thievery
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 800
+  028-24a1cff8-30b8-482a-bbbb-4cc6f8bc7c6a:
+    page: 28
+    title: Travel
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 793
+  029-85030f51-c5fc-4789-bdf9-536bf5dacac7:
+    page: 29
+    title: Unarmed
+    parentGuid: 006-5bcdba18-dbd0-4fbd-9c42-e76e51296d37
+    x: -105
+    y: 724
+  030-59c74672-25d6-41ed-8979-b3d3bf073010:
+    page: 30
+    title: Equipment
+    x: -105
+    y: 717
+  030-f04f99e0-4b95-44f1-b49d-c653c682be69:
+    page: 30
+    title: Inventory Cards
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 717
+  030-3ffa402a-4a23-4663-b2ec-f461e4ff68e8:
+    page: 30
+    title: Marking Cards
+    parentGuid: 030-f04f99e0-4b95-44f1-b49d-c653c682be69
+    x: -105
+    y: 648
+  030-f1673296-8bdc-490c-a7a8-968273e4af92:
+    page: 30
+    title: Blank Cards
+    parentGuid: 030-f04f99e0-4b95-44f1-b49d-c653c682be69
+    x: -105
+    y: 648
+  030-a765be2d-6daf-4a92-a2cb-e560d191493d:
+    page: 30
+    title: Money
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 491
+  030-63dff6ec-19e5-410b-90f5-6dc24d536ab2:
+    page: 30
+    title: Shopping
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 491
+  030-17e4cda4-c606-4e03-812b-cee1e7e520e7:
+    page: 30
+    title: Gear
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 491
+  030-6a8cf491-d0f5-4460-a268-b30ab7a99cdc:
+    page: 30
+    title: Fine and Masterwork
+    parentGuid: 030-17e4cda4-c606-4e03-812b-cee1e7e520e7
+    x: -105
+    y: 711
+  032-93106e7a-bcfa-49c6-8537-3f76d52ead0b:
+    page: 32
+    title: Armor
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 761
+  032-acfd81f7-53aa-47e9-8d05-25c64c58a991:
+    page: 32
+    title: Armor Types
+    parentGuid: 032-93106e7a-bcfa-49c6-8537-3f76d52ead0b
+    x: -105
+    y: 761
+  032-cdddef31-f0ae-4633-a574-e1f443bd98e6:
+    page: 32
+    title: Upgraded Armor
+    parentGuid: 032-93106e7a-bcfa-49c6-8537-3f76d52ead0b
+    x: -105
+    y: 761
+  033-8570df10-a251-41db-8d2c-93224216a1e3:
+    page: 33
+    title: Armor Enchantments
+    parentGuid: 032-93106e7a-bcfa-49c6-8537-3f76d52ead0b
+    x: -105
+    y: 359
+  036-a4071acd-7c0c-4aea-b5e7-d55da7980d28:
+    page: 36
+    title: Weapons
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 685
+  036-8e242049-d973-40b6-884f-0c9dfec7f503:
+    page: 36
+    title: Weapon Types
+    parentGuid: 036-a4071acd-7c0c-4aea-b5e7-d55da7980d28
+    x: -105
+    y: 685
+  036-cb94a1b2-d130-47ad-83d6-760bc8f7a2e4:
+    page: 36
+    title: Weapon Qualities
+    parentGuid: 036-a4071acd-7c0c-4aea-b5e7-d55da7980d28
+    x: -105
+    y: 648
+  038-67d099b6-10d9-415f-a3c6-01de5462e83f:
+    page: 38
+    title: Upgraded Weapons
+    parentGuid: 036-a4071acd-7c0c-4aea-b5e7-d55da7980d28
+    x: -105
+    y: 384
+  038-98e843dd-f81a-4d16-870e-16363ddd729a:
+    page: 38
+    title: Weapon Enchantments
+    parentGuid: 036-a4071acd-7c0c-4aea-b5e7-d55da7980d28
+    x: -105
+    y: 384
+  041-22d6a265-77ff-44e5-8320-a3fdf3fbff35:
+    page: 41
+    title: Crafting Materials
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 804
+  041-b22fa494-5e32-4ccf-97e5-8da959ea767a:
+    page: 41
+    title: Treassure
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 584
+  041-01ac3784-7fe1-47f9-b73b-a6e347276239:
+    page: 41
+    title: Pets
+    parentGuid: 030-59c74672-25d6-41ed-8979-b3d3bf073010
+    x: -105
+    y: 458
+  041-7cb9fcdc-fa4b-416a-9da5-8671056cf765:
+    page: 41
+    title: Pet Stats
+    parentGuid: 041-01ac3784-7fe1-47f9-b73b-a6e347276239
+    x: -105
+    y: 678
+  041-0426a323-899e-4712-ae62-911abe0be18e:
+    page: 41
+    title: Barding
+    parentGuid: 041-01ac3784-7fe1-47f9-b73b-a6e347276239
+    x: -105
+    y: 648
+  041-f27a82a0-2c9a-49eb-bc9d-2f9bd30e2507:
+    page: 41
+    title: Pets for Purchase
+    parentGuid: 041-01ac3784-7fe1-47f9-b73b-a6e347276239
+    x: -105
+    y: 491
+  043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f:
+    page: 43
+    title: The Village
+    x: -105
+    y: 666
+  043-1680567e-4c0f-4ba3-b24e-2d878f541f48:
+    page: 43
+    title: Starting Village
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 478
+  043-97ae72db-ca24-44bc-b469-a2168af7b89b:
+    page: 43
+    title: Village Cycle
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 478
+  043-4c8d9e7a-e3fa-4cc9-a405-7fb352b0504a:
+    page: 43
+    title: Prosperity
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 698
+  043-09852c7d-0701-4e5a-9e3a-22a5848710ee:
+    page: 43
+    title: Raising Prosperity
+    parentGuid: 043-4c8d9e7a-e3fa-4cc9-a405-7fb352b0504a
+    x: -105
+    y: 603
+  043-0508e862-3d66-450d-8f48-920e70098e13:
+    page: 43
+    title: Lowering Prosperity
+    parentGuid: 043-4c8d9e7a-e3fa-4cc9-a405-7fb352b0504a
+    x: -105
+    y: 603
+  043-ddc3a797-b8e0-4b05-8492-c1efe310eff5:
+    page: 43
+    title: Village Events
+    parentGuid: 043-4c8d9e7a-e3fa-4cc9-a405-7fb352b0504a
+    x: -105
+    y: 446
+  044-a4d961fd-8261-4de1-9c71-f9d8ded86fee:
+    page: 44
+    title: Trade
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 722
+  044-13ae2626-cfeb-4639-a528-8e1ec59a522b:
+    page: 44
+    title: Buying and Availability
+    parentGuid: 044-a4d961fd-8261-4de1-9c71-f9d8ded86fee
+    x: -105
+    y: 722
+  044-6b409965-8aeb-459b-a8c1-fe29ab43f5e7:
+    page: 44
+    title: Selling
+    parentGuid: 044-a4d961fd-8261-4de1-9c71-f9d8ded86fee
+    x: -105
+    y: 554
+  044-1ad2f03a-d5de-49ac-af84-0d6a26073aed:
+    page: 44
+    title: Village Crafting
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 679
+  046-40b2748a-945b-425b-b12e-53e1da3bb889:
+    page: 46
+    title: Institutions
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 698
+  047-cad00455-264b-4bd4-bfb6-12e08472aace:
+    page: 47
+    title: Alchemist
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 723
+  047-59d1ca56-c54c-4375-9f47-45688ce181b5:
+    page: 47
+    title: Auction House
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 742
+  048-06584a77-16dc-4e7f-a527-3d8992b930a9:
+    page: 48
+    title: Barracks
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 830
+  048-ec8deed8-8781-405d-abc0-59aed603afb4:
+    page: 48
+    title: Blacksmith
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 648
+  048-4f758342-a66f-4ed0-961a-cc4346c06f5b:
+    page: 48
+    title: Bookseller
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 585
+  049-6509eab7-1e1c-481a-a9f6-7342eaca9a8d:
+    page: 49
+    title: Crypt
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 861
+  050-05b54876-c580-436c-a8b7-01b6fb77437c:
+    page: 50
+    title: Enchanter
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 823
+  050-367d3b35-af9b-4905-9e59-7e2cd0cf6224:
+    page: 50
+    title: General Store
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 666
+  051-755f61b4-6fa9-4a4a-b0a9-0f45bb57273b:
+    page: 51
+    title: Inn
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 723
+  051-1a53bd64-5a1a-4425-8125-d2fbd13b14f2:
+    page: 51
+    title: Stables
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 723
+  052-d29d8c16-41e3-4608-b779-5736b13517fb:
+    page: 52
+    title: Temple
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 716
+  052-1af5ac18-4f60-4d80-a1f5-e1c415f3473f:
+    page: 52
+    title: Wheelwright
+    parentGuid: 046-40b2748a-945b-425b-b12e-53e1da3bb889
+    x: -105
+    y: 685
+  052-eb52f544-ffef-4d58-b9de-5af242728a01:
+    page: 52
+    title: Your Home
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 685
+  053-d4e32531-ac48-4dd1-8ea5-a76706470fd2:
+    page: 53
+    title: Retirement
+    parentGuid: 043-0b1bd9f1-69e8-49b3-bb4a-01758597db0f
+    x: -105
+    y: 647
+ownerid: null
+description: 02 MCDM Crows Characters Booklet May June 2026 Playtest
+parentFolder: null
+artist: null
+ord: 0
+ctime: 1787425866657
+mtime: 1787425904353
+hidden: true
+id: 36806ba4-284f-41c9-a5f6-f1d8ff82e843

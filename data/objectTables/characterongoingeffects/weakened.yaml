@@ -1,93 +1,85 @@
-# Crows Playtest 2 -- Weakened
-#
-# The Rules, p.12 (Conditions):
-#   "While you are weakened, you take a bane on all tests. You lose this
-#    condition at the end of a dungeon turn."
-#
-# Weakened is one half of the pair that replaced Boned in Playtest 2 (the other
-# is Vulnerable). It does not stack: Playtest 2 adds the blanket rule "You can't
-# gain a second instance of a condition you already have."
-#
-# Test, opposed-test, and resistance-test modifiers cover every Crows test
-# without incorrectly penalizing attacks. The Dungeon Turn custom trigger
-# removes this condition automatically.
-_table: characterOngoingEffects
 __typeName: CharacterOngoingEffect
-id: f1db7b8d-55bb-4a5d-a9c2-0a1a8d415371
-guid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
-name: Weakened
-description: >-
-  While you are weakened, you take a bane on all tests. You lose this condition
-  at the end of a dungeon turn.
-crowsCondition: true
-stackable: false
+mtime: 1787423733227
 statusEffect: true
-indefiniteDuration: true
 implementation: 4
-iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
+stackable: false
 display:
-  __typeName: DisplayInfo
-  bgcolor: "#8a94a8ff"
   hueshift: 0
   brightness: 1
+  bgcolor:
+    __usertype: LuaColor
+    h: 0.611111104488373
+    s: 1.0021744966507
+    v: 0.964776039123535
+    a: 1
   saturation: 1
+source: Ongoing Effect
 modifiers:
-  - __typeName: CharacterModifier
-    name: Weakened
-    guid: 3fb5a58a-5d5c-45dd-84ae-918643bf8e9e
-    behavior: power
-    modtype: bane
-    rollType: test_power_roll
-    activationCondition: true
-    description: You take a bane on all tests while weakened.
-    source: Condition
-    sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
-  - __typeName: CharacterModifier
-    name: Weakened
-    guid: dcc72b6d-1a16-4c3a-842c-a3bd0183a6ee
-    behavior: power
-    modtype: bane
-    rollType: opposed_power_roll
-    activationCondition: true
-    description: You take a bane on all opposed tests while weakened.
-    source: Condition
-    sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
-  - __typeName: CharacterModifier
-    name: Weakened
-    guid: 760806c5-5c11-4fb6-987b-deb7fc91fd22
-    behavior: power
-    modtype: bane
-    rollType: resistance_power_roll
-    activationCondition: true
-    description: You take a bane on all resistance tests while weakened.
-    source: Condition
-    sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
-  - __typeName: CharacterModifier
-    name: Weakened - Dungeon Turn Expiry
-    guid: 805a3756-afd0-4caf-a3fd-7abc8e65eb96
-    behavior: trigger
-    description: Weakened ends at the end of a dungeon turn.
-    source: Condition
-    sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
-    triggeredAbility:
-      __typeName: TriggeredAbility
-      name: Weakened Ends
-      guid: 5ca1f46a-5ebc-4349-8af4-9e2fd19a3732
-      trigger: custom
-      conditionFormula: Trigger Name = 'Dungeon Turn'
-      mandatory: true
-      silent: true
-      abilityType: none
-      targetType: self
-      numTargets: '1'
-      range: 1
-      repeatTargets: false
-      modifiers: []
-      persistence: []
-      strain: []
-      behaviors:
-      - __typeName: ActivatedAbilityPurgeEffectsBehavior
-        mode: effect
-        ongoingEffect: f1db7b8d-55bb-4a5d-a9c2-0a1a8d415371
-        purgeType: all
-        conditions: []
+- __typeName: CharacterModifier
+  modtype: bane
+  source: Condition
+  sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
+  rollType: test_power_roll
+  name: Weakened
+  guid: 3fb5a58a-5d5c-45dd-84ae-918643bf8e9e
+  description: You take a bane on all tests while weakened.
+  behavior: power
+  activationCondition: true
+- __typeName: CharacterModifier
+  modtype: bane
+  source: Condition
+  sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
+  rollType: opposed_power_roll
+  name: Weakened
+  guid: dcc72b6d-1a16-4c3a-842c-a3bd0183a6ee
+  description: You take a bane on all opposed tests while weakened.
+  behavior: power
+  activationCondition: true
+- __typeName: CharacterModifier
+  modtype: bane
+  source: Condition
+  sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
+  rollType: resistance_power_roll
+  name: Weakened
+  guid: 760806c5-5c11-4fb6-987b-deb7fc91fd22
+  description: You take a bane on all resistance tests while weakened.
+  behavior: power
+  activationCondition: true
+- __typeName: CharacterModifier
+  sourceguid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
+  guid: 805a3756-afd0-4caf-a3fd-7abc8e65eb96
+  name: Weakened - Dungeon Turn Expiry
+  triggeredAbility:
+    __typeName: TriggeredAbility
+    strain: []
+    abilityType: none
+    trigger: custom
+    mandatory: true
+    numTargets: "1"
+    repeatTargets: false
+    behaviors:
+    - __typeName: ActivatedAbilityPurgeEffectsBehavior
+      conditions: []
+      purgeType: all
+      ongoingEffect: f1db7b8d-55bb-4a5d-a9c2-0a1a8d415371
+      mode: effect
+    range: 1
+    targetType: self
+    guid: 5ca1f46a-5ebc-4349-8af4-9e2fd19a3732
+    name: Weakened Ends
+    persistence: []
+    modifiers: []
+    conditionFormula: Trigger Name = 'Dungeon Turn'
+    silent: true
+  behavior: trigger
+  source: Condition
+  description: Weakened ends at the end of a dungeon turn.
+guid: a80ed8d3-346a-4b56-8d9c-2f073a365d8e
+iconid: 87c16b08-7f2e-46b2-9647-f9b092d836a0
+association: []
+indefiniteDuration: true
+crowsCondition: true
+description: While you are weakened, you take a bane on all tests. You lose this condition at the end of a dungeon turn.
+id: f1db7b8d-55bb-4a5d-a9c2-0a1a8d415371
+name: Weakened
+_table: characterOngoingEffects

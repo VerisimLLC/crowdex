@@ -26,6 +26,7 @@ description: >-
   Retired in the August-September 2026 playtest. Boned was replaced by two
   conditions: Weakened (you take a bane on all tests) and Vulnerable (each time
   you take damage you take an additional 1d6 dam). Apply one of those instead.
+source: Ongoing Effect
 hidden: true
 crowsCondition: false
 stackable: false
@@ -34,7 +35,6 @@ indefiniteDuration: true
 implementation: 0
 iconid: bc90bb09-9e3c-46d4-bf16-0e5c0134dbf8
 display:
-  __typeName: DisplayInfo
   bgcolor: "#6b6b6bff"
   hueshift: 0
   brightness: 1

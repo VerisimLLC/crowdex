@@ -1270,6 +1270,50 @@ local function FinishRest()
     return summary
 end
 
+-- Keep every entry point for completing a rest on the same rules path. The
+-- Campaign Tracker button uses this text in-place; the Crows game-mode prompt
+-- uses it in a confirmation dialog after leaving Rest mode.
+local function RestSummaryText(s)
+    local parts = {
+        string.format("%d crow%s rested", s.crows, s.crows == 1 and "" or "s"),
+        string.format("%d wound%s cleared", s.wounds, s.wounds == 1 and "" or "s"),
+    }
+    if s.tended > 0 then
+        parts[#parts + 1] = string.format("%d tended", s.tended)
+    end
+    if s.dice > 0 then
+        parts[#parts + 1] = string.format("%d usage die pool%s refilled",
+            s.dice, s.dice == 1 and "" or "s")
+    end
+    if s.expertises > 0 then
+        parts[#parts + 1] = "expertises restored"
+    end
+    if s.loreBooks > 0 then
+        parts[#parts + 1] = string.format("%d lore-book expertise%s gained",
+            s.loreBooks, s.loreBooks == 1 and "" or "s")
+    end
+    if s.miasma > 0 then
+        parts[#parts + 1] = string.format(
+            "no expertise recovery in the Miasma; test prompted for %d", s.miasma)
+    end
+    if s.cleansed > 0 then
+        parts[#parts + 1] = string.format("cruelty cleared from %d", s.cleansed)
+    end
+    if s.chaos > 0 then
+        parts[#parts + 1] = string.format(
+            "%d could NOT rest (two magic items on one slot)", s.chaos)
+    end
+    return table.concat(parts, ", ") .. "."
+end
+
+-- Public Crows-only rest service. CrowdexInitiative resolves this at call time
+-- because the two files do not need a fragile load-order dependency.
+if rawget(_G, "CrowdexRest") == nil then
+    CrowdexRest = {}
+end
+CrowdexRest.Finish = FinishRest
+CrowdexRest.SummaryText = RestSummaryText
+
 local function GetDuration(data)
     return data.duration or DUNGEON_TURN_DURATION
 end
@@ -2666,35 +2710,7 @@ local function CreateRestBlock()
         end,
         press = function(element)
             local s = FinishRest()
-            local parts = {
-                string.format("%d crow%s rested", s.crows, s.crows == 1 and "" or "s"),
-                string.format("%d wound%s cleared", s.wounds, s.wounds == 1 and "" or "s"),
-            }
-            if s.tended > 0 then
-                parts[#parts + 1] = string.format("%d tended", s.tended)
-            end
-            if s.dice > 0 then
-                parts[#parts + 1] = string.format("%d usage die pool%s refilled", s.dice, s.dice == 1 and "" or "s")
-            end
-            if s.expertises > 0 then
-                parts[#parts + 1] = "expertises restored"
-            end
-            if s.loreBooks > 0 then
-                parts[#parts + 1] = string.format("%d lore-book expertise%s gained",
-                    s.loreBooks, s.loreBooks == 1 and "" or "s")
-            end
-            if s.miasma > 0 then
-                parts[#parts + 1] = string.format(
-                    "no expertise recovery in the Miasma; test prompted for %d", s.miasma)
-            end
-            if s.cleansed > 0 then
-                parts[#parts + 1] = string.format("cruelty cleared from %d", s.cleansed)
-            end
-            if s.chaos > 0 then
-                parts[#parts + 1] = string.format(
-                    "%d could NOT rest (two magic items on one slot)", s.chaos)
-            end
-            resultLabel.text = table.concat(parts, ", ") .. "."
+            resultLabel.text = RestSummaryText(s)
             resultLabel:SetClass("collapsed", false)
             block:FireEvent("refreshRest")
         end,

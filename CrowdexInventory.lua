@@ -3921,7 +3921,7 @@ local function BuildCrowsAttackAbility(c, args)
             .. " On a miss ammunition is destroyed and an ally adjacent to the target may be hit (tier 2; tier 3 on a doom)."
     end
 
-    local keywords = { Weapon = true, Attack = true }
+    local keywords = { Weapon = true, Strike = true }
     if args.mode == "melee" then
         keywords.Melee = true
     else

@@ -1,20 +1,21 @@
-# Crows Playtest 2 -- Torch
-_table: tbl_Gear
 __typeName: equipment
-id: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
-name: "Torch"
-type: Gear
-category: Gear
 equipmentCategory: f960a9b8-145a-4a8f-a7d2-cd69a54e3e77
+itemObjectId: e50fdc87-a27a-404d-8347-144a8b6329a7
 iconid: f8fac2c7-0b4b-4248-880e-05036dd13a94
+description: As a maneuver, light the torch to shed light 5/5. UD 1, rolled each dungeon turn; the torch is useless when depleted. Fine torches have 2 UD; masterwork torches have 3 UD.
+usageDiceRestore: useless
+type: Gear
+name: Torch
+category: Gear
+usageDiceTrigger: dt
+mtime: 1787425614135
+implementation: 1
+slotsRequired: 1
+stackLimit: 2
 costInGold: 2
 weight: 0
-stackLimit: 2
-slotsRequired: 1
-description: "As a maneuver, light the torch to shed light 5/5. UD 1, rolled each dungeon turn; the torch is useless when depleted. Fine torches have 2 UD; masterwork torches have 3 UD."
-implementation: 1
+id: 75aa01d7-7197-46dc-ba82-bf324edb1ef5
+usageDice: 1
 domains:
   item:75aa01d7-7197-46dc-ba82-bf324edb1ef5: true
-usageDice: 1
-usageDiceTrigger: dt
-usageDiceRestore: useless
+_table: tbl_Gear

@@ -4,8 +4,10 @@ info:
     mountedOnObject: null
     mountedSaddle: 0
     floor: null
-    map: null
-    loc: []
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -12
+    - 13
     pos:
       x: 0
       y: 0
@@ -26,10 +28,10 @@ info:
     anthem: null
     anthemVolume: 1
     tokenScaling: 1
-    tokenZoom: 1
+    tokenZoom: 1.103826
     portraitOffset:
-      x: 0
-      y: 0
+      x: -0.01093612
+      y: 0.1093746
     frameHueShift: 0
     frameSaturation: 1
     frameBrightness: 0
@@ -54,154 +56,162 @@ info:
   updateid: null
   properties:
     __typeName: monster
+    walkingSpeed: 5
     equipment: []
-    cr: 2
+    attributes:
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: strength
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 1
+        id: agility
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -3
+        id: mind
+    monster_category: Undead
     innateActivatedAbilities:
     - __typeName: ActivatedAbility
-      iconid: ui-icons/skills/1.png
-      categorization: Signature Ability
-      range: "1"
-      guid: a9eda16e-8b4a-43e2-8c1a-39c53b40c3cb
-      meleeRange: 1
       targetType: target
-      keywords:
-        Strike: true
-        Melee: true
+      meleeRange: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      abilityType: none
+      iconid: ui-icons/skills/1.png
       behaviors:
       - __typeName: ActivatedAbilityPowerRollBehavior
-        attrid: strength
         tiers:
         - ""
         - 2 damage
         - 4 damage
+        attrid: strength
         roll: 2d10 + 2
-      abilityType: none
-      name: Claws
-      description: Tier 3 inflicts a laceration (see Lacerate).
-      numTargets: "1"
-      modifiers: []
-      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
-      repeatTargets: false
       implementation: 4
-    - __typeName: ActivatedAbility
-      guid: 1bbbfff2-9346-451e-addb-53753592f3f5
-      categorization: Signature Ability
-      abilityType: none
-      range: "5"
-      description: ""
       keywords:
+        Melee: true
         Strike: true
-        Ranged: true
+      repeatTargets: false
+      range: "1"
+      name: Claws
+      numTargets: "1"
+      description: Tier 3 inflicts a laceration (see Lacerate).
+      modifiers: []
+      guid: a9eda16e-8b4a-43e2-8c1a-39c53b40c3cb
+      categorization: Signature Ability
+    - __typeName: ActivatedAbility
       behaviors:
       - __typeName: ActivatedAbilityPowerRollBehavior
-        attrid: agility
         tiers:
         - ""
         - 1 damage
         - 3 damage
+        attrid: agility
         roll: 2d10 + 2
-      targetType: target
-      numTargets: "1"
-      iconid: ui-icons/skills/1.png
-      name: Spine
-      modifiers: []
       actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
-      repeatTargets: false
-      implementation: 4
-    - __typeName: ActivatedAbility
-      guid: ab0a10fd-020b-50f2-9b3e-02a6b7e88788
-      categorization: Ability
       abilityType: none
-      description: Jump a distance equal to speed.
-      keywords: []
-      behaviors: []
-      targetType: self
-      numTargets: "1"
-      range: "1"
-      name: Leap
-      iconid: ui-icons/skills/1.png
-      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      guid: 1bbbfff2-9346-451e-addb-53753592f3f5
+      targetType: target
+      implementation: 4
+      keywords:
+        Ranged: true
+        Strike: true
       repeatTargets: false
+      range: "5"
+      name: Spine
+      iconid: ui-icons/skills/1.png
+      numTargets: "1"
+      modifiers: []
+      description: ""
+      categorization: Signature Ability
+    - __typeName: ActivatedAbility
+      behaviors: []
+      abilityType: none
+      guid: ab0a10fd-020b-50f2-9b3e-02a6b7e88788
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
       implementation: 1
-    attributes:
-      mind:
-        __typeName: CharacterAttribute
-        id: mind
-        baseValue: -3
-      agility:
-        __typeName: CharacterAttribute
-        id: agility
-        baseValue: 1
-      strength:
-        __typeName: CharacterAttribute
-        id: strength
-        baseValue: 2
-    resources: []
+      keywords: []
+      name: Leap
+      range: "1"
+      repeatTargets: false
+      iconid: ui-icons/skills/1.png
+      description: Jump a distance equal to speed.
+      numTargets: "1"
+      targetType: self
+      categorization: Ability
+    monster_type: Undead A
+    skillProficiencies: []
+    damage_taken: 0
+    initiativeGrouping: 3d26b9fa-6998-4569-9bd2-f9315a036b16
+    levelChoices: []
+    inflictedConditions: []
+    max_hitpoints: 10
+    creatureSize: 1M
+    cr: 2
+    keywords:
+      Undead: true
     characterFeatures:
     - __typeName: CharacterFeature
-      guid: b2b624c5-46ca-404a-9e24-777aaf6a93ad
-      name: Common Names
-      modifiers: []
-      description: "Common names: razorback, spined death."
+      domains:
+        CharacterFeature:b2b624c5-46ca-404a-9e24-777aaf6a93ad: true
       source: Trait
+      name: Common Names
+      guid: b2b624c5-46ca-404a-9e24-777aaf6a93ad
+      modifiers: []
       implementation: 0
+      description: "Common names: razorback, spined death."
     - __typeName: CharacterFeature
-      description: When the undead gets a tier 3 result with their claws against a creature and damages their Stamina or gives them a wound, the target gains a laceration until they regain Stamina. When the target takes a maneuver and an action on their turn, they take 1 P damage for each laceration they have.
-      guid: 86c681ab-94e1-4124-9911-717424b2be11
+      domains:
+        CharacterFeature:86c681ab-94e1-4124-9911-717424b2be11: true
       source: Trait
       name: Lacerate
       modifiers: []
-      domains:
-        CharacterFeature:86c681ab-94e1-4124-9911-717424b2be11: true
+      guid: 86c681ab-94e1-4124-9911-717424b2be11
       implementationDetails: "Lacerations stack and are tracked by hand: the engine has no repeatable per-instance damage effect."
       implementation: 1
+      description: When the undead gets a tier 3 result with their claws against a creature and damages their Stamina or gives them a wound, the target gains a laceration until they regain Stamina. When the target takes a maneuver and an action on their turn, they take 1 P damage for each laceration they have.
     - __typeName: CharacterFeature
-      guid: 5b6db6ef-7ca0-4c7e-a723-265aff441b01
       domains:
         CharacterFeature:5b6db6ef-7ca0-4c7e-a723-265aff441b01: true
-      name: Leap
-      modifiers: []
-      description: The undead can jump a distance equal to their speed as a maneuver.
       source: Trait
+      name: Leap
+      guid: 5b6db6ef-7ca0-4c7e-a723-265aff441b01
+      modifiers: []
       implementation: 1
+      description: The undead can jump a distance equal to their speed as a maneuver.
     - __typeName: CharacterFeature
-      guid: dd2c4aa8-7e81-5c73-9612-d3769ccd126d
+      domains:
+        CharacterFeature:dd2c4aa8-7e81-5c73-9612-d3769ccd126d: true
+      source: Trait
       name: No Darkness Penalty
+      guid: dd2c4aa8-7e81-5c73-9612-d3769ccd126d
       modifiers:
       - __typeName: CharacterModifier
-        description: Dim light and darkness impose no penalties for the monster.
-        value: 1000
-        guid: c6a8feb6-e814-5219-b8b4-cd5d3e76c83f
-        sourceguid: dd2c4aa8-7e81-5c73-9612-d3769ccd126d
         behavior: attribute
+        guid: c6a8feb6-e814-5219-b8b4-cd5d3e76c83f
+        description: Dim light and darkness impose no penalties for the monster.
+        domains:
+          CharacterFeature:dd2c4aa8-7e81-5c73-9612-d3769ccd126d: true
+        source: Trait
+        sourceguid: dd2c4aa8-7e81-5c73-9612-d3769ccd126d
         name: No Darkness Penalty
         attribute: darkvision
-        source: Trait
-      description: Dim light and darkness impose no penalties for the monster.
-      source: Trait
+        value: 1000
       implementation: 4
-    monster_type: Undead A
-    skillProficiencies: []
-    walkingSpeed: 5
-    creatureSize: 1M
-    levelChoices: []
-    damage_taken: 0
-    monster_category: Undead
-    max_hitpoints: 10
-    keywords:
-      Undead: true
+      description: Dim light and darkness impose no penalties for the monster.
+    resources: []
   tokenType: null
-  bestiaryId: null
+  bestiaryId: 8165e800-cec3-407a-b1f7-a13c2903239b
   summonerid: null
-  ownerId: null
+  ownerId: ""
   partyid: null
-  size: -1
+  size: 2
   createdTimestamp: 1787366369360
 description: Undead A
 parentFolder: 5c45174e-b4a8-4b89-8327-156b3f79a328
 artist: null
 ord: 0
 ctime: 0
-mtime: 1787366784594
+mtime: 1787427583029
 hidden: false
 id: 8165e800-cec3-407a-b1f7-a13c2903239b

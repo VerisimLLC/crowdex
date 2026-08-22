@@ -1,0 +1,1023 @@
+imageId: https://codexback.com/iTelK_6qGHq3IONbcJ470Q
+bookmarks:
+  001-d56ee388-c239-4cab-8de9-c01fb27d0c55:
+    page: 1
+    title: Fortune or Death!
+    x: -104
+    y: 830
+  001-ae18a01d-a25b-402c-bc6f-b8297e3ae72b:
+    page: 1
+    title: Welcome to Cornath
+    x: -104
+    y: 830
+  001-034b26a3-5093-4855-b053-edcbbff92abf:
+    page: 1
+    title: Amaryll
+    parentGuid: 001-ae18a01d-a25b-402c-bc6f-b8297e3ae72b
+    x: -104
+    y: 359
+  002-4c4aff23-df15-414f-a56d-9e10c0197995:
+    page: 2
+    title: Craelin
+    parentGuid: 001-ae18a01d-a25b-402c-bc6f-b8297e3ae72b
+    x: -104
+    y: 855
+  002-2495e2b2-657e-417c-ba62-358d40c1e552:
+    page: 2
+    title: Ithnagio
+    parentGuid: 001-ae18a01d-a25b-402c-bc6f-b8297e3ae72b
+    x: -104
+    y: 698
+  002-b99e596f-97b2-4d2a-b49d-f3b5cec5d909:
+    page: 2
+    title: Ornassa
+    parentGuid: 001-ae18a01d-a25b-402c-bc6f-b8297e3ae72b
+    x: -104
+    y: 635
+  002-50d2322f-43fc-46b5-93a4-d30c5845bc9b:
+    page: 2
+    title: Zaziel
+    parentGuid: 001-ae18a01d-a25b-402c-bc6f-b8297e3ae72b
+    x: -104
+    y: 509
+  002-b3d76475-56d4-49a5-9aee-3d2d13b8daf2:
+    page: 2
+    title: The Gods
+    parentGuid: 001-ae18a01d-a25b-402c-bc6f-b8297e3ae72b
+    x: -104
+    y: 635
+  002-e3e33f14-51de-498f-b333-713706ffc3d6:
+    page: 2
+    title: The Gardner
+    parentGuid: 002-b3d76475-56d4-49a5-9aee-3d2d13b8daf2
+    x: -104
+    y: 635
+  002-b3d51966-73ab-43cf-93c0-1cd4ae034d10:
+    page: 2
+    title: The Healer
+    parentGuid: 002-b3d76475-56d4-49a5-9aee-3d2d13b8daf2
+    x: -104
+    y: 635
+  002-9a23c5e9-5de3-445b-a73e-e2ba51300f3f:
+    page: 2
+    title: The Smith
+    parentGuid: 002-b3d76475-56d4-49a5-9aee-3d2d13b8daf2
+    x: -104
+    y: 541
+  002-886d69e9-4f5b-4e01-a90d-f3e0b75d09a9:
+    page: 2
+    title: The Warrior
+    parentGuid: 002-b3d76475-56d4-49a5-9aee-3d2d13b8daf2
+    x: -104
+    y: 478
+  002-c2d50583-599c-4b27-bd56-ab1511cfb761:
+    page: 2
+    title: The Three
+    parentGuid: 002-b3d76475-56d4-49a5-9aee-3d2d13b8daf2
+    x: -104
+    y: 478
+  003-a0afb384-1e03-475c-b34e-11a6909bd21e:
+    page: 3
+    title: Players and the Ref
+    x: -104
+    y: 880
+  003-63dba9ab-fc22-4848-9406-fe8ffd621380:
+    page: 3
+    title: Playing the Game
+    parentGuid: 003-a0afb384-1e03-475c-b34e-11a6909bd21e
+    x: -104
+    y: 566
+  003-327fdbea-652b-4067-9ba6-e94d7e7785e0:
+    page: 3
+    title: Running the Game
+    parentGuid: 003-a0afb384-1e03-475c-b34e-11a6909bd21e
+    x: -104
+    y: 566
+  004-01d827f8-3c53-4e5c-861a-6b370a0fffe9:
+    page: 4
+    title: Dice
+    x: -104
+    y: 591
+  004-58b69fd0-6587-42b8-8383-d3c90dfdeb96:
+    page: 4
+    title: Game of Exceptions
+    x: -104
+    y: 591
+  004-9930c6a3-e64f-477a-8587-4d748b929a47:
+    page: 4
+    title: Always Round Down
+    x: -104
+    y: 591
+  004-3e0f7cc7-9072-466d-8162-67cae904ee2a:
+    page: 4
+    title: Creature and Object
+    x: -104
+    y: 748
+  004-f23c556b-3c20-451e-b3a6-47a9bb684cae:
+    page: 4
+    title: Characteristics
+    x: -104
+    y: 591
+  005-dfb053c6-686a-4376-ad23-cc450b5842fe:
+    page: 5
+    title: Magic and Mundane
+    x: -104
+    y: 742
+  005-4622039d-7171-4c2a-86a4-9a5005edad3a:
+    page: 5
+    title: Tests
+    x: -104
+    y: 553
+  005-91321dea-269d-4613-ac0e-f03b3f2932ea:
+    page: 5
+    title: Making a Test
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 710
+  005-54fb9285-8d67-4304-a1f7-4a732f4a7143:
+    page: 5
+    title: Test Results
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 648
+  005-2ce5f602-2a6e-49bd-b10d-5e6b12dab2e3:
+    page: 5
+    title: Tier 1 (11 or Lower)
+    parentGuid: 005-54fb9285-8d67-4304-a1f7-4a732f4a7143
+    x: -104
+    y: 648
+  005-ff36f80f-009e-4dcf-8f58-4ab0303a5f90:
+    page: 5
+    title: Tier 2 (12 to 16)
+    parentGuid: 005-54fb9285-8d67-4304-a1f7-4a732f4a7143
+    x: -104
+    y: 648
+  006-bc2a52fb-a54a-49a8-a29b-398fec7ab6a7:
+    page: 6
+    title: Tier 3 (17 or Higher)
+    parentGuid: 005-54fb9285-8d67-4304-a1f7-4a732f4a7143
+    x: -104
+    y: 547
+  006-f45f4fb1-9d91-45d4-acd7-2981b1380470:
+    page: 6
+    title: Crits and Dooms
+    parentGuid: 005-54fb9285-8d67-4304-a1f7-4a732f4a7143
+    x: -104
+    y: 547
+  006-e60ece33-d513-4875-9e24-b2ee7db010c3:
+    page: 6
+    title: Trying Again
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 861
+  006-c1190b88-233d-463c-885d-52fc2586d222:
+    page: 6
+    title: Edges and Banes
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 516
+  006-d3dede7e-1d4b-4911-a515-792cef7007e6:
+    page: 6
+    title: Edge
+    parentGuid: 006-c1190b88-233d-463c-885d-52fc2586d222
+    x: -104
+    y: 516
+  006-05f6d2c1-9228-47f6-bc73-46a6461de121:
+    page: 6
+    title: Bane
+    parentGuid: 006-c1190b88-233d-463c-885d-52fc2586d222
+    x: -104
+    y: 516
+  007-c1edeb3d-4c9e-4a16-a9d5-6706244a7d34:
+    page: 7
+    title: Tests with Edges and Banes
+    parentGuid: 006-c1190b88-233d-463c-885d-52fc2586d222
+    x: -104
+    y: 761
+  007-3bdff0f8-eb6d-4a00-a827-cadd3d606ac3:
+    page: 7
+    title: Bonus and Penalties
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 761
+  007-d373615a-75bd-473b-bbff-2aee4a84b0db:
+    page: 7
+    title: Expertise
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 572
+  008-530e62c1-a64d-4013-ba18-59c836ed3458:
+    page: 8
+    title: You’re An Expert
+    parentGuid: 007-d373615a-75bd-473b-bbff-2aee4a84b0db
+    x: -104
+    y: 471
+  008-eb55af87-7ae6-4c4c-845e-b243d9afd3a2:
+    page: 8
+    title: Special Tests
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 660
+  008-e5c199fd-3e06-4909-ba28-9ae75459d76a:
+    page: 8
+    title: Assist
+    parentGuid: 008-eb55af87-7ae6-4c4c-845e-b243d9afd3a2
+    x: -104
+    y: 660
+  008-64917321-92cb-455c-8d0c-2e4d8fb26f97:
+    page: 8
+    title: Attacks
+    parentGuid: 008-eb55af87-7ae6-4c4c-845e-b243d9afd3a2
+    x: -104
+    y: 648
+  008-1514fa87-cee6-4b71-87d2-411896e4e0f2:
+    page: 8
+    title: Castings
+    parentGuid: 008-eb55af87-7ae6-4c4c-845e-b243d9afd3a2
+    x: -104
+    y: 648
+  009-1e2df1ff-0aaf-46b6-bcac-6b9bb62d136a:
+    page: 9
+    title: Resistance Rolls
+    parentGuid: 008-eb55af87-7ae6-4c4c-845e-b243d9afd3a2
+    x: -104
+    y: 704
+  009-7e843206-b18c-4a7e-bc98-c7e92b5d3818:
+    page: 9
+    title: Group Tests
+    parentGuid: 008-eb55af87-7ae6-4c4c-845e-b243d9afd3a2
+    x: -104
+    y: 704
+  009-d6728fff-e834-4e5d-8438-e35ca89f4aad:
+    page: 9
+    title: Hide and Sneak
+    parentGuid: 005-4622039d-7171-4c2a-86a4-9a5005edad3a
+    x: -104
+    y: 484
+  009-8999e0bd-2e23-4935-8456-ec46782a6738:
+    page: 9
+    title: Sizes
+    x: -104
+    y: 736
+  009-56ecda65-4852-4f7e-a084-f407860c2d05:
+    page: 9
+    title: Inventory Slots
+    x: -104
+    y: 736
+  010-35e50c8d-7593-43de-9d9d-4cc99360a6f4:
+    page: 10
+    title: Magic Item Slots
+    parentGuid: 009-56ecda65-4852-4f7e-a084-f407860c2d05
+    x: -104
+    y: 761
+  010-2def31c7-20fe-4657-899b-cca46775ffb8:
+    page: 10
+    title: Item Cards
+    parentGuid: 009-56ecda65-4852-4f7e-a084-f407860c2d05
+    x: -104
+    y: 648
+  010-b8906ab7-f720-460d-bb41-c670fef01a68:
+    page: 10
+    title: Wearing Armor
+    parentGuid: 009-56ecda65-4852-4f7e-a084-f407860c2d05
+    x: -104
+    y: 522
+  010-cb1aaa2a-1c71-4b68-9012-93d198ce56fb:
+    page: 10
+    title: Equipped Items
+    parentGuid: 009-56ecda65-4852-4f7e-a084-f407860c2d05
+    x: -104
+    y: 742
+  010-62ee681b-d616-4c7e-a570-deb50e9d9ea3:
+    page: 10
+    title: Swapping Slots
+    parentGuid: 009-56ecda65-4852-4f7e-a084-f407860c2d05
+    x: -104
+    y: 742
+  010-d45c9502-cd44-4d4e-b731-584545b70f81:
+    page: 10
+    title: Carrying Corpses
+    parentGuid: 009-56ecda65-4852-4f7e-a084-f407860c2d05
+    x: -104
+    y: 585
+  011-1983c056-a1e8-4969-91ea-6e40c41764d6:
+    page: 11
+    title: Damage and Death
+    x: -104
+    y: 736
+  011-eba95bbb-4d9c-4b22-8899-da6d01d7a9fe:
+    page: 11
+    title: Armor Defense
+    parentGuid: 011-1983c056-a1e8-4969-91ea-6e40c41764d6
+    x: -104
+    y: 736
+  011-df49889f-fb95-4fae-9d3f-af305d5ba0b8:
+    page: 11
+    title: Piercing Damage
+    parentGuid: 011-eba95bbb-4d9c-4b22-8899-da6d01d7a9fe
+    x: -104
+    y: 648
+  011-cb3c7a2d-fe3a-4cae-9d04-6cbfa5d049fb:
+    page: 11
+    title: Stamina
+    parentGuid: 011-1983c056-a1e8-4969-91ea-6e40c41764d6
+    x: -104
+    y: 648
+  011-0e0f2a6a-6415-4e15-b8f7-a89f299ccc90:
+    page: 11
+    title: Wounds
+    parentGuid: 011-1983c056-a1e8-4969-91ea-6e40c41764d6
+    x: -104
+    y: 648
+  011-517fecf9-37d9-4933-8802-eaa1e7f74568:
+    page: 11
+    title: Conditions
+    x: -104
+    y: 742
+  011-2f75efe6-c290-427c-8147-3dabd17dce33:
+    page: 11
+    title: Blessed
+    parentGuid: 011-517fecf9-37d9-4933-8802-eaa1e7f74568
+    x: -104
+    y: 742
+  011-ee6e3888-d0bb-4e40-b437-6b3b72420cfe:
+    page: 11
+    title: Grabbed
+    parentGuid: 011-517fecf9-37d9-4933-8802-eaa1e7f74568
+    x: -104
+    y: 648
+  011-40634bb1-95c2-484b-944b-50b39dc21e45:
+    page: 11
+    title: Prone
+    parentGuid: 011-517fecf9-37d9-4933-8802-eaa1e7f74568
+    x: -104
+    y: 648
+  011-e0a3862c-dd5d-499e-b675-8a281263751b:
+    page: 11
+    title: Vulnerable
+    parentGuid: 011-517fecf9-37d9-4933-8802-eaa1e7f74568
+    x: -104
+    y: 648
+  011-bf09d748-0f95-44df-82c1-f495a509d6bc:
+    page: 11
+    title: Unconscious
+    parentGuid: 011-517fecf9-37d9-4933-8802-eaa1e7f74568
+    x: -104
+    y: 302
+  012-bac05602-041c-4619-be78-95b85888caa5:
+    page: 12
+    title: Weakened
+    parentGuid: 011-517fecf9-37d9-4933-8802-eaa1e7f74568
+    x: -104
+    y: 799
+  012-1e59c5a5-9058-4edb-9b1f-ceb412630727:
+    page: 12
+    title: Usage Dice
+    x: -104
+    y: 610
+  012-744504cd-676c-484d-ac19-43d50cd8441f:
+    page: 12
+    title: Equipment Usage Dice
+    parentGuid: 012-1e59c5a5-9058-4edb-9b1f-ceb412630727
+    x: -104
+    y: 610
+  012-64e1f93d-8126-40ac-94d7-e7fb7ddebbc6:
+    page: 12
+    title: Dungeon Turns
+    x: -104
+    y: 799
+  012-43725ee6-ee20-46eb-a5eb-cfeb897fa2ea:
+    page: 12
+    title: End of a Dungeon Turn
+    parentGuid: 012-64e1f93d-8126-40ac-94d7-e7fb7ddebbc6
+    x: -104
+    y: 547
+  012-4adf490b-97c9-4a97-bb6e-05af79952815:
+    page: 12
+    title: Greed Bonus
+    parentGuid: 012-64e1f93d-8126-40ac-94d7-e7fb7ddebbc6
+    x: -104
+    y: 547
+  013-5cf6f446-f46c-4c1c-9d94-db9bb60dc6b8:
+    page: 13
+    title: Outside the Dungeon
+    parentGuid: 012-64e1f93d-8126-40ac-94d7-e7fb7ddebbc6
+    x: -104
+    y: 792
+  013-b26a7136-55f9-4cb5-b7b8-aceb9bba90d5:
+    page: 13
+    title: Dungeon Encounters
+    x: -104
+    y: 572
+  013-f0c08e16-e7f0-4cd0-9402-4ca7cd788cfa:
+    page: 13
+    title: Resting
+    x: -104
+    y: 698
+  013-45f24057-5b28-4767-8699-e080589648a5:
+    page: 13
+    title: Rest Encounters
+    parentGuid: 013-f0c08e16-e7f0-4cd0-9402-4ca7cd788cfa
+    x: -104
+    y: 509
+  014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62:
+    page: 14
+    title: Rest Activities
+    parentGuid: 013-f0c08e16-e7f0-4cd0-9402-4ca7cd788cfa
+    x: -104
+    y: 660
+  014-e82a4393-bd93-49e8-9251-d050997ee905:
+    page: 14
+    title: Craft Equipment
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 660
+  014-1519f50b-5a05-4210-99ed-a150e8273588:
+    page: 14
+    title: Harvest
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 648
+  014-f963b182-a1ad-4b1d-a0ab-a5f9ecb1fa42:
+    page: 14
+    title: Identify Item
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 648
+  014-1d55a7f5-ab3b-4bad-9012-fdf92dae2b43:
+    page: 14
+    title: Prepare for Task
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 648
+  014-4272ea64-3767-4098-88fd-0fee385d21ee:
+    page: 14
+    title: Repair Armor
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 365
+  014-71f51bae-6cfb-4d00-ac51-4a9d56c388ae:
+    page: 14
+    title: Seclude Camp
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 679
+  014-1abdc842-6213-49d0-becd-cad4802c4791:
+    page: 14
+    title: Tend Wounds
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 679
+  014-7468d11c-ab3e-471c-85b8-fc04e7f7247e:
+    page: 14
+    title: Rest Activities in Town
+    parentGuid: 014-03b4946f-0c35-43df-b8e5-a1bb43ed9b62
+    x: -104
+    y: 679
+  014-fe602897-0b8d-484f-96df-865892bada1b:
+    page: 14
+    title: Light
+    x: -104
+    y: 428
+  014-64a92a02-ec2c-408d-b98e-bda6cd8f7c51:
+    page: 14
+    title: Bright Light
+    parentGuid: 014-fe602897-0b8d-484f-96df-865892bada1b
+    x: -104
+    y: 428
+  015-45883c2d-ee3b-43af-917f-4543630abe2e:
+    page: 15
+    title: Dim Light
+    parentGuid: 014-fe602897-0b8d-484f-96df-865892bada1b
+    x: -104
+    y: 736
+  015-1227c70e-baca-4c47-9984-eb8caa1e6a07:
+    page: 15
+    title: Darkness
+    parentGuid: 014-fe602897-0b8d-484f-96df-865892bada1b
+    x: -104
+    y: 736
+  015-24f96cc8-0dfa-4bc5-8684-df6e5e5d768b:
+    page: 15
+    title: Campfire
+    parentGuid: 014-fe602897-0b8d-484f-96df-865892bada1b
+    x: -104
+    y: 736
+  015-eb14196d-a7b6-4603-a296-b16778c44981:
+    page: 15
+    title: Dousing Light Sources
+    parentGuid: 014-fe602897-0b8d-484f-96df-865892bada1b
+    x: -104
+    y: 422
+  015-3f6fd3ab-07ed-400b-a687-cc4a073e79eb:
+    page: 15
+    title: Common Hazards
+    x: -104
+    y: 422
+  015-37fe1294-85c6-439e-8e5f-4008f49f50d5:
+    page: 15
+    title: Falling
+    parentGuid: 015-3f6fd3ab-07ed-400b-a687-cc4a073e79eb
+    x: -104
+    y: 422
+  015-8b929760-e74c-48fa-a026-3e481f9ad52f:
+    page: 15
+    title: Starvation
+    parentGuid: 015-3f6fd3ab-07ed-400b-a687-cc4a073e79eb
+    x: -104
+    y: 705
+  015-4f905a3b-a1d2-4e4f-ab42-bc11927473b1:
+    page: 15
+    title: Suffocation
+    parentGuid: 015-3f6fd3ab-07ed-400b-a687-cc4a073e79eb
+    x: -104
+    y: 705
+  015-670bb5b3-86ad-460c-bab9-45945cd67289:
+    page: 15
+    title: Line of Effect
+    x: -104
+    y: 548
+  016-b0df5eb2-a3f7-4f72-a653-ac1bc62f1e8d:
+    page: 16
+    title: Cover
+    parentGuid: 015-670bb5b3-86ad-460c-bab9-45945cd67289
+    x: -104
+    y: 887
+  016-bf7156d0-ac0b-43cd-832f-3ce6a5958ecc:
+    page: 16
+    title: Concealment
+    parentGuid: 015-670bb5b3-86ad-460c-bab9-45945cd67289
+    x: -104
+    y: 648
+  016-5d2b8356-da19-486a-8d03-cdefd70feb11:
+    page: 16
+    title: Light Concealment
+    parentGuid: 016-bf7156d0-ac0b-43cd-832f-3ce6a5958ecc
+    x: -104
+    y: 648
+  016-69f16307-028b-426e-aa74-ada1186181d3:
+    page: 16
+    title: Heavy Concealment
+    parentGuid: 016-bf7156d0-ac0b-43cd-832f-3ce6a5958ecc
+    x: -104
+    y: 648
+  016-ef47e17b-a6cd-4285-9e5b-7c88499960cf:
+    page: 16
+    title: Invisibility
+    parentGuid: 016-bf7156d0-ac0b-43cd-832f-3ce6a5958ecc
+    x: -104
+    y: 648
+  017-23d28868-baf9-483d-b88c-3e1ad89d07dd:
+    page: 17
+    title: Combat
+    x: -104
+    y: 641
+  017-bb4974cb-2137-46ee-8afa-5d8e2cb6141b:
+    page: 17
+    title: Grid and Distance
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 641
+  017-9093af64-32dc-409a-88db-34c7a358c3d6:
+    page: 17
+    title: Scale
+    parentGuid: 017-bb4974cb-2137-46ee-8afa-5d8e2cb6141b
+    x: -104
+    y: 641
+  017-8ef8b8df-7262-4721-884f-f258faa5062c:
+    page: 17
+    title: Size and Space
+    parentGuid: 017-bb4974cb-2137-46ee-8afa-5d8e2cb6141b
+    x: -104
+    y: 641
+  017-ad80ea70-e905-4b6a-837d-def1957db958:
+    page: 17
+    title: Squeezing
+    parentGuid: 017-bb4974cb-2137-46ee-8afa-5d8e2cb6141b
+    x: -104
+    y: 484
+  017-c6e3cbe6-a871-449c-8428-1ed1597bd30c:
+    page: 17
+    title: Reach
+    parentGuid: 017-bb4974cb-2137-46ee-8afa-5d8e2cb6141b
+    x: -104
+    y: 484
+  017-e714cdbf-d3bb-4b16-b080-884f26cff3e0:
+    page: 17
+    title: Surprised
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 578
+  017-dd27c949-93b8-490d-a595-2b6ccfc714d5:
+    page: 17
+    title: Who Goes First?
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 578
+  017-b31ef4b5-d265-4124-b8cf-83e2e3eda1e0:
+    page: 17
+    title: Turn
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 578
+  017-11b8151b-5f91-4d26-8f00-23b18087a2fb:
+    page: 17
+    title: Common Maneuvers
+    parentGuid: 017-b31ef4b5-d265-4124-b8cf-83e2e3eda1e0
+    x: -104
+    y: 578
+  018-fea7d55b-083b-4303-8041-354653d64301:
+    page: 18
+    title: Taunt Action
+    parentGuid: 017-b31ef4b5-d265-4124-b8cf-83e2e3eda1e0
+    x: -104
+    y: 697
+  018-6acea4b4-831b-4387-912e-5aa043592f17:
+    page: 18
+    title: Ready an Action
+    parentGuid: 017-b31ef4b5-d265-4124-b8cf-83e2e3eda1e0
+    x: -104
+    y: 697
+  018-dde211c3-5b2d-4b0d-a723-a5a336e75f1a:
+    page: 18
+    title: Boring Stuff
+    parentGuid: 017-b31ef4b5-d265-4124-b8cf-83e2e3eda1e0
+    x: -104
+    y: 697
+  018-d726f132-f714-4806-9438-2c63651fc8d8:
+    page: 18
+    title: Making Shit Up
+    parentGuid: 017-b31ef4b5-d265-4124-b8cf-83e2e3eda1e0
+    x: -104
+    y: 697
+  018-2862fb95-0867-4467-b830-3cf024a5e365:
+    page: 18
+    title: Making Attacks
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 697
+  019-d65affa7-78b3-4b8b-aa0d-93ca465513fb:
+    page: 19
+    title: Melee Attacks
+    parentGuid: 018-2862fb95-0867-4467-b830-3cf024a5e365
+    x: -104
+    y: 691
+  019-83b99d34-e233-4487-a384-1fb04d446f6c:
+    page: 19
+    title: Ranged Attacks
+    parentGuid: 018-2862fb95-0867-4467-b830-3cf024a5e365
+    x: -104
+    y: 459
+  019-b9d35dc6-783b-4faa-a38c-1226e7ab3642:
+    page: 19
+    title: Crits on Attacks
+    parentGuid: 018-2862fb95-0867-4467-b830-3cf024a5e365
+    x: -104
+    y: 679
+  019-7db2fe3a-bb46-402e-a256-a6abdd91b8fc:
+    page: 19
+    title: Multiple Targets
+    parentGuid: 018-2862fb95-0867-4467-b830-3cf024a5e365
+    x: -104
+    y: 679
+  019-a1c5f98d-5da6-4e03-93ce-98eccf0cd487:
+    page: 19
+    title: Flanking
+    parentGuid: 018-2862fb95-0867-4467-b830-3cf024a5e365
+    x: -104
+    y: 679
+  019-396fe770-bcc6-4424-8776-e10fb448581c:
+    page: 19
+    title: High Ground
+    parentGuid: 018-2862fb95-0867-4467-b830-3cf024a5e365
+    x: -104
+    y: 365
+  020-dd7a0ef3-4a43-49de-80cf-d627087bdef7:
+    page: 20
+    title: Reactions
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 673
+  020-c0293010-052b-442b-a801-5101c60712d2:
+    page: 20
+    title: Counter
+    parentGuid: 020-dd7a0ef3-4a43-49de-80cf-d627087bdef7
+    x: -104
+    y: 673
+  020-9186c7b0-a9b0-45c5-b54c-1ea031b5aa7c:
+    page: 20
+    title: Opportunity Attack
+    parentGuid: 020-dd7a0ef3-4a43-49de-80cf-d627087bdef7
+    x: -104
+    y: 648
+  020-1790c7b5-87ce-4a47-a708-395f9de5558f:
+    page: 20
+    title: Movement
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 648
+  020-81a12d43-c375-4ace-83b8-5cd6cb747c32:
+    page: 20
+    title: Difficult Terrain
+    parentGuid: 020-1790c7b5-87ce-4a47-a708-395f9de5558f
+    x: -104
+    y: 648
+  020-dc5d74c1-622f-49ae-b80e-432b98ee487f:
+    page: 20
+    title: Swimming and Climbing
+    parentGuid: 020-1790c7b5-87ce-4a47-a708-395f9de5558f
+    x: -104
+    y: 648
+  021-e19d8ef7-ec78-474c-80ae-2741d9522448:
+    page: 21
+    title: Flying
+    parentGuid: 020-1790c7b5-87ce-4a47-a708-395f9de5558f
+    x: -104
+    y: 641
+  021-eb69cbf4-84aa-42fb-bed9-805f08ddb433:
+    page: 21
+    title: Jumping
+    parentGuid: 020-1790c7b5-87ce-4a47-a708-395f9de5558f
+    x: -104
+    y: 641
+  021-935e3ccd-289f-4ebb-a3bc-9147fe2a9f99:
+    page: 21
+    title: Teleporting
+    parentGuid: 020-1790c7b5-87ce-4a47-a708-395f9de5558f
+    x: -104
+    y: 641
+  021-53f93685-ad90-4aa8-8424-b19fb161195a:
+    page: 21
+    title: Pets in Combat
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 641
+  021-f81d6cf4-0761-486e-b137-75cd6875e7d4:
+    page: 21
+    title: Forced Movement
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 484
+  022-29d5bd9f-af39-407d-af3a-74a0186941cb:
+    page: 22
+    title: Vertical
+    parentGuid: 021-f81d6cf4-0761-486e-b137-75cd6875e7d4
+    x: -104
+    y: 729
+  022-754b7523-c853-4c12-a952-01f4865d884d:
+    page: 22
+    title: Into a Fall
+    parentGuid: 021-f81d6cf4-0761-486e-b137-75cd6875e7d4
+    x: -104
+    y: 648
+  022-61a35099-5d73-46ca-bd20-eef23f98cf02:
+    page: 22
+    title: Toppling Objects
+    parentGuid: 017-23d28868-baf9-483d-b88c-3e1ad89d07dd
+    x: -104
+    y: 648
+  023-70ef1a49-f90b-45b3-b01a-6fe2d984769b:
+    page: 23
+    title: Overland Travel
+    x: -104
+    y: 641
+  023-88f78b35-8ebe-44da-a801-9bd879650b12:
+    page: 23
+    title: Hexes
+    parentGuid: 023-70ef1a49-f90b-45b3-b01a-6fe2d984769b
+    x: -104
+    y: 641
+  023-5cbd4467-7268-42ea-9f8e-0f24da026317:
+    page: 23
+    title: Travel Procedure
+    parentGuid: 023-70ef1a49-f90b-45b3-b01a-6fe2d984769b
+    x: -104
+    y: 641
+  023-62f9440d-dc31-4612-95ce-54b409382cbb:
+    page: 23
+    title: Travel Pace
+    parentGuid: 023-70ef1a49-f90b-45b3-b01a-6fe2d984769b
+    x: -104
+    y: 641
+  023-22501ad1-23f7-457d-bb78-2febd6c0f095:
+    page: 23
+    title: Changing Pace
+    parentGuid: 023-62f9440d-dc31-4612-95ce-54b409382cbb
+    x: -104
+    y: 672
+  023-ce754bfe-8c40-4a6a-a495-5c3138f3ec60:
+    page: 23
+    title: Rivers and Roads
+    parentGuid: 023-62f9440d-dc31-4612-95ce-54b409382cbb
+    x: -104
+    y: 648
+  023-adcc2998-0164-40a3-a665-fef56a4a679e:
+    page: 23
+    title: Travel Roles
+    parentGuid: 023-70ef1a49-f90b-45b3-b01a-6fe2d984769b
+    x: -104
+    y: 648
+  024-573b4c04-5241-4628-a2d1-797a16dfb08b:
+    page: 24
+    title: Supporter
+    parentGuid: 023-adcc2998-0164-40a3-a665-fef56a4a679e
+    x: -104
+    y: 579
+  024-324d713d-ca82-4401-8cd6-1c03ff0097b0:
+    page: 24
+    title: Guide
+    parentGuid: 023-adcc2998-0164-40a3-a665-fef56a4a679e
+    x: -104
+    y: 736
+  025-7a72d0f0-0414-43da-8539-bff8ffeb8d78:
+    page: 25
+    title: Scout
+    parentGuid: 023-adcc2998-0164-40a3-a665-fef56a4a679e
+    x: -104
+    y: 824
+  025-5ab8a6a2-49bd-4c9d-9659-8e71d02d6b5e:
+    page: 25
+    title: Tracker
+    parentGuid: 023-adcc2998-0164-40a3-a665-fef56a4a679e
+    x: -104
+    y: 824
+  026-bed86b17-bbbe-46c0-bfc7-a65ee6c1dcb4:
+    page: 26
+    title: Lost
+    parentGuid: 023-70ef1a49-f90b-45b3-b01a-6fe2d984769b
+    x: -104
+    y: 660
+  026-bf3ea449-e208-48e0-8c01-5750b9762597:
+    page: 26
+    title: Back on Track
+    parentGuid: 026-bed86b17-bbbe-46c0-bfc7-a65ee6c1dcb4
+    x: -104
+    y: 660
+  026-9384bba5-d1e5-48d4-aa71-0fd72e4bc1cf:
+    page: 26
+    title: Miasma
+    parentGuid: 023-70ef1a49-f90b-45b3-b01a-6fe2d984769b
+    x: -104
+    y: 648
+  027-eb2aad2c-6892-4ad4-a7c0-e692569acd2c:
+    page: 27
+    title: Encounters and POIs
+    parentGuid: 023-70ef1a49-f90b-45b3-b01a-6fe2d984769b
+    x: -104
+    y: 610
+  028-4eed5a60-5bfe-4e52-9357-f7edb6d2501d:
+    page: 28
+    title: Travel Encounters
+    parentGuid: 027-eb2aad2c-6892-4ad4-a7c0-e692569acd2c
+    x: -104
+    y: 666
+  028-449cb3f0-fe80-41da-ac43-07a3a067d426:
+    page: 28
+    title: POIs
+    parentGuid: 027-eb2aad2c-6892-4ad4-a7c0-e692569acd2c
+    x: -104
+    y: 648
+  029-5f74ac19-32ee-4df4-ae8a-f35dde7f4cfc:
+    page: 29
+    title: Spellcasting
+    x: -104
+    y: 799
+  029-702e80d3-6279-41a8-9007-bd9d04fb9eab:
+    page: 29
+    title: Spellbooks
+    parentGuid: 029-5f74ac19-32ee-4df4-ae8a-f35dde7f4cfc
+    x: -104
+    y: 704
+  029-ac2d2176-2170-4174-ab03-5618e032fefb:
+    page: 29
+    title: Rank
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 648
+  029-3f2ea187-35d5-42ed-adc9-610d296662e4:
+    page: 29
+    title: Discipline
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 648
+  029-fcc7cf5d-6482-4e3f-bbdd-b10dff1a3d13:
+    page: 29
+    title: Casting Time
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 491
+  029-8bb15d88-ad1e-4649-ac13-2bd7a0fefa1a:
+    page: 29
+    title: Target
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 648
+  029-800b879e-8d6b-4ea4-b7ee-4b10083c50d7:
+    page: 29
+    title: Range
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 459
+  029-d09f35b7-e455-4c08-a36e-f142e7a5414d:
+    page: 29
+    title: Area of Effect
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 459
+  030-adb18dea-970e-4a15-be2c-bfc3ba802c66:
+    page: 30
+    title: Duration
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 673
+  030-bc887ddb-fa0e-4317-af44-7b3e442cdeef:
+    page: 30
+    title: Spellbook Usage Dice
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 484
+  030-b3a708eb-e600-4b6d-b848-af6261d3c752:
+    page: 30
+    title: Casting
+    parentGuid: 029-702e80d3-6279-41a8-9007-bd9d04fb9eab
+    x: -104
+    y: 673
+  030-1245792a-cf3f-4341-80da-640b48158eca:
+    page: 30
+    title: Summoned Creatures
+    parentGuid: 029-5f74ac19-32ee-4df4-ae8a-f35dde7f4cfc
+    x: -104
+    y: 673
+  030-ba80783b-2080-4599-8a7b-a60a444b57d0:
+    page: 30
+    title: Magic Backlashes
+    parentGuid: 029-5f74ac19-32ee-4df4-ae8a-f35dde7f4cfc
+    x: -104
+    y: 673
+  030-0531ad9b-2bdb-4dea-b26a-299826d39f9c:
+    page: 30
+    title: Chaos Roll
+    parentGuid: 030-ba80783b-2080-4599-8a7b-a60a444b57d0
+    x: -104
+    y: 484
+  035-46d3e025-1e1a-4da4-b624-a1d074367ecf:
+    page: 35
+    title: Crafting
+    x: -104
+    y: 766
+  035-82ef85c5-7a97-4f7d-8afb-1ac87bc9fa47:
+    page: 35
+    title: Crafting Prerequisites
+    parentGuid: 035-46d3e025-1e1a-4da4-b624-a1d074367ecf
+    x: -104
+    y: 766
+  035-f806781f-bae6-4ea8-b85c-eda57045dd13:
+    page: 35
+    title: Tools
+    parentGuid: 035-82ef85c5-7a97-4f7d-8afb-1ac87bc9fa47
+    x: -104
+    y: 648
+  035-b497a180-24af-4e1b-97ac-9e81ce2268f8:
+    page: 35
+    title: Harvesting Materials
+    parentGuid: 035-82ef85c5-7a97-4f7d-8afb-1ac87bc9fa47
+    x: -104
+    y: 648
+  035-5e14d889-9d56-4cb3-8104-f5082e53ecee:
+    page: 35
+    title: Crafting Goal
+    parentGuid: 035-46d3e025-1e1a-4da4-b624-a1d074367ecf
+    x: -104
+    y: 648
+  035-42356176-76a6-44d0-811f-b683ba744df0:
+    page: 35
+    title: Crafting Rolls
+    parentGuid: 035-46d3e025-1e1a-4da4-b624-a1d074367ecf
+    x: -104
+    y: 648
+  035-60d44668-65c1-4824-a0c0-78760e8c1f3e:
+    page: 35
+    title: Crafting Multiple Items
+    parentGuid: 035-42356176-76a6-44d0-811f-b683ba744df0
+    x: -104
+    y: 522
+  035-01f6f955-da2f-4734-8834-2a28d369ca9e:
+    page: 35
+    title: Multiple Crafters
+    parentGuid: 035-42356176-76a6-44d0-811f-b683ba744df0
+    x: -104
+    y: 522
+  036-e4078f1f-e980-49fc-8e19-e4c9ef538a1b:
+    page: 36
+    title: IDing Magic Items
+    x: -104
+    y: 799
+ownerid: null
+description: 01 Crows The Rules Book for Playtest 2
+parentFolder: public
+artist: null
+ord: 0
+ctime: 1787425926310
+mtime: 1787425962368
+hidden: false
+id: 0a35ca29-8d21-4eaf-8b8f-f58398e09969
