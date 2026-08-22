@@ -1,0 +1,121 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 0
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 545b07cf-ce44-48c7-8a59-404a4de2546a
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
+        attrid: strength
+        roll: 2d10 + 0
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Unarmed
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures: []
+    monster_type: Commoner
+    max_hitpoints: 5
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367016160
+description: Commoner
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367016160
+hidden: false
+id: 686a409d-69ae-4183-b96e-e097400608b4

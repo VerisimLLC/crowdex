@@ -1,0 +1,161 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      swim: 6
+    cr: 6
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: df97c13a-af68-5b67-b0e3-74a0b17b347d
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 4 damage
+        - 6 damage; grabbed
+        attrid: strength
+        roll: 2d10 + 2
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Bite
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 2
+    - __typeName: ActivatedAbility
+      guid: bcdfb605-783a-5d87-8e6a-1dfe164bb684
+      categorization: Ability
+      description: Deal 3 P damage to the target grabbed by this crocodile's Bite. Apply it as piercing damage.
+      iconid: ui-icons/skills/1.png
+      keywords: []
+      behaviors: []
+      range: "1"
+      targetType: target
+      numTargets: "1"
+      name: Vise Grip
+      abilityType: none
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      repeatTargets: false
+      implementation: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: On a tier 3 Bite against a Medium or smaller target, the target is grabbed. While grabbed this way, the crocodile can't bite another target and can use a maneuver to deal 3 P damage to the target.
+      name: Vise Grip
+      modifiers: []
+      guid: c657b2fe-81da-5961-b559-8a5c031ff4bb
+      source: Trait
+      implementation: 2
+    - __typeName: CharacterFeature
+      description: Dim light and darkness impose no penalties for the crocodile.
+      name: No Darkness Penalty
+      modifiers:
+      - __typeName: CharacterModifier
+        description: Dim light and darkness impose no penalties for the crocodile.
+        value: 1000
+        behavior: attribute
+        name: No Darkness Penalty
+        attribute: darkvision
+        guid: eff0b2cd-df64-5e25-a5e3-12f66e4ba87b
+        source: Trait
+        sourceguid: 72e636e2-d476-56a4-9907-8f4e1960420a
+      guid: 72e636e2-d476-56a4-9907-8f4e1960420a
+      source: Trait
+      implementation: 4
+    monster_type: Crocodile
+    max_hitpoints: 20
+    monster_category: Animal
+    walkingSpeed: 4
+    creatureSize: 1L
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -3
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    crowsSlots: 10
+    keywords:
+      Animal: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367016373
+description: Crocodile
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367016373
+hidden: false
+id: 46e1fa21-6e05-5526-a97e-aec155e13138

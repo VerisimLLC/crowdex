@@ -1,0 +1,263 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 6945a9cc-af7c-42f4-b8d3-86de8e846add
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    equipment: []
+    movementSpeeds:
+      fly: 6
+    cr: 20
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      iconid: ui-icons/skills/1.png
+      categorization: Signature Ability
+      range: "1"
+      guid: e1ba2f7c-6ec2-477b-ae38-64d7d588f574
+      meleeRange: 1
+      targetType: target
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        tiers:
+        - ""
+        - 8 damage
+        - 16 damage
+        roll: 2d10 + 5
+      abilityType: none
+      name: Rustswords
+      description: Damage rusts metal armour, swords and shields (see Rust).
+      numTargets: "1"
+      modifiers: []
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: ed335431-795b-4feb-9de9-416da9d12215
+      categorization: Signature Ability
+      abilityType: none
+      range: "10"
+      description: Vertically slides the target 3 squares on a tier 2 result, or 5 squares on a tier 3.
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        tiers:
+        - ""
+        - 8 damage
+        - 14 damage
+        roll: 2d10 + 5
+      targetType: target
+      numTargets: "1"
+      iconid: ui-icons/skills/1.png
+      name: Begone
+      modifiers: []
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: aefd52bf-8249-5e4f-86c6-047e0b2b50b8
+      categorization: Ability
+      abilityType: none
+      description: "Create a 5 cube within 1 square. Each enemy makes an Agility RR: tier 1 20 damage; tier 2 10 damage; tier 3 no effect."
+      keywords: []
+      behaviors: []
+      targetType: self
+      numTargets: "1"
+      range: "1"
+      name: Insect Breath (3/Day; Once per Turn)
+      iconid: ui-icons/skills/1.png
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 1
+    attributes:
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 5
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 5
+    resources: []
+    keywords:
+      Undead: true
+    monster_type: Undead G
+    skillProficiencies: []
+    walkingSpeed: 6
+    monster_category: Undead
+    creatureSize: 1M
+    damage_taken: 0
+    levelChoices: []
+    max_hitpoints: 100
+    characterFeatures:
+    - __typeName: CharacterFeature
+      guid: 198d3df0-badc-40d1-941c-a2ee839ab59b
+      domains:
+        CharacterFeature:198d3df0-badc-40d1-941c-a2ee839ab59b: true
+      name: Common Names
+      modifiers: []
+      description: Also called fallen knight, rusted one.
+      source: Trait
+      implementation: 0
+    - __typeName: CharacterFeature
+      description: When the undead deals damage to a creature wearing metal armor or wielding a sword or a shield with Rustswords, each item has its AD reduced by 5 after the attack.
+      guid: 0ab5309e-cb0f-4ffb-8611-db43071bc396
+      source: Trait
+      name: Rust
+      modifiers: []
+      domains:
+        CharacterFeature:0ab5309e-cb0f-4ffb-8611-db43071bc396: true
+      implementationDetails: Item AD is not adjusted automatically; edit the carried item.
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: When the undead hits with Begone, they can vertically slide the target 3 squares on a tier 2 result, or 5 squares on a tier 3.
+      guid: 305270d6-c89f-4b07-b247-13c3f3ce108b
+      source: Trait
+      name: Hurl Away
+      modifiers: []
+      domains:
+        CharacterFeature:305270d6-c89f-4b07-b247-13c3f3ce108b: true
+      implementationDetails: Vertical forced movement is applied by hand.
+      implementation: 1
+    - __typeName: CharacterFeature
+      guid: eb16eacb-7684-4959-8076-69a0e6668da6
+      name: Extra Action
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        guid: dc2dd9ef-a4d8-5e36-a563-b3e44ae6d701
+        resourceType: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+        sourceguid: eb16eacb-7684-4959-8076-69a0e6668da6
+        behavior: resource
+        description: One additional action each combat turn.
+        source: Trait
+        name: Extra Action
+      description: This creature can take one additional action or maneuver on their combat turn.
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "As an action, the undead breathes a plague of stinging insects in a 5 cube within 1 square of them. Each enemy in the cube makes an Agility resistance roll: 11 or less 20 damage; 12-16 10 damage; 17+ no effect."
+      guid: 704f137d-ceb9-4f7f-9604-66b1d46a7328
+      source: Trait
+      name: Insect Breath (3/Day; only once per turn)
+      modifiers: []
+      domains:
+        CharacterFeature:704f137d-ceb9-4f7f-9604-66b1d46a7328: true
+      implementationDetails: Resistance rolls are rolled by each target and adjudicated by the Ref.
+      implementation: 1
+    - __typeName: CharacterFeature
+      guid: 4e59390c-22ea-4f79-a423-00956fd3210f
+      domains:
+        CharacterFeature:4e59390c-22ea-4f79-a423-00956fd3210f: true
+      name: Rise!
+      modifiers: []
+      description: A human killed by this undead rises as an undead A 1d6 rounds after death.
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      guid: f3797e10-6539-4eac-b7f6-0370541e0319
+      name: Reactions (4)
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 3
+        guid: 72c47187-a219-5bde-b74f-fbab8d5bd5a2
+        resourceType: b9bc06dd-80f1-4f33-bc55-25c114e3300c
+        sourceguid: f3797e10-6539-4eac-b7f6-0370541e0319
+        behavior: resource
+        description: 3 additional reactions each round.
+        source: Trait
+        name: Reactions (4)
+      description: This creature can use 4 reactions each round.
+      source: Trait
+      implementation: 4
+    - __typeName: CharacterFeature
+      guid: 2d5b0f3b-d3d9-53e7-bd8c-7b1caf381c53
+      name: No Darkness Penalty
+      modifiers:
+      - __typeName: CharacterModifier
+        description: Dim light and darkness impose no penalties for the monster.
+        value: 1000
+        guid: fb884e67-e23b-5c74-9a89-090f8fb375b7
+        sourceguid: 2d5b0f3b-d3d9-53e7-bd8c-7b1caf381c53
+        behavior: attribute
+        name: No Darkness Penalty
+        attribute: darkvision
+        source: Trait
+      description: Dim light and darkness impose no penalties for the monster.
+      source: Trait
+      implementation: 4
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787366370882
+description: Undead G
+parentFolder: 5c45174e-b4a8-4b89-8327-156b3f79a328
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787366786114
+hidden: false
+id: ca991a1c-bdae-4d7f-8557-c025d37b9e65

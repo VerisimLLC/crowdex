@@ -1,0 +1,195 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 10
+    crowsAD: 24
+    walkingSpeed: 5
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Endurance (2 uses), Lift (2 uses), Slashing (2 uses)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 2
+        description: Endurance (2 uses)
+        resourceType: 5eb3b33a-a73b-4bbb-bfd1-1f4e1406e547
+        name: Expertises
+        behavior: resource
+        guid: f7173535-4dae-4549-8f60-434912974094
+        source: Trait
+        sourceguid: 4392d112-06a5-4fa0-9adb-259f3c7f53ec
+      - __typeName: CharacterModifier
+        num: 2
+        description: Lift (2 uses)
+        resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+        name: Expertises
+        behavior: resource
+        guid: 5cd29904-3efa-49ba-950a-af2e60f0378c
+        source: Trait
+        sourceguid: 4392d112-06a5-4fa0-9adb-259f3c7f53ec
+      - __typeName: CharacterModifier
+        num: 2
+        description: Slashing (2 uses)
+        resourceType: 4e7a4dca-510b-4059-b69f-499845a1ae9b
+        name: Expertises
+        behavior: resource
+        guid: a48ab607-8615-45cb-83bc-3e30d45574b7
+        source: Trait
+        sourceguid: 4392d112-06a5-4fa0-9adb-259f3c7f53ec
+      guid: 4392d112-06a5-4fa0-9adb-259f3c7f53ec
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Heavy armor, shield, sword."
+      name: Equipment
+      modifiers: []
+      guid: bc663cd8-b74a-4ff3-83b6-b33059536b74
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: While wielding a sword, the warrior can shift 2 additional squares with the Shift maneuver.
+      name: Disengage
+      modifiers: []
+      guid: 6692631b-0e03-5ae5-8686-3dd08eaffa49
+      source: Trait
+      implementation: 2
+    - __typeName: CharacterFeature
+      description: When a creature within 1 square is hit while the warrior wields a shield, the warrior can use their reaction to have the shield take the damage as if the target wielded it.
+      name: Interposing Arm
+      modifiers: []
+      guid: 93366ad4-5626-5656-ba3f-6067e7cea2d3
+      source: Trait
+      implementation: 1
+    monster_type: Warrior, Sword (Power 10)
+    max_hitpoints: 40
+    monster_category: Human
+    keywords:
+      Human: true
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 3
+    crowsSlots: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 7cc8b6e4-655c-4c83-8f5c-f62876af6f70
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Melee: true
+        Strike: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 6 damage
+        - 9 damage
+        attrid: strength
+        roll: 2d10 + 5
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Sword
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: e54f52d4-bb1d-5ad2-9ad0-eca373c3fa31
+      categorization: Ability
+      description: Shift 3 squares while wielding the required weapon.
+      iconid: ui-icons/skills/1.png
+      keywords: []
+      behaviors:
+      - __typeName: ActivatedAbilityDrawSteelCommandBehavior
+        rule: Shift 3
+      range: "1"
+      targetType: self
+      numTargets: "1"
+      name: Disengage
+      abilityType: none
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      repeatTargets: false
+      implementation: 2
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367020628
+description: Warrior, Sword (Power 10)
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367020628
+hidden: false
+id: 876ba837-4900-4803-a43a-dedad19b49e9

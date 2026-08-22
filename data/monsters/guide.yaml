@@ -1,0 +1,178 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: c746dcb0-2bc9-4567-975d-e948d037b55e
+      categorization: Signature Ability
+      description: ""
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 4 damage
+        - 7 damage
+        attrid: agility
+        roll: 2d10 + 1
+      range: "20"
+      targetType: target
+      numTargets: "1"
+      name: Longbow
+      abilityType: none
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Historical Lore (1 use), Nature Lore (1 use), Navigate (2 uses), Stealth (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        description: Historical Lore (1 use)
+        resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+        name: Expertises
+        behavior: resource
+        guid: 7ad43039-4875-4f5a-a782-c114df6319bc
+        source: Trait
+        sourceguid: 60e8042e-f9fc-48bb-9998-5e42df875cf0
+      - __typeName: CharacterModifier
+        num: 1
+        description: Nature Lore (1 use)
+        resourceType: a22217c6-65ed-4254-8936-754c4a180237
+        name: Expertises
+        behavior: resource
+        guid: 6d0010e5-e059-45df-b9ed-eac363f1119a
+        source: Trait
+        sourceguid: 60e8042e-f9fc-48bb-9998-5e42df875cf0
+      - __typeName: CharacterModifier
+        num: 2
+        description: Navigate (2 uses)
+        resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+        name: Expertises
+        behavior: resource
+        guid: 889acf21-c902-44d1-9523-d4fd88416d09
+        source: Trait
+        sourceguid: 60e8042e-f9fc-48bb-9998-5e42df875cf0
+      - __typeName: CharacterModifier
+        num: 1
+        description: Stealth (1 use)
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        name: Expertises
+        behavior: resource
+        guid: 817c5ec5-55a9-4fec-b5f9-655b3559d0f5
+        source: Trait
+        sourceguid: 60e8042e-f9fc-48bb-9998-5e42df875cf0
+      guid: 60e8042e-f9fc-48bb-9998-5e42df875cf0
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Compass, longbow, quiver of 20 arrows, torch."
+      name: Equipment
+      modifiers: []
+      guid: fa5cfe85-121f-4572-9912-b03677024989
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: When the guide makes a test related to a travel role, they can roll twice and choose either result.
+      name: Travel Expert
+      modifiers: []
+      guid: 778263d2-3b22-5a72-942d-4e1fc7c649a3
+      source: Trait
+      implementation: 1
+    monster_type: Guide
+    max_hitpoints: 15
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367017547
+description: Guide
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367017547
+hidden: false
+id: 1181705d-919a-485f-a2c7-b786d73e724b

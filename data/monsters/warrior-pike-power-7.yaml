@@ -1,0 +1,178 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 7
+    crowsAD: 10
+    walkingSpeed: 5
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Athletics (1 use), Lift (1 use), Stabbing (2 uses)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        description: Athletics (1 use)
+        resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+        name: Expertises
+        behavior: resource
+        guid: 364ce35a-a72e-40c4-93c6-d76ddac9c2d2
+        source: Trait
+        sourceguid: fdcf0ce1-dbd1-43cf-9c68-1f785171f2e7
+      - __typeName: CharacterModifier
+        num: 1
+        description: Lift (1 use)
+        resourceType: d63ca130-3238-4d32-acc6-db8ce62e5a74
+        name: Expertises
+        behavior: resource
+        guid: ed4620f8-4291-459b-91f5-eab94eb3e2f3
+        source: Trait
+        sourceguid: fdcf0ce1-dbd1-43cf-9c68-1f785171f2e7
+      - __typeName: CharacterModifier
+        num: 2
+        description: Stabbing (2 uses)
+        resourceType: 015fe62d-4d71-4028-a5bd-821eee14c002
+        name: Expertises
+        behavior: resource
+        guid: ceac9764-eef6-42c9-a51d-5ca69434dd6a
+        source: Trait
+        sourceguid: fdcf0ce1-dbd1-43cf-9c68-1f785171f2e7
+      guid: fdcf0ce1-dbd1-43cf-9c68-1f785171f2e7
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Medium armor, pike."
+      name: Equipment
+      modifiers: []
+      guid: dc145cdc-23e2-4a43-8851-89c08b3ed08e
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: Pike attacks crit when the dice total 18, 19, or 20 without modifiers. A pike crit deals 18 damage.
+      name: Brutal
+      modifiers: []
+      guid: de754e34-f963-5f54-8708-e43d907e1462
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: On a tier 3 Pike attack, deal 2 damage to another target within range.
+      name: Spinning Shaft
+      modifiers: []
+      guid: eb410dbc-3a4a-59ff-ab3f-39d833d15034
+      source: Trait
+      implementation: 1
+    monster_type: Warrior, Pike (Power 7)
+    max_hitpoints: 25
+    monster_category: Human
+    keywords:
+      Human: true
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    crowsSlots: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 1571a669-b39d-4159-8ced-922b93e3c615
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 2
+      description: ""
+      keywords:
+        Melee: true
+        Strike: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 5 damage
+        - 9 damage
+        attrid: strength
+        roll: 2d10 + 4
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Pike
+      range: "2"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367020521
+description: Warrior, Pike (Power 7)
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367020521
+hidden: false
+id: 5a655773-45a3-4b17-9e97-22981893512c

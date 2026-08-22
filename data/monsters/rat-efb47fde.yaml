@@ -4,10 +4,8 @@ info:
     mountedOnObject: null
     mountedSaddle: 0
     floor: null
-    map: cea8cb96-28d0-4800-86ca-22dc8241c842
-    loc:
-    - -11
-    - 7
+    map: null
+    loc: []
     pos:
       x: 0
       y: 0
@@ -56,37 +54,16 @@ info:
   updateid: null
   properties:
     __typeName: monster
-    initiativeGrouping: 2768807c-6937-4eef-96dd-6892c9e88c36
-    cr: 4
-    keywords:
-      Animal: true
-    skillProficiencies: []
-    attributes:
-      mind:
-        __typeName: CharacterAttribute
-        baseValue: -1
-        id: mind
-      agility:
-        __typeName: CharacterAttribute
-        baseValue: 1
-        id: agility
-      strength:
-        __typeName: CharacterAttribute
-        baseValue: 2
-        id: strength
-    inflictedConditions: []
-    damage_taken: 0
-    crowsSlots: 10
-    equipment: []
     movementSpeeds:
-      climb: 5
+      climb: 4
+    cr: 0
     innateActivatedAbilities:
     - __typeName: ActivatedAbility
+      guid: 8460cf75-bf3e-597e-a2ec-c78e76dda1dc
+      categorization: Signature Ability
       iconid: ui-icons/skills/1.png
-      implementation: 4
-      guid: 3aec820b-24a1-5765-a1df-8a940ccff907
       meleeRange: 1
-      targetType: target
+      description: ""
       keywords:
         Strike: true
         Melee: true
@@ -94,47 +71,60 @@ info:
       - __typeName: ActivatedAbilityPowerRollBehavior
         tiers:
         - ""
-        - 3 damage
-        - 5 damage
-        attrid: strength
-        roll: 2d10 + 2
-      description: ""
-      range: "1"
-      numTargets: "1"
-      name: Punch
+        - 1 damage
+        - 2 damage
+        attrid: agility
+        roll: 2d10 + 1
       abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Bite
+      range: "1"
       actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
       repeatTargets: false
-      categorization: Signature Ability
-    resources: []
+      implementation: 4
     characterFeatures:
     - __typeName: CharacterFeature
-      description: When the ape has 0 Stamina, they deal an additional 2 damage with attacks.
-      domains:
-        CharacterFeature:45d6232d-c85a-53af-b89e-c73c69fac357: true
-      name: Dangerous When Cornered
+      description: Dim light imposes no penalties for the rat.
+      name: No Dim Light Penalty
       modifiers: []
-      guid: 45d6232d-c85a-53af-b89e-c73c69fac357
+      guid: fdcebf71-b151-5ef3-b7d8-686e1d7b100e
       source: Trait
       implementation: 1
-    monster_type: Ape
-    max_hitpoints: 10
-    levelChoices: []
+    monster_type: Rat
+    max_hitpoints: 2
     monster_category: Animal
-    walkingSpeed: 5
-    creatureSize: 1M
+    walkingSpeed: 4
+    creatureSize: 1T
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -3
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: -5
+    crowsSlots: 0
+    keywords:
+      Animal: true
   tokenType: null
-  bestiaryId: 65343326-43ce-5ccd-b9ae-809ec9a83012
+  bestiaryId: null
   summonerid: null
-  ownerId: ""
+  ownerId: null
   partyid: null
-  size: 2
-  createdTimestamp: 1787362290395
-description: Ape
+  size: -1
+  createdTimestamp: 1787367018613
+description: Rat
 parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
 artist: null
 ord: 0
 ctime: 0
-mtime: 1787367014994
+mtime: 1787367018613
 hidden: false
-id: 65343326-43ce-5ccd-b9ae-809ec9a83012
+id: ab9ff69b-1b39-52ed-977c-2013c37d3183

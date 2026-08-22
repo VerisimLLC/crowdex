@@ -1,0 +1,152 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      climb: 6
+    cr: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: dd4562b3-dce2-5bf8-8012-f7f55ea36f6d
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 3 damage
+        - 6 damage
+        attrid: agility
+        roll: 2d10 + 2
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Bite
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: cc4856f4-0fb4-55e5-a0c5-e52c9c1b468d
+      categorization: Ability
+      description: Deal 2 P damage to a target grabbed by this snake. Apply it as piercing damage.
+      iconid: ui-icons/skills/1.png
+      keywords: []
+      behaviors: []
+      range: "1"
+      targetType: target
+      numTargets: "1"
+      name: Constrict
+      abilityType: none
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      repeatTargets: false
+      implementation: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: The snake has an edge on attempts to grab creatures, and creatures take a bane on tests to escape its grab. The snake can use a maneuver to deal 2 P damage to a target it has grabbed.
+      name: Grabber
+      modifiers: []
+      guid: 851d0aee-1746-5cfd-a02a-cdce23850e71
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: The snake knows the exact location of any human, blood creature, demon, bird, or mammal animal within 2 squares and suffers no penalties on attacks against or tests to observe them.
+      name: Heat Sense
+      modifiers: []
+      guid: a9c3c01e-2f72-52e4-a6b3-7f37d079186c
+      source: Trait
+      implementation: 1
+    monster_type: Snake, Constrictor
+    max_hitpoints: 15
+    monster_category: Animal
+    walkingSpeed: 6
+    creatureSize: "2"
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -3
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    crowsSlots: 10
+    keywords:
+      Animal: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367019134
+description: Snake, Constrictor
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367019134
+hidden: false
+id: 24074851-45cb-57b0-85cf-cbba7b9aedd8

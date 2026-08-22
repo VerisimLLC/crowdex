@@ -1,0 +1,191 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      climb: 6
+    cr: 7
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 0e4e31cf-edb3-5797-a5e0-85673e9a0b66
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 2 damage
+        - 4 damage; grabbed
+        attrid: agility
+        roll: 2d10 + 2
+      abilityType: none
+      targetType: target
+      numTargets: "2"
+      name: Pince
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 2
+    - __typeName: ActivatedAbility
+      guid: 3e269d4f-bda5-5581-852a-96e7bfd0c5de
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 2
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 4 damage; weakened
+        - 7 damage; vulnerable; weakened
+        attrid: agility
+        roll: 2d10 + 2
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Sting
+      range: "2"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: 845ca6e5-c6c6-5c68-a0c5-f740611de137
+      categorization: Ability
+      description: Deal 3 P damage to all targets grabbed by this scorpion's Pince. Apply it as piercing damage.
+      iconid: ui-icons/skills/1.png
+      keywords: []
+      behaviors: []
+      range: "1"
+      targetType: target
+      numTargets: "1"
+      name: Vise Grip
+      abilityType: none
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      repeatTargets: false
+      implementation: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: The scorpion can climb upside down along ceilings.
+      name: Ceiling Climber
+      modifiers: []
+      guid: 6624fd1f-c13f-5649-9c53-19df41f36285
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: On a tier 3 Pince against a Medium or smaller target, the target is grabbed. The scorpion can grab two targets and use a maneuver to deal 3 P damage to all targets grabbed this way.
+      name: Vise Grip
+      modifiers: []
+      guid: 7154ed0c-2df3-5754-83c3-1f60243aba9d
+      source: Trait
+      implementation: 2
+    - __typeName: CharacterFeature
+      description: A tier 2 Sting weakens the target; a tier 3 Sting makes the target vulnerable and weakened.
+      name: Highly Venomous
+      modifiers: []
+      guid: 31d46d3c-132a-5fee-9ee9-964a7580ae92
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: The scorpion knows the exact location of creatures within 2 squares and suffers no penalties on attacks against or tests to observe them.
+      name: Vibration Sense
+      modifiers: []
+      guid: 8c3cd8d2-0d85-5201-a982-ee4c1ed2c34c
+      source: Trait
+      implementation: 1
+    monster_type: Scorpion, Giant
+    max_hitpoints: 25
+    monster_category: Animal
+    walkingSpeed: 6
+    creatureSize: 1L
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -4
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    crowsSlots: 10
+    keywords:
+      Animal: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367019027
+description: Scorpion, Giant
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367019027
+hidden: false
+id: cb6b3e81-40b2-5270-bbee-4bcf51665d20

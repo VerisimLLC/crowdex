@@ -1,0 +1,186 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 3
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 061ad4f5-6c95-4886-b018-edc25def3225
+      categorization: Signature Ability
+      description: ""
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 4 damage
+        - 6 damage
+        attrid: agility
+        roll: 2d10 + 2
+      range: "10"
+      targetType: target
+      numTargets: "1"
+      name: Fire Lance
+      abilityType: none
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Historical Lore (1 use), Magic Lore (1 use), Monster Lore (1 use), Nature Lore (1 use), Religious Lore (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        description: Historical Lore (1 use)
+        resourceType: 5e6b855f-1c73-44e6-8d48-2de37b9d1d52
+        name: Expertises
+        behavior: resource
+        guid: 91baa003-c100-4f8f-8a66-cc84233ed415
+        source: Trait
+        sourceguid: 015f3cf1-6f77-4e35-9200-a0c3176551ae
+      - __typeName: CharacterModifier
+        num: 1
+        description: Magic Lore (1 use)
+        resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+        name: Expertises
+        behavior: resource
+        guid: bb0b572d-4c41-4edd-9365-c1b59f981628
+        source: Trait
+        sourceguid: 015f3cf1-6f77-4e35-9200-a0c3176551ae
+      - __typeName: CharacterModifier
+        num: 1
+        description: Monster Lore (1 use)
+        resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+        name: Expertises
+        behavior: resource
+        guid: 573e2533-65b6-4f48-89ee-95f4e09a46da
+        source: Trait
+        sourceguid: 015f3cf1-6f77-4e35-9200-a0c3176551ae
+      - __typeName: CharacterModifier
+        num: 1
+        description: Nature Lore (1 use)
+        resourceType: a22217c6-65ed-4254-8936-754c4a180237
+        name: Expertises
+        behavior: resource
+        guid: b223abef-8578-4490-ad1f-198bfbdeddb0
+        source: Trait
+        sourceguid: 015f3cf1-6f77-4e35-9200-a0c3176551ae
+      - __typeName: CharacterModifier
+        num: 1
+        description: Religious Lore (1 use)
+        resourceType: 8b115a39-e57b-44ed-b110-18c8bf192869
+        name: Expertises
+        behavior: resource
+        guid: a79fe9d8-39f5-4db7-958c-1b2989fc0c6c
+        source: Trait
+        sourceguid: 015f3cf1-6f77-4e35-9200-a0c3176551ae
+      guid: 015f3cf1-6f77-4e35-9200-a0c3176551ae
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Journal, lore book (4; Historical Lore, Magic Lore, Monster Lore, Nature Lore, Religious Lore), quill and ink pot, spellbooks: fire lance."
+      name: Equipment
+      modifiers: []
+      guid: c841a484-2dc6-46a3-9014-69257de8e639
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: When the sage reads a lore book as a rest activity, one other human resting with them can also gain the activity's benefits.
+      name: Shared Knowledge
+      modifiers: []
+      guid: d2947731-5e0c-5979-8482-fad3153ba4c4
+      source: Trait
+      implementation: 1
+    monster_type: Sage (Power 3)
+    max_hitpoints: 5
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367018813
+description: Sage (Power 3)
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367018813
+hidden: false
+id: dc3477cd-fb60-42e2-ba53-a6c116e2477c

@@ -1,0 +1,187 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 3
+    crowsAD: 2
+    walkingSpeed: 5
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Stealth (2 uses), Thievery (2 uses)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 2
+        description: Stealth (2 uses)
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        name: Expertises
+        behavior: resource
+        guid: bbf78780-e40c-49f9-b409-6e731f036ff2
+        source: Trait
+        sourceguid: 4a538ac1-1cf7-420c-b864-6c17ac6754ad
+      - __typeName: CharacterModifier
+        num: 2
+        description: Thievery (2 uses)
+        resourceType: 452f3e58-5227-4322-8db5-c35d6536fc30
+        name: Expertises
+        behavior: resource
+        guid: c97d28ef-a2bf-45bd-9384-526aff09c55d
+        source: Trait
+        sourceguid: 4a538ac1-1cf7-420c-b864-6c17ac6754ad
+      guid: 4a538ac1-1cf7-420c-b864-6c17ac6754ad
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Crowbar, knife, lock pick set."
+      name: Equipment
+      modifiers: []
+      guid: 3958aff4-1a38-4066-bf3f-a81eb3efe37b
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: While wielding a knife, the thief can shift 1 additional square with the Shift maneuver.
+      name: Disengage
+      modifiers: []
+      guid: 2c5de648-b465-58a9-8304-b32491ba5168
+      source: Trait
+      implementation: 2
+    - __typeName: CharacterFeature
+      description: When the thief tests to hide or sneak while not wearing armor, they can roll twice and choose either result.
+      name: Stealthy
+      modifiers: []
+      guid: e05c542e-73e4-5a1a-a418-a25ab2b6ecce
+      source: Trait
+      implementation: 1
+    monster_type: Thief (Power 3)
+    max_hitpoints: 5
+    monster_category: Human
+    keywords:
+      Human: true
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: c78d905b-1a25-4020-9e81-d2523a043f85
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: "Thrown: Melee 1 or Ranged 5."
+      keywords:
+        Weapon: true
+        Strike: true
+        Ranged: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 3 damage
+        - 5 damage
+        attrid: agility
+        roll: 2d10 + 1
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Knife
+      range: "5"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: 2f3838ad-562e-58cb-a39b-91a725cf0036
+      categorization: Ability
+      description: Shift 2 squares while wielding the required weapon.
+      iconid: ui-icons/skills/1.png
+      keywords: []
+      behaviors:
+      - __typeName: ActivatedAbilityDrawSteelCommandBehavior
+        rule: Shift 2
+      range: "1"
+      targetType: self
+      numTargets: "1"
+      name: Disengage
+      abilityType: none
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      repeatTargets: false
+      implementation: 2
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367019668
+description: Thief (Power 3)
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367019668
+hidden: false
+id: 870182f6-df41-4683-b80a-f64de4ba2ebe

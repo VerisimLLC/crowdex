@@ -1,0 +1,240 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 3605d24b-11a5-4fee-b160-723893943391
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    equipment: []
+    initiativeGrouping: 70db2f5e-a8a8-4689-bbca-cb50fbe85a6a
+    cr: 3
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: b7385b4b-c866-4d4e-abe0-d286eaaf44e8
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 4 damage
+        attrid: agility
+      display:
+        bgcolor: "#ffffffff"
+        hueshift: 0
+        brightness: 1
+        saturation: 1
+      name: Bite
+      modifiers: []
+      repeatTargets: false
+      categorization: Signature Ability
+      meleeRange: 1
+      targetType: target
+      iconid: ui-icons/skills/1.png
+      abilityType: none
+      numTargets: "1"
+      description: ""
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      range: "1"
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: d899e505-0127-4e4c-b901-1f4187220b51
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 4 damage; grabbed
+        attrid: agility
+      display:
+        bgcolor: "#ffffffff"
+        hueshift: 0
+        brightness: 1
+        saturation: 1
+      name: Tendril
+      modifiers: []
+      repeatTargets: false
+      categorization: Signature Ability
+      meleeRange: 1
+      targetType: target
+      iconid: ui-icons/skills/1.png
+      abilityType: none
+      numTargets: "1"
+      description: ""
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      range: "1"
+      implementation: 2
+    - __typeName: ActivatedAbility
+      guid: b53d6e7c-deef-4f49-b1b1-44434522a028
+      keywords:
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityDrawSteelCommandBehavior
+        rule: 2 damage
+      display:
+        bgcolor: "#ffffffff"
+        hueshift: 0
+        brightness: 1
+        saturation: 1
+      name: Constrict
+      modifiers: []
+      repeatTargets: false
+      categorization: Ability
+      meleeRange: 1
+      targetType: target
+      iconid: ui-icons/skills/1.png
+      abilityType: none
+      numTargets: "1"
+      description: Use against a target grabbed by this creature's Tendril Snare to deal 2 damage.
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      range: "1"
+      implementation: 2
+    walkingSpeed: 6
+    resources: []
+    keywords:
+      Blood: true
+    monster_type: Blood Creature B
+    skillProficiencies: []
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 1
+    monster_category: Blood Creature
+    creatureSize: 1S
+    damage_taken: 0
+    levelChoices: []
+    max_hitpoints: 15
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: This creature has a climb speed equal to its walking speed, and can climb upside down along ceilings without a test.
+      guid: 279b48da-4926-47f2-a065-f4c6868fcd59
+      name: Climb
+      modifiers:
+      - __typeName: CharacterModifier
+        guid: 7054b0c9-eb60-4d51-866d-2c678297d2e2
+        domains:
+          CharacterFeature:279b48da-4926-47f2-a065-f4c6868fcd59: true
+        description: ""
+        value: Walking Speed
+        name: Climb
+        sourceguid: 279b48da-4926-47f2-a065-f4c6868fcd59
+        attribute: climb
+        source: Trait
+        behavior: attribute
+      domains:
+        CharacterFeature:279b48da-4926-47f2-a065-f4c6868fcd59: true
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: When this creature gets a tier 3 result on a tendril attack against a Medium or smaller target, the target is grabbed. While the target is grabbed this way, this creature's bite attack deals an additional 2 damage to them, and this creature can use a maneuver (Constrict) to deal 2 damage to the target.
+      domains:
+        CharacterFeature:e7a67f86-be2c-4144-89ce-861da63a153e: true
+      source: Trait
+      name: Tendril Snare
+      modifiers: []
+      guid: e7a67f86-be2c-4144-89ce-861da63a153e
+      implementationDetails: Tier 3 tendril grabs the target automatically; the 'Medium or smaller' size gate and the grabbed-only +2 bite damage are not automated. Use Constrict for the 2-damage maneuver against a grabbed target.
+      implementation: 2
+    - __typeName: CharacterFeature
+      guid: bcca1973-09dc-5022-b7f9-d36d8dd31d07
+      name: No Darkness Penalty
+      modifiers:
+      - __typeName: CharacterModifier
+        description: Dim light and darkness impose no penalties for the monster.
+        value: 1000
+        guid: cf8e1aaa-6764-5b6c-80f6-332c1bb83b14
+        sourceguid: bcca1973-09dc-5022-b7f9-d36d8dd31d07
+        behavior: attribute
+        name: No Darkness Penalty
+        attribute: darkvision
+        source: Trait
+      description: Dim light and darkness impose no penalties for the monster.
+      source: Trait
+      implementation: 4
+    - __typeName: CharacterFeature
+      guid: cf428af0-ac87-5c9f-aa90-e6076ae139b7
+      name: Common Names
+      modifiers: []
+      description: "Colloquial names: blood spider, mouth eyes."
+      source: Trait
+      implementation: 0
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787366368858
+description: Blood Creature B
+parentFolder: 7b1abcb1-740f-4e76-a388-f1fb9b2b4bd1
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787366784326
+hidden: false
+id: ea650b87-3020-4d78-8012-b4b9ae72fd52

@@ -1,0 +1,202 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 7f15cd83-6c7f-4d76-ab3d-6a28372145fa
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    equipment: []
+    initiativeGrouping: 404af982-1cc4-4e4a-b030-4266d0453dff
+    cr: 8
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 57927a49-45fe-4bb9-bc3b-f21ff2cf8b89
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 4 damage
+        - 8 damage
+        attrid: strength
+      display:
+        bgcolor: "#ffffffff"
+        hueshift: 0
+        brightness: 1
+        saturation: 1
+      name: Punch
+      modifiers: []
+      repeatTargets: false
+      categorization: Signature Ability
+      meleeRange: 1
+      targetType: target
+      iconid: ui-icons/skills/1.png
+      abilityType: none
+      numTargets: "1"
+      description: ""
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      range: "1"
+      implementation: 4
+    - __typeName: ActivatedAbility
+      iconid: ui-icons/skills/1.png
+      implementation: 4
+      description: ""
+      abilityType: none
+      display:
+        bgcolor: "#ffffffff"
+        hueshift: 0
+        brightness: 1
+        saturation: 1
+      numTargets: "1"
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 3 damage
+        - 7 damage
+        attrid: strength
+      range: "10"
+      guid: e8a7a77e-8cf1-48e9-ac37-990520540158
+      targetType: target
+      name: Clot
+      modifiers: []
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      categorization: Signature Ability
+    walkingSpeed: 5
+    resources: []
+    keywords:
+      Blood: true
+    monster_type: Blood Creature C
+    skillProficiencies: []
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    monster_category: Blood Creature
+    creatureSize: 1L
+    damage_taken: 0
+    levelChoices: []
+    max_hitpoints: 40
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: This creature can fit through spaces as small as 1 inch wide and never needs to squeeze. They can't be grabbed or knocked prone.
+      guid: 9c1e774e-af8e-44f5-ba2a-8aff5994204e
+      name: Malleable
+      modifiers:
+      - __typeName: CharacterModifier
+        description: This creature can fit through spaces as small as 1 inch wide and never needs to squeeze. They can't be grabbed or knocked prone.
+        name: Malleable
+        conditions:
+        - 70504ebe-3899-41d3-9f60-74b52ce35e39
+        - da6867b1-01e3-4570-8d1b-1b94ea1ea343
+        behavior: conditionimmunity
+        source: Trait
+        guid: 1a821676-b07b-5d57-8f71-a990b1a44161
+      domains:
+        CharacterFeature:9c1e774e-af8e-44f5-ba2a-8aff5994204e: true
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      guid: 87713266-6496-51b5-bde0-9cda1716bb91
+      name: No Darkness Penalty
+      modifiers:
+      - __typeName: CharacterModifier
+        description: Dim light and darkness impose no penalties for the monster.
+        value: 1000
+        guid: b2bab3aa-92f4-5d61-a660-11cfa8b12a2d
+        sourceguid: 87713266-6496-51b5-bde0-9cda1716bb91
+        behavior: attribute
+        name: No Darkness Penalty
+        attribute: darkvision
+        source: Trait
+      description: Dim light and darkness impose no penalties for the monster.
+      source: Trait
+      implementation: 4
+    - __typeName: CharacterFeature
+      guid: 342e067e-64f9-5d44-83f0-cf4d91a2be79
+      name: Common Names
+      modifiers: []
+      description: "Colloquial names: blood brute, tiny arms."
+      source: Trait
+      implementation: 0
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787366369107
+description: Blood Creature C
+parentFolder: 7b1abcb1-740f-4e76-a388-f1fb9b2b4bd1
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787366784356
+hidden: false
+id: cddf36a5-f0fe-433d-8d18-12f56590fbcb

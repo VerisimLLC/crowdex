@@ -1,0 +1,163 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 4
+    crowsAD: 2
+    walkingSpeed: 5
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Athletics (1 use), Stealth (1 use), Bow (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        description: Athletics (1 use)
+        resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+        name: Expertises
+        behavior: resource
+        guid: bed68c16-fbcf-4701-aef7-ea54b2c81cc0
+        source: Trait
+        sourceguid: 249786b8-6d4d-4e92-a59e-21f300fc32bb
+      - __typeName: CharacterModifier
+        num: 1
+        description: Stealth (1 use)
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        name: Expertises
+        behavior: resource
+        guid: 3cdb49c9-7857-42bf-96ae-9750182fff7e
+        source: Trait
+        sourceguid: 249786b8-6d4d-4e92-a59e-21f300fc32bb
+      - __typeName: CharacterModifier
+        num: 1
+        description: Bow (1 use)
+        resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+        name: Expertises
+        behavior: resource
+        guid: ba54fd6a-7416-417e-80dd-d3c50b753914
+        source: Trait
+        sourceguid: 249786b8-6d4d-4e92-a59e-21f300fc32bb
+      guid: 249786b8-6d4d-4e92-a59e-21f300fc32bb
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Quiver of 20 arrows, shortbow."
+      name: Equipment
+      modifiers: []
+      guid: 87e320f5-7e04-411f-b2f3-3e6651925991
+      source: Trait
+      implementation: 1
+    monster_type: Archer (Power 4)
+    max_hitpoints: 10
+    monster_category: Human
+    keywords:
+      Human: true
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 834d6fcb-e8e0-422a-869c-3823c61fbaec
+      categorization: Signature Ability
+      description: ""
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 3 damage
+        - 5 damage
+        attrid: agility
+        roll: 2d10 + 2
+      range: "12"
+      targetType: target
+      numTargets: "1"
+      name: Shortbow
+      abilityType: none
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367015199
+description: Archer (Power 4)
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367015199
+hidden: false
+id: 429f21a3-22b0-4f33-8ad1-38d03ad9e835

@@ -1,0 +1,162 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 3
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 8365a1cc-8d0f-4495-87b2-54596d657145
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: "Thrown: Melee 1 or Ranged 5."
+      keywords:
+        Weapon: true
+        Strike: true
+        Ranged: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 3 damage
+        - 5 damage; push 1
+        attrid: agility
+        roll: 2d10 + 2
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Hammer
+      range: "5"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 2
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Blacksmithing (3 uses), Bashing (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 3
+        description: Blacksmithing (3 uses)
+        resourceType: f6f45422-7646-46f7-8531-b0d6a40de282
+        name: Expertises
+        behavior: resource
+        guid: 53301204-62d2-4d79-ab5c-1493da703df9
+        source: Trait
+        sourceguid: 6ec5f28e-5ffc-410f-938f-f4fc39685352
+      - __typeName: CharacterModifier
+        num: 1
+        description: Bashing (1 use)
+        resourceType: 74a6c31d-4fb5-41d7-aa03-7684ada38ffc
+        name: Expertises
+        behavior: resource
+        guid: a3c88683-a23f-46f0-a737-48ddcb5ebc0b
+        source: Trait
+        sourceguid: 6ec5f28e-5ffc-410f-938f-f4fc39685352
+      guid: 6ec5f28e-5ffc-410f-938f-f4fc39685352
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Blacksmith's tools, hammer."
+      name: Equipment
+      modifiers: []
+      guid: 9c9986ea-2adc-40be-9668-b3df7836abbb
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: On a tier 3 Hammer attack against a Medium or smaller target, push the target 1 square. On a crit, the target is knocked prone.
+      name: Pummeling
+      modifiers: []
+      guid: b610316b-f83f-5e29-ba71-f497c91634d0
+      source: Trait
+      implementation: 2
+    monster_type: Blacksmith
+    max_hitpoints: 5
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 0
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 1
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367015627
+description: Blacksmith
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367015627
+hidden: false
+id: bc976eb8-b043-4ac4-92e2-dfd3082aeeeb

@@ -1,0 +1,192 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: cea8cb96-28d0-4800-86ca-22dc8241c842
+    loc:
+    - -8
+    - 4
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 3fc18b0e-72e5-4ad3-886e-310bec11e2b5
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    initiativeGrouping: 10c155b1-0bbd-4349-a834-38f9626925d6
+    cr: 1
+    keywords:
+      Blood: true
+    skillProficiencies: []
+    monster_category: Blood Creature
+    inflictedConditions: []
+    damage_taken: 0
+    equipment: []
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: b9a198be-7829-4b1b-98a1-0aa0a7f682d6
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: agility
+        roll: 2d10 + 2
+        tiers:
+        - ""
+        - 2 damage
+        - 3 damage
+      description: ""
+      name: Claws
+      modifiers: []
+      repeatTargets: false
+      categorization: Signature Ability
+      meleeRange: 1
+      range: "1"
+      targetType: target
+      abilityType: none
+      numTargets: "1"
+      iconid: ui-icons/skills/1.png
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      display:
+        bgcolor: "#ffffffff"
+        saturation: 1
+        brightness: 1
+        hueshift: 0
+      implementation: 4
+    resources: []
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: This creature has a climb speed equal to its walking speed.
+      guid: a591e062-33ca-4c08-8854-70e461b64a72
+      name: Climb
+      modifiers:
+      - __typeName: CharacterModifier
+        guid: 313f0bdf-d87b-4461-adb6-dbe2bc29eae9
+        domains:
+          CharacterFeature:a591e062-33ca-4c08-8854-70e461b64a72: true
+        description: ""
+        value: Walking Speed
+        name: Climb
+        behavior: attribute
+        attribute: climb
+        source: Trait
+        sourceguid: a591e062-33ca-4c08-8854-70e461b64a72
+      domains:
+        CharacterFeature:a591e062-33ca-4c08-8854-70e461b64a72: true
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: This creature treats falls as 10 squares shorter when calculating fall damage. After falling and taking no damage, they gain an edge on attacks and damage until the end of the turn.
+      guid: b56d679b-5ee9-4ad9-96ee-acd1ef13081e
+      name: Drop Attack
+      modifiers: []
+      domains:
+        CharacterFeature:b56d679b-5ee9-4ad9-96ee-acd1ef13081e: true
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      guid: 42d6aee6-5b13-59ba-a493-7a7092e6cf0f
+      domains:
+        CharacterFeature:42d6aee6-5b13-59ba-a493-7a7092e6cf0f: true
+      name: No Darkness Penalty
+      modifiers:
+      - __typeName: CharacterModifier
+        guid: d17b7322-7256-5c85-a2dc-00c951f12b00
+        domains:
+          CharacterFeature:42d6aee6-5b13-59ba-a493-7a7092e6cf0f: true
+        description: Dim light and darkness impose no penalties for the monster.
+        value: 1000
+        sourceguid: 42d6aee6-5b13-59ba-a493-7a7092e6cf0f
+        name: No Darkness Penalty
+        source: Trait
+        behavior: attribute
+        attribute: darkvision
+      description: Dim light and darkness impose no penalties for the monster.
+      source: Trait
+      implementation: 4
+    - __typeName: CharacterFeature
+      guid: e4e397cc-560d-57f7-9fcb-c71ade74069a
+      domains:
+        CharacterFeature:e4e397cc-560d-57f7-9fcb-c71ade74069a: true
+      name: Common Names
+      modifiers: []
+      description: "Common names: creep, red drool, spindleclaw."
+      source: Trait
+      implementation: 0
+    monster_type: Blood Creature A
+    max_hitpoints: 5
+    levelChoices: []
+    walkingSpeed: 6
+    creatureSize: 1S
+    attributes:
+      mind:
+        __typeName: CharacterAttribute
+        baseValue: -2
+        id: mind
+      agility:
+        __typeName: CharacterAttribute
+        baseValue: 2
+        id: agility
+      strength:
+        __typeName: CharacterAttribute
+        baseValue: 0
+        id: strength
+  tokenType: null
+  bestiaryId: 9df3cf66-abfe-4ed9-a8f6-6e5ebcddaef2
+  summonerid: null
+  ownerId: ""
+  partyid: null
+  size: 1
+  createdTimestamp: 1787366368841
+description: Blood Creature A
+parentFolder: 7b1abcb1-740f-4e76-a388-f1fb9b2b4bd1
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787366670647
+hidden: false
+id: 9df3cf66-abfe-4ed9-a8f6-6e5ebcddaef2

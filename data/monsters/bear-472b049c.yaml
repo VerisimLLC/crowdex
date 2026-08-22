@@ -1,0 +1,162 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    movementSpeeds:
+      climb: 6
+    cr: 6
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: f738c666-4296-5b9b-b15f-57d378587480
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 4 damage
+        - 6 damage
+        attrid: strength
+        roll: 2d10 + 2
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Bite
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: 8f2cef6f-fbe9-59a4-9b46-0c46dd255cba
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 2 damage
+        - 3 damage
+        attrid: strength
+        roll: 2d10 + 2
+      abilityType: none
+      targetType: target
+      numTargets: "2"
+      name: Claws
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When the bear has 15 or lower Stamina, they deal an additional 2 damage with attacks.
+      name: Dangerous When Cornered
+      modifiers: []
+      guid: 7ff8e6c9-441d-53e6-a1ef-c634d149ee61
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: Dim light imposes no penalties for the bear.
+      name: No Dim Light Penalty
+      modifiers: []
+      guid: d62cd475-a0f1-5362-bcd6-0ac165c3662e
+      source: Trait
+      implementation: 1
+    monster_type: Bear
+    max_hitpoints: 20
+    monster_category: Animal
+    walkingSpeed: 6
+    creatureSize: 1L
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 2
+    crowsSlots: 10
+    keywords:
+      Animal: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367015413
+description: Bear
+parentFolder: bb87b60e-c72e-4abb-87f0-6b2666f37d60
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367015413
+hidden: false
+id: 75c64e81-0d29-57c7-a473-7418994f7f35

@@ -1,0 +1,169 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 5
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 97b21112-2d6a-4e18-9126-7f90d9f653c1
+      categorization: Signature Ability
+      description: ""
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 5 damage
+        - 8 damage
+        attrid: agility
+        roll: 2d10 + 2
+      range: "20"
+      targetType: target
+      numTargets: "1"
+      name: Longbow
+      abilityType: none
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Nature Lore (2 uses), Navigate (1 use), Stealth (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 2
+        description: Nature Lore (2 uses)
+        resourceType: a22217c6-65ed-4254-8936-754c4a180237
+        name: Expertises
+        behavior: resource
+        guid: f7dee21f-a204-4087-bb31-f35a579d249a
+        source: Trait
+        sourceguid: 442f97e0-7753-4167-8f44-e69f17f40ddb
+      - __typeName: CharacterModifier
+        num: 1
+        description: Navigate (1 use)
+        resourceType: 1f6f824b-1b93-46cc-8704-46ab53082744
+        name: Expertises
+        behavior: resource
+        guid: 3ef0a5ea-4230-43b6-a00e-dc12321dc4dc
+        source: Trait
+        sourceguid: 442f97e0-7753-4167-8f44-e69f17f40ddb
+      - __typeName: CharacterModifier
+        num: 1
+        description: Stealth (1 use)
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        name: Expertises
+        behavior: resource
+        guid: 652ab3a0-ecee-4907-8d22-30a3d9190d50
+        source: Trait
+        sourceguid: 442f97e0-7753-4167-8f44-e69f17f40ddb
+      guid: 442f97e0-7753-4167-8f44-e69f17f40ddb
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Bear trap (2), caltrops (2), knife, lantern, longbow, oil pint (2), quiver of 20 arrows."
+      name: Equipment
+      modifiers: []
+      guid: 8068a012-b9e1-499e-87b6-03e4c9964af6
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: Other creatures take a bane on RRs made to resist terrain effects created by the trapper.
+      name: Trap Master
+      modifiers: []
+      guid: 4a426366-2f42-578e-bc93-39a2837bcbed
+      source: Trait
+      implementation: 1
+    monster_type: Trapper
+    max_hitpoints: 15
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 2
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 1
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367020200
+description: Trapper
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367020200
+hidden: false
+id: 0f525fbe-fa89-437a-885a-868b5f2e92d5

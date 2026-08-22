@@ -1,0 +1,194 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 10
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: dba08918-8655-44ab-8cc0-76937eb72e70
+      categorization: Signature Ability
+      description: ""
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Strike: true
+        Ranged: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 6 damage
+        - 9 damage
+        attrid: agility
+        roll: 2d10 + 5
+      range: "22"
+      targetType: target
+      numTargets: "2"
+      name: Longbow
+      abilityType: none
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Athletics (1 use), Stealth (1 use), Bow (2 uses)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        description: Athletics (1 use)
+        resourceType: b94fdaa4-da98-4b74-bbc2-8816634980c8
+        name: Expertises
+        behavior: resource
+        guid: 028dc02d-5e1b-4481-b032-cff3fc8f9594
+        source: Trait
+        sourceguid: 2621940f-9414-421d-bda0-a665cceff3b3
+      - __typeName: CharacterModifier
+        num: 1
+        description: Stealth (1 use)
+        resourceType: 9471dc81-8abf-498c-8224-d8a419d0939a
+        name: Expertises
+        behavior: resource
+        guid: 4db17eff-efc0-4636-a9e7-2ccaddf9ce32
+        source: Trait
+        sourceguid: 2621940f-9414-421d-bda0-a665cceff3b3
+      - __typeName: CharacterModifier
+        num: 2
+        description: Bow (2 uses)
+        resourceType: 4288c07e-bc90-4c9f-960c-6d041f3c6784
+        name: Expertises
+        behavior: resource
+        guid: a07a1944-bcd5-4ef6-91f3-af24d5318afd
+        source: Trait
+        sourceguid: 2621940f-9414-421d-bda0-a665cceff3b3
+      guid: 2621940f-9414-421d-bda0-a665cceff3b3
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Longbow, quiver of 20 arrows."
+      name: Equipment
+      modifiers: []
+      guid: d6fa1af0-58b8-4e82-ac25-6704a24621dd
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: When the archer makes a longbow attack, they can use 2 arrows and pick 2 targets.
+      name: Split Shot
+      modifiers: []
+      guid: c6a03fec-e592-5da4-a7cb-e032c9ed364d
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: The archer's longbow attacks ignore cover.
+      name: Walls Cannot Save You
+      modifiers:
+      - __typeName: CharacterModifier
+        description: The archer's longbow attacks ignore cover.
+        value: 1
+        behavior: attribute
+        name: Walls Cannot Save You
+        attribute: 16228928-9f29-4510-a703-65344f2356ef
+        guid: 9a06fa52-0d27-5246-a557-54aeb84edbbc
+        source: Trait
+        sourceguid: cdd4f1f1-c29c-53d3-bc97-6df9226ef909
+      - __typeName: CharacterModifier
+        description: The archer's longbow attacks ignore cover.
+        value: 1
+        behavior: attribute
+        name: Walls Cannot Save You
+        attribute: 33b6a265-6b89-4def-b86d-507d86061fe8
+        guid: 7e5836b7-3a57-5049-be97-03bb08637697
+        source: Trait
+        sourceguid: cdd4f1f1-c29c-53d3-bc97-6df9226ef909
+      guid: cdd4f1f1-c29c-53d3-bc97-6df9226ef909
+      source: Trait
+      implementation: 4
+    monster_type: Archer (Power 10)
+    max_hitpoints: 40
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 3
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367015092
+description: Archer (Power 10)
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367015092
+hidden: false
+id: 4d7abb19-eb39-4705-ac07-7ca7f18eef09

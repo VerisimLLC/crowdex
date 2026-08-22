@@ -1,0 +1,160 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 3
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 0c19af74-a6ba-44f5-82f8-20140c1d1500
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
+        attrid: strength
+        roll: 2d10 + 1
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Unarmed
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Enchanting (3 uses), Magic Lore (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 3
+        description: Enchanting (3 uses)
+        resourceType: 8b57bd22-c458-47cf-a11f-2684e944880b
+        name: Expertises
+        behavior: resource
+        guid: 3d88bff0-285b-4bbd-bb2b-22053d7c73dc
+        source: Trait
+        sourceguid: 61cfd00f-aabf-490b-97f2-0d8a96f865db
+      - __typeName: CharacterModifier
+        num: 1
+        description: Magic Lore (1 use)
+        resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+        name: Expertises
+        behavior: resource
+        guid: 7f8efb08-8c5b-4393-b710-ad1ebc111868
+        source: Trait
+        sourceguid: 61cfd00f-aabf-490b-97f2-0d8a96f865db
+      guid: 61cfd00f-aabf-490b-97f2-0d8a96f865db
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Enchanter's tools."
+      name: Equipment
+      modifiers: []
+      guid: 78961bcc-8966-483d-92b4-86026b512e96
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: As a rest activity, choose two weapons or armor pieces craftable from the same materials but made from different ones. The items swap materials.
+      name: Material Transfer
+      modifiers: []
+      guid: 3d4dcc53-d9cc-54a7-b1c6-bd1344ed980c
+      source: Trait
+      implementation: 1
+    monster_type: Enchanter
+    max_hitpoints: 5
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367017333
+description: Enchanter
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367017333
+hidden: false
+id: c5a652ed-e35e-4f28-b3ec-25397a07acf1

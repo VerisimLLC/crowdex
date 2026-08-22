@@ -1,0 +1,160 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 3
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: ba1e0504-3508-4dec-9d9e-87a561afcdaf
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 1 damage
+        - 2 damage
+        attrid: strength
+        roll: 2d10 + 1
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Unarmed
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Magic Lore (1 use), Alteration (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        description: Magic Lore (1 use)
+        resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+        name: Expertises
+        behavior: resource
+        guid: 62fa68c5-21a1-421a-995f-792781bd705b
+        source: Trait
+        sourceguid: 8fcdde7e-634b-45e4-83cc-472bc7c321f5
+      - __typeName: CharacterModifier
+        num: 1
+        description: Alteration (1 use)
+        resourceType: df3af2b7-a0eb-4b2e-8466-3ee53c550e88
+        name: Expertises
+        behavior: resource
+        guid: ca514413-b17f-40c1-bcc5-fd6827ec91bc
+        source: Trait
+        sourceguid: 8fcdde7e-634b-45e4-83cc-472bc7c321f5
+      guid: 8fcdde7e-634b-45e4-83cc-472bc7c321f5
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Spellbooks: animal form, repair, take shape."
+      name: Equipment
+      modifiers: []
+      guid: c5b186b0-a3ea-4ae0-b6c0-5cea135e101d
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: When the transmuter casts an alteration spell with a duration in UD, the duration gains 1 additional UD.
+      name: Lasting Alteration
+      modifiers: []
+      guid: 597a5499-786a-59ed-b92c-647eb15fff1c
+      source: Trait
+      implementation: 1
+    monster_type: Transmuter
+    max_hitpoints: 5
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 0
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 0
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367020093
+description: Transmuter
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367020093
+hidden: false
+id: a3326cb3-8b1b-4487-8e91-b3e42a0005db

@@ -1,0 +1,278 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    equipment: []
+    initiativeGrouping: 117ea63e-c64b-43d0-9ff7-5d53b4303fe1
+    cr: 20
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      iconid: ui-icons/skills/1.png
+      implementation: 4
+      abilityType: none
+      display:
+        hueshift: 0
+        bgcolor: "#ffffffff"
+        saturation: 1
+        brightness: 1
+      targetType: target
+      numTargets: "1"
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        roll: 2d10 + 5
+        attrid: agility
+        tiers:
+        - ""
+        - 8 damage
+        - 14 damage; prone
+      description: ""
+      guid: 305779f2-e9b3-41d4-9d9d-d11b6d2aafa1
+      range: "10"
+      name: Kneel
+      modifiers: []
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      categorization: Signature Ability
+    - __typeName: ActivatedAbility
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Melee: true
+        Strike: true
+        Weapon: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        roll: 2d10 + 4
+        attrid: strength
+        tiers:
+        - ""
+        - 7 damage
+        - 12 damage
+      description: ""
+      name: Sword
+      modifiers: []
+      repeatTargets: false
+      categorization: Signature Ability
+      meleeRange: 1
+      targetType: target
+      abilityType: none
+      guid: dd3e0e0d-1211-433f-ae37-224d7c0eac82
+      numTargets: "1"
+      display:
+        hueshift: 0
+        bgcolor: "#ffffffff"
+        saturation: 1
+        brightness: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      range: "1"
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: 5bdb8a7c-283f-4571-9775-4a4f4f4e82e4
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        roll: 2d10 + 4
+        attrid: agility
+        tiers:
+        - ""
+        - 4 damage
+        - 8 damage
+      description: Targets two creatures.
+      name: Punches
+      modifiers: []
+      repeatTargets: false
+      categorization: Signature Ability
+      meleeRange: 1
+      range: "1"
+      targetType: target
+      abilityType: none
+      numTargets: "2"
+      display:
+        hueshift: 0
+        bgcolor: "#ffffffff"
+        saturation: 1
+        brightness: 1
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      iconid: ui-icons/skills/1.png
+      implementation: 4
+    walkingSpeed: 7
+    resources: []
+    keywords:
+      Unique: true
+    monster_type: Ring Collector
+    skillProficiencies: []
+    monster_category: Unique
+    attributes:
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 5
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 4
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 4
+    creatureSize: 1M
+    damage_taken: 0
+    levelChoices: []
+    max_hitpoints: 100
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: When this creature gets a tier 3 result with a Kneel attack, the target falls prone.
+      guid: 77ee91c7-8023-4511-9d62-99d3727175b1
+      implementationDetails: "Automated: the Kneel ability applies Prone on its tier 3 result."
+      name: Literally Kneel
+      modifiers: []
+      domains:
+        CharacterFeature:77ee91c7-8023-4511-9d62-99d3727175b1: true
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: When this creature's sword attack kills a creature, the target explodes and deals 1d6 damage to each creature within 1 square.
+      guid: 72ec467e-8126-42fb-89cd-6f4a7139598d
+      name: Exploding Sword
+      modifiers: []
+      domains:
+        CharacterFeature:72ec467e-8126-42fb-89cd-6f4a7139598d: true
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: This creature can take one additional action or maneuver on their combat turn.
+      name: Extra Action
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 1
+        description: One additional action each combat turn.
+        resourceType: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+        name: Extra Action
+        behavior: resource
+        guid: 25102224-a390-54cd-bcea-535eff90197d
+        source: Trait
+        sourceguid: 46b8af46-ac8f-4215-9b0a-aeb9af1b5cf1
+      guid: 46b8af46-ac8f-4215-9b0a-aeb9af1b5cf1
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: This creature can teleport up to 50 miles to a location they have visited before regardless of line of effect. Usable once per rest.
+      guid: ad38b9ac-5b79-4f99-980d-00a041f3f8f2
+      name: Vanish (1/Rest)
+      modifiers: []
+      domains:
+        CharacterFeature:ad38b9ac-5b79-4f99-980d-00a041f3f8f2: true
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: This creature knows the exact location of any magic ring within 20 squares of them regardless of line of effect.
+      guid: 943ee93c-fe9d-429b-a534-152cc3334a9e
+      name: Ring Sense
+      modifiers: []
+      domains:
+        CharacterFeature:943ee93c-fe9d-429b-a534-152cc3334a9e: true
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: This creature can use 4 reactions each round.
+      name: Reactions (4)
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 3
+        description: 3 additional reactions each round.
+        resourceType: b9bc06dd-80f1-4f33-bc55-25c114e3300c
+        name: Reactions (4)
+        behavior: resource
+        guid: 04a3403d-f870-52d1-9066-a06107b64479
+        source: Trait
+        sourceguid: c7d51e2a-9b64-4f13-8a05-2d9e6b1c7f40
+      guid: c7d51e2a-9b64-4f13-8a05-2d9e6b1c7f40
+      source: Trait
+      implementation: 4
+    - __typeName: CharacterFeature
+      description: Dim light and darkness impose no penalties for the monster.
+      name: No Darkness Penalty
+      modifiers:
+      - __typeName: CharacterModifier
+        description: Dim light and darkness impose no penalties for the monster.
+        value: 1000
+        behavior: attribute
+        name: No Darkness Penalty
+        attribute: darkvision
+        guid: 43acda2f-ed13-58cd-82c2-889ee17aa239
+        source: Trait
+        sourceguid: e7b9ac1c-9248-5a8b-ad83-82405cff6b3e
+      guid: e7b9ac1c-9248-5a8b-ad83-82405cff6b3e
+      source: Trait
+      implementation: 4
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367018719
+description: Ring Collector
+parentFolder: 875aa4fc-1112-407d-94e0-e369ef45d7c1
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367018719
+hidden: false
+id: 2dda96a4-1319-47ec-b63f-a4edcef18518

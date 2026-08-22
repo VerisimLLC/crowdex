@@ -1,0 +1,209 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: null
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    cr: 3
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      guid: 3fd6a970-1176-46e9-9075-a31b65f25ac5
+      categorization: Signature Ability
+      iconid: ui-icons/skills/1.png
+      meleeRange: 1
+      description: ""
+      keywords:
+        Strike: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 2 damage
+        - 3 damage
+        attrid: strength
+        roll: 2d10 + 1
+      abilityType: none
+      targetType: target
+      numTargets: "1"
+      name: Unarmed
+      range: "1"
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: 4ea2e5df-ae83-452f-b2f8-720cc1bc2bda
+      categorization: Signature Ability
+      description: ""
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Strike: true
+        Ranged: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        tiers:
+        - ""
+        - 5 damage
+        - 9 damage
+        attrid: agility
+        roll: 2d10 + 1
+      range: "5"
+      targetType: target
+      numTargets: "1"
+      name: Acid Vial
+      abilityType: none
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: 750fff30-7230-590e-b872-2bc16df4cd05
+      categorization: Ability
+      description: "Throw up to 10 squares; the bomb explodes in a 3 cube. Each creature makes an Agility RR: tier 1 10 damage; tier 2 5 damage; tier 3 no damage."
+      iconid: ui-icons/skills/1.png
+      keywords:
+        Ranged: true
+      behaviors: []
+      range: "10"
+      targetType: self
+      numTargets: "1"
+      name: Fire Bomb
+      abilityType: none
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 1
+    characterFeatures:
+    - __typeName: CharacterFeature
+      description: "Expertises: Alchemy (3 uses), Magic Lore (1 use), Monster Lore (1 use)."
+      name: Expertises
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 3
+        description: Alchemy (3 uses)
+        resourceType: 1ddbb97f-3c65-4fba-80a2-df84c1103533
+        name: Expertises
+        behavior: resource
+        guid: e658d151-fddb-4966-bbe6-2eae3a117356
+        source: Trait
+        sourceguid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+      - __typeName: CharacterModifier
+        num: 1
+        description: Magic Lore (1 use)
+        resourceType: 5a857a74-80d0-4549-a643-52f040c05a05
+        name: Expertises
+        behavior: resource
+        guid: ea5892c4-7eee-421c-b7da-9ec70c40e664
+        source: Trait
+        sourceguid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+      - __typeName: CharacterModifier
+        num: 1
+        description: Monster Lore (1 use)
+        resourceType: 732c0e34-8ab5-448f-8e0b-b5b55144af60
+        name: Expertises
+        behavior: resource
+        guid: 74e363cb-925d-4020-a2f9-8d5dba98967b
+        source: Trait
+        sourceguid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+      guid: fd542fb5-da88-4b91-9f9f-3916e3949e76
+      source: Trait
+      implementation: 3
+    - __typeName: CharacterFeature
+      description: "Carries: Acid vial (5), alchemist's tools, fire bomb, poison vial (5)."
+      name: Equipment
+      modifiers: []
+      guid: ace81ba6-a6b3-4147-b45e-6b6dba2fc83a
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      description: "The alchemist hurls a bomb up to 10 squares. It explodes in a 3 cube. Each creature in the cube makes an Agility RR: tier 1 10 damage; tier 2 5 damage; tier 3 no damage."
+      name: Fire Bomb
+      modifiers: []
+      guid: 0e03f450-34cf-52f1-9bb4-9eaa022b18f9
+      source: Trait
+      implementation: 1
+    monster_type: Alchemist
+    max_hitpoints: 5
+    monster_category: Human
+    walkingSpeed: 5
+    creatureSize: 1M
+    damage_taken: 0
+    attributes:
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: 1
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: -1
+    crowsSlots: 10
+    keywords:
+      Human: true
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787367014972
+description: Alchemist
+parentFolder: 609ff24a-1279-471e-94a7-3d57a59fb690
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787367014972
+hidden: false
+id: 7d064066-ff91-4dc3-8c59-c4c2fe3a3b48

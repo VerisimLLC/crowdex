@@ -1,0 +1,228 @@
+info:
+  locInfo:
+    mountedOn: null
+    mountedOnObject: null
+    mountedSaddle: 0
+    floor: null
+    map: null
+    loc: []
+    pos:
+      x: 0
+      y: 0
+    path: null
+    summonLocCleared: null
+    summonLocId: null
+    summonLoc: []
+    teleportAnimId: null
+    teleportStyle: ""
+    updateid: 0
+    rotation: 0
+  appearance:
+    portraitId: 3f10e1c8-ab25-41be-b8e9-a1539a7e087e
+    offtokenPortraitId: null
+    portraitFrameId: ee19571e-cde1-421e-83c3-1fa3228b2d5e
+    portraitRibbon: null
+    backgroundId: null
+    anthem: null
+    anthemVolume: 1
+    tokenScaling: 1
+    tokenZoom: 1
+    portraitOffset:
+      x: 0
+      y: 0
+    frameHueShift: 0
+    frameSaturation: 1
+    frameBrightness: 0
+    characterName: null
+    characterNamePrivate: false
+    flip: false
+    saddlePositions: []
+  disguise: null
+  settings:
+    canRotate: false
+    useLight: false
+    lightColor:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    lightIntensity: 0.1
+    lightRadius: 10
+    lightFalloff: 0.1
+    lightAngle: 360
+  mountedBy: {}
+  updateid: null
+  properties:
+    __typeName: monster
+    equipment: []
+    movementSpeeds:
+      climb: 4
+    cr: 15
+    innateActivatedAbilities:
+    - __typeName: ActivatedAbility
+      iconid: ui-icons/skills/1.png
+      categorization: Signature Ability
+      range: "5"
+      guid: faf8d6aa-bc15-4661-b5ee-52ed765ccd93
+      meleeRange: 2
+      targetType: target
+      keywords:
+        Strike: true
+        Ranged: true
+        Melee: true
+      behaviors:
+      - __typeName: ActivatedAbilityPowerRollBehavior
+        attrid: strength
+        tiers:
+        - ""
+        - 7 damage
+        - 12 damage
+        roll: 2d10 + 4
+      abilityType: none
+      name: Boneshard
+      description: Melee 2 or Ranged 5.
+      numTargets: "1"
+      modifiers: []
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 4
+    - __typeName: ActivatedAbility
+      guid: ef181ce9-da0f-5a58-8260-1f276bdc1e39
+      categorization: Ability
+      abilityType: none
+      description: "Create a 4 cube within 10 squares. Each non-undead creature makes a Strength RR: tier 1 15 damage; tier 2 7 damage; tier 3 no effect."
+      keywords:
+        Ranged: true
+      behaviors: []
+      targetType: self
+      numTargets: "1"
+      range: "10"
+      name: Exploding Mote (2/Day)
+      iconid: ui-icons/skills/1.png
+      actionResourceId: d19658a2-4d7b-4504-af9e-1a5410fb17fd
+      repeatTargets: false
+      implementation: 1
+    - __typeName: ActivatedAbility
+      guid: 7c4c4d9f-be8e-5aff-aa43-2736f7614327
+      categorization: Ability
+      abilityType: none
+      description: Move speed without provoking opportunity attacks and enter other creatures' spaces at no extra cost. Each creature whose space is entered takes 1d6 damage; slide any creature occupying the ending space to the nearest unoccupied space.
+      keywords: []
+      behaviors: []
+      targetType: self
+      numTargets: "1"
+      range: "1"
+      name: Glorp Through (3/Day)
+      iconid: ui-icons/skills/1.png
+      actionResourceId: a513b9a6-f311-4b0f-88b8-4e9c7bf92d0b
+      repeatTargets: false
+      implementation: 1
+    attributes:
+      mind:
+        __typeName: CharacterAttribute
+        id: mind
+        baseValue: 1
+      agility:
+        __typeName: CharacterAttribute
+        id: agility
+        baseValue: -2
+      strength:
+        __typeName: CharacterAttribute
+        id: strength
+        baseValue: 4
+    resources: []
+    keywords:
+      Undead: true
+    monster_type: Undead F
+    skillProficiencies: []
+    walkingSpeed: 4
+    monster_category: Undead
+    creatureSize: 1L
+    damage_taken: 0
+    levelChoices: []
+    max_hitpoints: 75
+    characterFeatures:
+    - __typeName: CharacterFeature
+      guid: eca16527-4cdf-4331-9bfb-9dff78390f3a
+      domains:
+        CharacterFeature:eca16527-4cdf-4331-9bfb-9dff78390f3a: true
+      name: Common Names
+      modifiers: []
+      description: Also called gore beast, rot pile, sludge.
+      source: Trait
+      implementation: 0
+    - __typeName: CharacterFeature
+      description: "As an action, the undead hurls a chunk of their flesh that explodes into gas in a 4 cube within 10 squares of them. Each non-undead creature in the area makes a Strength resistance roll: 11 or less 15 damage; 12-16 7 damage; 17+ no effect."
+      guid: 4aaf0467-343e-4355-ba9c-87516cbdb7b9
+      source: Trait
+      name: Exploding Mote (2/Day)
+      modifiers: []
+      domains:
+        CharacterFeature:4aaf0467-343e-4355-ba9c-87516cbdb7b9: true
+      implementationDetails: Resistance rolls are rolled by each target and adjudicated by the Ref.
+      implementation: 1
+    - __typeName: CharacterFeature
+      guid: 98ee3510-4e8c-4539-9de8-11c5bb7cf120
+      domains:
+        CharacterFeature:98ee3510-4e8c-4539-9de8-11c5bb7cf120: true
+      name: Glorp Through (3/Day)
+      modifiers: []
+      description: As a maneuver, the undead moves their speed without provoking opportunity attacks and while entering other creatures' spaces at no speed penalty. Each creature whose space they enter takes 1d6 damage. If they end this movement in another creature's space, the undead slides the creature into the nearest unoccupied space of their choice.
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      guid: 055585d8-b49d-4be3-af45-e0728e5cec0c
+      domains:
+        CharacterFeature:055585d8-b49d-4be3-af45-e0728e5cec0c: true
+      name: Liquid Death
+      modifiers: []
+      description: When the undead is reduced to 0 Stamina, their body explodes in a fountain of acidic gore. Each creature within 2 squares of them takes 1d10 damage.
+      source: Trait
+      implementation: 1
+    - __typeName: CharacterFeature
+      guid: c9f6be91-11d7-4726-b6ec-0b0ffb1c1219
+      name: Reactions (3)
+      modifiers:
+      - __typeName: CharacterModifier
+        num: 2
+        guid: 67e21571-dbe2-5e39-995f-b6c456e06369
+        resourceType: b9bc06dd-80f1-4f33-bc55-25c114e3300c
+        sourceguid: c9f6be91-11d7-4726-b6ec-0b0ffb1c1219
+        behavior: resource
+        description: 2 additional reactions each round.
+        source: Trait
+        name: Reactions (3)
+      description: This creature can use 3 reactions each round.
+      source: Trait
+      implementation: 4
+    - __typeName: CharacterFeature
+      guid: 086cf38b-af26-5fbe-a853-6a56c46fc199
+      name: No Darkness Penalty
+      modifiers:
+      - __typeName: CharacterModifier
+        description: Dim light and darkness impose no penalties for the monster.
+        value: 1000
+        guid: ee4de480-b1bb-5cf4-94b9-f89765ddc05b
+        sourceguid: 086cf38b-af26-5fbe-a853-6a56c46fc199
+        behavior: attribute
+        name: No Darkness Penalty
+        attribute: darkvision
+        source: Trait
+      description: Dim light and darkness impose no penalties for the monster.
+      source: Trait
+      implementation: 4
+  tokenType: null
+  bestiaryId: null
+  summonerid: null
+  ownerId: null
+  partyid: null
+  size: -1
+  createdTimestamp: 1787366370626
+description: Undead F
+parentFolder: 5c45174e-b4a8-4b89-8327-156b3f79a328
+artist: null
+ord: 0
+ctime: 0
+mtime: 1787366785862
+hidden: false
+id: 57bc9f7d-8dfe-4e1d-9793-924db3b3dd17
