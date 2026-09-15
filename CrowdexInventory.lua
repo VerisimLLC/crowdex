@@ -4445,6 +4445,46 @@ function creature:GetActivatedAbilities(options)
     return result
 end
 
+-- Suppress Abilities rules (e.g. Unconscious) run before Crowdex appends weapon
+-- attacks, consumables and spellbook castings, so re-apply just those rules to
+-- the final list. Repeating them is harmless: a passing ability comes back unchanged.
+local g_baseGetActivatedAbilitiesForSuppression = creature.GetActivatedAbilities
+function creature:GetActivatedAbilities(options)
+    local result = g_baseGetActivatedAbilitiesForSuppression(self, options)
+    if self.typeName ~= "character" then
+        return result
+    end
+
+    local suppressors = {}
+    for _, entry in ipairs(self:GetActiveModifiers()) do
+        if entry.mod.behavior == "suppressabilities" then
+            suppressors[#suppressors + 1] = entry
+        end
+    end
+    if #suppressors == 0 then
+        return result
+    end
+
+    options = options or {}
+    local filtered = {}
+    for _, ability in ipairs(result) do
+        -- Mirror the codex: on the character sheet only temporary clones are modified.
+        local eligible = rawget(ability, "_tmp_temporaryClone") or (not options.characterSheet)
+        if eligible and ability:try_get("suppressExplanation") == nil then
+            for _, entry in ipairs(suppressors) do
+                ability = entry.mod:ModifyAbility(entry, self, ability)
+                if ability == nil or ability:try_get("suppressExplanation") ~= nil then
+                    break
+                end
+            end
+        end
+        if ability ~= nil then
+            filtered[#filtered + 1] = ability
+        end
+    end
+    return filtered
+end
+
 -- Allies of the attacker adjacent to (within 1 square of) the enemy, skipping
 -- the attacker, the enemy itself, and downed creatures.
 local function AdjacentAlliesOfAttacker(attackerToken, enemyToken)

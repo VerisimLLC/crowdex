@@ -50,7 +50,7 @@ modifiers:
   source: Condition
   behavior: suppressabilities
   description: An unconscious creature cannot take actions, maneuvers, or reactions.
-  abilityFilter: Ability.Action = 'None'
+  abilityFilter: not (Ability.Main Action or Ability.Maneuver)
   explanation: You cannot use abilities that cost an action, maneuver, or reaction while unconscious.
 - __typeName: CharacterModifier
   guid: 20d123a8-8c17-44cc-8778-aa4ec7255368
