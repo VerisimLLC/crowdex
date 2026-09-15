@@ -3306,4 +3306,13 @@ if CampaignTrackerGlobal ~= nil and CampaignTrackerGlobal.RegisterSection ~= nil
         ord = -10,   -- above the built-in notes section (ord 0).
         create = CreateDungeonTurnSection,
     }
+
+    --The Lua state outlives a game, so the registry above survives us being
+    --unloaded when the user leaves a Crows campaign -- our Dungeon Turn section
+    --would then render in whatever campaign they open next (report J79QSAGW).
+    --Clean up after ourselves on unload; this also fires the sections-changed
+    --event, so a tracker panel that is still open updates live.
+    mod.unloadHandlers[#mod.unloadHandlers + 1] = function()
+        CampaignTrackerGlobal.UnregisterSection("crowdexDungeonTurn")
+    end
 end

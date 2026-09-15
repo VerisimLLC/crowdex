@@ -96,6 +96,19 @@ local function GetActiveCrowsConditions(props)
         }
     end
 
+    -- Free-text conditions the player typed via "Custom..." in the add menu.
+    -- Stored as a plain list of strings on the character; the text itself is
+    -- the id, so removing one just deletes that string from the list.
+    for _, text in ipairs(props:try_get("crowdex_customConditions", {}) or {}) do
+        result[#result + 1] = {
+            id = text,
+            name = text,
+            stacks = 1,
+            kind = "custom",
+            info = nil,
+        }
+    end
+
     table.sort(result, function(a, b) return a.name < b.name end)
     return result
 end
@@ -139,6 +152,34 @@ local WORN_SLOT_ORDER = {
     {key = "finger", short = "R", label = "Ring"},
     {key = "feet",   short = "F", label = "Feet"},
 }
+
+-- A worn slot value is one card (a table with a name), a list of cards, or
+-- a bare value. Returns the card to display (nil when there is none), whether
+-- the slot holds more than one card ("overstuffed"), and whether the slot
+-- counts as filled at all (a bare value fills the slot but shows no card).
+local function WornSlotCard(v)
+    if type(v) == "table" and #v > 1 then
+        return v[1], true, true
+    elseif type(v) == "table" and #v == 1 then
+        return v[1], false, true
+    elseif type(v) == "table" and v.name ~= nil then
+        return v, false, true
+    elseif v ~= nil and type(v) ~= "table" then
+        return nil, false, true
+    end
+    return nil, false, false
+end
+
+-- True when `keys` is the same ordering a section applied last time, so it
+-- can skip reassigning `children` -- which re-lays out the whole list even
+-- when every panel in it is being kept.
+local function SameKeyOrder(prev, keys)
+    if prev == nil or #prev ~= #keys then return false end
+    for i = 1, #keys do
+        if prev[i] ~= keys[i] then return false end
+    end
+    return true
+end
 
 -- Card-category palette: 3px left-edge stripe color per design section 4.
 local CATEGORY_COLOR = {
@@ -298,14 +339,34 @@ end
 -- Width of an Armor Defense row; matches the inventory slot rows.
 local AD_ROW_WIDTH = 280
 
---- Damage input: amount, piercing toggle, Apply. Sits above the Armor
---- Defense section since that's what the damage hits first. Routes through
---- creature:TakeDamage -- the standard damage path, which CrowdexInventory
---- overrides with the Crows armor/stamina/wounds waterfall -- so this input,
---- abilities, and rule strings all resolve damage identically.
+--- Damage and healing inputs. Damage: amount, piercing toggle, Apply. Sits
+--- above the Armor Defense section since that's what the damage hits first.
+--- Routes through creature:TakeDamage -- the standard damage path, which
+--- CrowdexInventory overrides with the Crows armor/stamina/wounds waterfall --
+--- so this input, abilities, and rule strings all resolve damage identically.
+--- Heal: amount + Heal button, routed through creature:Heal so Stamina history
+--- and regainhitpoints events fire like any other healing source.
 local function CrowdexDamageRow()
     local amountInput
     local piercingCheck
+    local healInput
+
+    local function Heal(element)
+        local sectionData = element:FindParentWithClass("crowdex-section").data
+        local tok = sectionData.token
+        local n = math.floor(tonumber(healInput.text) or 0)
+        if n <= 0 or tok == nil or not tok.valid or tok.properties == nil then
+            healInput.text = ""
+            return
+        end
+        tok:ModifyProperties{
+            description = "Heal",
+            execute = function()
+                tok.properties:Heal(n, string.format("%d Healing", n))
+            end,
+        }
+        healInput.text = ""
+    end
 
     local function Apply(element)
         local sectionData = element:FindParentWithClass("crowdex-section").data
@@ -326,11 +387,11 @@ local function CrowdexDamageRow()
     end
 
     amountInput = gui.Input{
-        width = 140,
+        width = 100,
         height = 24,
         fontSize = 14,
         textAlignment = "center",
-        placeholderText = "Apply Damage...",
+        placeholderText = "Damage...",
         characterLimit = 3,
         valign = "center",
         bgcolor = "#882222",
@@ -344,9 +405,29 @@ local function CrowdexDamageRow()
     piercingCheck = gui.Check{
         text = "Piercing",
         fontSize = 12,
+        -- The checkbox class forces minWidth 200; this row wants it hugging its label.
+        width = "auto",
+        minWidth = 0,
+        height = 24,
         valign = "center",
         lmargin = 10,
         value = false,
+    }
+
+    healInput = gui.Input{
+        width = 100,
+        rmargin = 8,
+        height = 24,
+        fontSize = 14,
+        textAlignment = "center",
+        placeholderText = "Heal...",
+        characterLimit = 3,
+        valign = "center",
+        bgcolor = "#226622",
+
+        change = function(element)
+            Heal(element)
+        end,
     }
 
     return gui.Panel{
@@ -375,25 +456,15 @@ local function CrowdexDamageRow()
         },
 
         gui.Panel{
-            width = "100%",
+            width = "auto",
             height = "auto",
             flow = "horizontal",
+            halign = "center",
             valign = "center",
 
+            healInput,
             amountInput,
             piercingCheck,
-
-            gui.Button{
-                text = "Apply",
-                fontSize = 12,
-                width = 60,
-                height = 24,
-                valign = "center",
-                lmargin = 12,
-                click = function(element)
-                    Apply(element)
-                end,
-            },
         },
     }
 end
@@ -401,8 +472,9 @@ end
 --- One Armor Defense source rendered like an inventory slot row, but taller,
 --- with an AD bar. Rows drag onto each other to reorder damage priority:
 --- the TOP row is the armor that absorbs (and is destroyed) first.
-local function CrowdexArmorPieceRow(token, pieces, position)
-    local piece = pieces[position]
+-- Numbers and colors derived from an armor piece, shared by the row's
+-- refresh, its tooltip and its editable AD label.
+local function DeriveArmorPiece(piece)
     local cur = piece.ad or 0
     local mx = piece.adMax or 0
     local broken = cur <= 0
@@ -422,11 +494,22 @@ local function CrowdexArmorPieceRow(token, pieces, position)
     elseif pct <= 0.34 then
         barColor = "#aa3333"
     end
+    return cur, mx, broken, inactive, pct, barColor
+end
+
+--- One armor-defense row. Built once per armor slot and kept across
+--- refreshes: refreshArmorPiece(piece, pieces, position, token) re-reads the
+--- piece and updates the labels, colors and bar in place. The handlers read
+--- the live piece list from row.data, so drag-reorder, the parry toggle and
+--- the editable AD keep working after the list changes underneath them.
+--- `isParryWeapon` is fixed per row because it changes the row's layout.
+local function CrowdexArmorPieceRow(isParryWeapon)
+    local row
 
     -- A small toggle for parry weapons: tap to enable/disable using this
     -- weapon to parry. Defaults on; off sets slot.parryOff.
     local parryToggle
-    if piece.isParryWeapon then
+    if isParryWeapon then
         parryToggle = gui.Label{
             width = 46,
             height = 16,
@@ -438,18 +521,28 @@ local function CrowdexArmorPieceRow(token, pieces, position)
             cornerRadius = 3,
             borderWidth = 1,
             bgimage = "panels/square.png",
-            bgcolor = cond(inactive, "#2a2a2a", "#3a4a2a"),
-            borderColor = cond(inactive, "#555555", "#8fbf5f"),
-            color = cond(inactive, "#888888", "#cfe8a0"),
+            bgcolor = "#3a4a2a",
+            borderColor = "#8fbf5f",
+            color = "#cfe8a0",
             hoverCursor = "hand",
             text = "Parry",
+            refreshArmorPiece = function(element, piece)
+                local inactive = piece.active == false
+                element.selfStyle.bgcolor = cond(inactive, "#2a2a2a", "#3a4a2a")
+                element.selfStyle.borderColor = cond(inactive, "#555555", "#8fbf5f")
+                element.selfStyle.color = cond(inactive, "#888888", "#cfe8a0")
+            end,
             linger = function(element)
-                gui.Tooltip(cond(inactive,
+                local piece = row.data.piece
+                if piece == nil then return end
+                gui.Tooltip(cond(piece.active == false,
                     "Parry off: this weapon is not used to absorb damage. Tap to enable.",
                     "Parry on: this weapon absorbs damage like a shield. Tap to disable."))(element)
             end,
             press = function(element)
-                if token == nil or not token.valid or token.properties == nil then return end
+                local token = row.data.token
+                local piece = row.data.piece
+                if piece == nil or token == nil or not token.valid or token.properties == nil then return end
                 token:ModifyProperties{
                     description = "Toggle parry",
                     execute = function()
@@ -474,7 +567,11 @@ local function CrowdexArmorPieceRow(token, pieces, position)
     -- Reorders the underlying slot entries' adPriority so that the dragged
     -- piece lands at the target position; everything renumbers 1..n.
     local function ReorderTo(targetPosition)
-        if token == nil or not token.valid or token.properties == nil then return end
+        local token = row.data.token
+        local pieces = row.data.pieces
+        local position = row.data.position
+        local piece = row.data.piece
+        if piece == nil or pieces == nil or token == nil or not token.valid or token.properties == nil then return end
         token:ModifyProperties{
             description = "Reorder armor",
             execute = function()
@@ -510,8 +607,10 @@ local function CrowdexArmorPieceRow(token, pieces, position)
         interactable = false,
         dragTarget = true,
 
+        -- adReorderPosition: this row's position in the list, kept current
+        -- by refreshArmorPiece; a dragged row reads it off the target.
         data = {
-            adReorderPosition = position,
+            adReorderPosition = 0,
         },
 
         styles = {
@@ -530,7 +629,86 @@ local function CrowdexArmorPieceRow(token, pieces, position)
         },
     }
 
-    return gui.Panel{
+    local iconPanel = gui.Panel{
+        width = 16,
+        height = 16,
+        valign = "center",
+        rmargin = 6,
+        bgimage = "panels/square.png",
+        bgcolor = "white",
+        interactable = false,
+    }
+
+    local nameLabel = gui.Label{
+        -- Narrower when a Parry toggle (46+4) shares the line.
+        width = AD_ROW_WIDTH - 12 - 22 - 64 - cond(isParryWeapon, 50, 0),
+        height = "auto",
+        fontSize = 13,
+        color = "white",
+        valign = "center",
+        interactable = false,
+        text = "",
+    }
+
+    -- Current AD: editable. Type a number to set the AD left on
+    -- this item; clamped to [0, max].
+    local curLabel = gui.Label{
+        width = 28,
+        height = 16,
+        fontSize = 13,
+        bold = true,
+        color = "#e8d59a",
+        valign = "center",
+        textAlignment = "right",
+        editable = true,
+        characterLimit = 3,
+        text = "",
+
+        change = function(element)
+            local token = row.data.token
+            local piece = row.data.piece
+            if piece == nil or token == nil or not token.valid or token.properties == nil then return end
+            local cur, mx = DeriveArmorPiece(piece)
+            local n = tonumber(element.text)
+            if n == nil then
+                element.text = tostring(cur)
+                return
+            end
+            n = math.max(0, math.min(math.floor(n), mx))
+            token:ModifyProperties{
+                description = "Set armor AD",
+                execute = function()
+                    local slot = CrowdexInventoryUI.GetSlot(token.properties, piece.kind, piece.index)
+                    if slot == nil then return end
+                    slot.ad = n
+                    CrowdexInventoryUI.SetSlot(token.properties, piece.kind, piece.index, slot)
+                end,
+            }
+        end,
+    }
+
+    local maxLabel = gui.Label{
+        width = 36,
+        height = "auto",
+        fontSize = 13,
+        bold = true,
+        color = "#e8d59a",
+        valign = "center",
+        textAlignment = "left",
+        interactable = false,
+        text = "",
+    }
+
+    local barFill = gui.Panel{
+        width = "0%",
+        height = "100%",
+        halign = "left",
+        bgimage = "panels/square.png",
+        bgcolor = "#caa45c",
+        interactable = false,
+    }
+
+    row = gui.Panel{
         classes = {"crowsInvSlot"},
         bgimage = true,
         width = AD_ROW_WIDTH,
@@ -542,6 +720,10 @@ local function CrowdexArmorPieceRow(token, pieces, position)
         vmargin = 2,
         hoverCursor = "hand",
         draggable = true,
+
+        -- The piece this row shows, the full ordered list it belongs to and
+        -- its position in it, as of the last refresh.
+        data = { token = nil, piece = nil, pieces = nil, position = 0 },
 
         styles = {
             {
@@ -563,9 +745,44 @@ local function CrowdexArmorPieceRow(token, pieces, position)
             },
         },
 
+        refreshArmorPiece = function(element, piece, pieces, position, token)
+            element.data.token = token
+            element.data.piece = piece
+            element.data.pieces = pieces
+            element.data.position = position
+            dropTarget.data.adReorderPosition = position
+
+            local cur, mx, broken, inactive, pct, barColor = DeriveArmorPiece(piece)
+            local name = piece.name or "?"
+
+            iconPanel.bgimage = piece.icon or "panels/square.png"
+            iconPanel.bgcolor = cond(broken or inactive, "#886666", "white")
+
+            local nameText = cond(broken, string.format("%s (broken)", name), name)
+            if nameLabel.text ~= nameText then
+                nameLabel.text = nameText
+            end
+            nameLabel.color = cond(inactive, "#888888", cond(broken, "#ff5050", "white"))
+
+            local curText = tostring(cur)
+            if curLabel.text ~= curText then
+                curLabel.text = curText
+            end
+            curLabel.color = cond(broken, "#ff5050", "#e8d59a")
+
+            local maxText = string.format(" / %d", mx)
+            if maxLabel.text ~= maxText then
+                maxLabel.text = maxText
+            end
+            maxLabel.color = cond(broken, "#ff5050", "#e8d59a")
+
+            barFill.selfStyle.width = string.format("%.0f%%", pct * 100)
+            barFill.selfStyle.bgcolor = barColor
+        end,
+
         canDragOnto = function(element, target)
             return target.data ~= nil and target.data.adReorderPosition ~= nil
-                and target.data.adReorderPosition ~= position
+                and target.data.adReorderPosition ~= element.data.position
         end,
 
         drag = function(element, target)
@@ -576,9 +793,12 @@ local function CrowdexArmorPieceRow(token, pieces, position)
         end,
 
         linger = function(element)
+            local piece = element.data.piece
+            if piece == nil then return end
+            local cur, mx, broken = DeriveArmorPiece(piece)
             gui.Tooltip(string.format(
                 "%s: AD %d / %d.%s\nDamage is absorbed by the top-most armor first. Drag to reorder.",
-                piece.name, cur, mx, cond(broken, " Broken: cannot stop damage until repaired.", "")))(element)
+                piece.name or "?", cur, mx, cond(broken, " Broken: cannot stop damage until repaired.", "")))(element)
         end,
 
         -- top line: icon, name, cur/max
@@ -588,70 +808,11 @@ local function CrowdexArmorPieceRow(token, pieces, position)
             flow = "horizontal",
             valign = "center",
 
-            gui.Panel{
-                width = 16,
-                height = 16,
-                valign = "center",
-                rmargin = 6,
-                bgimage = piece.icon or "panels/square.png",
-                bgcolor = cond(broken or inactive, "#886666", "white"),
-                interactable = false,
-            },
-            gui.Label{
-                -- Narrower when a Parry toggle (46+4) shares the line.
-                width = AD_ROW_WIDTH - 12 - 22 - 64 - cond(piece.isParryWeapon, 50, 0),
-                height = "auto",
-                fontSize = 13,
-                color = cond(inactive, "#888888", cond(broken, "#ff5050", "white")),
-                valign = "center",
-                interactable = false,
-                text = cond(broken, string.format("%s (broken)", piece.name), piece.name),
-            },
+            iconPanel,
+            nameLabel,
             parryToggle,
-            -- Current AD: editable. Type a number to set the AD left on
-            -- this item; clamped to [0, max].
-            gui.Label{
-                width = 28,
-                height = 16,
-                fontSize = 13,
-                bold = true,
-                color = cond(broken, "#ff5050", "#e8d59a"),
-                valign = "center",
-                textAlignment = "right",
-                editable = true,
-                characterLimit = 3,
-                text = tostring(cur),
-
-                change = function(element)
-                    if token == nil or not token.valid or token.properties == nil then return end
-                    local n = tonumber(element.text)
-                    if n == nil then
-                        element.text = tostring(cur)
-                        return
-                    end
-                    n = math.max(0, math.min(math.floor(n), mx))
-                    token:ModifyProperties{
-                        description = "Set armor AD",
-                        execute = function()
-                            local slot = CrowdexInventoryUI.GetSlot(token.properties, piece.kind, piece.index)
-                            if slot == nil then return end
-                            slot.ad = n
-                            CrowdexInventoryUI.SetSlot(token.properties, piece.kind, piece.index, slot)
-                        end,
-                    }
-                end,
-            },
-            gui.Label{
-                width = 36,
-                height = "auto",
-                fontSize = 13,
-                bold = true,
-                color = cond(broken, "#ff5050", "#e8d59a"),
-                valign = "center",
-                textAlignment = "left",
-                interactable = false,
-                text = string.format(" / %d", mx),
-            },
+            curLabel,
+            maxLabel,
         },
 
         -- AD bar
@@ -665,40 +826,76 @@ local function CrowdexArmorPieceRow(token, pieces, position)
             borderColor = "#3a3a4a",
             interactable = false,
 
-            gui.Panel{
-                width = string.format("%.0f%%", pct * 100),
-                height = "100%",
-                halign = "left",
-                bgimage = "panels/square.png",
-                bgcolor = barColor,
-                interactable = false,
-            },
+            barFill,
         },
 
         dropTarget,
     }
+    return row
 end
 
 --- The Stamina bar, rendered in the same visual language as the AD rows and
 --- shown directly below them: armor absorbs from the top of the list first,
 --- and Stamina is what's left when the armor is gone. The current value is
---- editable.
-local function CrowdexStaminaBarRow(token, props)
-    local mx = props:MaxHitpoints() or 0
-    local cur = math.max(0, math.min(props:CurrentHitpoints() or 0, mx))
-    local pct = 0
-    if mx > 0 then
-        pct = math.max(0, math.min(1, cur / mx))
-    end
+--- editable. Built once; refreshStamina(token, props) updates it in place.
+local function CrowdexStaminaBarRow()
+    local row
 
-    local barColor = "#5fae5f"
-    if cur <= 0 then
-        barColor = "#552222"
-    elseif pct <= 0.34 then
-        barColor = "#aa3333"
-    end
+    local curLabel = gui.Label{
+        width = 28,
+        height = 16,
+        fontSize = 13,
+        bold = true,
+        color = "#5fae5f",
+        valign = "center",
+        textAlignment = "right",
+        editable = true,
+        characterLimit = 3,
+        text = "",
 
-    return gui.Panel{
+        -- Current stamina: editable, clamped to [0, max].
+        change = function(element)
+            local token = row.data.token
+            local cur = row.data.cur
+            local mx = row.data.mx
+            if token == nil or not token.valid or token.properties == nil then return end
+            local n = tonumber(element.text)
+            if n == nil then
+                element.text = tostring(cur)
+                return
+            end
+            n = math.max(0, math.min(math.floor(n), mx))
+            token:ModifyProperties{
+                description = "Set Stamina",
+                execute = function()
+                    token.properties.damage_taken = mx - n
+                end,
+            }
+        end,
+    }
+
+    local maxLabel = gui.Label{
+        width = 36,
+        height = "auto",
+        fontSize = 13,
+        bold = true,
+        color = "#5fae5f",
+        valign = "center",
+        textAlignment = "left",
+        interactable = false,
+        text = "",
+    }
+
+    local barFill = gui.Panel{
+        width = "0%",
+        height = "100%",
+        halign = "left",
+        bgimage = "panels/square.png",
+        bgcolor = "#5fae5f",
+        interactable = false,
+    }
+
+    row = gui.Panel{
         classes = {"crowsInvSlot"},
         bgimage = true,
         width = AD_ROW_WIDTH,
@@ -709,6 +906,9 @@ local function CrowdexStaminaBarRow(token, props)
         vpad = 4,
         vmargin = 2,
         tmargin = 6,
+
+        -- The crow and its stamina as of the last refresh.
+        data = { token = nil, cur = 0, mx = 0 },
 
         styles = {
             {
@@ -724,9 +924,44 @@ local function CrowdexStaminaBarRow(token, props)
             },
         },
 
+        refreshStamina = function(element, token, props)
+            local mx = props:MaxHitpoints() or 0
+            local cur = math.max(0, math.min(props:CurrentHitpoints() or 0, mx))
+            local pct = 0
+            if mx > 0 then
+                pct = math.max(0, math.min(1, cur / mx))
+            end
+
+            local barColor = "#5fae5f"
+            if cur <= 0 then
+                barColor = "#552222"
+            elseif pct <= 0.34 then
+                barColor = "#aa3333"
+            end
+
+            element.data.token = token
+            element.data.cur = cur
+            element.data.mx = mx
+
+            local curText = tostring(cur)
+            if curLabel.text ~= curText then
+                curLabel.text = curText
+            end
+            curLabel.color = cond(cur <= 0, "#ff5050", "#5fae5f")
+
+            local maxText = string.format(" / %d", mx)
+            if maxLabel.text ~= maxText then
+                maxLabel.text = maxText
+            end
+
+            barFill.selfStyle.width = string.format("%.0f%%", pct * 100)
+            barFill.selfStyle.bgcolor = barColor
+        end,
+
         linger = function(element)
             gui.Tooltip(string.format(
-                "Stamina %d / %d. When your armor's AD is gone, damage comes off Stamina; at 0 Stamina further damage becomes wounds.", cur, mx))(element)
+                "Stamina %d / %d. When your armor's AD is gone, damage comes off Stamina; at 0 Stamina further damage becomes wounds.",
+                element.data.cur, element.data.mx))(element)
         end,
 
         gui.Panel{
@@ -745,46 +980,8 @@ local function CrowdexStaminaBarRow(token, props)
                 interactable = false,
                 text = "Stamina",
             },
-            -- Current stamina: editable, clamped to [0, max].
-            gui.Label{
-                width = 28,
-                height = 16,
-                fontSize = 13,
-                bold = true,
-                color = cond(cur <= 0, "#ff5050", "#5fae5f"),
-                valign = "center",
-                textAlignment = "right",
-                editable = true,
-                characterLimit = 3,
-                text = tostring(cur),
-
-                change = function(element)
-                    if token == nil or not token.valid or token.properties == nil then return end
-                    local n = tonumber(element.text)
-                    if n == nil then
-                        element.text = tostring(cur)
-                        return
-                    end
-                    n = math.max(0, math.min(math.floor(n), mx))
-                    token:ModifyProperties{
-                        description = "Set Stamina",
-                        execute = function()
-                            token.properties.damage_taken = mx - n
-                        end,
-                    }
-                end,
-            },
-            gui.Label{
-                width = 36,
-                height = "auto",
-                fontSize = 13,
-                bold = true,
-                color = "#5fae5f",
-                valign = "center",
-                textAlignment = "left",
-                interactable = false,
-                text = string.format(" / %d", mx),
-            },
+            curLabel,
+            maxLabel,
         },
 
         -- Stamina bar
@@ -798,19 +995,42 @@ local function CrowdexStaminaBarRow(token, props)
             borderColor = "#3a3a4a",
             interactable = false,
 
-            gui.Panel{
-                width = string.format("%.0f%%", pct * 100),
-                height = "100%",
-                halign = "left",
-                bgimage = "panels/square.png",
-                bgcolor = barColor,
-                interactable = false,
-            },
+            barFill,
         },
     }
+    return row
 end
 
 local function CrowdexArmorRow()
+    -- Live rows keyed by armor slot ("kind:index:parry"), kept across
+    -- refreshes; `order` is the key list last applied to `children`.
+    local rows = {}
+    local order = nil
+
+    local emptyLabel = gui.Label{
+        width = "100%",
+        height = "auto",
+        fontSize = 11,
+        color = "#888",
+        italics = true,
+        text = "No armor worn. Right-click a suit of armor in your backpack to wear it.",
+        textWrap = true,
+        classes = {"collapsed"},
+    }
+
+    local hintLabel = gui.Label{
+        width = "100%",
+        height = "auto",
+        fontSize = 10,
+        italics = true,
+        color = "#888888",
+        tmargin = 2,
+        text = "Top armor takes damage first. Drag to reorder.",
+        classes = {"collapsed"},
+    }
+
+    local staminaRow = CrowdexStaminaBarRow()
+
     return gui.Panel{
         classes = {"crowdex-section"},
         width = "100%",
@@ -833,6 +1053,10 @@ local function CrowdexArmorRow()
             height = "auto",
             flow = "vertical",
 
+            emptyLabel,
+            hintLabel,
+            staminaRow,
+
             refreshCharacter = function(element, tok)
                 if tok == nil or tok.properties == nil then return end
                 -- AD sources derive from the inventory: the worn suit of
@@ -840,35 +1064,38 @@ local function CrowdexArmorRow()
                 -- order (top-most absorbs first). Stamina renders below
                 -- them: it's what damage hits once the armor is gone.
                 local pieces = CrowdexInventoryUI.ArmorPieces(tok.properties)
-                local rows = {}
-                for i = 1, #pieces do
-                    rows[#rows + 1] = CrowdexArmorPieceRow(tok, pieces, i)
+                local newRows = {}
+                local children = {}
+                local keys = {}
+                for i, piece in ipairs(pieces) do
+                    local isParry = piece.isParryWeapon == true
+                    local key = string.format("%s:%s:%s", tostring(piece.kind), tostring(piece.index), tostring(isParry))
+                    local row = rows[key]
+                    if row == nil or not row.valid then
+                        row = CrowdexArmorPieceRow(isParry)
+                    end
+                    row:FireEventTree("refreshArmorPiece", piece, pieces, i, tok)
+                    newRows[key] = row
+                    children[#children + 1] = row
+                    keys[#keys + 1] = key
                 end
-                if #pieces == 0 then
-                    rows[#rows + 1] = gui.Label{
-                        width = "100%",
-                        height = "auto",
-                        fontSize = 11,
-                        color = "#888",
-                        italics = true,
-                        text = "No armor worn. Right-click a suit of armor in your backpack to wear it.",
-                        textWrap = true,
-                    }
-                elseif #pieces > 1 then
-                    rows[#rows + 1] = gui.Label{
-                        width = "100%",
-                        height = "auto",
-                        fontSize = 10,
-                        italics = true,
-                        color = "#888888",
-                        tmargin = 2,
-                        text = "Top armor takes damage first. Drag to reorder.",
-                    }
+                rows = newRows
+
+                emptyLabel:SetClass("collapsed", #pieces ~= 0)
+                hintLabel:SetClass("collapsed", #pieces <= 1)
+                children[#children + 1] = emptyLabel
+                keys[#keys + 1] = "(empty)"
+                children[#children + 1] = hintLabel
+                keys[#keys + 1] = "(hint)"
+
+                staminaRow:FireEvent("refreshStamina", tok, tok.properties)
+                children[#children + 1] = staminaRow
+                keys[#keys + 1] = "(stamina)"
+
+                if not SameKeyOrder(order, keys) then
+                    order = keys
+                    element.children = children
                 end
-
-                rows[#rows + 1] = CrowdexStaminaBarRow(tok, tok.properties)
-
-                element.children = rows
             end,
         },
     }
@@ -888,6 +1115,110 @@ local function CrowdexConditionsRow(token)
     -- here, updated each refresh, and route all mutations through it -- the add
     -- menu and the remove handler are otherwise served the wrong crow.
     local currentToken = token
+
+    -- The "+ Add" chip, created on the first refresh and kept; the custom
+    -- popup anchors to it.
+    local addButton = nil
+    local ShowCustomConditionPopup
+
+    -- Re-render the sidebar from local properties right away rather than
+    -- waiting for the network echo of the ModifyProperties upload.
+    local function RefreshSidebar(element)
+        local sidebar = element:FindParentWithClass("crowdex-sidebar")
+        if sidebar ~= nil and currentToken ~= nil and currentToken.valid then
+            sidebar:FireEventTree("refreshCharacter", currentToken)
+        end
+    end
+
+    local function AddCustomCondition(anchor, text)
+        text = string.trim(text or "")
+        if text == "" or currentToken == nil or currentToken.properties == nil then return end
+        currentToken:ModifyProperties{
+            description = "Add condition " .. text,
+            execute = function()
+                local list = currentToken.properties:try_get("crowdex_customConditions", nil)
+                if list == nil then
+                    list = {}
+                    currentToken.properties.crowdex_customConditions = list
+                end
+                for _, existing in ipairs(list) do
+                    if existing == text then return end
+                end
+                list[#list + 1] = text
+            end,
+        }
+        RefreshSidebar(anchor)
+    end
+
+    -- Small popup with a single text field. Enter or "Add" commits; Escape,
+    -- "Cancel", or an empty submit just closes it.
+    ShowCustomConditionPopup = function(anchor)
+        local input
+        input = gui.Input{
+            width = 200,
+            height = 28,
+            fontSize = 14,
+            placeholderText = "Condition...",
+            characterLimit = 40,
+            hasFocus = true,
+            change = function(element)
+                local text = element.text
+                anchor.popup = nil
+                AddCustomCondition(anchor, text)
+            end,
+        }
+
+        anchor.popup = gui.Panel{
+            classes = {"framedPanel"},
+            styles = ThemeEngine.GetStyles(),
+            flow = "vertical",
+            width = 240,
+            height = "auto",
+            pad = 12,
+            borderBox = true,
+            captureEscape = true,
+            escape = function()
+                anchor.popup = nil
+            end,
+            gui.Label{
+                classes = {"sizeM"},
+                text = "Custom condition",
+                width = "auto",
+                height = "auto",
+                bmargin = 6,
+            },
+            input,
+            gui.Panel{
+                flow = "horizontal",
+                width = "auto",
+                height = "auto",
+                halign = "right",
+                tmargin = 8,
+                gui.Button{
+                    classes = {"sizeM"},
+                    text = "Cancel",
+                    width = 80,
+                    height = 30,
+                    hmargin = 4,
+                    click = function()
+                        anchor.popup = nil
+                    end,
+                },
+                gui.Button{
+                    classes = {"sizeM"},
+                    text = "Add",
+                    width = 80,
+                    height = 30,
+                    hmargin = 4,
+                    click = function()
+                        local text = input.text
+                        anchor.popup = nil
+                        AddCustomCondition(anchor, text)
+                    end,
+                },
+            },
+        }
+    end
 
     local function buildAddMenu()
         local entries = {}
@@ -952,13 +1283,153 @@ local function CrowdexConditionsRow(token)
                 }
             end
         end
-        if #entries == 0 then
-            entries[#entries + 1] = {
-                text = "(no conditions to add)",
-                click = function() end,
-            }
-        end
+        entries[#entries + 1] = {
+            text = "Custom...",
+            click = function()
+                -- Open the text-entry popup on the next frame: the context
+                -- menu is still closing when this fires, and setting popup
+                -- now would be clobbered by the menu's own teardown.
+                dmhub.Schedule(0.01, function()
+                    if mod.unloaded or addButton == nil or not addButton.valid then return end
+                    ShowCustomConditionPopup(addButton)
+                end)
+            end,
+        }
         return entries
+    end
+
+    -- One chip. It reads the condition it shows from chip.data.cond, which
+    -- refreshCondition updates, so the same chip can be kept across refreshes.
+    local function CreateConditionChip()
+        local chip
+        local function DisplayLabel(c)
+            if c.kind == "effect" and (c.stacks or 1) > 1 then
+                return string.format("%s x%d", c.name, c.stacks)
+            end
+            return c.name
+        end
+
+        chip = gui.Panel{
+            width = "auto",
+            height = "auto",
+            flow = "horizontal",
+            valign = "center",
+            pad = 4,
+            hpad = 8,
+            borderBox = true,
+            cornerRadius = 10,
+            borderWidth = 1,
+            borderColor = "#caa45c",
+            bgcolor = "#33271a",
+            bgimage = "panels/square.png",
+            rmargin = 4,
+            bmargin = 4,
+            hoverCursor = "hand",
+            data = { cond = nil },
+
+            refreshCondition = function(element, c)
+                element.data.cond = c
+            end,
+
+            press = function(element)
+                local c = element.data.cond
+                if c == nil or currentToken == nil or not currentToken.valid then return end
+                local displayLabel = DisplayLabel(c)
+                local condid = c.id
+                local kind = c.kind
+                currentToken:ModifyProperties{
+                    description = "Remove condition " .. displayLabel,
+                    execute = function()
+                        if kind == "condition" then
+                            currentToken.properties:InflictCondition(condid, {purge = true})
+                        elseif kind == "custom" then
+                            local list = currentToken.properties:try_get("crowdex_customConditions", {}) or {}
+                            for i = #list, 1, -1 do
+                                if list[i] == condid then table.remove(list, i) end
+                            end
+                        else
+                            --remove one stack (level) at a time
+                            currentToken.properties:RemoveOngoingEffect(condid, 1)
+                        end
+                    end,
+                }
+                RefreshSidebar(element)
+            end,
+
+            linger = function(element)
+                local c = element.data.cond
+                if c == nil then return end
+                local displayLabel = DisplayLabel(c)
+                if c.kind == "custom" then
+                    gui.Tooltip(string.format("<b>%s</b>\n\nClick to remove %s.", displayLabel, c.name))(element)
+                    return
+                end
+                local rulesText = ""
+                if c.info ~= nil then
+                    rulesText = c.info:try_get("description", "")
+                end
+                local removeText
+                if c.kind == "effect" then
+                    removeText = "Click to remove one level of " .. c.name .. "."
+                else
+                    removeText = "Click to remove " .. c.name .. "."
+                end
+                gui.Tooltip(string.format("<b>%s</b>: %s\n\n%s", displayLabel, rulesText, removeText))(element)
+            end,
+
+            gui.Label{
+                width = "auto",
+                height = "auto",
+                fontSize = 12,
+                color = "#ffe6b8",
+                text = "",
+                refreshCondition = function(element, c)
+                    local text = DisplayLabel(c)
+                    if element.text ~= text then
+                        element.text = text
+                    end
+                end,
+            },
+        }
+        return chip
+    end
+
+    local function CreateAddButton()
+        return gui.Panel{
+            width = "auto",
+            height = "auto",
+            flow = "horizontal",
+            valign = "center",
+            pad = 4,
+            hpad = 8,
+            borderBox = true,
+            cornerRadius = 10,
+            borderWidth = 1,
+            borderColor = "#666",
+            bgcolor = "#222",
+            bgimage = "panels/square.png",
+            rmargin = 4,
+            bmargin = 4,
+            hoverCursor = "hand",
+
+            press = function(element)
+                element.popup = gui.ContextMenu{
+                    entries = buildAddMenu(),
+                    click = function()
+                        --any entry click closes the menu.
+                        element.popup = nil
+                    end,
+                }
+            end,
+
+            gui.Label{
+                width = "auto",
+                height = "auto",
+                fontSize = 12,
+                color = "#aaa",
+                text = "+ Add",
+            },
+        }
     end
 
     return gui.Panel{
@@ -985,107 +1456,42 @@ local function CrowdexConditionsRow(token)
             flow = "horizontal",
             wrap = true,
 
+            -- chips: live chip panels keyed by "<kind>:<id>", kept across
+            -- refreshes so an unchanged condition costs nothing to redraw.
+            -- order: the key list last applied to `children`.
+            data = { chips = {}, order = nil },
+
             refreshCharacter = function(element, tok)
                 if tok == nil or tok.properties == nil then return end
                 currentToken = tok
+                local chips = element.data.chips
+                local newChips = {}
                 local children = {}
-                for _, cond in ipairs(GetActiveCrowsConditions(tok.properties)) do
-                    local displayLabel = cond.name
-                    if cond.kind == "effect" and (cond.stacks or 1) > 1 then
-                        displayLabel = string.format("%s x%d", cond.name, cond.stacks)
+                local keys = {}
+                for _, c in ipairs(GetActiveCrowsConditions(tok.properties)) do
+                    local key = c.kind .. ":" .. tostring(c.id)
+                    local chip = chips[key]
+                    if chip == nil or not chip.valid then
+                        chip = CreateConditionChip()
                     end
-                    local condid = cond.id
-                    local kind = cond.kind
-                    local rulesText = cond.info:try_get("description", "")
-                    children[#children + 1] = gui.Panel{
-                        width = "auto",
-                        height = "auto",
-                        flow = "horizontal",
-                        valign = "center",
-                        pad = 4,
-                        hpad = 8,
-                        borderBox = true,
-                        cornerRadius = 10,
-                        borderWidth = 1,
-                        borderColor = "#caa45c",
-                        bgcolor = "#33271a",
-                        bgimage = "panels/square.png",
-                        rmargin = 4,
-                        bmargin = 4,
-                        hoverCursor = "hand",
-
-                        press = function(element)
-                            currentToken:ModifyProperties{
-                                description = "Remove condition " .. displayLabel,
-                                execute = function()
-                                    if kind == "condition" then
-                                        currentToken.properties:InflictCondition(condid, {purge = true})
-                                    else
-                                        --remove one stack (level) at a time
-                                        currentToken.properties:RemoveOngoingEffect(condid, 1)
-                                    end
-                                end,
-                            }
-                        end,
-
-                        linger = function(element)
-                            local removeText
-                            if kind == "effect" then
-                                removeText = "Click to remove one level of " .. cond.name .. "."
-                            else
-                                removeText = "Click to remove " .. cond.name .. "."
-                            end
-                            gui.Tooltip(string.format("<b>%s</b>: %s\n\n%s", displayLabel, rulesText, removeText))(element)
-                        end,
-
-                        gui.Label{
-                            width = "auto",
-                            height = "auto",
-                            fontSize = 12,
-                            color = "#ffe6b8",
-                            text = displayLabel,
-                        },
-                    }
+                    chip:FireEventTree("refreshCondition", c)
+                    newChips[key] = chip
+                    children[#children + 1] = chip
+                    keys[#keys + 1] = key
                 end
 
                 -- Add button always present at end.
-                children[#children + 1] = gui.Panel{
-                    width = "auto",
-                    height = "auto",
-                    flow = "horizontal",
-                    valign = "center",
-                    pad = 4,
-                    hpad = 8,
-                    borderBox = true,
-                    cornerRadius = 10,
-                    borderWidth = 1,
-                    borderColor = "#666",
-                    bgcolor = "#222",
-                    bgimage = "panels/square.png",
-                    rmargin = 4,
-                    bmargin = 4,
-                    hoverCursor = "hand",
+                if addButton == nil or not addButton.valid then
+                    addButton = CreateAddButton()
+                end
+                children[#children + 1] = addButton
+                keys[#keys + 1] = "+add"
 
-                    press = function(element)
-                        element.popup = gui.ContextMenu{
-                            entries = buildAddMenu(),
-                            click = function()
-                                --any entry click closes the menu.
-                                element.popup = nil
-                            end,
-                        }
-                    end,
-
-                    gui.Label{
-                        width = "auto",
-                        height = "auto",
-                        fontSize = 12,
-                        color = "#aaa",
-                        text = "+ Add",
-                    },
-                }
-
-                element.children = children
+                element.data.chips = newChips
+                if not SameKeyOrder(element.data.order, keys) then
+                    element.data.order = keys
+                    element.children = children
+                end
             end,
         },
     }
@@ -1161,42 +1567,109 @@ local function CrowdexWornRow(token)
     -- The two display modes live as siblings; we toggle `collapsed` rather
     -- than swapping children (see UI_BEST_PRACTICES "Orphaned Panels").
 
+    -- One label per slot, built once; refreshes only recolor and retext them.
+    local collapsedLabels = {}
+    for _, def in ipairs(WORN_SLOT_ORDER) do
+        collapsedLabels[#collapsedLabels + 1] = gui.Label{
+            width = "auto",
+            height = "auto",
+            fontSize = 11,
+            color = "#666",
+            rmargin = 4,
+            text = def.short .. "( )",
+            data = { key = def.key, short = def.short },
+        }
+    end
+
     local collapsedBar
     collapsedBar = gui.Panel{
         width = "auto",
         height = "auto",
         flow = "horizontal",
         valign = "center",
+        children = collapsedLabels,
 
         refreshCharacter = function(element, tok)
             if tok == nil or tok.properties == nil then return end
             local worn = GetWornSlots(tok.properties)
-            local children = {}
-            for _, def in ipairs(WORN_SLOT_ORDER) do
-                local v = worn[def.key]
-                local filled = false
-                if v ~= nil then
-                    if type(v) == "table" and #v == 0 then
-                        -- Single card stored as a table.
-                        filled = v.name ~= nil
-                    elseif type(v) == "table" and #v > 0 then
-                        filled = true
-                    elseif type(v) ~= "table" then
-                        filled = true
-                    end
+            for _, label in ipairs(collapsedLabels) do
+                local _, _, filled = WornSlotCard(worn[label.data.key])
+                local text = string.format("%s%s", label.data.short, filled and "(*)" or "( )")
+                if label.text ~= text then
+                    label.text = text
                 end
-                children[#children + 1] = gui.Label{
-                    width = "auto",
-                    height = "auto",
-                    fontSize = 11,
-                    color = filled and "#ffd700" or "#666",
-                    rmargin = 4,
-                    text = string.format("%s%s", def.short, filled and "(*)" or "( )"),
-                }
+                label.color = filled and "#ffd700" or "#666"
             end
-            element.children = children
         end,
     }
+
+    -- One cell per slot, built once. A refresh sends each cell its card via
+    -- refreshWornSlot; the overstuffed badge is always present and toggled.
+    local wornCells = {}
+    for _, def in ipairs(WORN_SLOT_ORDER) do
+        local slotLabel = def.label
+        local nameLabel = gui.Label{
+            width = "100%",
+            height = "auto",
+            halign = "center",
+            textAlignment = "center",
+            fontSize = 10,
+            color = "#666",
+            text = slotLabel,
+            textWrap = true,
+        }
+        local badge = gui.Label{
+            floating = true,
+            x = -3,
+            y = 3,
+            width = "auto",
+            height = "auto",
+            halign = "right",
+            valign = "top",
+            fontSize = 12,
+            bold = true,
+            color = "#ff4040",
+            text = "!",
+            classes = {"collapsed"},
+        }
+        wornCells[#wornCells + 1] = gui.Panel{
+            width = CELL_W,
+            height = CELL_H,
+            flow = "none",
+            bgimage = "panels/square.png",
+            bgcolor = "#181818",
+            borderWidth = 1,
+            borderColor = "#444",
+            cornerRadius = 3,
+            hmargin = 2,
+            vmargin = 2,
+            data = { key = def.key },
+
+            refreshWornSlot = function(element, card, overstuffed)
+                element.selfStyle.borderColor = card and "#caa45c" or "#444"
+                nameLabel.color = card and "white" or "#666"
+                local text = card and (card.name or slotLabel) or slotLabel
+                if nameLabel.text ~= text then
+                    nameLabel.text = text
+                end
+                badge:SetClass("collapsed", not overstuffed)
+            end,
+
+            gui.Panel{
+                width = "100%",
+                height = "auto",
+                flow = "vertical",
+                halign = "center",
+                valign = "top",
+                pad = 4,
+                borderBox = true,
+
+                nameLabel,
+            },
+
+            badge,
+        }
+    end
 
     local expandedCells
     expandedCells = gui.Panel{
@@ -1206,80 +1679,21 @@ local function CrowdexWornRow(token)
         classes = {"collapsed"},
         tmargin = 4,
 
+        gui.Panel{
+            width = "auto",
+            height = "auto",
+            flow = "horizontal",
+            halign = "left",
+            children = wornCells,
+        },
+
         refreshCharacter = function(element, tok)
             if tok == nil or tok.properties == nil then return end
             local worn = GetWornSlots(tok.properties)
-            local cells = {}
-            for _, def in ipairs(WORN_SLOT_ORDER) do
-                local v = worn[def.key]
-                local card = nil
-                local overstuffed = false
-                if type(v) == "table" and #v > 1 then
-                    card = v[1]
-                    overstuffed = true
-                elseif type(v) == "table" and #v == 1 then
-                    card = v[1]
-                elseif type(v) == "table" and v.name ~= nil then
-                    card = v
-                end
-
-                cells[#cells + 1] = gui.Panel{
-                    width = CELL_W,
-                    height = CELL_H,
-                    flow = "none",
-                    bgimage = "panels/square.png",
-                    bgcolor = "#181818",
-                    borderWidth = 1,
-                    borderColor = card and "#caa45c" or "#444",
-                    cornerRadius = 3,
-                    hmargin = 2,
-                    vmargin = 2,
-
-                    gui.Panel{
-                        width = "100%",
-                        height = "auto",
-                        flow = "vertical",
-                        halign = "center",
-                        valign = "top",
-                        pad = 4,
-                        borderBox = true,
-
-                        gui.Label{
-                            width = "100%",
-                            height = "auto",
-                            halign = "center",
-                            textAlignment = "center",
-                            fontSize = 10,
-                            color = card and "white" or "#666",
-                            text = card and (card.name or def.label) or def.label,
-                            textWrap = true,
-                        },
-                    },
-
-                    overstuffed and gui.Label{
-                        floating = true,
-                        x = -3,
-                        y = 3,
-                        width = "auto",
-                        height = "auto",
-                        halign = "right",
-                        valign = "top",
-                        fontSize = 12,
-                        bold = true,
-                        color = "#ff4040",
-                        text = "!",
-                    } or nil,
-                }
+            for _, cell in ipairs(wornCells) do
+                local card, overstuffed = WornSlotCard(worn[cell.data.key])
+                cell:FireEvent("refreshWornSlot", card, overstuffed)
             end
-            element.children = {
-                gui.Panel{
-                    width = "auto",
-                    height = "auto",
-                    flow = "horizontal",
-                    halign = "left",
-                    children = cells,
-                },
-            }
         end,
     }
 
@@ -1484,6 +1898,182 @@ local function CrowdexExpertisesSection(token)
         return (exp.category or ""):lower() == filt
     end
 
+    -- One expertise row. Its controls read the live record from row.data.exp
+    -- (set by refreshExpertise) instead of closing over one refresh's values,
+    -- so the row can be kept and updated in place across refreshes.
+    local function CreateExpertiseRow()
+        local row
+
+        local function Limit(info)
+            return info.resource:try_get("usageLimit", "long")
+        end
+
+        local nameLabel = gui.Label{
+            width = "auto-grow",
+            height = "auto",
+            halign = "left",
+            fontSize = 12,
+            color = "white",
+            text = "",
+            refreshExpertise = function(element, exp)
+                local text = exp.name or "(unnamed)"
+                if element.text ~= text then
+                    element.text = text
+                end
+                element.color = cond((exp.remaining or 0) <= 0, "#777", "white")
+            end,
+        }
+
+        -- Fixed-width controls keep every expertise aligned.
+        -- The input edits uses remaining; - spends one and +
+        -- restores one without changing the expertise maximum.
+        local minusButton = gui.Button{
+            width = 22,
+            height = 20,
+            fontSize = 12,
+            text = "-",
+            refreshExpertise = function(element, exp)
+                element:SetClass("disabled", not ((exp.remaining or 0) > 0 and not exp.suppressed))
+            end,
+            click = function()
+                local expertise = row.data.exp
+                if expertise == nil or currentToken == nil or not currentToken.valid or expertise.suppressed then return end
+                currentToken:ModifyProperties{
+                    description = "Spend " .. (expertise.name or "expertise") .. " use",
+                    execute = function()
+                        local info = CrowdexExpertise.FindById(expertise.id)
+                        if info ~= nil and CrowdexExpertise.Available(currentToken.properties, expertise.id) > 0 then
+                            currentToken.properties:ConsumeResource(expertise.id, Limit(info), 1,
+                                "Manual expertise use")
+                        end
+                    end,
+                }
+            end,
+            linger = gui.Tooltip("Spend one use"),
+        }
+
+        local input = gui.Input{
+            width = 30,
+            height = 20,
+            fontSize = 11,
+            textAlignment = "right",
+            characterLimit = 2,
+            text = "",
+            refreshExpertise = function(element, exp)
+                local text = tostring(exp.remaining or 0)
+                if element.text ~= text then
+                    element.text = text
+                end
+            end,
+            change = function(element)
+                local expertise = row.data.exp
+                if expertise == nil then return end
+                local remaining = expertise.remaining or 0
+                local maximum = expertise.max or 0
+                if currentToken == nil or not currentToken.valid or expertise.suppressed then
+                    element.text = tostring(remaining)
+                    return
+                end
+                local target = tonumber(element.text)
+                if target == nil then
+                    element.text = tostring(remaining)
+                    return
+                end
+                target = math.max(0, math.min(math.floor(target), maximum))
+                element.text = tostring(target)
+                currentToken:ModifyProperties{
+                    description = "Set " .. (expertise.name or "expertise") .. " uses",
+                    execute = function()
+                        local info = CrowdexExpertise.FindById(expertise.id)
+                        if info == nil then return end
+                        local props = currentToken.properties
+                        local liveMaximum = tonumber((props:GetResources() or {})[expertise.id]) or maximum
+                        local used = props:GetResourceUsage(expertise.id, Limit(info)) or 0
+                        local current = math.max(0, liveMaximum - used)
+                        local desired = math.max(0, math.min(target, liveMaximum))
+                        local difference = desired - current
+                        if difference > 0 then
+                            props:RefreshResource(expertise.id, Limit(info), difference,
+                                "Edit expertise uses")
+                        elseif difference < 0 then
+                            props:ConsumeResource(expertise.id, Limit(info), -difference,
+                                "Edit expertise uses")
+                        end
+                    end,
+                }
+            end,
+            linger = gui.Tooltip("Set uses remaining"),
+        }
+
+        local maxLabel = gui.Label{
+            width = 24,
+            height = "auto",
+            fontSize = 11,
+            color = "#9bd97a",
+            text = "",
+            refreshExpertise = function(element, exp)
+                local text = "/" .. tostring(exp.max or 0)
+                if element.text ~= text then
+                    element.text = text
+                end
+                element.color = cond((exp.remaining or 0) <= 0, "#777", "#9bd97a")
+            end,
+        }
+
+        local plusButton = gui.Button{
+            width = 22,
+            height = 20,
+            fontSize = 12,
+            text = "+",
+            refreshExpertise = function(element, exp)
+                element:SetClass("disabled", not ((exp.remaining or 0) < (exp.max or 0) and not exp.suppressed))
+            end,
+            click = function()
+                local expertise = row.data.exp
+                if expertise == nil or currentToken == nil or not currentToken.valid or expertise.suppressed then return end
+                currentToken:ModifyProperties{
+                    description = "Restore " .. (expertise.name or "expertise") .. " use",
+                    execute = function()
+                        local info = CrowdexExpertise.FindById(expertise.id)
+                        if info ~= nil then
+                            currentToken.properties:RefreshResource(expertise.id, Limit(info), 1,
+                                "Refund expertise use")
+                        end
+                    end,
+                }
+            end,
+            linger = gui.Tooltip("Restore one spent use"),
+        }
+
+        row = gui.Panel{
+            width = "100%",
+            height = 22,
+            flow = "horizontal",
+            valign = "center",
+            vmargin = 1,
+            data = { exp = nil },
+
+            refreshExpertise = function(element, exp)
+                element.data.exp = exp
+            end,
+
+            nameLabel,
+            gui.Panel{
+                width = 104,
+                height = 22,
+                flow = "horizontal",
+                halign = "right",
+                valign = "center",
+
+                minusButton,
+                input,
+                maxLabel,
+                plusButton,
+            },
+        }
+        return row
+    end
+
     local expertiseListPanel
     expertiseListPanel = gui.Panel{
         width = "100%",
@@ -1492,155 +2082,60 @@ local function CrowdexExpertisesSection(token)
         flow = "vertical",
         vscroll = true,
 
+        -- rows: live row panels keyed by expertise id, kept across refreshes.
+        -- order: the key list last applied to `children`.
+        -- dirty: a refresh arrived while collapsed; catch up on expand.
+        data = { rows = {}, order = nil, dirty = false, emptyLabel = nil },
+
         refreshCharacter = function(element, tok)
             if tok == nil or tok.properties == nil then return end
             currentToken = tok
-            local expertises = GetExpertises(tok.properties)
+            -- Nothing here is visible while the section is collapsed, and
+            -- this list is the most expensive part of the sidebar to fill.
+            if not expanded then
+                element.data.dirty = true
+                return
+            end
+            element.data.dirty = false
+
+            local rows = element.data.rows
+            local newRows = {}
             local children = {}
-            for _, exp in ipairs(expertises) do
+            local keys = {}
+            for _, exp in ipairs(GetExpertises(tok.properties)) do
                 if expertiseMatchesFilter(exp, currentFilter) then
-                    -- Capture a per-row value for the callbacks. In Lua 5.1 a
-                    -- generic-for variable is otherwise shared by closures.
-                    local expertise = exp
-                    local remaining = expertise.remaining or 0
-                    local maximum = expertise.max or 0
-                    local spent = remaining <= 0
-                    children[#children + 1] = gui.Panel{
-                        width = "100%",
-                        height = 22,
-                        flow = "horizontal",
-                        valign = "center",
-                        vmargin = 1,
-
-                        gui.Label{
-                            width = "auto-grow",
-                            height = "auto",
-                            halign = "left",
-                            fontSize = 12,
-                            color = cond(spent, "#777", "white"),
-                            text = expertise.name or "(unnamed)",
-                        },
-                        -- Fixed-width controls keep every expertise aligned.
-                        -- The input edits uses remaining; - spends one and +
-                        -- restores one without changing the expertise maximum.
-                        gui.Panel{
-                            width = 104,
-                            height = 22,
-                            flow = "horizontal",
-                            halign = "right",
-                            valign = "center",
-
-                            gui.Button{
-                                width = 22,
-                                height = 20,
-                                fontSize = 12,
-                                text = "-",
-                                classes = {cond(remaining > 0 and not expertise.suppressed, nil, "disabled")},
-                                click = function()
-                                    if currentToken == nil or not currentToken.valid or expertise.suppressed then return end
-                                    currentToken:ModifyProperties{
-                                        description = "Spend " .. (expertise.name or "expertise") .. " use",
-                                        execute = function()
-                                            local info = CrowdexExpertise.FindById(expertise.id)
-                                            if info ~= nil and CrowdexExpertise.Available(currentToken.properties, expertise.id) > 0 then
-                                                currentToken.properties:ConsumeResource(expertise.id,
-                                                    info.resource:try_get("usageLimit", "long"), 1,
-                                                    "Manual expertise use")
-                                            end
-                                        end,
-                                    }
-                                end,
-                                linger = gui.Tooltip("Spend one use"),
-                            },
-                            gui.Input{
-                                width = 30,
-                                height = 20,
-                                fontSize = 11,
-                                textAlignment = "right",
-                                characterLimit = 2,
-                                text = tostring(remaining),
-                                change = function(input)
-                                    if currentToken == nil or not currentToken.valid or expertise.suppressed then
-                                        input.text = tostring(remaining)
-                                        return
-                                    end
-                                    local target = tonumber(input.text)
-                                    if target == nil then
-                                        input.text = tostring(remaining)
-                                        return
-                                    end
-                                    target = math.max(0, math.min(math.floor(target), maximum))
-                                    input.text = tostring(target)
-                                    currentToken:ModifyProperties{
-                                        description = "Set " .. (expertise.name or "expertise") .. " uses",
-                                        execute = function()
-                                            local info = CrowdexExpertise.FindById(expertise.id)
-                                            if info == nil then return end
-                                            local props = currentToken.properties
-                                            local liveMaximum = tonumber((props:GetResources() or {})[expertise.id]) or maximum
-                                            local used = props:GetResourceUsage(expertise.id,
-                                                info.resource:try_get("usageLimit", "long")) or 0
-                                            local current = math.max(0, liveMaximum - used)
-                                            local desired = math.max(0, math.min(target, liveMaximum))
-                                            local difference = desired - current
-                                            if difference > 0 then
-                                                props:RefreshResource(expertise.id,
-                                                    info.resource:try_get("usageLimit", "long"), difference,
-                                                    "Edit expertise uses")
-                                            elseif difference < 0 then
-                                                props:ConsumeResource(expertise.id,
-                                                    info.resource:try_get("usageLimit", "long"), -difference,
-                                                    "Edit expertise uses")
-                                            end
-                                        end,
-                                    }
-                                end,
-                                linger = gui.Tooltip("Set uses remaining"),
-                            },
-                            gui.Label{
-                                width = 24,
-                                height = "auto",
-                                fontSize = 11,
-                                color = cond(spent, "#777", "#9bd97a"),
-                                text = "/" .. tostring(maximum),
-                            },
-                            gui.Button{
-                                width = 22,
-                                height = 20,
-                                fontSize = 12,
-                                text = "+",
-                                classes = {cond(remaining < maximum and not expertise.suppressed, nil, "disabled")},
-                                click = function()
-                                    if currentToken == nil or not currentToken.valid or expertise.suppressed then return end
-                                    currentToken:ModifyProperties{
-                                        description = "Restore " .. (expertise.name or "expertise") .. " use",
-                                        execute = function()
-                                            local info = CrowdexExpertise.FindById(expertise.id)
-                                            if info ~= nil then
-                                                currentToken.properties:RefreshResource(expertise.id,
-                                                    info.resource:try_get("usageLimit", "long"), 1,
-                                                    "Refund expertise use")
-                                            end
-                                        end,
-                                    }
-                                end,
-                                linger = gui.Tooltip("Restore one spent use"),
-                            },
-                        },
-                    }
+                    local key = tostring(exp.id or exp.name)
+                    local row = rows[key]
+                    if row == nil or not row.valid then
+                        row = CreateExpertiseRow()
+                    end
+                    row:FireEventTree("refreshExpertise", exp)
+                    newRows[key] = row
+                    children[#children + 1] = row
+                    keys[#keys + 1] = key
                 end
             end
             if #children == 0 then
-                children[#children + 1] = gui.Label{
-                    width = "100%",
-                    height = "auto",
-                    fontSize = 11,
-                    italics = true,
-                    color = "#666",
-                    text = "(no expertises match filter)",
-                }
+                local empty = element.data.emptyLabel
+                if empty == nil or not empty.valid then
+                    empty = gui.Label{
+                        width = "100%",
+                        height = "auto",
+                        fontSize = 11,
+                        italics = true,
+                        color = "#666",
+                        text = "(no expertises match filter)",
+                    }
+                    element.data.emptyLabel = empty
+                end
+                children[1] = empty
+                keys[1] = "(empty)"
             end
-            element.children = children
+            element.data.rows = newRows
+            if not SameKeyOrder(element.data.order, keys) then
+                element.data.order = keys
+                element.children = children
+            end
         end,
     }
 
@@ -1724,6 +2219,11 @@ local function CrowdexExpertisesSection(token)
         press = function(element)
             expanded = not expanded
             contentPanel:SetClass("collapsed", not expanded)
+            -- Refreshes are skipped while collapsed; fill the list now if
+            -- one arrived in the meantime.
+            if expanded and expertiseListPanel.data.dirty and currentToken ~= nil and currentToken.valid then
+                expertiseListPanel:FireEvent("refreshCharacter", currentToken)
+            end
         end,
 
         headerCount,
@@ -1834,6 +2334,12 @@ function CharacterPanel.SingleCharacterDisplaySidePanel(token)
 
         data = { token = token },
 
+        -- The hud broadcasts 'refresh' tree-wide after ANY game change --
+        -- every step of every token's move, on every client -- so the
+        -- sections below must update their existing panels in place and
+        -- only create or destroy panels when the crow's structure changes
+        -- (a new item, a new condition). Rebuilding them on each refresh
+        -- froze slower machines for up to a second per step (bug 67X6T34H).
         events = {
             setToken = function(element, tok)
                 token = tok

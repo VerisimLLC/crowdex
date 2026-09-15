@@ -109,7 +109,7 @@ end
 -- test made to cast the spell" -- and an expertise is spent after the roll to
 -- improve the result, never added to it. Same correction as the weapon skill
 -- coming off attack rolls in stage 4, and Endurance coming off the Miasma test.
-local function BuildCrowsSpellbookAbility(c, item)
+local function BuildCrowsSpellbookAbility(c, item, itemid)
     local discipline = item:try_get("crowsSpellDiscipline", "")
     local roll = "2d10 + Mind"
     local mind = c:AttributeMod("mind")
@@ -202,6 +202,11 @@ local function BuildCrowsSpellbookAbility(c, item)
     end
 
     local ability = ActivatedAbility.Create{
+        --Rebuilt on every GetActivatedAbilities call, so override Create's
+        --random guid with a stable one: the action bar's novel-ability
+        --tracker keys on guid, and a fresh guid each rebuild would re-flag
+        --the casting as newly gained on every bar refresh.
+        guid = "crows-spell:" .. itemid,
         name = item.name,
         description = table.concat(descLines, "\n"),
         iconid = item:try_get("iconid"),
@@ -237,7 +242,7 @@ function character:GetCrowsSpellbookAbilities()
             local item = gearTable[itemid]
             if IsSpellbookItem(item) then
                 seen[itemid] = true
-                result[#result + 1] = BuildCrowsSpellbookAbility(self, item)
+                result[#result + 1] = BuildCrowsSpellbookAbility(self, item, itemid)
             end
         end
     end

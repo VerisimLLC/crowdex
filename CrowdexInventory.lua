@@ -1354,6 +1354,12 @@ local function UsageDicePip(available)
         hmargin = 1,
         valign = "center",
         interactable = false,
+
+        -- Pips are kept across refreshes and only recolored.
+        setAvailable = function(element, isAvailable)
+            element.selfStyle.bgcolor = isAvailable and "#f3ead0" or "#3a3a3a"
+            element.selfStyle.borderColor = isAvailable and "#caa45c" or "#555555"
+        end,
     }
 end
 
@@ -1593,6 +1599,8 @@ local function SlotRow(kind, index, label, env)
         bgimage = "panels/square.png",
         bgcolor = "clear",
         hoverCursor = "hand",
+        -- pips / countLabel: the live children, reused across refreshes.
+        data = { pips = nil, countLabel = nil },
 
         press = function(element)
             local entries = buildUsageDiceMenu()
@@ -1700,26 +1708,45 @@ local function SlotRow(kind, index, label, env)
             if maxUD > 0 then
                 local cur = CurrentUsageDice(slot, props)
                 usageDicePanel:SetClass("hidden", false)
+                -- The pips (or the count label) are kept between refreshes
+                -- and updated in place; they are only rebuilt when the pool
+                -- size changes or the previous ones were destroyed.
+                local ud = usageDicePanel.data
                 if maxUD <= 6 then
-                    local pips = {}
-                    for i = 1, maxUD do
-                        pips[#pips + 1] = UsageDicePip(i <= cur)
+                    local pips = ud.pips
+                    if pips == nil or #pips ~= maxUD or not pips[1].valid then
+                        pips = {}
+                        for i = 1, maxUD do
+                            pips[#pips + 1] = UsageDicePip(i <= cur)
+                        end
+                        ud.pips = pips
+                        ud.countLabel = nil
+                        usageDicePanel.children = pips
+                    else
+                        for i = 1, maxUD do
+                            pips[i]:FireEvent("setAvailable", i <= cur)
+                        end
                     end
-                    usageDicePanel.children = pips
                 else
                     -- Too many to show as pips; render a compact count.
-                    usageDicePanel.children = {
-                        gui.Label{
+                    local countLabel = ud.countLabel
+                    if countLabel == nil or not countLabel.valid then
+                        countLabel = gui.Label{
                             width = "auto",
                             height = "auto",
                             fontSize = 11,
                             bold = true,
                             valign = "center",
                             interactable = false,
-                            color = cond(cur <= 0, "#777777", "#f3ead0"),
-                            text = string.format("%d/%d UD", cur, maxUD),
-                        },
-                    }
+                            color = "#f3ead0",
+                            text = "",
+                        }
+                        ud.countLabel = countLabel
+                        ud.pips = nil
+                        usageDicePanel.children = { countLabel }
+                    end
+                    countLabel.color = cond(cur <= 0, "#777777", "#f3ead0")
+                    countLabel.text = string.format("%d/%d UD", cur, maxUD)
                 end
                 quantityLabel.text = ""
                 quantityLabel.editable = false
@@ -3885,7 +3912,8 @@ end
 -- Builds one attack ability. args:
 --   name, iconid, weaponType (skill name), statSpec ("A", "S", "A or S"),
 --   t2base/t3base (numbers), mode ("melee"/"ranged"), range (squares),
---   qualities (display string), parrySpent (true = -1 damage penalty)
+--   qualities (display string), parrySpent (true = -1 damage penalty),
+--   itemid (gear-table id of the wielded weapon; nil for the unarmed strike)
 local function BuildCrowsAttackAbility(c, args)
     local function HasTrait(name)
         return CrowdexTraits ~= nil and CrowdexTraits.Has ~= nil and CrowdexTraits.Has(c, name)
@@ -3944,6 +3972,12 @@ local function BuildCrowsAttackAbility(c, args)
     end
 
     local ability = ActivatedAbility.Create{
+        --ActivatedAbility.Create mints a random guid, but this ability is
+        --rebuilt on every GetActivatedAbilities call. The action bar's
+        --novel-ability tracker keys on guid, so a fresh guid each rebuild
+        --re-flags the attack as newly gained forever. Deterministic identity
+        --keeps rebuilds recognizable as the same ability.
+        guid = string.format("crows-attack:%s:%s", args.itemid or args.name, args.mode),
         name = args.name,
         description = table.concat(descLines, "\n"),
         iconid = args.iconid,
@@ -4026,6 +4060,7 @@ function character:GetCrowsWeaponAttacks()
             local parrySpent = ArmorADForItem(slot.itemid) > 0 and (slot.ad or 0) <= 0
 
             local common = {
+                itemid = slot.itemid,
                 iconid = item:try_get("iconid"),
                 weaponType = weaponType,
                 statSpec = statSpec,
@@ -4081,6 +4116,12 @@ function character:GetCrowsWeaponAttacks()
     return result
 end
 
+-- Earlier character overrides can capture a creature method without Crows
+-- additions. Resolve the current method so all Crowdex wrappers participate.
+function character:GetActivatedAbilities(options)
+    return creature.GetActivatedAbilities(self, options)
+end
+
 local g_baseGetActivatedAbilities = creature.GetActivatedAbilities
 function creature:GetActivatedAbilities(options)
     local result = g_baseGetActivatedAbilities(self, options)
@@ -4125,6 +4166,19 @@ end
 --      get an action but are never decremented.
 -- ---------------------------------------------------------------------------
 
+-- One report per malformed item per session: bad import data can leave a gear
+-- item's `consumable` as a boolean flag instead of an embedded ActivatedAbility,
+-- which must not error out the whole action bar. Log it so the bad data gets
+-- noticed and fixed rather than silently dropped.
+local g_reportedBadConsumables = {}
+local function ReportBadConsumable(itemid, value)
+    if g_reportedBadConsumables[itemid] then return end
+    g_reportedBadConsumables[itemid] = true
+    dmhub.CloudError(string.format(
+        "Gear item %s has a %s in its consumable field instead of an ActivatedAbility; skipping it.",
+        tostring(itemid), type(value)))
+end
+
 -- The consumable abilities this crow can use right now: one per distinct
 -- slotted item that carries a `consumable` and whose Usage Dice (if any) are
 -- not spent. Caller binds the caster and appends to GetActivatedAbilities.
@@ -4138,11 +4192,19 @@ function character:GetCrowsConsumableAbilities()
             local slot = GetSlot(self, kind, i)
             if slot ~= nil and not seen[slot.itemid] then
                 local item = gearTable[slot.itemid]
-                if item ~= nil and item:has_key("consumable") and not IsUsageDiceDepleted(slot, self) then
+                local consumableAbility = nil
+                if item ~= nil then
+                    consumableAbility = item:try_get("consumable")
+                    if consumableAbility ~= nil and type(consumableAbility) ~= "table" then
+                        ReportBadConsumable(slot.itemid, consumableAbility)
+                        consumableAbility = nil
+                    end
+                end
+                if consumableAbility ~= nil and not IsUsageDiceDepleted(slot, self) then
                     seen[slot.itemid] = true
 
                     local itemid = slot.itemid
-                    local ability = item.consumable:MakeTemporaryClone()
+                    local ability = consumableAbility:MakeTemporaryClone()
 
                     -- If the ability declares a `consumables` cost map, this
                     -- item is consumed on use. Strip the (DS-only, ineffective
