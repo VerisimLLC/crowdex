@@ -21,7 +21,7 @@ modifierInfo:
       name: Drop Prone
       description: Drop prone on your turn without using an action.
       behavior: activated
-      filterCondition: not (Conditions has 'Prone')
+      filterCondition: not (Conditions has "Prone")
       activatedAbility:
         __typeName: ActivatedAbility
         name: Drop Prone
@@ -57,7 +57,7 @@ modifierInfo:
       name: Make Loud Noise
       description: Make a loud noise, waking sleeping creatures within 10 squares.
       behavior: activated
-      filterCondition: not (Conditions has 'Unconscious')
+      filterCondition: not (Conditions has "Unconscious")
       activatedAbility:
         __typeName: ActivatedAbility
         name: Make Loud Noise
@@ -68,7 +68,7 @@ modifierInfo:
         categorization: Common Ability
         abilityType: none
         targetType: all
-        targetFilter: Conditions has 'Unconscious'
+        targetFilter: Conditions has "Unconscious"
         numTargets: '99'
         range: '10'
         repeatTargets: false

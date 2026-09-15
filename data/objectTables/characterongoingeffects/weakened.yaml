@@ -69,7 +69,7 @@ modifiers:
     name: Weakened Ends
     persistence: []
     modifiers: []
-    conditionFormula: Trigger Name = 'Dungeon Turn'
+    conditionFormula: Trigger Name = "Dungeon Turn"
     silent: true
   behavior: trigger
   source: Condition

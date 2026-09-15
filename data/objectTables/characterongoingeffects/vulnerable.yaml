@@ -45,7 +45,7 @@ modifiers:
     name: Vulnerable Ends
     persistence: []
     modifiers: []
-    conditionFormula: Trigger Name = 'Dungeon Turn'
+    conditionFormula: Trigger Name = "Dungeon Turn"
     silent: true
   description: Vulnerable ends at the end of a dungeon turn.
   source: Condition
