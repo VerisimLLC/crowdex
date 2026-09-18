@@ -402,6 +402,10 @@ local function ShowExpertiseAdvancementDialog(props, bonus)
     }
 
     dialogPanel = gui.Panel{
+        -- ShowModal reparents this into the global modal layer, where the sheet's
+        -- style cascade no longer reaches it, so carry the theme styles along or
+        -- the frame and every label fall back to unstyled giant text.
+        styles = ThemeEngine.GetStyles(),
         width = 620,
         height = "auto",
         maxHeight = 780,
@@ -497,6 +501,8 @@ local function ShowCharacteristicAdvancementDialog(props, bonus)
     }
 
     gui.ShowModal(gui.Panel{
+        -- Same as the expertise dialog above: styles must travel with the panel.
+        styles = ThemeEngine.GetStyles(),
         width = 520,
         height = "auto",
         maxHeight = 620,

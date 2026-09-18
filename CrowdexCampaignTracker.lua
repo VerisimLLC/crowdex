@@ -985,6 +985,9 @@ local function ShowMiasmaExpertiseChoice(tok)
         end
     end
     gui.ShowModal(gui.Panel{
+        -- ShowModal reparents this into the global modal layer, so the panel must
+        -- carry the theme styles itself or it renders unstyled (no frame, giant text).
+        styles = ThemeEngine.GetStyles(),
         width = 560,
         height = "auto",
         maxHeight = 700,
@@ -2168,6 +2171,9 @@ local function ShowLoreBookDialog(readerToken)
     local dialogPanel
 
     dialogPanel = gui.Panel{
+        -- ShowModal reparents this into the global modal layer, so the panel must
+        -- carry the theme styles itself or it renders unstyled (no frame, giant text).
+        styles = ThemeEngine.GetStyles(),
         width = 560,
         height = "auto",
         classes = {"framedPanel"},
@@ -2503,9 +2509,15 @@ local function ShowCraftingDialog(crafterToken)
                         resultText = "The selected expertise uses were no longer available. No progress was recorded."
                     else
                         RecordCraftingRoll(crafterToken.id, rollResult.crit)
+                        -- cond() is a function: every argument is evaluated, so the
+                        -- doubled-by text cannot be built inline while expertTrait is nil.
+                        local expertNote = ""
+                        if expertTrait ~= nil then
+                            expertNote = " (doubled by " .. expertTrait .. ")"
+                        end
                         resultText = string.format("Natural %d; %d crafting points%s%s. %d/%d points remain%s%s",
                             rollResult.natural, craftingPoints,
-                            cond(expertTrait ~= nil, " (doubled by " .. expertTrait .. ")", ""),
+                            expertNote,
                             cond(rollResult.doom, " (doom: no progress)", ""),
                             remaining, craftInfo.goal,
                             cond(completed > 0, string.format("; completed %d %s", completed, craftInfo.item.name), ""),
@@ -2528,6 +2540,9 @@ local function ShowCraftingDialog(crafterToken)
         borderBox = true,
     }
     gui.ShowModal(gui.Panel{
+        -- ShowModal reparents this into the global modal layer, so the panel must
+        -- carry the theme styles itself or it renders unstyled (no frame, giant text).
+        styles = ThemeEngine.GetStyles(),
         width = 620,
         height = "auto",
         maxHeight = 780,
