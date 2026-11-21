@@ -3,6 +3,12 @@ local mod = dmhub.GetModLoading()
 -- Crows ruleset definitions. This file loads after the Draw Steel rules, so
 -- registrations here replace the Draw Steel equivalents.
 
+-- The Codex's History panel describes Draw Steel play (winded, power-roll tiers) and has
+-- no idea of Armor Defense or Wounds, so its lines would mislead in a Crows game. This
+-- keeps Crows games on the old Action Log: History records nothing and every user sees
+-- the Action Log, whatever their own "Use Old Action Log" setting says.
+GameSystem.historyNotSupported = true
+
 -- The three Crows characteristics. Clearing and re-registering means any
 -- interface that iterates creature.attributeIds (character sheet, character
 -- panel, inspector, etc.) shows the Crows characteristics instead of the
